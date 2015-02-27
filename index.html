@@ -68,7 +68,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Holy Wars v0.6.1</a>
+            <a class="navbar-brand" href="#">Holy Wars</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -95,6 +95,7 @@
 				  <li><a id="hardreset" href="javascript:hardReset()">!Hard reset!</a></li>
 				  <li class="divider"></li>
                   <li class="dropdown-header"></li>
+				  <li><a href="#" data-toggle="modal" data-target="#versionmodal">Version</a></li>
                   <li><a href="#" data-toggle="modal" data-target="#aboutmodal">About</a></li>
                 </ul>
               </li>
@@ -734,6 +735,26 @@
 		</div>
 	  </div>
 	</div>	
+	
+	<!-- Version Modal -->
+	<div class="modal fade" id="versionmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Holy Wars v. 0.6.1</h4>
+		  </div>
+		  <div class="modal-body">
+				
+				<iframe src="changelog.html"></iframe>
+				
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>		
 
 	<script type="text/javascript" src="scripts/main.js"></script>         <!--Load main script --> 
 	<script type="text/javascript" src="scripts/units.js"></script>
