@@ -700,9 +700,11 @@
 		};
 		function setLastPage(name){
 			lastPage = name;
-		}	
-				
-	</script>
+		}
+   document.getElementById('changelogiframe').contentDocument.location.reload(true);
+   
+</script>			
+
 	
 	
 	<!-- About Modal -->
@@ -746,7 +748,7 @@
 		  </div>
 		  <div class="modal-body">
 				
-				<iframe src="changelog.html"></iframe>
+				<iframe id=changelogiframe src="changelog.html"></iframe>
 				
 		  </div>
 		  <div class="modal-footer">
