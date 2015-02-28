@@ -113,6 +113,7 @@ function clickThing(number, type)
 
 function debugCurrency(){
 	gold = gold + 1000000;
+	wood = wood + 10000;
 	iron = iron + 10000;	
 	silver = silver + 10000;
 	faith = faith + 10000;

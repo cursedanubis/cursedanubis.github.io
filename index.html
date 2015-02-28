@@ -40,6 +40,7 @@
 		$("[data-toggle='popover']").popover(); 
 	});
 	
+	
 	</script>
 
   </head>
@@ -179,7 +180,7 @@
 					<img src = "images/money_goldsmall.png" title ="Gold" > 2,000
 					<br /><br />				
 				
-					<button id=clickGoldUpgrade onclick="upgradeClickGoldMultiplier()"	type="button" class="btn btn-default" title = "Your peasants learn to assist your gold collection. Doubles gold collected when clicking.">Click Upgrade</button>
+					<button id=clickGoldUpgrade onclick="upgradeClickGoldMultiplier()" 	type="button" class="btn btn-default" title = "Your peasants learn to assist your gold collection. Doubles gold collected when clicking.">Click Upgrade</button>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 1,500
 					<br />
@@ -201,7 +202,7 @@
 				<div class = "well">
 					<button id=btnljackUpgrade1 onclick="lumberjackUpgradeCollection()"	type="button" class="btn btn-default" title = "Your lumberjacks are now equipped with reinforced axes that allow them to chop longer before the axes get dull.">Reinforce Axes</button>
 					<br />
-					<img src = "images/money_goldsmall.png" title ="Gold" > 2500 | <img src = "images/ironsmall.png" title="Iron"> 1500
+					<img src = "images/money_goldsmall.png" title ="Gold" > 2,500 | <img src = "images/ironsmall.png" title="Iron"> 1,500
 					<br /> <br />
 				</div>
 			</div>
@@ -226,7 +227,7 @@
 					
 					<button id=btnminerUpgrade2 onclick="minerUpgradeSilver()"	type="button" class="btn btn-default" title = "Better mining techniques and tools allow your miner to find silver veins. Miners now find 0.5 silver per second.">Silver Studies</button>
 					<br />
-					<img src = "images/money_goldsmall.png" title ="Gold" > 7500 | <img src = "images/ironsmall.png" title="Iron"> 2500
+					<img src = "images/money_goldsmall.png" title ="Gold" > 7,500 | <img src = "images/ironsmall.png" title="Iron"> 2,500
 					<br />					
 				</div>
 			</div>			
@@ -622,7 +623,8 @@
 			<button id=btnBatMage onclick="Archmage.fight()"	type="button" class="btn btn-danger">Battle!</button>
 			<br />
 			Requires <img src = "images/armsmall.png" title="Army Power"> 20,000 <br />
-
+			Requires spirit power: 750 <br />
+			
 				<div id="BatMageProgBarBox" class="progress" style="display: none;">
 				  <div id="BatMageProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
 					0%
@@ -721,7 +723,14 @@
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>New!</strong>Using massive amounts of resources, you build the Archmage the <a href="javascript: toggle('builtTowerAlert');CollapseAll();toggle('Magic')" class="alert-link">tower</a>
 					where he can cast magic to help your forces.
-		</div>		
+		</div>
+
+		<div id = EvilOneIreAlert class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Oh No!</strong>Having defeated one of The Evil One's valued lieutenants, you realize that things are going to heat up from here. 
+					Your intuition is confirmed when a winged demon flies into your kingdom and issues a dire warning letting you know that The Evil
+					One going to destroy you and is sending more of his lieutenants your way.
+		</div>
 		
 		<div id = saveAlert class="alert alert-success fade in" role="alert" style="display: none;">
 		<!--	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
@@ -769,7 +778,7 @@
 	</div>	
 	
 	<!-- Version Modal -->
-	<div class="modal fade" id="versionmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!--	<div class="modal fade" id="versionmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 		<div class="modal-content">
 		  <div class="modal-header">
@@ -786,7 +795,7 @@
 		  </div>
 		</div>
 	  </div>
-	</div>		
+	</div>		-->
 	
 
 	<script type ="text/javascript">
@@ -804,7 +813,6 @@
 		function setLastPage(name){
 			lastPage = name;
 		}
-   document.getElementById('changelogiframe').contentDocument.location.reload(true);
    
 	</script>		
 

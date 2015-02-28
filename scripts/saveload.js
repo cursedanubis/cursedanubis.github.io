@@ -15,6 +15,7 @@
 		
 		//Unit variables
  		localStorage.setItem("peasants",Peasant.number - tavernpeasants);
+		localStorage.setItem("lumberjacks", Lumberjack.number);
 		localStorage.setItem("miners",Miner.number);
 		localStorage.setItem("personPage",Page.number);
 		localStorage.setItem("squires",Squire.number);
@@ -133,7 +134,11 @@
 		if(localStorage.peasants != null){
 			Peasant.number = parseInt(localStorage.peasants);
 			document.getElementById("peasants").innerHTML = Peasant.number;
-		}	
+		}
+		if(localStorage.lumberjacks != null){
+			Lumberjack.number = parseInt(localStorage.lumberjacks);
+			document.getElementById("lumberjacks").innerHTML = Lumberjack.number;
+		}			
 		if(localStorage.miners != null){
 			Miner.number = parseInt(localStorage.miners);
 			document.getElementById("miners").innerHTML = Miner.number;

@@ -367,7 +367,7 @@ var Armor = new Enemy("Armor", armorDesc, 'BatArmorProgBarBox','BatArmorProgBar'
 setEnemyDescription(Armor, 'btnDescArmor');
 
 var archmageDesc = "One of The Evil One's lieutenants, capable of casting nasty and powerful spells.";
-var Archmage = new Enemy("Archmage", archmageDesc, 'BatMageProgBarBox','BatMageProgBar','btnBatMage','unlockWizardTowerAlert',20000,0,0,1,2000);
+var Archmage = new Enemy("Archmage", archmageDesc, 'BatMageProgBarBox','BatMageProgBar','btnBatMage','unlockWizardTowerAlert',20000,750,0,1,2000);
 setEnemyDescription(Archmage, 'btnDescMage');
 
 
