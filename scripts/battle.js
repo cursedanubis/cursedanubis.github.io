@@ -177,6 +177,13 @@ Enemy.prototype.checkFlag = function(){
 			}							
 		break;
 		
+		case 'Succubus':
+			if(defeatedSuccubus == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+			}							
+		break;	
+		
 		default:		
 	}
 };
@@ -434,9 +441,12 @@ function succubusSeduce(){
 		highestTier = Knight
 		previousTier = Squire
 	}
-	else{
+	else if(Squire.number > 0){
 		highestTier = Squire
 		previousTier = Page
+	}
+	else{
+		return;
 	}
 	
 	highestTier.number = highestTier.number - 1;

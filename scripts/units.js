@@ -191,7 +191,7 @@ var Aspect = new Unit("AspectofJustice",'aspects','AspectCost','aspectIronCost',
 setDescription(Aspect, 'BtnAspectDesc');
 
 function checkUnitButtons(){
-		//Unit Buttons //
+	//Unit Buttons //
 	//Enable/disables buy peasant button depending on if there is enough currency	
 	Peasant.canBuy();
 

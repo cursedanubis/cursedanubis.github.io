@@ -328,7 +328,12 @@ window.setInterval(function(){
 	clickThing(number, "gold");
 
 	//Wood Generation via lumberjacks etc every second
-	clickThing(Lumberjack.number, "wood")	
+	var woodnumber = Lumberjack.number;
+	if(lwoodClickUpgrade == true){
+		woodnumber = Lumberjack.number * 2;
+	}
+	
+	clickThing(woodnumber, "wood")	
 	
 	//Iron Generation via miners etc every second
 	clickThing(Miner.number, "iron")
