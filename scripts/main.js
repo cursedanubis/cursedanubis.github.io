@@ -333,6 +333,9 @@ function UpdateButtons() {
 	
 	//Archmage Button
 	Archmage.canFight();
+
+	//Succubus Button
+	Succubus.canFight();
 	//End of Battle Buttons
 	
 	//Changes status of Spell buttons

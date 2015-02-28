@@ -632,7 +632,27 @@
 				</div>
 			<br />
 			<br />
-	   </div>		   
+	   </div>
+
+	   <div id="BatSuccubus" class = "container">
+		<a id = 'btnDescSuccubus' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Seductive Succubus"
+		data-content="">Seductive Succubus</a>
+			<br />
+			<button id=btnBatSuccubus onclick="Succubus.fight()"	type="button" class="btn btn-danger">Battle!</button>
+			<br />
+			Requires <img src = "images/armsmall.png" title="Army Power"> 35,000 <br />
+			Requires spirit power: 2000 <br />
+			Number of Units Seduced: <span id = "unitsSeduced">0</span> <br />
+			
+				<div id="BatSuccubusProgBarBox" class="progress" style="display: none;">
+				  <div id="BatSuccubusProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+					0%
+				  </div>
+				</div>
+			<br />
+			<br />
+	   </div>	
+	   
 	   
 	 </div>	 
 	 
@@ -731,6 +751,17 @@
 					Your intuition is confirmed when a winged demon flies into your kingdom and issues a dire warning letting you know that The Evil
 					One going to destroy you and is sending more of his lieutenants your way.
 		</div>
+		
+		<div id = SuccubusAttackAlert class="alert alert-danger fade in" role="alert" style="display: none;">
+			<strong>Oh No!!</strong>The Evil One's paramour, the Succubus magically appears in the cover of the night... she seduces one of your <span id = "seducedUnitType">x type</span>s! 
+					They are returned the next day but cannot function as their previous role and have to be retrained from a <span id = "previousUnitType"></span>.
+					You better get <a href="javascript: toggle('SuccubusAttackAlert');CollapseAll();toggle('Battle')" class="alert-link">rid </a> of her before she decimates your entire army.  
+		</div>
+
+		<div id = SuccubusDefeatAlert class="alert alert-info fade in" role="alert" style="display: none;">   <!--PLACEHOLDER -->
+			<strong>New!</strong>She dies. 
+		</div>			
+		
 		
 		<div id = saveAlert class="alert alert-success fade in" role="alert" style="display: none;">
 		<!--	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->

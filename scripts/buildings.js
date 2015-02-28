@@ -129,7 +129,6 @@ Building.prototype.buy = function(){
 					document.getElementById('manadiv').style.display = "block";
 					document.getElementById('TowerMenu').style.display = "block";
 					document.getElementById('builtTowerAlert').style.display = "block";
-					document.getElementById('EvilOneIreAlert').style.display = "block";	
 				default:
 			}
 		}
