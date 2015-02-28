@@ -17,6 +17,7 @@ var peasantsKilled = 0; //HHound statistic
 var minersKilled = 0;
 var unitsSeduced = 0;   //Succubus statistic
 var inbattle = false;
+var curBattling;
 
 var Raidtime = 0;
 var BattlePower = 0;
@@ -58,6 +59,7 @@ var Enemy = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, html
 	this.percentIncrement = percentIncrement;
 	this.speed = speed;
 	this.fightable = false;
+	//Need to add $bar here to add % fight spell?
 };
 
 //Fighting enemy function prototype
@@ -72,6 +74,7 @@ Enemy.prototype.fight = function(){
 	
 	if(this.fightable == true){
 	inbattle = true;
+	curBattling = this.name
 		document.getElementById(this.htmlBoxRef).style.display = "block";
 		var $bar = $(document.getElementById(this.htmlBarRef));
 		var progress = setInterval(function() {
