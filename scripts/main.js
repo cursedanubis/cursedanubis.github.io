@@ -8,6 +8,7 @@ var silver = 0;
 var faith = 0;
 var souls = 0;
 var mana = 0;
+var paper = 0;
 
 //Statistic Variables//
 var goldpersec = 0;
@@ -71,6 +72,24 @@ function clickThing(number, type)
 		case "woodMouse":
 			wood = wood + number;
 			document.getElementById("wood").innerHTML = wood;
+			break;
+
+		case "paper":
+			if(wood >= 50*number){
+			paper = paper + number;
+			wood = wood - number * 50;
+			document.getElementById("paper").innerHTML = paper;
+			document.getElementById("wood").innerHTML = wood;
+			}
+			break;				
+			
+		case "paperMouse":
+			if(wood >= 50){
+				paper = paper + number;
+				wood = wood - number * 50;
+				document.getElementById("paper").innerHTML = paper;
+				document.getElementById("wood").innerHTML = wood;
+			}
 			break;			
 			
 		case "iron":

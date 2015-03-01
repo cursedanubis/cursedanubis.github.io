@@ -3,6 +3,7 @@
 //Battle variables//
 var defeatedGoblins = false;
 var defeatedBandits = false;
+var defeatedHermit = false;
 var defeatedOgre = false;
 var defeatedHhounds = false;
 var defeatedPixie = false;
@@ -142,6 +143,14 @@ Enemy.prototype.checkFlag = function(){
 			}
 		break;
 		
+		case 'Hermit':
+			if(defeatedHermit == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+			}
+		break;		
+		
+		
 		case 'Ogre':
 			if(defeatedOgre == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
@@ -212,6 +221,13 @@ function setDefeatEvents(name){
 			gold = gold + Math.floor(goldStolen/2);
 		break;
 		
+		case 'Hermit':
+			defeatedHermit = true;
+			document.getElementById('gatherPaper').style.display = "block";
+			document.getElementById('paperdiv').style.display = "block";
+			document.getElementById('PaperMillTab').style.display = "block";
+		break;		
+		
 		case 'Ogre':
 			document.getElementById('soulsdiv').style.display = "block";			
 			document.getElementById('PaladinTab').style.display = "block";
@@ -262,6 +278,7 @@ var banditsDesc = "A bandit camp sits on the outskirts of your village. Bandits 
 var Bandits = new Enemy('Bandits', banditsDesc, 'BatBanditsProgBarBox', 'BatBanditsProgBar', 'btnBatBandits','unlockCathAlert',100,0,0,5,500);
 setEnemyDescription(Bandits, 'btnDescBandits');
 
+
 function banditLoot(){
 	if(defeatedBandits == false){
 		var raidtime = Math.floor((Math.random() * 90) + 15); ;
@@ -298,6 +315,10 @@ function banditLoot(){
 };
 
 setTimeout(function() { banditLoot(); }, 30000);//Triggers bandit looting
+
+var hermitDesc = "There is a hermit living in the middle of the forest. She keeps mostly to herself, but you can observe her cutting down trees from time to time. It is clear, however, that she is a menace because she has a tendency to throw poisoned knives at anyone who come near her.";
+var Hermit = new Enemy('Hermit', hermitDesc, 'BatHermitProgBarBox', 'BatHermitProgBar', 'btnBatHermit','paperMillAlert',250,0,0,2,500);
+setEnemyDescription(Hermit, 'btnDescHermit');
 
 var ogreDesc = "A large and particularly odorous Ogre is threatening your village! Take it out before it tries to eat any more of your cattle or decides to pass wind in your direction.";
 var Ogre = new Enemy("Ogre", ogreDesc, 'BatOgreProgBarBox','BatOgreProgBar','btnBatOgre','unlockPaladinsAlert',500,0,0,1,500);
@@ -470,6 +491,9 @@ function checkBattleButtons(){
 	
 	//Bandit Button
 	Bandits.canFight();
+	
+	//Hermit Button
+	Hermit.canFight();	
 
 	//Ogre Button
 	Ogre.canFight();

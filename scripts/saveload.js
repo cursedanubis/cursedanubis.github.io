@@ -20,14 +20,19 @@
 		localStorage.setItem("personPage",Page.number);
 		localStorage.setItem("squires",Squire.number);
 		localStorage.setItem("knights",Knight.number);
-		localStorage.setItem("tavernpeasants",tavernpeasants);
-		localStorage.setItem("tavernminers",tavernminers);
-		localStorage.setItem("taverns", Tavern.number);
 		localStorage.setItem("acolytes",Acolyte.number);
 		localStorage.setItem("priests",Priest.number);
 		localStorage.setItem("paladins",Paladin.number); 
 		localStorage.setItem("shades", Shade.number);
 		localStorage.setItem("aspects", Aspect.number);
+		
+		//Building Variables
+		localStorage.setItem("taverns", Tavern.number);
+		localStorage.setItem("tavernpeasants",tavernpeasants);
+		localStorage.setItem("tavernminers",tavernminers);
+		localStorage.setItem("papermills", PaperMill.number)
+		localStorage.setItem("papermillstatus", PaperMill.status)
+		localStorage.setItem("papermillnumon",PaperMill.numberOn)
 		
 		//Building flags
 		localStorage.setItem("lumbermillOpened",lumbermillOpened);
@@ -40,6 +45,7 @@
 		//Battle flags
 		localStorage.setItem("defeatedGoblins",defeatedGoblins);
 		localStorage.setItem("defeatedBandits",defeatedBandits);
+		localStorage.setItem("defeatedHermit",defeatedHermit);
 		localStorage.setItem("defeatedOgre",defeatedOgre); 
 		localStorage.setItem("defeatedHhounds",defeatedHhounds);
 		localStorage.setItem("defeatedPixie",defeatedPixie);
@@ -189,6 +195,17 @@
 			Tavern.number = parseInt(localStorage.taverns);
 			document.getElementById("taverns").innerHTML = Tavern.number;
 		}
+		
+		if(localStorage.papermills != null){
+			PaperMill.number = parseInt(localStorage.papermills);
+			document.getElementById("papermills").innerHTML = PaperMill.number;
+			if(localStorage.papermillstatus != null){
+				PaperMill.status = localStorage.papermillstatus;
+			}
+			if(localStorage.papermillnumon != null){
+				PaperMill.numberOn = parseInt(localStorage.papermillnumon);
+			}
+		}		
 		
 		if(localStorage.barracksOpened != null){
 			var myBool = localStorage.barracksOpened == "true"
@@ -348,6 +365,20 @@
 				document.getElementById('FaithStructuresTab').style.display = "block";				
 				document.getElementById("btnBatBandits").innerHTML = "Bandits Defeated!";
 				document.getElementById("btnBatBandits").disabled = true;
+				defeatedBandits = true;
+			}
+		}
+
+		if(localStorage.defeatedHermit != null){
+			var myBool = (localStorage.defeatedHermit == "true")
+			if(myBool == true){
+				defeatedHermit = true;
+				document.getElementById('BatHermitProgBarBox').style.display = "none";
+				document.getElementById('PaperMillTab').style.display = "block";
+				document.getElementById('gatherPaper').style.display = "block";
+				document.getElementById('paperdiv').style.display = "block";
+				document.getElementById("btnBatHermit").innerHTML = "Bandits Defeated!";
+				document.getElementById("btnBatHermit").disabled = true;
 				defeatedBandits = true;
 			}
 		}				

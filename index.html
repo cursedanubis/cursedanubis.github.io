@@ -137,6 +137,12 @@
 			</div>
 		</li>
 		<li>			
+			<div id = "paperdiv" style="display: none;">
+				<img src = "images/parchmentsmall.png" alt="Paper" id="respaperimage">
+				Paper: <span id="paper">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
+			</div>
+		</li>		
+		<li>			
 			<div id = "manadiv" style="display: none;">
 				<img src = "images/manasmall.png" alt="Mana Crystal" id="resmanaimage">
 				Mana: <span id="mana">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
@@ -154,8 +160,14 @@
 	  
 	  <div id="Gathering" class="collapse in">
 		<div class = "well well-sm">
-			<input type="image"  id="clickmoney" onclick="clickThing(1,'goldMouse')" src = "images/money_gold.png"/ title = "Click to gather gold yourself.">
-			<input type="image"  id="clickwood" onclick="clickThing(1,'woodMouse')" src = "images/wood.png"/ title = "Click to gather wood yourself.">			
+			<ul id = "GatherList">
+				<li><input type="image"  id="clickmoney" onclick="clickThing(1,'goldMouse')" src = "images/money_gold.png"/ title = "Click to gather gold yourself."></li>
+				<li><input type="image"  id="clickwood" onclick="clickThing(1,'woodMouse')" src = "images/wood.png"/ title = "Click to gather wood yourself."></li>
+				<li>
+					<div id ="gatherPaper" style = "display: none;">
+						<input type="image"  id="clickpaper" onclick="clickThing(1,'paperMouse')" src = "images/parchment.png"/ title = "Click to convert 50 wood into paper yourself.">
+					</div>
+				</li>
 		</div>
 	  </div>
 	  
@@ -396,6 +408,30 @@
 		</div>
 		<hr>
 		
+		<div id = "PaperMillTab" class = "container"style="display: none;">
+				<br />
+				<a id = 'BtnPMillDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Paper Mills"
+				data-content="Constructing a paper mill allows you to automatically convert wood into paper. Converts 50 wood to 1 paper every 10 second">Paper Mill (<span id="papermills">0</span>)</a>			
+				<br />
+				<div class="btn-group" role="group" aria-label="...">
+				  <button id ="MillLess" type = "button" class="btn btn-default" onclick = "PaperMillOnMinus()">-</button>
+				  <button id = "MillOnOff" type="button" class="btn btn-default" onclick = "PaperMillToggle()">On/Off</button>
+				  <button id ="MillMore" type = "button" class="btn btn-default" onclick = "PaperMillOnPlus()">+</button>
+				</div>
+				<br /><br />
+				<button id=btnbuyPMill title="Paper Mills turn wood into paper." onclick="PaperMill.buyOne()"	type="button" class="btn btn-default">Build Paper Mill</button>	
+				<button id=btnPMillUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#PMillUpgradeTab" aria-expanded="false" aria-controls="PMillUpgradeTab">Upgrades</button>
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" data-html="true" id="resgoldimage"> <span id="pMillCost">4,500</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id="pMillWoodCost">2000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="pMillIronCost">1500</span>
+				<br />
+			
+				<div id = "PMillUpgradeTab" class = "collapse" >
+					<div class = "well">
+					</div>
+				</div>				
+		</div>
+		<hr>		
+		
 			<div id = "WoodcuttingTab" class = "container">
 				<button id=btnOpenMill title="Constructing a lumber mill allows you to hire lumberjacks and gather wood." onclick="Lumbermill.buy()"	type="button" class="btn btn-default">Construct Lumber Mill</button>
 				<br />
@@ -420,7 +456,7 @@
 			</div>
 			<hr>
 			
-			<div id = buildTowerTab class = container style="display: none;">
+			<div id = 'buildTowerTab' class = container style="display: none;">
 			<button id=btnOpenTower title="Build a glorious tower for your Archmage to channel his energies and cast spells from." onclick="Tower.buy()" type="button" class="btn btn-default">Construct Tower</button>
 			<br />
 			<img src = "images/money_goldsmall.png" title ="Gold"> 1,000,000 | <img src = "images/woodsmall.png" title = "Wood">700,000 | <img src = "images/ironsmall.png" title="Iron"> 10,000 | <img src = "images/silverOresmall.png" title="Silver"> 500 | <img src = "images/faithsmall.png" title="Faith"> 1,000
@@ -555,6 +591,21 @@
 		<br />
 		<br />
 	   </div>
+
+	   <div id="BatHermit" class = "container">
+		<a id = btnDescHermit tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Reclusive Hermit"
+		data-content="" >A Reclusive Hermit</a>
+		<br />
+				<button id=btnBatHermit onclick="Hermit.fight()"	type="button" class="btn btn-danger">Battle!</button>
+				<br />Requires <img src = "images/armsmall.png" title="Army Power"> 250 <br />
+			<div id="BatHermitProgBarBox" class="progress" style="display: none;">
+			  <div id="BatHermitProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+				0%
+			  </div>
+			</div>
+		<br />
+		<br />
+	   </div>	   
 	   
 	   <div id="BatOgre" class = "container">
 		<a id = 'btnDescOgre' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Smelly Ogre"
@@ -688,6 +739,11 @@
 			<strong>New!</strong> You chase the defeated horde of goblins back to their mound. They put up a last ditch effort, but your forces make quick work out of them. Inside their mound you find a stash of 2000 gold!   
 		</div>	
 		
+		<div id = paperMillAlert class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>New!</strong> As your troops put the hermit out of her misery, you get a chance to take a look inside her hovel. It turns out that she has been using the wood to create paper on which she has 
+					been scrawling things that are completely illegible to you. You study her tools and are able to figure out how to <a href="javascript: toggle('paperMillAlert');CollapseAll();toggle('Structures')" class="alert-link">make your own paper</a>.
+		</div>			
 		<div id = openCathAlert class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>New!</strong> The faithful flock to your beautiful <a href="javascript: toggle('openCathAlert');CollapseAll();toggle('Cathedral')" class="alert-link">cathedral</a>.   

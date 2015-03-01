@@ -282,6 +282,38 @@ MultBuilding.prototype.buyOne = function(){
 var lumermillDesc = "Constructing a lumber mill allows you to hire lumberjacks and gather wood.";
 var Lumbermill = new Building('Lumbermill','btnOpenMill',750,100,0,0,0,0,lumermillDesc,"none",'lumbermillOpened');
 
+var papermillDesc = "Constructing a paper mill allows you to automatically convert wood into paper. Converts 50 wood to 1 paper every 10 second";
+var PaperMill = new MultBuilding('Papermill','papermills', 'pMillCost', 'pMillWoodCost','pMillIronCost','none','none','none','btnbuyPMill',4500,2000,1500,0,0,0,1.5,papermillDesc,0,false,0);
+PaperMill.numberOn = 0;
+PaperMill.status = "On"
+
+function PaperMillOnPlus(){
+	if(PaperMill.numberOn + 1 <= PaperMill.number){
+	PaperMill.numberOn = PaperMill.numberOn + 1;
+	}
+}
+
+function PaperMillOnMinus(){
+	if(PaperMill.numberOn - 1 >= 0){
+	PaperMill.numberOn = PaperMill.numberOn - 1;
+	}
+}
+
+function PaperMillToggle(){
+	if( PaperMill.status == "On"){
+		PaperMill.status = "Off";
+	}
+	else{
+		PaperMill.status = "On";
+	}
+}
+
+function PaperMillChangeButton(){
+	var buttonText = PaperMill.status + " (" + PaperMill.numberOn + "/" + PaperMill.number + ")";
+	document.getElementById('MillOnOff').innerHTML = buttonText;
+}
+
+
 var minesDesc = "Opening the mines lets you collect minerals";
 var Mines = new Building('Mines','btnOpenMines',1250,200,0,0,0,0,minesDesc,"none",'minesOpened');
 
@@ -317,6 +349,10 @@ function checkBuildingButtons(){
 
 	//Changes status of the building mines button
 	Lumbermill.canBuy();
+
+	//Changes status of the building mines button
+	PaperMill.canBuy();
+	PaperMillChangeButton();
 	
 	//Changes status of the building mines button
 	Mines.canBuy();
@@ -348,3 +384,13 @@ window.setInterval(function(){					//Tavern unit generation
 	}
 
 }, 30000);
+
+window.setInterval(function(){					//Tavern unit generation
+	if(PaperMill.status == "On" && wood >= PaperMill.numberOn*50){
+		clickThing(PaperMill.numberOn,"paper");		
+	}
+	else if(wood < PaperMill.numberOn*50){
+		PaperMill.status = "Off"
+	}
+
+}, 10000);
