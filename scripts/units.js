@@ -50,39 +50,39 @@ Unit.prototype.buyOne = function(){
 			faith = faith - this.curFaithCost;                                                                //removes the faith spent
 			souls = souls - this.curSoulCost;                                                                 //removes the souls spent
 			document.getElementById(this.htmlNumRef).innerHTML = this.number;  							      //updates the number of Unit for the user
-			document.getElementById('gold').innerHTML = gold;  										          //updates the number of gold for the user
-			document.getElementById('iron').innerHTML = iron;  										          //updates the number of iron for the user
-			document.getElementById('silver').innerHTML = silver;  										       //updates the number of silver for the user
-			document.getElementById('faith').innerHTML = faith;  										      //updates the number of faith for the user
-			document.getElementById('souls').innerHTML = souls;  										      //updates the number of souls for the user
+			document.getElementById('gold').innerHTML = fnum(gold);  										          //updates the number of gold for the user
+			document.getElementById('iron').innerHTML = fnum(iron);  										          //updates the number of iron for the user
+			document.getElementById('silver').innerHTML = fnum(silver);  										       //updates the number of silver for the user
+			document.getElementById('faith').innerHTML = fnum(faith);  										      //updates the number of faith for the user
+			document.getElementById('souls').innerHTML = fnum(souls);  										      //updates the number of souls for the user
 			if(this.hasReqUnit == true){
 				this.reqUnit.removeOne();
 			}
 			this.nextGoldCost = Math.floor(this.goldCost * Math.pow(this.costMult,this.number-this.costAdj));         //works out the cost of the next Unit
-			document.getElementById(this.htmlNextGoldCost).innerHTML = this.nextGoldCost;  						      //updates the Unit cost for the user
+			document.getElementById(this.htmlNextGoldCost).innerHTML = fnum(this.nextGoldCost);  						      //updates the Unit cost for the user
 //			this.curGoldCost = this.nextGoldCost;
 			
 			if(this.htmlNextIronCost != 'none'){
 				this.nextIronCost = Math.floor(this.ironCost * Math.pow(this.costMult,this.number));                      //works out the iron cost of the next Unit
-				document.getElementById(this.htmlNextIronCost).innerHTML = this.nextIronCost;  						      //updates the Unit iron cost for the user
+				document.getElementById(this.htmlNextIronCost).innerHTML = fnum(this.nextIronCost);  						      //updates the Unit iron cost for the user
 //				this.curIronCost = this.nextIronCost;
 			}
 			
 			if(this.htmlNextSilverCost != 'none'){
 				this.nextSilverCost = Math.floor(this.silverCost * Math.pow(this.costMult,this.number));                    //works out the silver cost of the next Unit	
-				document.getElementById(this.htmlNextSilverCost).innerHTML = this.nextSilverCost;  						      //updates the Unit silver cost for the user
+				document.getElementById(this.htmlNextSilverCost).innerHTML = fnum(this.nextSilverCost);  						      //updates the Unit silver cost for the user
 //				this.curSilverCost = this.nextSilverCost
 			}
 			
 			if(this.htmlNextFaithCost != 'none'){
 				this.nextFaithCost = Math.floor(this.faithCost * Math.pow(this.costMult,this.number));                      //works out the faith cost of the next Unit
-				document.getElementById(this.htmlNextFaithCost).innerHTML = this.nextFaithCost;  						      //updates the Unit faith cost for the user	
+				document.getElementById(this.htmlNextFaithCost).innerHTML = fnum(this.nextFaithCost);  						      //updates the Unit faith cost for the user	
 //				this.curFaithCost = this.nextFaithCost
 			}	
 
 			if(this.htmlNextSoulCost != 'none'){
 				this.nextSoulCost = Math.floor(this.soulCost * Math.pow(this.costMult,this.number));                       //works out the Soul cost of the next Unit
-				document.getElementById(this.htmlNextSoulCost).innerHTML = this.nextSoulCost;  						      //updates the Unit Soul cost for the user
+				document.getElementById(this.htmlNextSoulCost).innerHTML = fnum(this.nextSoulCost);  						      //updates the Unit Soul cost for the user
 //				this.curSoulCost = this.nextSoulCost
 			}			
 		};
@@ -97,26 +97,26 @@ Unit.prototype.removeOne = function(){
 
 Unit.prototype.recalcCost = function(){
 	this.curGoldCost = Math.floor(this.goldCost * Math.pow(this.costMult,this.number-this.costAdj));         //works out the cost of the next Unit
-	document.getElementById(this.htmlNextGoldCost).innerHTML = this.curGoldCost;  						      //updates the Unit cost for the user
+	document.getElementById(this.htmlNextGoldCost).innerHTML = fnum(this.curGoldCost);  						      //updates the Unit cost for the user
 	
 	if(this.htmlNextIronCost != 'none'){
 		this.curIronCost = Math.floor(this.ironCost * Math.pow(this.costMult,this.number));                      //works out the iron cost of the next Unit
-		document.getElementById(this.htmlNextIronCost).innerHTML = this.curIronCost;  						      //updates the Unit iron cost for the user
+		document.getElementById(this.htmlNextIronCost).innerHTML = fnum(this.curIronCost);  						      //updates the Unit iron cost for the user
 	}
 	
 	if(this.htmlNextSilverCost != 'none'){
 		this.curSilverCost = Math.floor(this.silverCost * Math.pow(this.costMult,this.number));                    //works out the silver cost of the next Unit	
-		document.getElementById(this.htmlNextSilverCost).innerHTML = this.curSilverCost;  						      //updates the Unit silver cost for the user
+		document.getElementById(this.htmlNextSilverCost).innerHTML = fnum(this.curSilverCost);  						      //updates the Unit silver cost for the user
 	}
 	
 	if(this.htmlNextFaithCost != 'none'){
 		this.curFaithCost = Math.floor(this.faithCost * Math.pow(this.costMult,this.number));                      //works out the faith cost of the next Unit
-		document.getElementById(this.htmlNextFaithCost).innerHTML = this.curFaithCost;  						      //updates the Unit faith cost for the user	
+		document.getElementById(this.htmlNextFaithCost).innerHTML = fnum(this.curFaithCost);  						      //updates the Unit faith cost for the user	
 	}	
 
 	if(this.htmlNextSoulCost != 'none'){
 		this.curSoulCost = Math.floor(this.soulCost * Math.pow(this.costMult,this.number));                       //works out the Soul cost of the next Unit
-		document.getElementById(this.htmlNextSoulCost).innerHTML = this.curSoulCost;  						      //updates the Unit Soul cost for the user
+		document.getElementById(this.htmlNextSoulCost).innerHTML = fnum(this.curSoulCost);  						      //updates the Unit Soul cost for the user
 	}	
 
 

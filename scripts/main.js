@@ -53,7 +53,7 @@ function clickThing(number, type)
 	switch(type){
 		case "gold":
 			gold = gold + number;
-			document.getElementById("gold").innerHTML = gold;			
+			document.getElementById("gold").innerHTML = fnum(gold);			
 			break;
 			
 		case "goldMouse":
@@ -61,25 +61,25 @@ function clickThing(number, type)
 					number = number * 2;
 			}
 			gold = gold + number;
-			document.getElementById("gold").innerHTML = gold;
+			document.getElementById("gold").innerHTML = fnum(gold);
 			break;
 
 		case "wood":
 			wood = wood + number;
-			document.getElementById("wood").innerHTML = wood;			
+			document.getElementById("wood").innerHTML = fnum(wood);			
 			break;	
 
 		case "woodMouse":
 			wood = wood + number;
-			document.getElementById("wood").innerHTML = wood;
+			document.getElementById("wood").innerHTML = fnum(wood);
 			break;
 
 		case "paper":
 			if(wood >= 50*number){
 			paper = paper + number;
 			wood = wood - number * 50;
-			document.getElementById("paper").innerHTML = paper;
-			document.getElementById("wood").innerHTML = wood;
+			document.getElementById("paper").innerHTML = fnum(paper);
+			document.getElementById("wood").innerHTML = fnum(wood);
 			}
 			break;				
 			
@@ -87,25 +87,25 @@ function clickThing(number, type)
 			if(wood >= 50){
 				paper = paper + number;
 				wood = wood - number * 50;
-				document.getElementById("paper").innerHTML = paper;
-				document.getElementById("wood").innerHTML = wood;
+				document.getElementById("paper").innerHTML = fnum(paper);
+				document.getElementById("wood").innerHTML = fnum(wood);
 			}
 			break;			
 			
 		case "iron":
 			iron = iron + number;
-			document.getElementById("iron").innerHTML = iron;
+			document.getElementById("iron").innerHTML = fnum(iron);
 			break;
 		
 		case "silver":
 			silver = silver + number;
-			document.getElementById("silver").innerHTML = silver;
+			document.getElementById("silver").innerHTML = fnum(silver);
 			break;		
 			
 		case "faith":
 			faith = faith + number;
 			faith = faith.toFixedDown(2);
-			document.getElementById("faith").innerHTML = faith;		
+			document.getElementById("faith").innerHTML = fnum(faith);		
 			break;
 		
 		case "peasant":
@@ -120,12 +120,12 @@ function clickThing(number, type)
 		
 		case "souls":
 			souls = souls + number;
-			document.getElementById("souls").innerHTML = souls;		
+			document.getElementById("souls").innerHTML = fnum(souls);		
 			break;
 			
 		case "mana":
 			mana = mana + number;
-			document.getElementById("mana").innerHTML = mana;		
+			document.getElementById("mana").innerHTML = fnum(mana);		
 		default:
 	}
 }
@@ -146,7 +146,7 @@ function peasantUpgradeCollection(){
 	if(gold >= 2000){
 		gold = gold - 2000;
 		pGoldUpgrade = true;	
-		document.getElementById('gold').innerHTML = gold;
+		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById("btnPeasantUpgrade1").disabled = true;
 	}	
 };
@@ -155,7 +155,7 @@ function upgradeClickGoldMultiplier(){
 	if(gold >= 1500){
 		gold = gold - 1500;
 		pGoldClickUpgrade = true;	
-		document.getElementById('gold').innerHTML = gold;
+		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById("clickGoldUpgrade").disabled = true;
 	}	
 };
@@ -165,8 +165,8 @@ function lumberjackUpgradeCollection(){
 		gold = gold - 1500;
 		iron = iron - 1500;
 		lwoodClickUpgrade = true;	
-		document.getElementById('gold').innerHTML = gold;
-		document.getElementById('iron').innerHTML = iron;
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById("btnljackUpgrade1").disabled = true;
 	}
 };
@@ -176,8 +176,8 @@ function minerUpgradePanning(){
 		gold = gold - 3500;
 		iron = iron - 1000;
 		mPanningUpgrade = true;	
-		document.getElementById('gold').innerHTML = gold;
-		document.getElementById('iron').innerHTML = iron;
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById("btnminerUpgrade1").disabled = true;
 	}	
 };
@@ -187,8 +187,8 @@ function minerUpgradeSilver(){
 		gold = gold - 7500;
 		iron = iron - 2500;
 		mSilverUpgrade = true;	
-		document.getElementById('gold').innerHTML = gold;
-		document.getElementById('iron').innerHTML = iron;
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById('silverdiv').style.display = "block";
 		document.getElementById("btnminerUpgrade2").disabled = true;
 		document.getElementById("btnminerUpgrade2").innerHTML = "Learned Silver Studies";
@@ -199,7 +199,7 @@ function minerUpgradeSilver(){
 function UnlockSquire(){
 	if(gold >= 4000 && BattlePower >= 120){
 		gold = gold - 400;
-		document.getElementById('gold').innerHTML = gold;
+		document.getElementById('gold').innerHTML = fnum(gold);
 		squiresUnlocked = true;
 		document.getElementById("btnPageUpgrade1").disabled = true;
 		document.getElementById('SquireTab').style.display = "block";
@@ -209,7 +209,7 @@ function UnlockSquire(){
 function UnlockKnight(){
 	if(gold >= 8000 && BattlePower >= 500){
 		gold = gold - 8000;
-		document.getElementById('gold').innerHTML = gold;
+		document.getElementById('gold').innerHTML = fnum(gold);
 		knightsUnlocked = true;
 		document.getElementById("btnSquireUpgrade1").disabled = true;
 		document.getElementById('KnightTab').style.display = "block";
@@ -221,9 +221,9 @@ function paladinUpgradeWeapon(){
 		gold = gold - 20000;
 		iron = iron - 5000;
 		faith = faith - 2500;
-		document.getElementById('gold').innerHTML = gold;
-		document.getElementById('iron').innerHTML = iron;
-		document.getElementById('faith').innerHTML = faith;
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('iron').innerHTML = fnum(iron);
+		document.getElementById('faith').innerHTML = fnum(faith);
 		paladinWepUpgrade = true;
 		document.getElementById("paladinUpgrade1").disabled = true;
 	}
@@ -429,5 +429,38 @@ function dhms(s, f) { // seconds, format
     f = d + ':' + h + ':' + m + ':' + s;
   }
   return f; // :) omg...
+}
+
+function fnum(x) {
+	if(isNaN(x)) return x;
+ 
+	if(x < 9999) {
+		return x;
+	}
+ 
+	if( x < 1000000) {
+		return (x/1000).toFixed(2) + "K";
+	}
+	if( x < 10000000) {
+		return (x/1000000).toFixed(2) + "M";
+	}
+ 
+	if(x < 1000000000) {
+		return (x/1000000).toFixed(2) + "M";
+	}
+ 
+	if(x < 1000000000000) {
+		return (x/1000000000).toFixed(2) + "B";
+	}
+	
+	if(x < 1000000000000000) {
+		return (x/1000000000000).toFixed(2) + "Qd";
+	}	
+ 
+ 	if(x < 1000000000000000000) {
+		return (x/1000000000000000).toFixed(2) + "Qt";
+	}	
+ 
+	return "1T+";
 }
 
