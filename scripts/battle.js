@@ -429,7 +429,7 @@ function succubusRaid(){
 //			console.log(ticker);
 		  if (ticker == 0){
 			clearInterval(raid);
-			if(defeatedSuccubus == false){
+			if(defeatedSuccubus == false && (inbattle == false || (inbattle == true && curBattling == "Succubus"))){
 				succubusSeduce();
 				succubusRaid();
 				//Dismisses Raid Alert

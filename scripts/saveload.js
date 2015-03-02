@@ -396,7 +396,6 @@
 				document.getElementById('BatHellhound').style.display = "block";
 			}
 		}
-
 		if(localStorage.defeatedHhounds != null){
 			var myBool = (localStorage.defeatedHhounds == "true")
 				if(myBool == true){
@@ -436,18 +435,20 @@
 					document.getElementById('buildTowerTab').style.display = "block";
 					document.getElementById('BatMageProgBarBox').style.display = "none";
 					document.getElementById("btnBatMage").disabled = true;
-					document.getElementById("btnBatMage").innerHTML = "Archmage Defeated!";					
+					document.getElementById("btnBatMage").innerHTML = "Archmage Defeated!";
+					document.getElementById('BatSuccubus').style.display = "block";
 					defeatedArchmage = true;
+					setTimeout(function() { succubusRaid(); }, 30000);			//defeated archmage but haven't defeated succubus yet, start raids again
 				}
 		};		
 		if(localStorage.defeatedSuccubus != null){
 			var myBool = (localStorage.defeatedSuccubus == "true")
 				if(myBool == true){
 					defeatedSuccubus = true;
+					document.getElementById('BatSuccubus').style.display = "block";
+					document.getElementById('btnBatSuccubus').innerHTML = this.name + " Defeated!"; 
+					document.getElementById("btnBatSuccubus").disabled = true;
 				}
-				else if(defeatedArchmage == true){
-					setTimeout(function() { succubusRaid(); }, 30000);			//defeated archmage but haven't defeated succubus yet, start raids again
-				}				
 		};	
 		if(localStorage.peasantsKilled != null){
 			peasantsKilled = parseInt(localStorage.peasantsKilled);

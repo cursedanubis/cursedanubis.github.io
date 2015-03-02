@@ -37,10 +37,9 @@
 	}; 
 
 	$(function () { 
-		$("[data-toggle='popover']").popover(); 
+		$("[data-toggle='popover']").popover(); 	
 	});
-	
-	
+					
 	</script>
 
   </head>
@@ -102,56 +101,57 @@
 		<ul id = "ResourceList">
 		<li>
 			<div id = "golddiv" >
-				<img src = "images/money_goldsmall.png" alt="Gold Coins" title ="" data-html="true" id="resgoldimage">
+				<img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage">
+				
 				Gold: <span id="gold">0</span>  <!--( <span id="goldpersec">0</span> gps)-->
 			</div>		
 		</li>
 		<li>
 			<div id = "wooddiv" >
-				<img src = "images/woodsmall.png" alt="Logs" id="reswoodimage">
+				<img src = "images/woodsmall.png" Title="Wood" id="reswoodimage">
 				Wood: <span id="wood">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
 			</div>
 		</li>		
 		<li>
 			<div id = "irondiv" style="display: none;">
-				<img src = "images/ironsmall.png" alt="Iron bar" id="resironimage">
+				<img src = "images/ironsmall.png" Title="Iron" id="resironimage">
 				Iron: <span id="iron">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
 			</div>
 		</li>
 		<li>
 			<div id = "silverdiv" style="display: none;">
-				<img src = "images/silverOresmall.png" alt="Silver Ore" id="ressilverimage"> 
+				<img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> 
 				Silver: <span id="silver">0</span>     <!--( <span id="silverpersec">0</span> silps)-->	
 			</div>
 		</li>		
 		<li>			
 			<div id = "faithdiv" style="display: none;">
-				<img src = "images/faithsmall.png" alt="Praying Hands"  id="resfaithimage">
+				<img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage">
 				Faith: <span id="faith">0</span>   <!-- ( <span id="faithpersec">0</span> fps)-->	
 			</div>
 		</li>
 		<li>			
 			<div id = "soulsdiv" style="display: none;">
-				<img src = "images/soulssmall.png" alt="Souls"  id="ressoulsimage">
+				<img src = "images/soulssmall.png" Title="Souls"  id="ressoulsimage">
 				Souls: <span id="souls">0</span>  <!-- ( <span id="soulspersec">0</span> sps)	-->	
 			</div>
 		</li>
 		<li>			
 			<div id = "paperdiv" style="display: none;">
-				<img src = "images/parchmentsmall.png" alt="Paper" id="respaperimage">
+				<img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage">
 				Paper: <span id="paper">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
 			</div>
 		</li>		
 		<li>			
 			<div id = "manadiv" style="display: none;">
-				<img src = "images/manasmall.png" alt="Mana Crystal" id="resmanaimage">
+				<img src = "images/manasmall.png" Title="Mana" id="resmanaimage">
 				Mana: <span id="mana">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
 			</div>
 		</li>
 		<li>
 			<div id = "armystrdiv" style="display: none;">
 			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
-				<img src = "images/armsmall.png" alt="Army Power">
+				<img src = "images/armsmall.png" Title="Army Power">
 				Army: <span id="BattlePower">0</span> 
 			</div>
 		</li>		
@@ -561,6 +561,265 @@
 			
 	   </div>
 		<hr>
+		
+
+		<div class="panel-group" id="battleaccordion" role="tablist" aria-multiselectable="true">
+		
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="GoblinTitle">
+			  <h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href="#GoblinCollapse" aria-expanded="true" aria-controls="GoblinCollapse">
+				  A Horde of Goblins
+				</a>
+			  </h4>
+			</div>
+			<div id="GoblinCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="GoblinTitle">
+			   <div id="BatGoblins" class = "panel-body">
+				<a id = btnDescGoblins tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Horde of Goblins"
+				data-content="" >A Horde of Goblins</a>
+				<br />
+						<button id=btnBatGoblins onclick="Goblins.fight()"	type="button" class="btn btn-danger">Battle!</button>
+						<br />Requires <img src = "images/armsmall.png" title="Army Power"> 75 <br />
+					<div id="BatGoblinsProgBarBox" class="progress" style="display: none;">
+					  <div id="BatGoblinsProgBar" class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+						0%
+					  </div>
+					</div>
+			   </div>	
+			</div>
+		  </div>
+		  
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingTwo">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#BanditCollapse" aria-expanded="false" aria-controls="BanditCollapse">
+				  Bunch of Bandits
+				</a>
+			  </h4>
+			</div>
+		   <div id="BanditCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+			   <div id="BatBandits" class="panel-body">
+				<a id = btnDescBandits tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Pack of Bandits"
+				data-content="" >Bunch of Bandits</a>
+				<br />
+						<button id=btnBatBandits onclick="Bandits.fight()"	type="button" class="btn btn-danger">Battle!</button>
+						<br />They have stolen <span id='goldStolen'>0</span> gold from you.
+						<br />Requires <img src = "images/armsmall.png" title="Army Power"> 100 <br />
+					<div id="BatBanditsProgBarBox" class="progress" style="display: none;">
+					  <div id="BatBanditsProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+						0%
+					  </div>
+					</div>
+			   </div>
+		  </div>
+		  </div>
+		  
+		  
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingThree">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#HermitCollapse" aria-expanded="false" aria-controls="HermitCollapse">
+				  A Reclusive Hermit
+				</a>
+			  </h4>
+			</div>
+			<div id="HermitCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+			   <div id="BatHermit" class = "panel-body">
+				<a id = btnDescHermit tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Reclusive Hermit"
+				data-content="" >A Reclusive Hermit</a>
+				<br />
+						<button id=btnBatHermit onclick="Hermit.fight()"	type="button" class="btn btn-danger">Battle!</button>
+						<br />Requires <img src = "images/armsmall.png" title="Army Power"> 250 <br />
+					<div id="BatHermitProgBarBox" class="progress" style="display: none;">
+					  <div id="BatHermitProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+						0%
+					  </div>
+					</div>
+			   </div>	 
+			</div>
+		  </div>
+		  
+		  
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingFour">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#OgreCollapse" aria-expanded="false" aria-controls="OgreCollapse">
+				  A Smelly Ogre
+				</a>
+			  </h4>
+			</div>
+			<div id="OgreCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+			   <div id="BatOgre" class = "panel-body">
+				<a id = 'btnDescOgre' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Smelly Ogre"
+				data-content="">Smelly Ogre</a>
+				<br />
+					<button id=btnBatOgre onclick="Ogre.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 500 <br />
+						<div id="BatOgreProgBarBox" class="progress" style="display: none;">
+						  <div id="BatOgreProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+							0%
+						  </div>
+						</div>
+			   </div>
+			</div>
+		  </div>	
+
+		  <div class="panel panel-default" id="BatHellhound" style="display: none;">
+			<div class="panel-heading" role="tab" id="headingFive">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#HellhoundCollapse" aria-expanded="false" aria-controls="HellhoundCollapse">
+				  Pack of Hellhounds
+				</a>
+			  </h4>
+			</div>
+			<div id="HellhoundCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+			   <div class = "panel-body" >
+				<a id = 'btnDescHellhounds' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Pack of Hellhounds"
+				data-content="">Pack of Hellhounds</a>
+					<br />
+					<button id=btnBatHellhound onclick="Hellhounds.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 2000 <br />
+					Peasants Killed: <span id = "peasantsKilled">0</span> <br />
+					Miners Killed: <span id = "minersKilled">0</span> <br />
+						<div id="BatHhoundProgBarBox" class="progress" style="display: none;">
+						  <div id="BatHhoundProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+							0%
+						  </div>
+						</div>
+			   </div>
+			</div>
+		  </div>		  
+
+		  <div class="panel panel-default" id = "BatPixie" style="display: none;">
+			<div class="panel-heading" role="tab" id="headingSix">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#pixieCollapse" aria-expanded="false" aria-controls="pixieCollapse">
+				  An Evil Pixie
+				</a>
+			  </h4>
+			</div>
+			<div id="pixieCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+			   <div class = "panel-body">
+				<a id = 'btnDescPixie' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="An Evil Pixie"
+				data-content="">An Evil Pixie</a>
+				<br />
+				<button id=btnBatPixie onclick="Pixie.fight()"	type="button" class="btn btn-danger">Battle!</button>
+				<br />
+				Requires <img src = "images/armsmall.png" title="Army Power"> 3500 <br />
+				Requires spirit power: 100 <br />
+					<div id="BatPixieProgBarBox" class="progress" style="display: none;">
+					  <div id="BatPixieProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+						0%
+					  </div>
+					</div>
+			   </div>
+			</div>
+		  </div>		  
+
+		  
+		  <div class="panel panel-default" id="BatArmor" style="display: none;">
+			<div class="panel-heading" role="tab" id="headingSeven">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#ArmorCollapse" aria-expanded="false" aria-controls="ArmorCollapse">
+				  Haunted Armor
+				</a>
+			  </h4>
+			</div>
+			<div id="ArmorCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+			   <div class = "panel-body" >
+				<a id = 'btnDescArmor' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Haunted Armor"
+				data-content="">Haunted Armor</a>
+					<br />
+					<button id=btnBatArmor onclick="Armor.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 4000 <br />
+					Requires spirit power: 250 <br />
+					<div id="BatArmorProgBarBox" class="progress" style="display: none;">
+					  <div id="BatArmorProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+						0%
+					  </div>
+					</div>
+			   </div>	
+			</div>
+		  </div>			  
+		  
+		  <div class="panel panel-default" id="BatArchMage">
+			<div class="panel-heading" role="tab" id="headingEight">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#ArchmageCollapse" aria-expanded="false" aria-controls="ArchmageCollapse">
+				  Corrupted Archmage
+				</a>
+			  </h4>
+			</div>
+			<div id="ArchmageCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+			   <div class = "panel-body">
+				<a id = 'btnDescMage' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Corrupted Archmage"
+				data-content="">Corrupted Archmage</a>
+					<br />
+					<button id=btnBatMage onclick="Archmage.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 20,000 <br />
+					Requires spirit power: 750 <br />
+					
+					<div id="BatMageProgBarBox" class="progress" style="display: none;">
+					  <div id="BatMageProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+						0%
+					  </div>
+					</div>
+			   </div>
+			</div>
+		  </div>		  
+
+		  <div class="panel panel-default" id="BatSuccubus" style="display: none;">
+			<div class="panel-heading" role="tab" id="headingNine">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SuccubusCollapse" aria-expanded="false" aria-controls="SuccubusCollapse">
+				  Seductive Succubus
+				</a>
+			  </h4>
+			</div>
+			<div id="SuccubusCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
+			   <div class = "panel-body" >
+				<a id = 'btnDescSuccubus' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Seductive Succubus"
+				data-content="">Seductive Succubus</a>
+					<br />
+					<button id=btnBatSuccubus onclick="Succubus.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 35,000 <br />
+					Requires spirit power: 2000 <br />
+					Number of Units Seduced: <span id = "unitsSeduced">0</span> <br />
+					
+					<div id="BatSuccubusProgBarBox" class="progress" style="display: none;">
+					  <div id="BatSuccubusProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+						0%
+					  </div>
+					</div>
+			   </div>
+			</div>
+		  </div>	
+<!--
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingThree">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+				  Collapsible Group Item #3
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+			  <div class="panel-body">
+				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			  </div>
+			</div>
+		  </div>				  
+		
+		</div>  -->
+
+
+	
+<!--		
 	   <div id="BatGoblins" class = "container">
 		<a id = btnDescGoblins tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Horde of Goblins"
 		data-content="" >A Horde of Goblins</a>
@@ -574,8 +833,8 @@
 			</div>
 		<br />
 		<br />
-	   </div>	   
-	   
+	   </div>	   -->
+<!--	   
 	   <div id="BatBandits" class = "container">
 		<a id = btnDescBandits tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Pack of Bandits"
 		data-content="" >Bunch of Bandits</a>
@@ -590,9 +849,9 @@
 			</div>
 		<br />
 		<br />
-	   </div>
+	   </div>  -->
 
-	   <div id="BatHermit" class = "container">
+<!--	   <div id="BatHermit" class = "container">
 		<a id = btnDescHermit tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Reclusive Hermit"
 		data-content="" >A Reclusive Hermit</a>
 		<br />
@@ -605,9 +864,9 @@
 			</div>
 		<br />
 		<br />
-	   </div>	   
+	   </div>	   -->
 	   
-	   <div id="BatOgre" class = "container">
+<!--	   <div id="BatOgre" class = "container">
 		<a id = 'btnDescOgre' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Smelly Ogre"
 		data-content="">Smelly Ogre</a>
 		<br />
@@ -621,8 +880,8 @@
 				</div>
 			<br />
 			<br />
-	   </div>
-
+	   </div> -->
+<!--
 	   <div id="BatHellhound" class = "container" style="display: none;">
 		<a id = 'btnDescHellhounds' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Pack of Hellhounds"
 		data-content="">Pack of Hellhounds</a>
@@ -639,8 +898,8 @@
 				</div>
 			<br />
 			<br />
-	   </div>
-	   
+	   </div> -->
+<!--	   
 	   <div id="BatPixie" class = "container" style="display: none;">
 		<a id = 'btnDescPixie' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="An Evil Pixie"
 		data-content="">An Evil Pixie</a>
@@ -656,8 +915,8 @@
 				</div>
 			<br />
 			<br />
-	   </div>
-
+	   </div>-->
+<!--
 	   <div id="BatArmor" class = "container" style="display: none;">
 		<a id = 'btnDescArmor' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Haunted Armor"
 		data-content="">Haunted Armor</a>
@@ -673,8 +932,8 @@
 				</div>
 			<br />
 			<br />
-	   </div>		   
-
+	   </div>	 -->	   
+<!--
 	   <div id="BatArchMage" class = "container">
 		<a id = 'btnDescMage' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Corrupted Archmage"
 		data-content="">Corrupted Archmage</a>
@@ -691,8 +950,8 @@
 				</div>
 			<br />
 			<br />
-	   </div>
-
+	   </div> -->
+<!--
 	   <div id="BatSuccubus" class = "container" style="display: none;">
 		<a id = 'btnDescSuccubus' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Seductive Succubus"
 		data-content="">Seductive Succubus</a>
@@ -710,9 +969,7 @@
 				</div>
 			<br />
 			<br />
-	   </div>	
-	   
-	   
+	   </div>	-->
 	 </div>	 
 	 
 
@@ -908,7 +1165,7 @@
 		function setLastPage(name){
 			lastPage = name;
 		}
-   
+   				
 	</script>		
 
 	<script type="text/javascript" src="scripts/main.js"></script>         <!--Load main script --> 
