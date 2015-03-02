@@ -20,9 +20,6 @@
 	
     <script src="dist/assets/js/ie-emulation-modes-warning.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src = "scripts/decimal.js"></script>
-
-	
 	<script type="text/javascript" src="scripts/saveload.js"></script>
 	
 	<script language="javascript"> 
@@ -169,7 +166,7 @@
 					</div>
 				</li>
 		</div>
-	  </div>
+	  </div> 
 	  
 	  <div id="Production" class= "panel panel-default">
 		<div class = "panel-heading">
@@ -537,7 +534,14 @@
 			  </div>
 			</div>	   
 			<h3> Current mana cap: <span id = "manaCap">0</span> </h3>
-	   </div>		
+	   </div>
+		<div id ="FireBallTab" class = "container">
+			<br />
+			<a id = 'BtnSpellFBDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Fire Ball</a>
+			<br /><br />
+			<button id=btnSpellFF onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
+			<br />	<img src = "images/manasmall.png" Title="Mana">750
+		</div>			   
 		<div id ="FastForwardTab" class = "container">
 			<br />
 			<a id = 'BtnSpellFFDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Time Skip</a>

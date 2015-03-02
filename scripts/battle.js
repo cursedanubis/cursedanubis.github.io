@@ -17,8 +17,11 @@ var justKilled = 0;		//HHound statistic
 var peasantsKilled = 0; //HHound statistic
 var minersKilled = 0;
 var unitsSeduced = 0;   //Succubus statistic
+
 var inbattle = false;
 var curBattling;
+var battlePercent;
+var spellBoostPercent;
 
 var Raidtime = 0;
 var BattlePower = 0;
@@ -32,7 +35,7 @@ function calculateBattlePower(){
 		weapmult = 2;
 	}
 	BattlePower =  (Page.number * 10) + (Squire.number*50) + (Knight.number*150) + (Paladin.number * 500 * weapmult) + (Shade.number * 5) + (Aspect.number * 100);
-	document.getElementById("BattlePower").innerHTML = BattlePower;
+	document.getElementById("BattlePower").innerHTML = fnum(BattlePower);
 	document.getElementById("BattlePower2").innerHTML = BattlePower;
 };
 
@@ -60,6 +63,8 @@ var Enemy = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, html
 	this.percentIncrement = percentIncrement;
 	this.speed = speed;
 	this.fightable = false;
+	var $bar = $(document.getElementById(this.htmlBarRef));
+	this.spellBoostPercent;
 	//Need to add $bar here to add % fight spell?
 };
 
@@ -76,22 +81,32 @@ Enemy.prototype.fight = function(){
 	if(this.fightable == true){
 	inbattle = true;
 	curBattling = this.name
-		document.getElementById(this.htmlBoxRef).style.display = "block";
-		var $bar = $(document.getElementById(this.htmlBarRef));
-		var progress = setInterval(function() {
-			var currWidth = parseInt($bar.attr('aria-valuenow'));
-		    var maxWidth = parseInt($bar.attr('aria-valuemax'));	
+	document.getElementById(this.htmlBoxRef).style.display = "block";
 	
-			
+	$bar = $(document.getElementById(this.htmlBarRef));
+		var progress = setInterval(function() {
+			 currWidth = parseInt(this.$bar.attr('aria-valuenow'));
+		     maxWidth = parseInt(this.$bar.attr('aria-valuemax'));	
+			 	
 			//update the progress
+			if(this.spellBoostPercent > 0){
+				perComplete = perComplete + parseInt(spellBoostPercent);
+				spellBoostPercent = 0
+				if(perComplete > 100){
+					perComplete = 100;
+				}
+			}
+			
 			$bar.width(perComplete +'%');
 			$bar.attr('aria-valuenow',perComplete);
 			$bar.text(perComplete+'%');
 			perComplete = perComplete + perIncrement;
+			this.percentComplete = perComplete;
+			battlePercent = perComplete;
 			
 		  if (currWidth >= maxWidth){
 			clearInterval(progress);
-			$bar.text("Complete!");
+				$bar.text("Complete!");
 			document.getElementById(alert).style.display = "block";			//Displays alert related to this battle
 			document.getElementById(box).style.display = "none";			//Hides progress bar box
 			document.getElementById(btn).innerHTML = EnemyName + " Defeated!";     //Changes button text
@@ -109,6 +124,17 @@ Enemy.prototype.fight = function(){
 	}
 }
 
+Enemy.prototype.setPercent = function(num){
+	this.percentComplete = num;
+	$bar.width(num +'%');
+	$bar.attr('aria-valuenow',num);
+	$bar.text(num +'%');
+}
+
+function spellBoost(num){
+	spellBoostPercent = num;
+}
+
 Enemy.prototype.canFight = function(){
 	
 	var myButton = this.htmlBtnRef
@@ -116,6 +142,7 @@ Enemy.prototype.canFight = function(){
 	if(BattlePower >= this.BPReq && SpiritPower >= this.SPReq && inbattle == false){
 		this.fightable = true;
 		document.getElementById(myButton).disabled = false;
+		
 		this.checkFlag();
 	}
 	else{
@@ -197,10 +224,6 @@ Enemy.prototype.checkFlag = function(){
 	}
 };
 
-Enemy.prototype.setPercent = function(previousPercent){
-	this.percentComplete = previousPercent;
-};
-
 function setEnemyDescription(Enemy, element){
 	var popover = document.getElementById(element);
 	popover.setAttribute("data-content", Enemy.description);		
@@ -208,7 +231,6 @@ function setEnemyDescription(Enemy, element){
 
 function setDefeatEvents(name){
 	switch(name){
-
 		case 'Goblins':
 			defeatedGoblins = true;
 			gold = gold + 2000;
@@ -247,7 +269,6 @@ function setDefeatEvents(name){
 		break;
 		
 		case 'Pixie':
-//			document.getElementById('buildTowerTab').style.display = "block";
 			defeatedPixie = true;
 		break;	
 
@@ -266,9 +287,100 @@ function setDefeatEvents(name){
 		break;
 		
 		default:
-	}
-		
+	}	
 };
+
+$(document).ready(function() {
+  var anchor = window.location.hash;
+  $(anchor).collapse('toggle');
+});
+
+function showBattle(name){
+	switch (name){
+		case 'Goblins':
+			$("#GoblinCollapse").collapse('show');
+		break;	
+	
+		case 'Bandits':
+			$("#BanditCollapse").collapse('show');
+		break;
+		
+		case 'Hermit':
+			$("#HermitCollapse").collapse('show');
+		break;	
+		
+		case 'Ogre':	
+			$("#OgreCollapse").collapse('show');
+		break;
+		
+		case 'Hellhounds':
+			$("#HellhoundCollapse").collapse('show');
+		break;
+		
+		case 'Pixie':
+			$("#pixieCollapse").collapse('show');
+		break;	
+
+		case 'Armor':
+			$("#ArmorCollapse").collapse('show');
+		break;			
+		
+		case 'Archmage':
+			$("#ArchmageCollapse").collapse('show');
+		break;	
+		
+		case 'Succubus':
+			$("#SuccubusCollapse").collapse('show');
+		break;
+		default:
+	}	
+}
+
+function loadBattle(name, percent){
+	spellBoost(percent);
+	showBattle(name);
+	switch (name){
+		case 'Goblins':
+			Goblins.fight();
+		break;	
+	
+		case 'Bandits':
+			Bandits.fight();
+		break;
+		
+		case 'Hermit':
+			Hermit.fight();
+
+		break;		
+		
+		case 'Ogre':	
+			Ogre.fight();
+		break;
+		
+		case 'Hellhounds':
+			Hellhounds.fight();
+		break;
+		
+		case 'Pixie':
+			Pixie.fight();
+		break;	
+
+		case 'Armor':
+			Armor.fight();
+		break;			
+		
+		case 'Archmage':
+			Archmage.fight();
+		
+		case 'Succubus':
+			Succubus.fight();
+		break;
+		
+		default:
+	}
+};
+
+
 //function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, BPReq, SPReq, percentComplete, percentIncrement,speed)
 var goblinsDesc = "Goblin description placeholder <br><br> You should probably stop them.";
 var Goblins = new Enemy('Goblins', goblinsDesc, 'BatGoblinsProgBarBox', 'BatGoblinsProgBar', 'btnBatGoblins','goblinDefeatAlert',75,0,0,10,500);
@@ -408,7 +520,7 @@ var Archmage = new Enemy("Archmage", archmageDesc, 'BatMageProgBarBox','BatMageP
 setEnemyDescription(Archmage, 'btnDescMage');
 
 var succubusDesc = "A very shapely demon. She has magic powers that make it difficult to resist her will. Not wearing any clothes probably helps too.";
-var Succubus = new Enemy("Succubus", succubusDesc, 'BatSuccubusProgBarBox','BatSuccubusProgBar','btnBatSuccubus','SuccubusDefeatAlert',35000,2000,0,1,2000);
+var Succubus = new Enemy("Succubus", succubusDesc, 'BatSuccubusProgBarBox','BatSuccubusProgBar','btnBatSuccubus','SuccubusDefeatAlert',35000,2000,0,1,3000);
 setEnemyDescription(Succubus, 'btnDescSuccubus');
 
 function triggerSuccubus(){
@@ -418,7 +530,7 @@ function triggerSuccubus(){
 }
 
 function succubusRaid(){
-		document.getElementById('BatSuccubus').style.display = "block";
+//		document.getElementById('BatSuccubus').style.display = "block";
 		if(defeatedSuccubus == false){
 		var raidtime = Math.floor((Math.random() * 130) + 70); ;
 //		console.log("Raidtime in: " + raidtime)
@@ -432,18 +544,6 @@ function succubusRaid(){
 			if(defeatedSuccubus == false && (inbattle == false || (inbattle == true && curBattling == "Succubus"))){
 				succubusSeduce();
 				succubusRaid();
-				//Dismisses Raid Alert
-				var ticker2 = 0 ;
-				var clearAttackAlert = setInterval(function() {
-					ticker2 = ticker2 + 1;   
-						if (ticker2 == 20){
-							clearInterval(clearAttackAlert);
-							if(document.getElementById('SuccubusAttackAlert').style.display == "block"){
-							document.getElementById("SuccubusAttackAlert").style.display = "none";
-						}	
-					}
-				}, 1000);	
-				//End Dismisses Raid Alert
 			}
 		  }
 		}, 1000);				
@@ -482,6 +582,19 @@ function succubusSeduce(){
 	document.getElementById('unitsSeduced').innerHTML = unitsSeduced;
 	
 	document.getElementById('SuccubusAttackAlert').style.display = "block"
+	
+	//Dismisses Raid Alert
+	var ticker2 = 0 ;
+	var clearAttackAlert = setInterval(function() {
+		ticker2 = ticker2 + 1;   
+			if (ticker2 == 20){
+				clearInterval(clearAttackAlert);
+				if(document.getElementById('SuccubusAttackAlert').style.display == "block"){
+				document.getElementById("SuccubusAttackAlert").style.display = "none";
+			}	
+		}
+	}, 1000);	
+	//End Dismisses Raid Alert
 }
 
 function checkBattleButtons(){

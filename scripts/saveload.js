@@ -5,6 +5,7 @@
 		//Currency variables
 		localStorage.setItem("gold",gold);
 		localStorage.setItem("wood", wood);
+		localStorage.setItem("paper",paper);
 		localStorage.setItem("iron",iron);
 		localStorage.setItem("silver",silver);			
 		localStorage.setItem("faith",faith);
@@ -69,6 +70,9 @@
 		
 		//MiscFlags
 		localStorage.setItem("lastPage",lastPage);
+		localStorage.setItem("inbattle",inbattle);
+		localStorage.setItem("curBattling",curBattling);
+		localStorage.setItem("battlePercent", battlePercent);
 		
 		document.getElementById('saveAlert').style.display = "block";  //Displays saved alert
 		
@@ -99,7 +103,7 @@
 	//	console.debug($.cookie("gold"));
 		if(localStorage.gold != null){
 			gold = parseInt(localStorage.gold);
-			document.getElementById("gold").innerHTML = gold;
+			document.getElementById("gold").innerHTML = fnum(gold);
 		}
 		
 		if(localStorage.goldStolen != null){
@@ -109,31 +113,36 @@
 		
 		if(localStorage.wood != null){
 			wood = parseInt(localStorage.wood);
-			document.getElementById("wood").innerHTML = wood;
-		}		
+			document.getElementById("wood").innerHTML = fnum(wood);
+		}	
+
+		if(localStorage.paper != null){
+			paper = parseInt(localStorage.paper);
+			document.getElementById("paper").innerHTML = fnum(paper);
+		}			
 		
 		if(localStorage.iron != null){
 			iron = parseInt(localStorage.iron);
-			document.getElementById("iron").innerHTML = iron;
+			document.getElementById("iron").innerHTML = fnum(iron);
 		}
 
 		if(localStorage.silver != null){
 			silver = parseInt(localStorage.silver);
-			document.getElementById("silver").innerHTML = silver;
+			document.getElementById("silver").innerHTML = fnum(silver);
 		}		
 		
 		if(localStorage.faith != null){
 			faith = parseInt(localStorage.faith);
-			document.getElementById("faith").innerHTML = faith;
+			document.getElementById("faith").innerHTML = fnum(faith);
 		}			
 		if(localStorage.souls != null){
 			souls = parseInt(localStorage.souls);
-			document.getElementById("souls").innerHTML = souls;
+			document.getElementById("souls").innerHTML = fnum(souls);
 		}		
 
 		if(localStorage.mana != null){
 			mana = parseInt(localStorage.mana);
-			document.getElementById("mana").innerHTML = mana;
+			document.getElementById("mana").innerHTML = fnum(mana);
 		}		
 		if(localStorage.totalTimePlayed != null){
 			totalTimePlayed = parseInt(localStorage.totalTimePlayed);
@@ -462,7 +471,18 @@
 		if(localStorage.unitsSeduced != null){
 			unitsSeduced = parseInt(localStorage.unitsSeduced);
 			document.getElementById("unitsSeduced").innerHTML = unitsSeduced;
-		}			
+		}	
+		if(localStorage.inbattle != null){
+			var myBool = (localStorage.inbattle == "true")
+			if(myBool == true){
+			//	inbattle = true;
+				curBattling = localStorage.curBattling;
+				battlePercent = localStorage.battlePercent;
+				console.log(curBattling + ": " + battlePercent + "%")
+				setTimeout(function() { loadBattle(curBattling, battlePercent); }, 500)
+
+			}
+		}	
 		if(localStorage.lastPage != null){
 			lastPage = localStorage.lastPage;
 		}
