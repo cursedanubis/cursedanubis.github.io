@@ -10,7 +10,7 @@ display: inline-block;
 margin-left: auto;
 margin-right: auto;
 padding-left: 10px;
-padding-right: 25px;
+padding-right: 67px;
 }
 
 
@@ -34,15 +34,16 @@ display: inline-block;
 margin-left: auto;
 margin-right: auto;
 padding-left: 10px;
-padding-right: 10px;
+padding-right: 20px;
 }
 
 
 #SecondaryResourceList div
 {
 display: inline;
-padding-bottom: -1px;
+margin-top: 9px;
 padding: 0px;
+margin-bottom: 0px;
 }
 
 
@@ -52,14 +53,14 @@ display: inline-block;
 margin-left: auto;
 margin-right: auto;
 padding-left: 5px;
-padding-right: 5px;
+padding-right: 20px;
 }
 
 
 #GatherList div
 {
 display: inline;
-margin-top: 9px;
+margin-top: 20px;
 margin-bottom: 0px;
 padding: 0px;
 }
