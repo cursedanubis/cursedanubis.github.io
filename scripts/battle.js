@@ -285,6 +285,7 @@ function setDefeatEvents(name){
 		break;
 
 		case 'Ooze':
+			document.getElementById('tomeUnlock').style.display = "block";
 			document.getElementById('tomeUnlockAlert').style.display = "block";
 			defeatedOoze = true;
 		break;	
@@ -526,7 +527,7 @@ setEnemyDescription(Hellhounds, 'btnDescHellhounds');
 function triggerHellhound(){
 	document.getElementById('hellhoundUnlockAlert').style.display = "block";
 	document.getElementById('BatHellhound').style.display = "block";
-	Hellhound.showBattle();
+	Hellhounds.showBattle();
 	hellHoundRaid();
 }
 

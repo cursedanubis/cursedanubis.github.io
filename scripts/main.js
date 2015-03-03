@@ -96,8 +96,8 @@ function clickThing(number, type)
 			break;	
 
 		case "tome":
-			if(wood >= 2000*number){
-				tomes = tomes + tomes;
+			if(paper >= 2000*number){
+				tomes = tomes + number;
 				paper = paper - number * 2000;
 				document.getElementById("paper").innerHTML = fnum(paper);
 				document.getElementById("tomes").innerHTML = fnum(tomes);
@@ -105,8 +105,8 @@ function clickThing(number, type)
 			break;	
 
 		case "tomeMouse":
-			if(wood >= 2000*number){
-				tomes = tomes + tomes;
+			if(paper >= 2000*number){
+				tomes = tomes + number;
 				paper = paper - number * 2000;
 				document.getElementById("paper").innerHTML = fnum(paper);
 				document.getElementById("tomes").innerHTML = fnum(tomes);
