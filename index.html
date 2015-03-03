@@ -30,13 +30,10 @@
 		else {
 			ele.style.display = "block";
 		}
-	}; 
-
+	};
 	$(function () { 
 		$("[data-toggle='popover']").popover(); 	
-	});
-	
-					
+	});				
 	</script>
 
   </head>
@@ -79,13 +76,11 @@
 				  <li class="divider"></li>
 				  <li><a id="save" href="javascript:saveCookie();">Save</a></li>
                   <li><a id="load" href="javascript:loadCookie()">Load</a></li>
-<!--				  <li><a id="delete" href="javascript:deleteCookie()">Clear Cookies</a></li>-->
 <!--				  <li><a id="debugmoney" href="javascript:debugCurrency()">Add debugging currency</a></li> -->
                   <li class="divider"></li>
 				  <li><a id="hardreset" href="javascript:hardReset()">!Hard reset!</a></li>
 				  <li class="divider"></li>
                   <li class="dropdown-header"></li>
-<!--				  <li><a href="#" data-toggle="modal" data-target="#versionmodal">Version</a></li>-->
 				  <li><a id="ToggleTrunc" href="javascript:toggleTrunc();">Toggle Number Truncation</a></li>
 				  <li><a id="verinfo" target="_blank" href="changelog.html">Version 0.6.9.2</a></li>
                   <li><a href="#" data-toggle="modal" data-target="#aboutmodal">About</a></li>
@@ -269,7 +264,7 @@
 		 <img src = "images/money_goldsmall.png" title ="Gold" > <span id="LumberjackCost">150</span>
 			<div id ="LumberjackUpgradeTab" class = "collapse">
 				<div class = "well">
-					<button id=btnljackUpgrade1 onclick="lumberjackUpgradeCollection()"	type="button" class="btn btn-default" title = "Your lumberjacks are now equipped with reinforced axes that allow them to chop longer before the axes get dull.">Reinforced Axes</button>
+					<button id=btnljackUpgrade1 onclick="lumberjackUpgradeCollection()"	type="button" class="btn btn-default" title = "Your lumberjacks are now equipped with reinforced axes that allow them to chop longer before the axes get dull. Lumberjacks are twice as effective at gathering wood.">Reinforced Axes</button>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 2,500 | <img src = "images/ironsmall.png" title="Iron"> 1,500
 					<br /> <br />
@@ -500,11 +495,11 @@
 				<br />
 				<a id = 'BtnPMillDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Paper Mills"
 				data-content="Constructing a paper mill allows you to automatically convert wood into paper. Converts 50 wood to 1 paper every 10 second">Paper Mill (<span id="papermills">0</span>)</a>			
-				<br />
+				<br /><br />
 				<div class="btn-group" role="group" aria-label="...">
-				  <button id ="MillLess" type = "button" class="btn btn-default" onclick = "PaperMillOnMinus()">-</button>
+				  <button id ="MillLess" type = "button" class="btn btn-warning" onclick = "PaperMillOnMinus()">-</button>
 				  <button id = "MillOnOff" type="button" class="btn btn-default" onclick = "PaperMillToggle()">On/Off</button>
-				  <button id ="MillMore" type = "button" class="btn btn-default" onclick = "PaperMillOnPlus()">+</button>
+				  <button id ="MillMore" type = "button" class="btn btn-warning" onclick = "PaperMillOnPlus()">+</button>
 				</div>
 				<br /><br />
 				<button id=btnbuyPMill title="Paper Mills turn wood into paper." onclick="PaperMill.buyOne()"	type="button" class="btn btn-default">Build Paper Mill</button>	
@@ -515,6 +510,11 @@
 			
 				<div id = "PMillUpgradeTab" class = "collapse" >
 					<div class = "well">
+						<div id = 'PMillUpgradeEffTab' class = 'container'> 
+							<button id=btnPmillEffUpgrade onclick="PmillEffUpgrade()"	type="button" class="btn btn-default" title = "Adjustmets to your mills make them much more efficient at converting wood into paper. They require 40% less wood.">Process Control</button>
+							<br />	
+							<img src = "images/money_goldsmall.png" title ="Gold" > 50,000 | <img src = "images/woodsmall.png" title = "Wood"> 25,000 | <img src = "images/ironsmall.png" title="Iron"> 35,000		
+						</div>
 					</div>
 				</div>				
 		</div>
@@ -523,7 +523,7 @@
 			<div id = "WoodcuttingTab" class = "container">
 				<button id=btnOpenMill title="Constructing a lumber mill allows you to hire lumberjacks and gather wood." onclick="Lumbermill.buy()"	type="button" class="btn btn-default">Construct Lumber Mill</button>
 				<br />
-				<img src = "images/money_goldsmall.png" title ="Gold"> 750 | <img src = "images/woodsmall.png" title = "Wood"> 100
+				<img src = "images/money_goldsmall.png" title ="Gold"> 750 
 				<br />
 			</div>
 			<hr>
@@ -1047,14 +1047,13 @@
 		
 		
 		<div id = saveAlert class="alert alert-success fade in" role="alert" style="display: none;">
-		<!--	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
 			<strong>Save!</strong> Your game has been saved!   
 		</div>
 		<div id = loadAlert class="alert alert-success fade in" role="alert" style="display: none;">
-		<!--	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
 			<strong>Load!</strong> Your game save has been loaded!   
-		</div> 		
-	</div>
+		</div> 	
+		
+	</div> <!-- End Alert Container -->
  </div> <!-- /container -->
 		
 
@@ -1091,27 +1090,6 @@
 	  </div>
 	</div>	
 	
-	<!-- Version Modal -->
-<!--	<div class="modal fade" id="versionmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-		<div class="modal-content">
-		  <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title" id="myModalLabel">Holy Wars v. 0.6.6</h4>
-		  </div>
-		  <div class="modal-body">
-				
-				<iframe id=changelogiframe src="changelog.html"></iframe>
-				
-		  </div>
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		  </div>
-		</div>
-	  </div>
-	</div>		-->
-	
-
 	<script type ="text/javascript">
 		function CollapseAll(){
 			document.getElementById("Battle").style.display = "none";

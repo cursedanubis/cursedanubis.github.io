@@ -376,21 +376,31 @@ window.setInterval(function(){					//Tavern unit generation
 	Peasant.recalcCost();
 	
 	if(tavernUpgrade == true){
-	clickThing(Tavern.number,"miner");
-	tavernminers = tavernminers + Tavern.number;
-	document.getElementById('tavernminers').innerHTML = tavernminers;
-	Miner.costAdj = tavernminers;
-	Miner.recalcCost();	
+		clickThing(Tavern.number,"miner");
+		tavernminers = tavernminers + Tavern.number;
+		document.getElementById('tavernminers').innerHTML = tavernminers;
+		Miner.costAdj = tavernminers;
+		Miner.recalcCost();	
 	}
 
 }, 30000);
 
 window.setInterval(function(){					//Tavern unit generation
-	if(PaperMill.status == "On" && wood >= PaperMill.numberOn*50){
-		clickThing(PaperMill.numberOn,"paper");		
-	}
-	else if(wood < PaperMill.numberOn*50){
-		PaperMill.status = "Off"
-	}
 
+	if(PmillEffUpgr == true){
+		if(PaperMill.status == "On" && wood >= PaperMill.numberOn*60){
+			clickThing(PaperMill.numberOn,"paper");		
+		}
+		else if(wood < PaperMill.numberOn*60){
+			PaperMill.status = "Off"
+		}		
+	}
+	else{
+		if(PaperMill.status == "On" && wood >= PaperMill.numberOn*100){
+			clickThing(PaperMill.numberOn,"paper");		
+		}
+		else if(wood < PaperMill.numberOn*100){
+			PaperMill.status = "Off"
+		}
+	}
 }, 10000);

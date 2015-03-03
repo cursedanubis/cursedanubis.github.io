@@ -45,6 +45,7 @@ var lumbermillOpened = false;
 var minesOpened = false;
 var cathedralOpened = false;
 var tomesUnlocked = false;
+var PmillEffUpgr = false;
 var barracksOpened = false;
 var towerUnlocked = false;
 var towerBuilt = false;
@@ -83,18 +84,18 @@ function clickThing(number, type)
 			break;
 
 		case "paper":
-			if(wood >= 50*number){
+			if(wood >= 100*number){
 			paper = paper + number;
-			wood = wood - number * 50;
+			wood = wood - number * 100;
 			document.getElementById("paper").innerHTML = fnum(paper);
 			document.getElementById("wood").innerHTML = fnum(wood);
 			}
 			break;				
 			
 		case "paperMouse":
-			if(wood >= 50){
+			if(wood >= 100){
 				paper = paper + number;
-				wood = wood - number * 50;
+				wood = wood - number * 100;
 				document.getElementById("paper").innerHTML = fnum(paper);
 				document.getElementById("wood").innerHTML = fnum(wood);
 			}
@@ -251,6 +252,20 @@ function priestUpgradeCollection(){
 	}	
 }
 
+function PmillEffUpgrade(){
+	if(gold >= 50000 && wood >= 25000 && iron >= 35000){
+		gold = gold - 50000
+		wood = wood - 25000
+		iron = iron - 35000
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('wood').innerHTML = fnum(wood);
+		document.getElementById('iron').innerHTML = fnum(iron);
+		PmillEffUpgr = true;
+		document.getElementById("btnPmillEffUpgrade").disabled = true;
+		document.getElementById("btnPmillEffUpgrade").innerHTML = "Process Control Bought";
+	}		
+}
+
 function UnlockTomes(){
 	if(gold >= 12000 && paper >= 2000 && faith >= 1000){
 		tomesUnlocked = true;
@@ -324,6 +339,13 @@ function UpdateButtons() {
 	else{
 		document.getElementById("btnPriestUpgrade1").disabled = false;
 	}
+	
+	if(PmillEffUpgrade == true || (gold < 50000 || wood < 25000 || iron < 35000)){
+		document.getElementById("btnPmillEffUpgrade").disabled = true;
+	}
+	else{
+		document.getElementById("btnPmillEffUpgrade").disabled = false;
+	}	
 	
 	//Unlock Squire Button
 	if(squiresUnlocked == true || (BattlePower < 120|| gold < 4000)){	
@@ -497,7 +519,7 @@ function dhms(s, f) { // seconds, format
     f = f.replace('s', s);
   } 
   else {
-    f = d + ':' + h + ':' + m + ':' + s;
+    f = d + 'd:' + h + 'h:' + m + 'm:' + s + 's';
   }
   return f; // :) omg...
 }

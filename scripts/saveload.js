@@ -73,6 +73,7 @@
 		localStorage.setItem("squiresUnlocked",squiresUnlocked);
 		localStorage.setItem("knightsUnlocked",knightsUnlocked);
 		localStorage.setItem("tomesUnlocked",tomesUnlocked);
+		localStorage.setItem("PmillEffUpgr", PmillEffUpgr);
 		localStorage.setItem("paladinWepUpgrade",paladinWepUpgrade);
 		localStorage.setItem("tavernUpgrade",tavernUpgrade);
 		
@@ -365,8 +366,16 @@
 				document.getElementById("btnTomeUnlock").innerHTML = "Scribing Unlocked";
 				document.getElementById("btnTomeUnlock").disabled = true;
 			}
-		}		
+		}	
 		
+		if(localStorage.PmillEffUpgr != null){
+			var myBool = (localStorage.PmillEffUpgr == "true")
+			if(myBool == true){
+				PmillEffUpgr = true;
+				document.getElementById("btnPmillEffUpgrade").disabled = true;
+				document.getElementById("btnPmillEffUpgrade").innerHTML = "Process Control Bought";
+			}
+		}			
 		if(localStorage.paladinWepUpgrade != null){
 			var myBool = (localStorage.paladinWepUpgrade == "true")
 			if(myBool == true){
