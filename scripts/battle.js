@@ -7,6 +7,7 @@ var defeatedHermit = false;
 var defeatedOgre = false;
 var defeatedHhounds = false;
 var defeatedPixie = false;
+var defeatedOoze = false;
 var defeatedArchmage = false;
 var defeatedArmor = false;
 var defeatedSuccubus = false;
@@ -15,7 +16,10 @@ var justStolen = 0;
 var typeKilled = "none"	//HHound statistic
 var justKilled = 0;		//HHound statistic
 var peasantsKilled = 0; //HHound statistic
-var minersKilled = 0;
+var minersKilled = 0;	//HHound statistic
+var absorbedType = "none"//Ooze statistic
+var ironAbsorbed = 0;	//Ooze statistic
+var silverAbsorbed = 0; //Ooze statistic
 var unitsSeduced = 0;   //Succubus statistic
 
 var inbattle = false;
@@ -131,11 +135,11 @@ Enemy.prototype.setPercent = function(num){
 	$bar.text(num +'%');
 }
 
-function spellBoost(num){
+function spellBoost(num){			//Boosts current battle completion percent by desired number
 	spellBoostPercent = num;
 }
 
-Enemy.prototype.canFight = function(){
+Enemy.prototype.canFight = function(){		//Checks to see if this enemy can be fought
 	
 	var myButton = this.htmlBtnRef
 	
@@ -152,7 +156,7 @@ Enemy.prototype.canFight = function(){
 	}	
 };
 
-Enemy.prototype.checkFlag = function(){
+Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won, if so change button to reflect
 	var myButton = this.htmlBtnRef
 	switch(this.name){
 		case 'Goblins':
@@ -205,6 +209,12 @@ Enemy.prototype.checkFlag = function(){
 				document.getElementById(myButton).disabled = true;	
 			}			
 		break;	
+		
+		case 'Ooze':
+			if(defeatedOoze == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+			}			
 		
 		case 'Archmage':
 			if(defeatedArchmage == true){
@@ -263,10 +273,18 @@ function setDefeatEvents(name){
 			document.getElementById('Ethereal').style.display = "block";
 			document.getElementById('EtherealMenu').style.display = "block";
 			document.getElementById('SpiritualStrength').style.display = "block";
+			showBattle('Armor');
+			showBattle('Pixie');
 			document.getElementById('BatArmor').style.display = "block";
 			document.getElementById('BatPixie').style.display = "block";
+			setTimeout(function() { triggerOoze(); }, 30000);	
 			defeatedHhounds = true;
 		break;
+
+		case 'Ooze':
+			defeatedOoze = true;
+			document.getElementById('booksUnlock').style.display = "block";
+		break;	
 		
 		case 'Pixie':
 			defeatedPixie = true;
@@ -290,9 +308,21 @@ function setDefeatEvents(name){
 	}	
 };
 
-$(document).ready(function() {
-  var anchor = window.location.hash;
-  $(anchor).collapse('toggle');
+$(document).ready(function(){
+    $(".toggle-false").click(function(){
+        $("#myCollapsible").collapse({
+            toggle: false
+        });
+    });
+    $(".show-btn").click(function(){
+        $("#myCollapsible").collapse('show');
+    });
+    $(".hide-btn").click(function(){
+        $("#myCollapsible").collapse('hide');
+    });
+    $(".toggle-btn").click(function(){
+        $("#myCollapsible").collapse('toggle');
+    });
 });
 
 function showBattle(name){
@@ -333,6 +363,43 @@ function showBattle(name){
 			$("#SuccubusCollapse").collapse('show');
 		break;
 		default:
+	}	
+}
+
+function showUndefeatedBattles(){
+	if(defeatedGoblins == false){
+		showBattle('Goblins');
+	}
+	if(defeatedBandits == false){
+		showBattle('Bandits');
+	}
+
+	if(defeatedHermit == false){
+		showBattle('Hermit');	
+	}
+	
+	if(defeatedOgre == false){
+		showBattle('Ogre');
+	}
+	
+	if(defeatedHhounds == false){
+		showBattle('Hellhounds');
+	}			
+
+	if(defeatedPixie == false){
+		showBattle('Pixie');	
+	}			
+
+	if(defeatedArmor == false){
+		showBattle('Armor');			
+	}			
+
+	if(defeatedArchmage == false){
+		showBattle('Archmage');
+	}							
+
+	if(defeatedSuccubus == false){
+		showBattle('Succubus');
 	}	
 }
 
@@ -403,9 +470,9 @@ function banditLoot(){
 				justStolen =  Math.ceil(gold*1/5);
 				goldStolen = goldStolen + justStolen;
 				gold = gold - justStolen;
-				document.getElementById("gold").innerHTML = gold;
-				document.getElementById("goldStolen").innerHTML = goldStolen;
-				document.getElementById("justStolen").innerHTML = justStolen;
+				document.getElementById("gold").innerHTML = fnum(gold);
+				document.getElementById("goldStolen").innerHTML = fnum(goldStolen);
+				document.getElementById("justStolen").innerHTML = fnum(justStolen);
 				document.getElementById("banditLootAlert").style.display = "block";
 				banditLoot();
 				//Dismisses Raid Alert
@@ -444,6 +511,7 @@ setEnemyDescription(Hellhounds, 'btnDescHellhounds');
 function triggerHellhound(){
 	document.getElementById('hellhoundUnlockAlert').style.display = "block";
 	document.getElementById('BatHellhound').style.display = "block";
+	Hellhound.showBattle();
 	hellHoundRaid();
 }
 
@@ -458,7 +526,7 @@ function hellHoundRaid(){
 //			console.log(ticker);
 		  if (ticker == 0){
 			clearInterval(raid);
-			if(defeatedHhounds == false){
+			if(defeatedHhounds == false && (inbattle == false || (inbattle == true && curBattling == "Hellhounds"))){	
 				hellhoundCull();
 				hellHoundRaid();
 				//Dismisses Raid Alert
@@ -507,6 +575,7 @@ function hellhoundCull(){
 		recalculateCosts();
 };
 
+
 var pixieDesc = "This little pixie hates your guts.";
 var Pixie = new Enemy("Pixie", pixieDesc, 'BatPixieProgBarBox','BatPixieProgBar','btnBatPixie','PixieDefeatAlert',3500,100,0,1,1000);
 setEnemyDescription(Pixie, 'btnDescPixie');
@@ -514,6 +583,72 @@ setEnemyDescription(Pixie, 'btnDescPixie');
 var armorDesc = "In the woods nearby, you notice a nasty looking armor hanging about in the shadows. It makes threatening gestures at you from afar.";
 var Armor = new Enemy("Armor", armorDesc, 'BatArmorProgBarBox','BatArmorProgBar','btnBatArmor','unlockAspectofJustice',4000,250,0,1,1000);
 setEnemyDescription(Armor, 'btnDescArmor');
+
+var oozeDesc = "Nasty and moist noises come from your mines at night. Upon deeper exploration of the cave system attached to your mines, you find a particularly large and copper-toned ooze sucking up iron and silver. Somehow it is both gelatinous and metallic at the same time... Conventional weapons don't seem to hurt it at all."
+var Ooze = new Enemy("Ooze", oozeDesc, 'BatOozeProgBarBox','BatOozeProgBar','btnBatOoze','unlockBooks',0,550,0,1,1500);
+setEnemyDescription(Ooze, 'btnDescOoze');
+
+function triggerOoze(){
+	showBattle('Ooze');	
+	document.getElementById('BatOoze').style.display = "block";
+	oozeRaid();
+}
+
+function oozeRaid(){
+	
+	if(defeatedOoze == false){
+		var raidtime = Math.floor((Math.random() * 120) + 60); ;
+//		console.log("Raidtime in: " + raidtime)
+		var ticker = raidtime;
+		
+		var raid = setInterval(function() {
+			ticker = ticker - 1;  
+//			console.log(ticker);
+		  if (ticker == 0){
+			clearInterval(raid);
+			if(defeatedOoze == false && (inbattle == false || (inbattle == true && curBattling == "Ooze"))){	
+				oozeAbsorb();
+				oozeRaid();
+			}
+		  }
+		}, 1000);				
+	};		
+};
+
+function oozeAbsorb(){
+	var flipCoin = Math.floor(Math.random()*10+1);    //Determining which unit gets killed
+	if(flipCoin%2 == 0){
+		absorbedType = "iron";
+		ironAbsorbed = ironAbsorbed + Math.floor(iron/5);
+		iron = iron - Math.floor(iron/5);
+		document.getElementById('iron').innerHTML = fnum(iron);
+		console.log(absorbedType);	
+	}
+	else{
+		absorbedType = "silver";
+		silverAbsorbed = silverAbsorbed + Math.floor(silver/5);
+		silver = silver - Math.floor(silver/5);
+		document.getElementById('silver').innerHTML = fnum(silver);
+		console.log(absorbedType);		
+	}
+	
+	document.getElementById('absorbedType').innerHTML = absorbedType;
+	document.getElementById('OozeAttackAlert').style.display = "block"
+	
+	
+	//Dismisses Raid Alert
+	var ticker2 = 0 ;
+	var clearAttackAlert = setInterval(function() {
+		ticker2 = ticker2 + 1;   
+			if (ticker2 == 20){
+				clearInterval(clearAttackAlert);
+				if(document.getElementById('OozeAttackAlert').style.display == "block"){
+				document.getElementById("OozeAttackAlert").style.display = "none";
+			}	
+		}
+	}, 1000);	
+	//End Dismisses Raid Alert	
+};
 
 var archmageDesc = "One of The Evil One's lieutenants, capable of casting nasty and powerful spells.";
 var Archmage = new Enemy("Archmage", archmageDesc, 'BatMageProgBarBox','BatMageProgBar','btnBatMage','unlockWizardTowerAlert',20000,750,0,1,2000);
@@ -524,7 +659,8 @@ var Succubus = new Enemy("Succubus", succubusDesc, 'BatSuccubusProgBarBox','BatS
 setEnemyDescription(Succubus, 'btnDescSuccubus');
 
 function triggerSuccubus(){
-	document.getElementById('EvilOneIreAlert').style.display = "block";	
+	document.getElementById('EvilOneIreAlert').style.display = "block";
+	showBattle('Succubus');	
 	document.getElementById('BatSuccubus').style.display = "block";
 	succubusRaid();
 }
@@ -619,6 +755,9 @@ function checkBattleButtons(){
 
 	//Armor Button
 	Armor.canFight();
+	
+	//Ooze Button
+	Ooze.canFight();
 	
 	//Archmage Button
 	Archmage.canFight();

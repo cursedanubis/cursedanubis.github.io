@@ -142,12 +142,13 @@ function debugCurrency(){
 
 //UPGRADES
 
-function peasantUpgradeCollection(){
+function peasantUpgradeCollection(){	
 	if(gold >= 2000){
 		gold = gold - 2000;
 		pGoldUpgrade = true;	
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById("btnPeasantUpgrade1").disabled = true;
+		document.getElementById("btnPeasantUpgrade1").innerHTML = "Peasant Power Bought";
 	}	
 };
 
@@ -157,6 +158,7 @@ function upgradeClickGoldMultiplier(){
 		pGoldClickUpgrade = true;	
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById("clickGoldUpgrade").disabled = true;
+		document.getElementById("clickGoldUpgrade").innerHTML = "Click Upgrade Bought";
 	}	
 };
 
@@ -168,6 +170,7 @@ function lumberjackUpgradeCollection(){
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById("btnljackUpgrade1").disabled = true;
+		document.getElementById("btnljackUpgrade1").innerHTML = "Reinforced Axes Bought";
 	}
 };
 
@@ -179,6 +182,7 @@ function minerUpgradePanning(){
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById("btnminerUpgrade1").disabled = true;
+		document.getElementById("btnminerUpgrade1").innerHTML = "Learn Panning Bought";
 	}	
 };
 
@@ -203,6 +207,7 @@ function UnlockSquire(){
 		squiresUnlocked = true;
 		document.getElementById("btnPageUpgrade1").disabled = true;
 		document.getElementById('SquireTab').style.display = "block";
+		document.getElementById("btnPageUpgrade1").innerHTML = "Unlocked Squires";
 	}
 }
 
@@ -212,6 +217,7 @@ function UnlockKnight(){
 		document.getElementById('gold').innerHTML = fnum(gold);
 		knightsUnlocked = true;
 		document.getElementById("btnSquireUpgrade1").disabled = true;
+		document.getElementById("btnSquireUpgrade1").innerHTML = "Unlocked Knights";
 		document.getElementById('KnightTab').style.display = "block";
 	}
 }
@@ -226,6 +232,7 @@ function paladinUpgradeWeapon(){
 		document.getElementById('faith').innerHTML = fnum(faith);
 		paladinWepUpgrade = true;
 		document.getElementById("paladinUpgrade1").disabled = true;
+		document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Bought";
 	}
 }
 

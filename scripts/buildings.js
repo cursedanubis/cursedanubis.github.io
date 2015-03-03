@@ -92,12 +92,12 @@ Building.prototype.buy = function(){
 			silver = silver - this.silverCost;                                                                //removes the silver spent
 			faith = faith - this.faithCost;																	  //removes the faith spent
 			souls = souls - this.soulCost;																	  //removes the souls spent
-			document.getElementById('gold').innerHTML = gold;  										          //updates the number of gold for the user
-			document.getElementById('wood').innerHTML = wood;  										          //updates the number of wood for the user
-			document.getElementById('iron').innerHTML = iron;  										          //updates the number of iron for the user
-			document.getElementById('silver').innerHTML = silver;  										          //updates the number of iron for the user
-			document.getElementById('faith').innerHTML = faith;  										          //updates the number of faith for the user
-			document.getElementById('souls').innerHTML = souls;  										          //updates the number of souls for the user
+			document.getElementById('gold').innerHTML = fnum(gold);  										          //updates the number of gold for the user
+			document.getElementById('wood').innerHTML = fnum(wood);  										          //updates the number of wood for the user
+			document.getElementById('iron').innerHTML = fnum(iron);  										          //updates the number of iron for the user
+			document.getElementById('silver').innerHTML = fnum(silver);  										          //updates the number of iron for the user
+			document.getElementById('faith').innerHTML = fnum(faith);  										          //updates the number of faith for the user
+			document.getElementById('souls').innerHTML = fnum(souls);  										          //updates the number of souls for the user
 		
  			switch(this.flag){
 				case "lumbermillOpened":
@@ -191,31 +191,31 @@ MultBuilding.prototype.canBuy = function(){
 
 MultBuilding.prototype.recalcCost = function(){
 	this.curGoldCost = Math.floor(this.goldCost * Math.pow(this.costMult,this.number-this.costAdj));         //works out the cost of the next Building
-	document.getElementById(this.htmlNextGoldCost).innerHTML = this.curGoldCost;  						      //updates the Building cost for the user
+	document.getElementById(this.htmlNextGoldCost).innerHTML = fnum(this.curGoldCost);  						      //updates the Building cost for the user
 
 	if(this.htmlNextWoodCost != 'none'){
 		this.curWoodCost = Math.floor(this.woodCost * Math.pow(this.costMult,this.number));                      //works out the Wood cost of the next Building
-		document.getElementById(this.htmlNextWoodCost).innerHTML = this.curWoodCost;  						      //updates the Building iron cost for the Building
+		document.getElementById(this.htmlNextWoodCost).innerHTML = fnum(this.curWoodCost);  						      //updates the Building iron cost for the Building
 	}	
 	
 	if(this.htmlNextIronCost != 'none'){
 		this.curIronCost = Math.floor(this.ironCost * Math.pow(this.costMult,this.number));                      //works out the iron cost of the next Building
-		document.getElementById(this.htmlNextIronCost).innerHTML = this.curIronCost;  						      //updates the Building iron cost for the user
+		document.getElementById(this.htmlNextIronCost).innerHTML = fnum(this.curIronCost);  						      //updates the Building iron cost for the user
 	}
 	
 	if(this.htmlNextSilverCost != 'none'){
 		this.curSilverCost = Math.floor(this.silverCost * Math.pow(this.costMult,this.number));                    //works out the silver cost of the next Building	
-		document.getElementById(this.htmlNextSilverCost).innerHTML = this.curSilverCost;  						      //updates the Building silver cost for the user
+		document.getElementById(this.htmlNextSilverCost).innerHTML = fnum(this.curSilverCost);  						      //updates the Building silver cost for the user
 	}
 	
 	if(this.htmlNextFaithCost != 'none'){
 		this.curFaithCost = Math.floor(this.faithCost * Math.pow(this.costMult,this.number));                      //works out the faith cost of the next Building
-		document.getElementById(this.htmlNextFaithCost).innerHTML = this.curFaithCost;  						      //updates the Building faith cost for the user	
+		document.getElementById(this.htmlNextFaithCost).innerHTML = fnum(this.curFaithCost);  						      //updates the Building faith cost for the user	
 	}	
 
 	if(this.htmlNextSoulCost != 'none'){
 		this.curSoulCost = Math.floor(this.soulCost * Math.pow(this.costMult,this.number));                       //works out the Soul cost of the next Building
-		document.getElementById(this.htmlNextSoulCost).innerHTML = this.curSoulCost;  						      //updates the Building Soul cost for the user
+		document.getElementById(this.htmlNextSoulCost).innerHTML = fnum(this.curSoulCost);  						      //updates the Building Soul cost for the user
 	}	
 };
 
@@ -237,42 +237,42 @@ MultBuilding.prototype.buyOne = function(){
 			faith = faith - this.faithCost;																	  //removes the faith spent
 			souls = souls - this.soulCost;																	  //removes the souls spent
 			document.getElementById(this.htmlNumRef).innerHTML = this.number;  							      //updates the number of Buildings for the user
-			document.getElementById('gold').innerHTML = gold;  										          //updates the number of gold for the user
-			document.getElementById('wood').innerHTML = wood;  										          //updates the number of wood for the user
-			document.getElementById('iron').innerHTML = iron;  										          //updates the number of iron for the user
-			document.getElementById('silver').innerHTML = silver;  										          //updates the number of silver for the user
-			document.getElementById('faith').innerHTML = faith;  										          //updates the number of faith for the user
-			document.getElementById('souls').innerHTML = souls;  										          //updates the number of souls for the user
+			document.getElementById('gold').innerHTML = fnum(gold);  										          //updates the number of gold for the user
+			document.getElementById('wood').innerHTML = fnum(wood);  										          //updates the number of wood for the user
+			document.getElementById('iron').innerHTML = fnum(iron);  										          //updates the number of iron for the user
+			document.getElementById('silver').innerHTML = fnum(silver);  										          //updates the number of silver for the user
+			document.getElementById('faith').innerHTML = fnum(faith);  										          //updates the number of faith for the user
+			document.getElementById('souls').innerHTML = fnum(souls);  										          //updates the number of souls for the user
 			
 			this.nextGoldCost = Math.floor(this.goldCost * Math.pow(this.costMult,this.number-this.costAdj));         //works out the cost of the next Building
-			document.getElementById(this.htmlNextGoldCost).innerHTML = this.nextGoldCost;  						      //updates the Building cost for the user
+			document.getElementById(this.htmlNextGoldCost).innerHTML = fnum(this.nextGoldCost);  						      //updates the Building cost for the user
 //			this.curGoldCost = this.nextGoldCost;
 			if(this.htmlNextWoodCost != 'none'){
 				this.nextWoodCost = Math.floor(this.woodCost * Math.pow(this.costMult,this.number));                      //works out the iron cost of the next Building
-				document.getElementById(this.htmlNextWoodCost).innerHTML = this.nextWoodCost;  						      //updates the Building iron cost for the user
+				document.getElementById(this.htmlNextWoodCost).innerHTML = fnum(this.nextWoodCost);  						      //updates the Building iron cost for the user
 //				this.curIronCost = this.nextIronCost;
 			}			
 			if(this.htmlNextIronCost != 'none'){
 				this.nextIronCost = Math.floor(this.ironCost * Math.pow(this.costMult,this.number));                      //works out the iron cost of the next Building
-				document.getElementById(this.htmlNextIronCost).innerHTML = this.nextIronCost;  						      //updates the Building iron cost for the user
+				document.getElementById(this.htmlNextIronCost).innerHTML = fnum(this.nextIronCost);  						      //updates the Building iron cost for the user
 //				this.curIronCost = this.nextIronCost;
 			}
 			
 			if(this.htmlNextSilverCost != 'none'){
 				this.nextSilverCost = Math.floor(this.silverCost * Math.pow(this.costMult,this.number));                    //works out the silver cost of the next Building	
-				document.getElementById(this.htmlNextSilverCost).innerHTML = this.nextSilverCost;  						      //updates the Building silver cost for the user
+				document.getElementById(this.htmlNextSilverCost).innerHTML = fnum(this.nextSilverCost);  						      //updates the Building silver cost for the user
 //				this.curSilverCost = this.nextSilverCost
 			}
 			
 			if(this.htmlNextFaithCost != 'none'){
 				this.nextFaithCost = Math.floor(this.faithCost * Math.pow(this.costMult,this.number));                      //works out the faith cost of the next Building
-				document.getElementById(this.htmlNextFaithCost).innerHTML = this.nextFaithCost;  						      //updates the Building faith cost for the user	
+				document.getElementById(this.htmlNextFaithCost).innerHTML = fnum(this.nextFaithCost);  						      //updates the Building faith cost for the user	
 //				this.curFaithCost = this.nextFaithCost
 			}	
 
 			if(this.htmlNextSoulCost != 'none'){
 				this.nextSoulCost = Math.floor(this.soulCost * Math.pow(this.costMult,this.number));                       //works out the Soul cost of the next Building
-				document.getElementById(this.htmlNextSoulCost).innerHTML = this.nextSoulCost;  						      //updates the Building Soul cost for the user
+				document.getElementById(this.htmlNextSoulCost).innerHTML = fnum(this.nextSoulCost);  						      //updates the Building Soul cost for the user
 //				this.curSoulCost = this.nextSoulCost
 			}	
 		};

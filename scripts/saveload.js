@@ -55,6 +55,8 @@
 		localStorage.setItem("defeatedSuccubus",defeatedSuccubus)
 		localStorage.setItem("peasantsKilled",peasantsKilled);
 		localStorage.setItem("minersKilled", minersKilled);
+		localStorage.setItem("ironAbsorbed",ironAbsorbed);
+		localStorage.setItem("silverAbsorbed",silverAbsorbed);
 		localStorage.setItem("unitsSeduced", unitsSeduced);
 		
 		//Upgradeflags
@@ -284,6 +286,7 @@
 			if(myBool == true){
 				pGoldUpgrade = true;
 				document.getElementById("btnPeasantUpgrade1").disabled = true;
+				document.getElementById("btnPeasantUpgrade1").innerHTML = "Peasant Power Bought";
 			}
 		}
 		
@@ -292,6 +295,7 @@
 			if(myBool == true){
 				pGoldClickUpgrade = true;
 				document.getElementById("clickGoldUpgrade").disabled = true;
+				document.getElementById("clickGoldUpgrade").innerHTML = "Click Upgrade Bought";
 			}
 		}
 		
@@ -316,7 +320,7 @@
 			var myBool = (localStorage.mPanningUpgrade == "true")
 			if(myBool == true){
 				mPanningUpgrade = true;
-				document.getElementById("btnminerUpgrade1").innerHTML = "Learned Panning";
+				document.getElementById("btnminerUpgrade1").innerHTML = "Learn Panning Bought";
 				document.getElementById("btnminerUpgrade1").disabled = true;
 			}
 		}
@@ -325,7 +329,7 @@
 			var myBool = (localStorage.paladinWepUpgrade == "true")
 			if(myBool == true){
 				paladinWepUpgrade = true;
-				document.getElementById("paladinUpgrade1").disabled = true;
+				document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Bought";
 			}
 		}		
 
@@ -342,6 +346,7 @@
 			if(myBool == true){
 				squiresUnlocked = true;
 				document.getElementById("btnPageUpgrade1").disabled = true;
+				document.getElementById("btnPageUpgrade1").innerHTML = "Unlocked Squires";
 				document.getElementById('SquireTab').style.display = "block";
 			}
 		}	
@@ -351,6 +356,7 @@
 			if(myBool == true){
 				knightsUnlocked = true;
 				document.getElementById("btnSquireUpgrade1").disabled = true;
+				document.getElementById("btnSquireUpgrade1").innerHTML = "Unlocked Knights";
 				document.getElementById('KnightTab').style.display = "block";
 			}
 		}	
@@ -418,6 +424,7 @@
 					document.getElementById("btnBatHellhound").disabled = true;
 					document.getElementById("btnBatHellhound").innerHTML = "Hellhounds Defeated!";
 					defeatedHhounds = true;
+					setTimeout(function() {triggerOoze(); }, 60000);				//restarts ooze raids after defeating hhounds
 				}
 				else if(defeatedOgre == true){
 					setTimeout(function() { hellHoundRaid(); }, 30000);			//killed ogre but haven't defeated hhounds yet, start raids again
@@ -436,7 +443,15 @@
 					defeatedArmor = true;
 					document.getElementById('AspectofJustice').style.display = "block";
 				}
-		};				
+		};
+
+		if(localStorage.defeatedOoze != null){
+			var myBool = (localStorage.defeatedOoze == "true")
+				if(myBool == true){
+					defeatedOoze = true;
+					document.getElementById('booksUnlock').style.display = "block";
+				}
+		};			
 							
 		if(localStorage.defeatedArchmage != null){
 			var myBool = (localStorage.defeatedArchmage == "true")
@@ -467,6 +482,18 @@
 		if(localStorage.minersKilled != null){
 			minersKilled = parseInt(localStorage.minersKilled);
 			document.getElementById("minersKilled").innerHTML = minersKilled;
+		}	
+		
+		if(localStorage.ironAbsorbed != null){
+			ironAbsorbed = parseInt(localStorage.ironAbsorbed);
+			document.getElementById("ironAbsorbed").innerHTML = ironAbsorbed;
+			document.getElementById('BatOoze').style.display = "block"
+		}	
+		
+		if(localStorage.silverAbsorbed != null){
+			silverAbsorbed = parseInt(localStorage.silverAbsorbed);
+			document.getElementById("silverAbsorbed").innerHTML = silverAbsorbed;
+			document.getElementById('BatOoze').style.display = "block"
 		}			
 		if(localStorage.unitsSeduced != null){
 			unitsSeduced = parseInt(localStorage.unitsSeduced);
@@ -486,10 +513,17 @@
 		if(localStorage.lastPage != null){
 			lastPage = localStorage.lastPage;
 		}
+		
+		if(silver != 0 || paper != 0 || Army != 0){
+			$("#SecondaryResources").collapse('show');
+		}
 		else{
 			lastPage = 'Production';
 		}
 		recalculateCosts();
+		
+//		setTimeout(function() { showUndefeatedBattles(); }, 1000)
+//		showUndefeatedBattles();
 		
 		if(window.localStorage.length != 0){
 			console.log("Save loaded.")

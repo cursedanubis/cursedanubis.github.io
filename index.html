@@ -17,6 +17,7 @@
     <link href="navbar.css" rel="stylesheet">
 	<link href="currency.css" rel="stylesheet">
 
+
 	
     <script src="dist/assets/js/ie-emulation-modes-warning.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -36,6 +37,7 @@
 	$(function () { 
 		$("[data-toggle='popover']").popover(); 	
 	});
+	
 					
 	</script>
 
@@ -63,17 +65,20 @@
 			  <li><a id="ProductionMenu" href="javascript:CollapseAll(); toggle('Production'); setLastPage('Production');">Village</a></li>
 			  <li><a id="StructureMenu" href="javascript:CollapseAll(); toggle('Structures'); setLastPage('Structures');">Structures</a></li>
               <li><a id="FaithMenu" href="javascript:CollapseAll(); toggle('Cathedral'); setLastPage('Cathedral');" style="display: none;">Cathedral</a></li>
-			  <li><a id="BarracksMenu" href="javascript:CollapseAll(); toggle('Barracks'); setLastPage('Barracks');;" style="display: none; ">Barracks</a></li>
+			  <li><a id="BarracksMenu" href="javascript:CollapseAll(); toggle('Barracks'); setLastPage('Barracks');" style="display: none; ">Barracks</a></li>
 			  <li><a id="EtherealMenu" href="javascript:CollapseAll(); toggle('Ethereal'); setLastPage('Ethereal');" style="display: none;">Ethereal</a></li>
 			  <li><a id="TowerMenu" href="javascript:CollapseAll(); toggle('Magic'); setLastPage('Magic');" style="display: none;">Tower</a></li>
-    		  <li><a id="BattleMenu" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle');;">Battle</a></li>
-			  <li><a id="RelicsMenu" href="javascript:CollapseAll(); toggle('Relics'); setLastPage('Relics');;" style="display: none;">Relics</a></li>
+    		  <li><a id="BattleMenu" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle');">Battle</a></li>
+			  <li><a id="RelicsMenu" href="javascript:CollapseAll(); toggle('Relics'); setLastPage('Relics');" style="display: none;">Relics</a></li>
 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources">Toggle Resources</a></li>
+				  <li><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources">Toggle Secondary Resources</a></li>
                   <li><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Toggle Gathering</a></li>
+				  <li><a id="UndefeatedOpt" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle'); showUndefeatedBattles();">Show Undefeated Enemies</a></li>
+				  <li class="divider"></li>
 				  <li><a id="save" href="javascript:saveCookie();">Save</a></li>
                   <li><a id="load" href="javascript:loadCookie()">Load</a></li>
 <!--				  <li><a id="delete" href="javascript:deleteCookie()">Clear Cookies</a></li>-->
@@ -94,7 +99,7 @@
 		
 	  
 	  <div id="Resources" class="collapse in">
-		<div class = "well well-sm">
+		<div class = "well well-sm" id = "ResourcesWell">
 		<ul id = "ResourceList">
 		<li>
 			<div id = "golddiv" >
@@ -115,18 +120,18 @@
 				Iron: <span id="iron">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
 			</div>
 		</li>
-		<li>
+<!--		<li>
 			<div id = "silverdiv" style="display: none;">
 				<img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> 
-				Silver: <span id="silver">0</span>     <!--( <span id="silverpersec">0</span> silps)-->	
+				Silver: <span id="silver">0</span>     <!--( <span id="silverpersec">0</span> silps)
 			</div>
-		</li>		
+		</li>	-->	
 		<li>			
 			<div id = "faithdiv" style="display: none;">
 				<img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage">
-				Faith: <span id="faith">0</span>   <!-- ( <span id="faithpersec">0</span> fps)-->	
+				Faith: <span id="faith">0</span>   <!-- ( <span id="faithpersec">0</span> fps)-->
 			</div>
-		</li>
+		</li>	
 		<li>			
 			<div id = "soulsdiv" style="display: none;">
 				<img src = "images/soulssmall.png" Title="Souls"  id="ressoulsimage">
@@ -134,26 +139,65 @@
 			</div>
 		</li>
 		<li>			
-			<div id = "paperdiv" style="display: none;">
+<!--			<div id = "paperdiv" style="display: none;">
 				<img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage">
-				Paper: <span id="paper">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
+				Paper: <span id="paper">0</span>    <!--( <span id="manapersec">0</span> mps)
 			</div>
-		</li>		
+		</li>	-->	
 		<li>			
 			<div id = "manadiv" style="display: none;">
 				<img src = "images/manasmall.png" Title="Mana" id="resmanaimage">
 				Mana: <span id="mana">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
 			</div>
 		</li>
-		<li>
+<!--		<li>
 			<div id = "armystrdiv" style="display: none;">
-			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
+			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">
 				<img src = "images/armsmall.png" Title="Army Power">
 				Army: <span id="BattlePower">0</span> 
 			</div>
-		</li>		
+		</li>-->		
 		</div>
 	  </div>
+	  
+	  <div id="SecondaryResources" class="collapse">
+		<div class = "well well-sm" id = "SecondaryResourceWell">
+			<ul id = "SecondaryResourceList">
+
+			<li>
+				<div id = "silverdiv" style="display: none;">
+					<img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> 
+					Silver: <span id="silver">0</span>     <!--( <span id="silverpersec">0</span> silps)-->	
+				</div>
+			</li>		
+			<li>			
+<!--				<div id = "faithdiv" style="display: none;">
+					<img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage">
+					Faith: <span id="faith">0</span>   <!-- ( <span id="faithpersec">0</span> fps)	
+				</div>
+			</li>-->
+			<li>			
+				<div id = "paperdiv" style="display: none;">
+					<img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage">
+					Paper: <span id="paper">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
+				</div>
+			</li>		
+			<li>
+				<div id = "armystrdiv" style="display: none;">
+				<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
+					<img src = "images/armsmall.png" Title="Army Power">
+					Army: <span id="BattlePower">0</span> 
+				</div>
+			</li>
+			<li>
+				<div id = "armystrdiv" style="display: none;">
+				<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
+					<img src = "images/armsmall.png" Title="Army Power">
+					Army: <span id="BattlePower">0</span> 
+				</div>
+			</li>			
+		</div>
+	  </div>	  
 	  
 	  <div id="Gathering" class="collapse in">
 		<div class = "well well-sm">
@@ -184,6 +228,7 @@
 		 <img src = "images/money_goldsmall.png" title ="Gold" > <span id="PeasantCost">50</span> 
 			<div id ="PeasantUpgradeTab" class = "collapse">
 				<div class = "well">
+				
 					<button id=btnPeasantUpgrade1 onclick="peasantUpgradeCollection()"	type="button" class="btn btn-default" title = "Your peasants become more capable at finding gold. Doubles gold collection rate.">Peasant Power</button>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 2,000
@@ -209,7 +254,7 @@
 		 <img src = "images/money_goldsmall.png" title ="Gold" > <span id="LumberjackCost">150</span>
 			<div id ="LumberjackUpgradeTab" class = "collapse">
 				<div class = "well">
-					<button id=btnljackUpgrade1 onclick="lumberjackUpgradeCollection()"	type="button" class="btn btn-default" title = "Your lumberjacks are now equipped with reinforced axes that allow them to chop longer before the axes get dull.">Reinforce Axes</button>
+					<button id=btnljackUpgrade1 onclick="lumberjackUpgradeCollection()"	type="button" class="btn btn-default" title = "Your lumberjacks are now equipped with reinforced axes that allow them to chop longer before the axes get dull.">Reinforced Axes</button>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 2,500 | <img src = "images/ironsmall.png" title="Iron"> 1,500
 					<br /> <br />
@@ -262,7 +307,7 @@
 			<div id ="AcolyteUpgradeTab" class = "collapse">
 				<div class = "well">
 					<br />
-					No Upgrades implemented for Acolytes yet.
+						No Upgrades implemented for Acolytes yet.
 				</div>
 			</div>
 			<hr>
@@ -280,7 +325,11 @@
 			<div id ="PriestUpgradeTab" class = "collapse">
 				<div class = "well">
 					<br />
-					No Upgrades implemented for priests yet.
+					<div id = 'booksUnlock' class = 'container' style="display: none;"> 
+					<button id=btnBooksUnlock onclick="UnlockTomes()"	type="button" class="btn btn-default" title = "Your priests now are able to archive knowledge of the Holy Order into tomes.">Scribing</button>
+					<br />
+					<img src = "images/money_goldsmall.png" title ="Gold" > 12,000 | <img src = "images/woodsmall.png" title = "Wood"> 2,000 | <img src = "images/faithsmall.png" title="Faith"> 1,000			
+					</div>
 				</div>
 			</div>
 			<br />
@@ -564,9 +613,7 @@
 			<h3> Current Spirit Strength: <span id = "SpiritPower2">0</span> spirit power </h3>
 			
 	   </div>
-		<hr>
-		
-
+	   <hr>
 		<div class="panel-group" id="battleaccordion" role="tablist" aria-multiselectable="true">
 		
 		  <div class="panel panel-default">
@@ -742,6 +789,34 @@
 					Requires spirit power: 250 <br />
 					<div id="BatArmorProgBarBox" class="progress" style="display: none;">
 					  <div id="BatArmorProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+						0%
+					  </div>
+					</div>
+			   </div>	
+			</div>
+		  </div>
+
+		  <div class="panel panel-default" id="BatOoze" style="display: none;">
+			<div class="panel-heading" role="tab" id="headingTen">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#OozeCollapse" aria-expanded="false" aria-controls="OozeCollapse">
+				  Gelatinous Ooze
+				</a>
+			  </h4>
+			</div>
+			<div id="OozeCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
+			   <div class = "panel-body" >
+				<a id = 'btnDescOoze' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Gelatinous"
+				data-content="">Gelatinous Ooze</a>
+					<br />
+					<button id=btnBatOoze onclick="Ooze.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 0 <br />
+					Requires spirit power: 550 <br />
+					Iron absorbed:	<span id = 'ironAbsorbed'>0</span>			<br />
+					Silver absorbed: <span id = 'silverAbsorbed'>0</span>			<br />
+					<div id="BatOozeProgBarBox" class="progress" style="display: none;">
+					  <div id="BatOozeProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
 						0%
 					  </div>
 					</div>
@@ -1050,8 +1125,7 @@
 		
 		<div id = unlockAspectofJustice class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong>The armor stops moving. One of your shades is actually able to move it about, giving you a new idea on how to make your shades <a href="javascript: toggle('unlockAspectofJustice');CollapseAll();toggle('Ethereal')" class="alert-link">stronger.</a>
-				
+			<strong>New!</strong>The armor stops moving. One of your shades is actually able to move it about, giving you a new idea on how to make your shades <a href="javascript: toggle('unlockAspectofJustice');CollapseAll();toggle('Ethereal')" class="alert-link">stronger.</a>	
 		</div>			
 		
 		<div id = unlockWizardTowerAlert class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
@@ -1069,7 +1143,19 @@
 			<strong>New!</strong>Using massive amounts of resources, you build the Archmage the <a href="javascript: toggle('builtTowerAlert');CollapseAll();toggle('Magic')" class="alert-link">tower</a>
 					where he can cast magic to help your forces.
 		</div>
+		
+		
+		<div id = OozeAttackAlert class="alert alert-danger fade in" role="alert" style="display: none;">
+			<strong>Oh No!!</strong>A nasty ooze burbles up from inside of your mine and engulfs some of your <span id = "absorbedType">x type</span>! 
+			It's going to be a <a href="javascript: toggle('OozeAttackAlert');CollapseAll();toggle('Battle')" class="alert-link">sticky fight</a>, but if you don't get rid of it it will absorb all of your minerals.  
+		</div>		
 
+		<div id = unlockBooks class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>New!</strong>With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href="javascript: toggle('unlockBooks');CollapseAll();toggle('Cathedral')" class="alert-link">someone</a> knows what to do with these...
+				
+		</div>			
+		
 		<div id = EvilOneIreAlert class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>Oh No!</strong>Having defeated one of The Evil One's valued lieutenants, you realize that things are going to heat up from here. 

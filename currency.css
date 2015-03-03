@@ -1,3 +1,9 @@
+#ResourcesWell
+{
+margin-top: 2px;
+margin-bottom: 2px;
+}
+
 #ResourceList li
 {
 display: inline-block;
@@ -13,6 +19,29 @@ padding-right: 10px;
 display: inline;
 margin-top: 9px;
 margin-bottom: 0px;
+padding: 0px;
+}
+
+#SecondaryResourceWell
+{
+margin-top: 1px;
+
+}
+
+#SecondaryResourceList li
+{
+display: inline-block;
+margin-left: auto;
+margin-right: auto;
+padding-left: 10px;
+padding-right: 10px;
+}
+
+
+#SecondaryResourceList div
+{
+display: inline;
+padding-bottom: -1px;
 padding: 0px;
 }
 
@@ -34,3 +63,4 @@ margin-top: 9px;
 margin-bottom: 0px;
 padding: 0px;
 }
+
