@@ -65,6 +65,7 @@
 		//Upgradeflags
 		localStorage.setItem("pGoldUpgrade",pGoldUpgrade);
 		localStorage.setItem("pGoldClickUpgrade",pGoldClickUpgrade);
+		localStorage.setItem("pGoldClickUpgrade2",pGoldClickUpgrade2);
 		localStorage.setItem("lwoodClickUpgrade",lwoodClickUpgrade);
 		localStorage.setItem("mPanningUpgrade",mPanningUpgrade);
 		localStorage.setItem("mSilverUpgrade",mSilverUpgrade);
@@ -311,6 +312,16 @@
 				document.getElementById("clickGoldUpgrade").innerHTML = "Click Upgrade Bought";
 			}
 		}
+
+		if(localStorage.pGoldClickUpgrade2 != null){
+			var myBool = (localStorage.pGoldClickUpgrade2 == "true")
+			if(myBool == true){
+				pGoldClickUpgrade2 = true;
+				document.getElementById("clickGoldUpgrade2").disabled = true;
+				document.getElementById("clickGoldUpgrade2").innerHTML = "Click Upgrade 2 Bought";
+			}
+		}
+				
 		
 		if(localStorage.lwoodClickUpgrade != null){
 			var myBool = (localStorage.lwoodClickUpgrade == "true")

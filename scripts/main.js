@@ -30,6 +30,7 @@ var tavernminers = 0;			//Tavern generated miners
 //Status Variables//
 var pGoldUpgrade = false;		//Peasant - Collection rate upgrade
 var pGoldClickUpgrade = false;	//Peasant - Gold clicking upgrade
+var pGoldClickUpgrade2 = false;	//Peasant - Gold clicking upgrade
 var lwoodClickUpgrade = false;  //LJack - Wood collection rate upgrade 
 var mPanningUpgrade = false;	//Miner - Gold Panning upgrade
 var mSilverUpgrade = false;		//Miner - Silver Mining upgrade
@@ -62,7 +63,10 @@ function clickThing(number, type)
 			
 		case "goldMouse":
 			if(pGoldClickUpgrade == true){
-					number = number * 2;
+				number = number * 2;
+			}
+			if(pGoldClickUpgrade2 == true){
+				number = number * 5
 			}
 			gold = gold + number;
 			document.getElementById("gold").innerHTML = fnum(gold);
@@ -181,6 +185,16 @@ function upgradeClickGoldMultiplier(){
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById("clickGoldUpgrade").disabled = true;
 		document.getElementById("clickGoldUpgrade").innerHTML = "Click Upgrade Bought";
+	}	
+};
+
+function upgradeClickGoldMultiplier2(){
+	if(gold >= 25000){
+		gold = gold - 25000;
+		pGoldClickUpgrade2 = true;	
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById("clickGoldUpgrade2").disabled = true;
+		document.getElementById("clickGoldUpgrade2").innerHTML = "Click Upgrade 2 Bought";
 	}	
 };
 
