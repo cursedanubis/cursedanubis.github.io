@@ -50,8 +50,11 @@ function calculateSpiritPower(){
 		weapmult = 2;
 	}	
 	SpiritPower =  ((Paladin.number * 5 * weapmult)+(Shade.number*10) + (Aspect.number * 50) );
-//	document.getElementById("SpiritPower").innerHTML = SpiritPower;
+	document.getElementById("SpiritPower").innerHTML = fnum(SpiritPower);
 	document.getElementById("SpiritPower2").innerHTML = SpiritPower;
+	if (SpiritPower > 0){
+		document.getElementById('spiritarmystrdiv').style.display = "block";
+	}
 };
 
 var Enemy = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, BPReq, SPReq, percentComplete, percentIncrement,speed){
@@ -282,8 +285,8 @@ function setDefeatEvents(name){
 		break;
 
 		case 'Ooze':
+			document.getElementById('tomeUnlockAlert').style.display = "block";
 			defeatedOoze = true;
-			document.getElementById('booksUnlock').style.display = "block";
 		break;	
 		
 		case 'Pixie':
@@ -353,6 +356,10 @@ function showBattle(name){
 
 		case 'Armor':
 			$("#ArmorCollapse").collapse('show');
+		break;	
+
+		case 'Ooze':
+			$("#OozeCollapse").collapse('show');
 		break;			
 		
 		case 'Archmage':
@@ -392,7 +399,11 @@ function showUndefeatedBattles(){
 
 	if(defeatedArmor == false){
 		showBattle('Armor');			
-	}			
+	}	
+
+	if(defeatedOoze == false){
+		showBattle('Ooze');			
+	}		
 
 	if(defeatedArchmage == false){
 		showBattle('Archmage');
@@ -434,6 +445,10 @@ function loadBattle(name, percent){
 
 		case 'Armor':
 			Armor.fight();
+		break;			
+
+		case 'Ooze':
+			Ooze.fight();
 		break;			
 		
 		case 'Archmage':
@@ -585,7 +600,7 @@ var Armor = new Enemy("Armor", armorDesc, 'BatArmorProgBarBox','BatArmorProgBar'
 setEnemyDescription(Armor, 'btnDescArmor');
 
 var oozeDesc = "Nasty and moist noises come from your mines at night. Upon deeper exploration of the cave system attached to your mines, you find a particularly large and copper-toned ooze sucking up iron and silver. Somehow it is both gelatinous and metallic at the same time... Conventional weapons don't seem to hurt it at all."
-var Ooze = new Enemy("Ooze", oozeDesc, 'BatOozeProgBarBox','BatOozeProgBar','btnBatOoze','unlockBooks',0,550,0,1,1500);
+var Ooze = new Enemy("Ooze", oozeDesc, 'BatOozeProgBarBox','BatOozeProgBar','btnBatOoze','tomeUnlockAlert',0,550,0,1,1500);
 setEnemyDescription(Ooze, 'btnDescOoze');
 
 function triggerOoze(){

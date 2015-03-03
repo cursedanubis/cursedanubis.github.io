@@ -89,7 +89,7 @@
                   <li class="dropdown-header"></li>
 <!--				  <li><a href="#" data-toggle="modal" data-target="#versionmodal">Version</a></li>-->
 				  <li><a id="ToggleTrunc" href="javascript:toggleTrunc();">Toggle Number Truncation</a></li>
-				  <li><a id="verinfo" target="_blank" href="changelog.html">Version 0.6.9.1</a></li>
+				  <li><a id="verinfo" target="_blank" href="changelog.html">Version 0.6.9.2</a></li>
                   <li><a href="#" data-toggle="modal" data-target="#aboutmodal">About</a></li>
                 </ul>
               </li>
@@ -183,7 +183,13 @@
 					Paper: <span id="paper">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
 				</div>
 			</li>		
-			<li>
+			<li>			
+				<div id = "tomediv" style="display: none;">
+					<img src = "images/bookssmall.png" Title="Holy Tomes" id="restomeimage">
+					Tomes: <span id="tomes">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
+				</div>
+			</li>		
+			<li>			
 				<div id = "armystrdiv" style="display: none;">
 				<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
 					<img src = "images/armsmall.png" Title="Army Power">
@@ -191,10 +197,10 @@
 				</div>
 			</li>
 			<li>
-				<div id = "armystrdiv" style="display: none;">
+				<div id = "spiritarmystrdiv" style="display: none;">
 				<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
 					<img src = "images/armsmall.png" Title="Army Power">
-					Army: <span id="BattlePower">0</span> 
+					Spirit: <span id="SpiritPower">0</span> 
 				</div>
 			</li>			
 		</div>
@@ -210,7 +216,12 @@
 						<input type="image"  id="clickpaper" onclick="clickThing(1,'paperMouse')" src = "images/parchment.png"/ title = "Click to convert 50 wood into paper yourself.">
 					</div>
 				</li>
-		</div>
+				<li>
+					<div id ="createTome" style = "display: none;">
+						<input type="image"  id="clicktome" onclick="clickThing(1,'tomeMouse')" src = "images/parchment.png"/ title = "Click to convert 1000 wood into a tome yourself.">
+					</div>
+				</li>
+			</div>
 	  </div> 
 	  
 	  <div id="Production" class= "panel panel-default">
@@ -326,10 +337,10 @@
 			<div id ="PriestUpgradeTab" class = "collapse">
 				<div class = "well">
 					<br />
-					<div id = 'booksUnlock' class = 'container' style="display: none;"> 
-					<button id=btnBooksUnlock onclick="UnlockTomes()"	type="button" class="btn btn-default" title = "Your priests now are able to archive knowledge of the Holy Order into tomes.">Scribing</button>
-					<br />
-					<img src = "images/money_goldsmall.png" title ="Gold" > 12,000 | <img src = "images/woodsmall.png" title = "Wood"> 2,000 | <img src = "images/faithsmall.png" title="Faith"> 1,000			
+					<div id = 'tomeUnlock' class = 'container' style="display: none;"> 
+					<button id=btnTomeUnlock onclick="UnlockTomes()"	type="button" class="btn btn-default" title = "Your priests now are able to archive knowledge of the Holy Order into tomes.">Scribing</button>
+					<br />	
+					<img src = "images/money_goldsmall.png" title ="Gold" > 12,000 | <img src = "images/parchmentsmall.png" Title="Paper"> 2,000 | <img src = "images/faithsmall.png" title="Faith"> 1,000			
 					</div>
 				</div>
 			</div>
@@ -1151,7 +1162,7 @@
 			It's going to be a <a href="javascript: toggle('OozeAttackAlert');CollapseAll();toggle('Battle')" class="alert-link">sticky fight</a>, but if you don't get rid of it it will absorb all of your minerals.  
 		</div>		
 
-		<div id = unlockBooks class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
+		<div id = tomeUnlockAlert class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>New!</strong>With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href="javascript: toggle('unlockBooks');CollapseAll();toggle('Cathedral')" class="alert-link">someone</a> knows what to do with these...
 				

@@ -51,6 +51,7 @@
 		localStorage.setItem("defeatedHhounds",defeatedHhounds);
 		localStorage.setItem("defeatedPixie",defeatedPixie);
 		localStorage.setItem("defeatedArmor",defeatedArmor);
+		localStorage.setItem("defeatedOoze",defeatedOoze);	
 		localStorage.setItem("defeatedArchmage",defeatedArchmage)
 		localStorage.setItem("defeatedSuccubus",defeatedSuccubus)
 		localStorage.setItem("peasantsKilled",peasantsKilled);
@@ -67,6 +68,7 @@
 		localStorage.setItem("mSilverUpgrade",mSilverUpgrade);
 		localStorage.setItem("squiresUnlocked",squiresUnlocked);
 		localStorage.setItem("knightsUnlocked",knightsUnlocked);
+		localStorage.setItem("tomesUnlocked",tomesUnlocked);
 		localStorage.setItem("paladinWepUpgrade",paladinWepUpgrade);
 		localStorage.setItem("tavernUpgrade",tavernUpgrade);
 		
@@ -324,6 +326,15 @@
 				document.getElementById("btnminerUpgrade1").disabled = true;
 			}
 		}
+		if(localStorage.tomesUnlocked != null){
+			var myBool = (localStorage.tomesUnlocked == "true")
+			if(myBool == true){
+				tomesUnlocked = true;
+				document.getElementById('tomediv').style.display = "block";
+				document.getElementById('createTome').style.display = "block";
+				document.getElementById("btnTomeUnlock").innerHTML = "Scribing Unlocked";
+			}
+		}		
 		
 		if(localStorage.paladinWepUpgrade != null){
 			var myBool = (localStorage.paladinWepUpgrade == "true")
@@ -424,7 +435,7 @@
 					document.getElementById("btnBatHellhound").disabled = true;
 					document.getElementById("btnBatHellhound").innerHTML = "Hellhounds Defeated!";
 					defeatedHhounds = true;
-					setTimeout(function() {triggerOoze(); }, 60000);				//restarts ooze raids after defeating hhounds
+					setTimeout(function() { triggerOoze(); }, 60000);				//restarts ooze raids after defeating hhounds
 				}
 				else if(defeatedOgre == true){
 					setTimeout(function() { hellHoundRaid(); }, 30000);			//killed ogre but haven't defeated hhounds yet, start raids again
@@ -449,7 +460,8 @@
 			var myBool = (localStorage.defeatedOoze == "true")
 				if(myBool == true){
 					defeatedOoze = true;
-					document.getElementById('booksUnlock').style.display = "block";
+					document.getElementById('tomeUnlockAlert').style.display = "block";
+					document.getElementById('tomeUnlock').style.display = "block";
 				}
 		};			
 							
@@ -514,7 +526,7 @@
 			lastPage = localStorage.lastPage;
 		}
 		
-		if(silver != 0 || paper != 0 || Army != 0){
+		if(silver != 0 || paper != 0 || BattlePower != 0){
 			$("#SecondaryResources").collapse('show');
 		}
 		else{

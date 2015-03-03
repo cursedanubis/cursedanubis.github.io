@@ -9,6 +9,7 @@ var faith = 0;
 var souls = 0;
 var mana = 0;
 var paper = 0;
+var tomes = 0;
 
 //Statistic Variables//
 var goldpersec = 0;
@@ -41,6 +42,7 @@ var knightsUnlocked = false;    //Squire - Page Tier unlock
 var lumbermillOpened = false;
 var minesOpened = false;
 var cathedralOpened = false;
+var tomesUnlocked = false;
 var barracksOpened = false;
 var towerUnlocked = false;
 var towerBuilt = false;
@@ -91,7 +93,25 @@ function clickThing(number, type)
 				document.getElementById("paper").innerHTML = fnum(paper);
 				document.getElementById("wood").innerHTML = fnum(wood);
 			}
-			break;			
+			break;	
+
+		case "tome":
+			if(wood >= 2000*number){
+				tomes = tomes + tomes;
+				paper = paper - number * 2000;
+				document.getElementById("paper").innerHTML = fnum(paper);
+				document.getElementById("tomes").innerHTML = fnum(tomes);
+			}
+			break;	
+
+		case "tomeMouse":
+			if(wood >= 2000*number){
+				tomes = tomes + tomes;
+				paper = paper - number * 2000;
+				document.getElementById("paper").innerHTML = fnum(paper);
+				document.getElementById("tomes").innerHTML = fnum(tomes);
+			}
+			break;				
 			
 		case "iron":
 			iron = iron + number;
@@ -195,11 +215,21 @@ function minerUpgradeSilver(){
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById('silverdiv').style.display = "block";
+		$("#SecondaryResources").collapse('show');
 		document.getElementById("btnminerUpgrade2").disabled = true;
 		document.getElementById("btnminerUpgrade2").innerHTML = "Learned Silver Studies";
 		
 	}	
 };
+
+function UnlockTomes(){
+	if(gold >= 12000 && paper >= 2000 && faith >= 1000){
+		tomesUnlocked = true;
+		document.getElementById('tomediv').style.display = "block";
+		document.getElementById('createTome').style.display = "block";
+		document.getElementById("btnTomeUnlock").innerHTML = "Scribing Unlocked";
+	}
+}
 			
 function UnlockSquire(){
 	if(gold >= 4000 && BattlePower >= 120){
