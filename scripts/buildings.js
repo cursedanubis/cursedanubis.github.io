@@ -125,6 +125,7 @@ Building.prototype.buy = function(){
 				break;
 				case "towerBuilt":
 					towerBuilt = true;
+					CollapseAll();
 					document.getElementById('Magic').style.display = "block";
 					document.getElementById('manadiv').style.display = "block";
 					document.getElementById('TowerMenu').style.display = "block";

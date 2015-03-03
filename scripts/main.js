@@ -19,6 +19,7 @@ var ironpersec = 0;
 var silverpersec = 0;
 var soulspersec = 0;
 var manapersec = 0;
+var faithDonated = 0;
 var totalTimePlayed = 0;
 var tTPinHHMMSS = 0;
 
@@ -311,6 +312,21 @@ function paladinUpgradeWeapon(){
 		document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Bought";
 	}
 }
+
+function addFaithToRelic(number){
+	
+	console.log(number);
+	if(number > faith){
+		alert("You don't have enough faith for that.")
+	}
+	else{
+		faith = faith - number;
+		faithDonated = faithDonated + number;
+		document.getElementById('faithDonated').innerHTML = fnum(faithDonated)
+		document.getElementById('faith').innerHTML = fnum(faith)
+	}
+}
+
 
 function recalculateCosts(){
 	Peasant.costAdj = tavernpeasants;

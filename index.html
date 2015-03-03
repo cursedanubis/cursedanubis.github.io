@@ -72,7 +72,7 @@
                   <li><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources">Toggle Resources</a></li>
 				  <li><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources">Toggle Secondary Resources</a></li>
                   <li><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Toggle Gathering</a></li>
-				  <li><a id="UndefeatedOpt" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle'); showUndefeatedBattles();">Show Undefeated Enemies</a></li>
+<!--				  <li><a id="UndefeatedOpt" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle'); showUndefeatedBattles();">Show Undefeated Enemies</a></li> -->
 				  <li class="divider"></li>
 				  <li><a id="save" href="javascript:saveCookie();">Save</a></li>
                   <li><a id="load" href="javascript:loadCookie()">Load</a></li>
@@ -303,7 +303,21 @@
 		<div class = "panel-heading">
 			<div class="panel-title">Cathedral</div>
 		</div>
-
+		
+		<div id = "RelicPedestalTab" class = "container" style="display: none;">
+			<br />
+			<a id = 'BtnRelicDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Relic on a Pedestal"
+				data-content="">Relic on a Pedestal</a> <br />
+				Faith empowering relic: <span id = 'faithDonated'>0</span> <img src = "images/faithsmall.png" title="Faith"> <br />
+				Sacrifice:<br/>
+				<div class="btn-group" role="group" aria-label="...">
+				  <button type="button" onclick = "addFaithToRelic(100)" class="btn btn-default"> 100</button>
+				  <button type="button" onclick = "addFaithToRelic(1000)" class="btn btn-default"> 1000</button>
+				  <button type="button" onclick = "addFaithToRelic(100000)" class="btn btn-default"> 100000</button>
+				</div>	
+			<br /><br />		
+		</div>
+		
 		<div id="AcolyteTab" class = "container">
 			<br />
 		<a id = 'BtnAcolyteDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Acolytes"
@@ -630,7 +644,7 @@
 			<br />
 			<a id = 'BtnSpellFBDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Fire Ball</a>
 			<br /><br />
-			<button id=btnSpellFF onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
+			<button id=btnSpellFB onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
 			<br />	<img src = "images/manasmall.png" Title="Mana">750
 		</div>			   
 		<div id ="FastForwardTab" class = "container">
@@ -647,14 +661,17 @@
 		<div class = "panel-heading">
 			<div class="panel-title">Battle</div>
 		</div>
+		
+	<!--<button type="button" class="close" onclick = "javascript: hideAllBattles();" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
 	   
 	   <div id="BattleStrength" class = "container">
-			<h2> Current Army Strength: <span id = "BattlePower2">0</span> power </h2>
+			<h3> Current Army Strength: <span id = "BattlePower2">0</span> power </h2>
 	   </div>
 	   <div id="SpiritualStrength" class = "container" style="display: none;">
-			<h3> Current Spirit Strength: <span id = "SpiritPower2">0</span> spirit power </h3>
-			
+			<h4> Current Spirit Strength: <span id = "SpiritPower2">0</span> spirit power </h3> <br />
+			<a href = "javascript: showUndefeatedBattles()">Show Undefeated</a>
 	   </div>
+
 	   <hr>
 		<div class="panel-group" id="battleaccordion" role="tablist" aria-multiselectable="true">
 		
@@ -978,7 +995,7 @@
 		</div>	
 		
 		<div id = hellHoundAttackAlert class="alert alert-danger fade in" role="alert" style="display: none;">
-			<strong>Oh No!!</strong>The Evil One's hellhounds break through your defenses and kill <span id = "justKilled">0</span> of your <span id = "typeKilled">x</span>. Build up your strength and <a href="javascript: toggle('hellHoundAttackAlert');CollapseAll();toggle('Battle')" class="alert-link">fight</a> them off!   
+			<strong>Oh No!!</strong> The Evil One's hellhounds break through your defenses and kill <span id = "justKilled">0</span> of your <span id = "typeKilled">x</span>. Build up your strength and <a href="javascript: toggle('hellHoundAttackAlert');CollapseAll();toggle('Battle')" class="alert-link">fight</a> them off!   
 		</div>		
 
 		<div id = openEtherealAlert class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
@@ -990,14 +1007,14 @@
 
 		<div id = PixieDefeatAlert class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong>The pixie collapses in a pile of glittering dust. Your priests decide to scoop her remains into a bottle for studying later.
+			<strong>New!</strong> The pixie collapses in a pile of glittering dust. Your priests decide to scoop her remains into a bottle for studying later.
 			<!--<a href="javascript: toggle('unlockAspectofJustice')" class="alert-link">tower</a>-->
 				
 		</div>			
 		
 		<div id = unlockAspectofJustice class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong>The armor stops moving. One of your shades is actually able to move it about, giving you a new idea on how to make your shades <a href="javascript: toggle('unlockAspectofJustice');CollapseAll();toggle('Ethereal')" class="alert-link">stronger.</a>	
+			<strong>New!</strong> The armor stops moving. One of your shades is actually able to move it about, giving you a new idea on how to make your shades <a href="javascript: toggle('unlockAspectofJustice');CollapseAll();toggle('Ethereal')" class="alert-link">stronger.</a>	
 		</div>			
 		
 		<div id = unlockWizardTowerAlert class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
@@ -1012,37 +1029,44 @@
 
 		<div id = builtTowerAlert class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong>Using massive amounts of resources, you build the Archmage the <a href="javascript: toggle('builtTowerAlert');CollapseAll();toggle('Magic')" class="alert-link">tower</a>
+			<strong>New!</strong> Using massive amounts of resources, you build the Archmage the <a href="javascript: toggle('builtTowerAlert');CollapseAll();toggle('Magic')" class="alert-link">tower</a>
 					where he can cast magic to help your forces.
 		</div>
 		
 		
 		<div id = OozeAttackAlert class="alert alert-danger fade in" role="alert" style="display: none;">
-			<strong>Oh No!!</strong>A nasty ooze burbles up from inside of your mine and engulfs <span id = 'absorbedAmount'>0</span> of your <span id = "absorbedType">x type</span>! 
+			<strong>Oh No!!</strong> A nasty ooze burbles up from inside of your mine and engulfs <span id = 'absorbedAmount'>0</span> of your <span id = "absorbedType">x type</span>! 
 			It's going to be a <a href="javascript: toggle('OozeAttackAlert');CollapseAll();toggle('Battle')" class="alert-link">sticky fight</a>, but if you don't get rid of it it will absorb all of your minerals.  
 		</div>		
 
 		<div id = tomeUnlockAlert class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong>With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href="javascript: toggle('tomeUnlockAlert'); CollapseAll(); toggle('Cathedral');" class="alert-link">someone</a> knows what to do with these...
+			<strong>New!</strong> With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href="javascript: toggle('tomeUnlockAlert'); CollapseAll(); toggle('Cathedral');" class="alert-link">someone</a> knows what to do with these...
 				
 		</div>			
 		
 		<div id = EvilOneIreAlert class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>Oh No!</strong>Having defeated one of The Evil One's valued lieutenants, you realize that things are going to heat up from here. 
+			<strong>Uh oh...</strong> Having defeated one of The Evil One's valued lieutenants, you realize that things are going to heat up from here. 
 					Your intuition is confirmed when a winged demon flies into your kingdom and issues a dire warning letting you know that The Evil
 					One going to destroy you and is sending more of his lieutenants your way.
 		</div>
 		
 		<div id = SuccubusAttackAlert class="alert alert-danger fade in" role="alert" style="display: none;">
-			<strong>Oh No!!</strong>The Evil One's paramour, the Succubus magically appears in the cover of the night... she seduces one of your <span id = "seducedUnitType">x type</span>s! 
+			<strong>Oh No!!</strong> The Evil One's paramour, the Succubus magically appears in the cover of the night... she seduces one of your <span id = "seducedUnitType">x type</span>s! 
 					They are returned the next day but cannot function as their previous role and have to be retrained from a <span id = "previousUnitType"></span>.
 					You better get <a href="javascript: toggle('SuccubusAttackAlert');CollapseAll();toggle('Battle')" class="alert-link">get rid</a> of her before she decimates your entire army.  
 		</div>
 
-		<div id = SuccubusDefeatAlert class="alert alert-info fade in" role="alert" style="display: none;">   <!--PLACEHOLDER -->
-			<strong>New!</strong> She dies. This is a place holder alert! Congrats for beating the highest currently implemented battle!
+		<div id = SuccubusDefeatAlert class="alert alert-info fade in" role="alert" style="display: none;">
+			<strong>New!</strong> Even in death, the succubus jiggles in a most appealing manner, but that doesn't stop you from ending her 
+					reign of seductive terror. Your paladins attempt to purify her as they did with the Archmage, causing her to writhe around
+					in pain. Her wings transition from leathery to feathery, and her horns recede into her head. It turns out the succubus was
+					actually an angel! The injuries she has sustained in her battle with you are fatal, and none of your people are able to
+					close the angel grievous wounds. She feebly beckons for you to come closer, and when you do, she presses an ancient relic
+					into your hand. "... please defeat Him...", she whispers. Her body fades and dissolves into a million tiny glittering lights
+					that float gently up into the sky. Her demise only deepens your resolve to defeat The Evil One. Your priests take the relic
+					and place it <a href="javascript: toggle('SuccubusAttackAlert');CollapseAll();toggle('Cathedral')" class="alert-link">on a pedestal</a> in the cathedral.
 		</div>			
 		
 		

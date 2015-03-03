@@ -78,6 +78,7 @@
 		localStorage.setItem("tavernUpgrade",tavernUpgrade);
 		
 		//MiscFlags
+		localStorage.setItem("faithDonated", faithDonated);
 		localStorage.setItem("lastPage",lastPage);
 		localStorage.setItem("inbattle",inbattle);
 		localStorage.setItem("curBattling",curBattling);
@@ -519,10 +520,10 @@
 		if(localStorage.defeatedSuccubus != null){
 			var myBool = (localStorage.defeatedSuccubus == "true")
 				if(myBool == true){
-					defeatedSuccubus = true;
 					document.getElementById('BatSuccubus').style.display = "block";
 					document.getElementById('btnBatSuccubus').innerHTML = this.name + " Defeated!"; 
 					document.getElementById("btnBatSuccubus").disabled = true;
+					defeatedSuccubus = true;
 				}
 		};	
 		if(localStorage.peasantsKilled != null){
@@ -564,7 +565,11 @@
 				setTimeout(function() { loadBattle(curBattling, battlePercent); }, 500)
 
 			}
-		}	
+		}
+		if(localStorage.faithDonated != null){
+			faithDonated = parseInt(localStorage.faithDonated);
+			document.getElementById("faithDonated").innerHTML = fnum(faithDonated);
+		}		
 		if(localStorage.lastPage != null){
 			lastPage = localStorage.lastPage;
 		}
@@ -618,7 +623,6 @@ window.setInterval(function(){					//Autosaves every minute
 function loadScenario(number){
 	switch(number){
 		case 1:
-			deleteCookie();
 			gold = 10000;
 			wood = 10000;
 			iron = 10000;
@@ -629,13 +633,11 @@ function loadScenario(number){
 			lumbermillOpened = true;
 			barracksOpened = true;
 			minesOpened = true;
-			
 			saveCookie();
 			location.reload(false);
 		break;
 		
 		case 2:
-			deleteCookie();
 			gold = 100000;
 			wood = 100000;
 			iron = 100000;
@@ -654,14 +656,12 @@ function loadScenario(number){
 			barracksOpened = true;
 			minesOpened = true;
 			mSilverUpgrade = true;
-			mPanningUpgrade = true;
-			
+			mPanningUpgrade = true;	
 			saveCookie();
-			location.reload(false);		
+			location.reload(false);			
 		break;
 
 		case 3:
-			deleteCookie();
 			gold = 500000;
 			wood = 500000;
 			iron = 500000;
@@ -688,13 +688,11 @@ function loadScenario(number){
 			minesOpened = true;
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;
-			
 			saveCookie();
-			location.reload(false);		
+			location.reload(false);			
 		break;
 		
 		case 4:
-			deleteCookie();
 			gold = 700000;
 			wood = 700000;
 			iron = 700000;
@@ -725,13 +723,11 @@ function loadScenario(number){
 			minesOpened = true;
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;
-			
 			saveCookie();
-			location.reload(false);		
+			location.reload(false);				
 		break;
 
 		case 5:
-			deleteCookie();
 			gold = 750000;
 			wood = 750000;
 			iron = 750000;
@@ -764,10 +760,52 @@ function loadScenario(number){
 			minesOpened = true;
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;
-			
 			saveCookie();
-			location.reload(false);		
+			location.reload(false);			
 		break;
+		
+		case 6:
+			gold = 1000000;
+			wood = 1000000;
+			iron = 1000000;
+			silver = 1000000;
+			faith = 50000;
+			paper = 100000;
+			mana = 2000;
+			Tavern.number = 5;
+			Peasant.number = 200;
+			Miner.number = 200;
+			Lumberjack.number = 200;
+			Page.number = 20;
+			Squire.number = 15;
+			Knight.number = 20;
+			Paladin.number = 30;
+			Acolyte.number = 25;
+			Priest.number = 10;
+			Shade.number = 20;
+			Aspect.number = 11;
+			
+			defeatedGoblins = true;
+			defeatedBandits = true;
+			defeatedHermit = true;
+			defeatedOgre = true;
+			defeatedHhounds = true;
+			defeatedPixie = true;
+			defeatedArmor = true;
+			defeatedOoze = true;
+			
+			squiresUnlocked = true;
+			knightsUnlocked = true;
+			lumbermillOpened = true;
+			barracksOpened = true;
+			cathedralOpened = true;
+			minesOpened = true;
+			mSilverUpgrade = true;
+			mPanningUpgrade = true;
+			paladinWepUpgrade = true;
+			saveCookie();
+			location.reload(false);			
+		break;		
 		
 		default:
 	}

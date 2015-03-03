@@ -139,9 +139,6 @@ Enemy.prototype.setPercent = function(num){
 	$bar.text(num +'%');
 }
 
-function spellBoost(num){			//Boosts current battle completion percent by desired number
-	spellBoostPercent = num;
-}
 
 Enemy.prototype.canFight = function(){		//Checks to see if this enemy can be fought
 	
@@ -150,7 +147,6 @@ Enemy.prototype.canFight = function(){		//Checks to see if this enemy can be fou
 	if(BattlePower >= this.BPReq && SpiritPower >= this.SPReq && inbattle == false){
 		this.fightable = true;
 		document.getElementById(myButton).disabled = false;
-		
 		this.checkFlag();
 	}
 	else{
@@ -304,9 +300,12 @@ function setDefeatEvents(name){
 			document.getElementById('buildTowerTab').style.display = "block";
 			defeatedArchmage = true;
 			setTimeout(function() { triggerSuccubus(); }, 30000);
+		break;
 		
 		case 'Succubus':
+			console.log('defeated succubus')
 			defeatedSuccubus = true;
+			document.getElementById('RelicPedestalTab').style.display = "block";
 		break;
 		
 		default:
@@ -416,6 +415,65 @@ function showUndefeatedBattles(){
 	}	
 }
 
+/*
+function hideBattle(name){
+	switch (name){
+		case 'Goblins':
+			$("#GoblinCollapse").collapse('hide');
+		break;	
+	
+		case 'Bandits':
+			$("#BanditCollapse").collapse('hide');
+		break;
+		
+		case 'Hermit':
+			$("#HermitCollapse").collapse('hide');
+		break;	s
+		
+		case 'Ogre':	
+			$("#OgreCollapse").collapse('hide');
+		break;
+		
+		case 'Hellhounds':
+			$("#HellhoundCollapse").collapse('hide');
+		break;
+		
+		case 'Pixie':
+			$("#pixieCollapse").collapse('hide');
+		break;	
+
+		case 'Armor':
+			$("#ArmorCollapse").collapse('hide');
+		break;	
+
+		case 'Ooze':
+			$("#OozeCollapse").collapse('hide');
+		break;			
+		
+		case 'Archmage':
+			$("#ArchmageCollapse").collapse('hide');
+		break;	
+		
+		case 'Succubus':
+			$("#SuccubusCollapse").collapse('hide');
+		break;
+		default:
+	}	
+}
+
+function hideAllBattles(){
+	hideBattle('Goblins');
+	hideBattle('Bandits');
+	hideBattle('Hermit');
+	hideBattle('Ogre');
+	hideBattle('Hellhounds');
+	hideBattle('Pixie');
+	hideBattle('Armor');
+	hideBattle('Ooze');
+	hideBattle('Archmage');
+	hideBattle('Succubus');
+}
+*/
 function loadBattle(name, percent){
 	spellBoost(percent);
 	showBattle(name);
@@ -640,7 +698,6 @@ function oozeAbsorb(){
 		iron = iron - Math.floor(iron/5);
 		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById('ironAbsorbed').innerHTML = fnum(ironAbsorbed);
-//		console.log(absorbedType);	
 	}
 	else{
 		absorbedType = "silver";
@@ -648,9 +705,7 @@ function oozeAbsorb(){
 		absorbedAmount = Math.floor(silver/5);
 		silver = silver - Math.floor(silver/5);
 		document.getElementById('silver').innerHTML = fnum(silver);
-		document.getElementById('silverAbsorbed').innerHTML = fnum(silverAbsorbed);
-		
-//		console.log(absorbedType);		
+		document.getElementById('silverAbsorbed').innerHTML = fnum(silverAbsorbed);	
 	}
 	document.getElementById('absorbedAmount').innerHTML = fnum(absorbedAmount);
 	document.getElementById('absorbedType').innerHTML = absorbedType;

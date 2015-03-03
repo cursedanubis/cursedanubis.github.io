@@ -58,6 +58,7 @@ var FastForward = new Spell("FastForward", fastForwardDesc, 0, 0, 'btnSpellFF', 
 setSpellDescription(FastForward, 'BtnSpellFFDesc');
 
 FastForward.cast = function(){
+	
 	var timemultiplier = 15; //15 Minutes
 	var goldGained = 0;
 	var woodGained = 0;
@@ -65,7 +66,7 @@ FastForward.cast = function(){
 	var silverGained = 0;
 	var faithGained = 0;
 	var soulsGained = 0;
-	
+	if(mana >= 1000){
 	goldGained = timemultiplier*60*goldpersec;
 	gold = gold + goldGained;
 	document.getElementById('gold').innerHTML = gold;  										          //updates the number of gold for the user	
@@ -97,6 +98,8 @@ FastForward.cast = function(){
 	
 	alert(this.name + " spell cast!\n\nYou gain " + goldGained + " gold. \nYou gain " + woodGained + 
 				     " wood.\nYou gain " + ironGained + " iron.\nYou gain " + silverGained + " silver.\nYou gain " + faithGained + " faith.\nYou gain " + soulsGained + " souls.");
+
+	}
 }
 
 var fireBallDesc = "The archmage conjures a flaming ball of fire and sends it hurtling towards your foe! It will damage the enemy you are currently battling, pushing you 15% closer to victory!";
@@ -117,8 +120,13 @@ FireBall.cast = function(){
 
 }
 
+function spellBoost(num){			//Boosts current battle completion percent by desired number
+	spellBoostPercent = num;
+}
+
 function checkSpellButtons(){
 	FastForward.canCast();
+	FireBall.canCast();
 };
 
 window.setInterval(function(){                                 
