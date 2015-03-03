@@ -47,6 +47,7 @@ var towerBuilt = false;
 
 //Etc Variables//
 var lastPage;
+var TruncateNumber = true;
 
 function clickThing(number, type)
 {
@@ -441,33 +442,49 @@ function dhms(s, f) { // seconds, format
 function fnum(x) {
 	if(isNaN(x)) return x;
  
-	if(x < 9999) {
+	if(TruncateNumber == true){
+		if(x < 9999) {
+			return x;
+		}
+	 
+		if( x < 1000000) {
+			return (x/1000).toFixed(2) + "K";
+		}
+		if( x < 10000000) {
+			return (x/1000000).toFixed(2) + "M";
+		}
+	 
+		if(x < 1000000000) {
+			return (x/1000000).toFixed(2) + "M";
+		}
+	 
+		if(x < 1000000000000) {
+			return (x/1000000000).toFixed(2) + "B";
+		}
+		
+		if(x < 1000000000000000) {
+			return (x/1000000000000).toFixed(2) + "Qd";
+		}	
+	 
+		if(x < 1000000000000000000) {
+			return (x/1000000000000000).toFixed(2) + "Qt";
+		}	
+	 
+		return "1T+";
+	}
+	else
+	{
 		return x;
 	}
- 
-	if( x < 1000000) {
-		return (x/1000).toFixed(2) + "K";
+}
+
+function toggleTrunc(){
+	if(TruncateNumber == true){
+		TruncateNumber = false;
 	}
-	if( x < 10000000) {
-		return (x/1000000).toFixed(2) + "M";
-	}
- 
-	if(x < 1000000000) {
-		return (x/1000000).toFixed(2) + "M";
-	}
- 
-	if(x < 1000000000000) {
-		return (x/1000000000).toFixed(2) + "B";
+	else{
+		TruncateNumber = true;
 	}
 	
-	if(x < 1000000000000000) {
-		return (x/1000000000000).toFixed(2) + "Qd";
-	}	
- 
- 	if(x < 1000000000000000000) {
-		return (x/1000000000000000).toFixed(2) + "Qt";
-	}	
- 
-	return "1T+";
 }
 
