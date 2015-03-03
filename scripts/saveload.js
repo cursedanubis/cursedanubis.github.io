@@ -10,6 +10,7 @@
 		localStorage.setItem("silver",silver);			
 		localStorage.setItem("faith",faith);
 		localStorage.setItem("souls",souls);
+		localStorage.setItem("tomes",tomes);
 		localStorage.setItem("mana",mana);
 		localStorage.setItem("goldStolen",goldStolen);
 		localStorage.setItem("totalTimePlayed",totalTimePlayed);
@@ -23,6 +24,7 @@
 		localStorage.setItem("knights",Knight.number);
 		localStorage.setItem("acolytes",Acolyte.number);
 		localStorage.setItem("priests",Priest.number);
+		localStorage.setItem("bishops", Bishop.number);
 		localStorage.setItem("paladins",Paladin.number); 
 		localStorage.setItem("shades", Shade.number);
 		localStorage.setItem("aspects", Aspect.number);
@@ -66,6 +68,7 @@
 		localStorage.setItem("lwoodClickUpgrade",lwoodClickUpgrade);
 		localStorage.setItem("mPanningUpgrade",mPanningUpgrade);
 		localStorage.setItem("mSilverUpgrade",mSilverUpgrade);
+		localStorage.setItem("prFaithUpgrade",prFaithUpgrade);
 		localStorage.setItem("squiresUnlocked",squiresUnlocked);
 		localStorage.setItem("knightsUnlocked",knightsUnlocked);
 		localStorage.setItem("tomesUnlocked",tomesUnlocked);
@@ -143,7 +146,10 @@
 			souls = parseInt(localStorage.souls);
 			document.getElementById("souls").innerHTML = fnum(souls);
 		}		
-
+		if(localStorage.tomes != null){
+			tomes = parseInt(localStorage.tomes);
+			document.getElementById("tomes").innerHTML = fnum(tomes);
+		}	
 		if(localStorage.mana != null){
 			mana = parseInt(localStorage.mana);
 			document.getElementById("mana").innerHTML = fnum(mana);
@@ -266,7 +272,12 @@
 		if(localStorage.priests != null){
 			 Priest.number = parseInt(localStorage.priests);
 			document.getElementById("priests").innerHTML = Priest.number;
-		}	
+		}
+
+		if(localStorage.bishops != null){
+			 Bishop.number = parseInt(localStorage.bishops);
+			document.getElementById("bishops").innerHTML = Bishop.number;
+		}			
 		
 		if(localStorage.paladins != null){
 			Paladin.number = parseInt(localStorage.paladins);
@@ -326,6 +337,14 @@
 				document.getElementById("btnminerUpgrade1").disabled = true;
 			}
 		}
+		if(localStorage.prFaithUpgrade != null){
+			var myBool = (localStorage.prFaithUpgrade == "true")
+			if(myBool == true){
+				prFaithUpgrade = true;
+				document.getElementById("btnPriestUpgrade1").disabled = true;
+				document.getElementById("btnPriestUpgrade1").innerHTML = "Rosary Beads Crafted";
+			}
+		}		
 		if(localStorage.tomesUnlocked != null){
 			var myBool = (localStorage.tomesUnlocked == "true")
 			if(myBool == true){
@@ -333,6 +352,7 @@
 				document.getElementById('tomediv').style.display = "block";
 				document.getElementById('createTome').style.display = "block";
 				document.getElementById("btnTomeUnlock").innerHTML = "Scribing Unlocked";
+				document.getElementById("btnTomeUnlock").disabled = true;
 			}
 		}		
 		
@@ -460,7 +480,6 @@
 			var myBool = (localStorage.defeatedOoze == "true")
 				if(myBool == true){
 					defeatedOoze = true;
-					document.getElementById('tomeUnlockAlert').style.display = "block";
 					document.getElementById('tomeUnlock').style.display = "block";
 				}
 		};			
@@ -498,18 +517,22 @@
 		
 		if(localStorage.ironAbsorbed != null){
 			ironAbsorbed = parseInt(localStorage.ironAbsorbed);
-			document.getElementById("ironAbsorbed").innerHTML = ironAbsorbed;
-			document.getElementById('BatOoze').style.display = "block"
+			document.getElementById("ironAbsorbed").innerHTML = fnum(ironAbsorbed);
+			if(ironAbsorbed > 0 ){
+				document.getElementById('BatOoze').style.display = "block";
+			}
 		}	
 		
 		if(localStorage.silverAbsorbed != null){
 			silverAbsorbed = parseInt(localStorage.silverAbsorbed);
-			document.getElementById("silverAbsorbed").innerHTML = silverAbsorbed;
-			document.getElementById('BatOoze').style.display = "block"
+			document.getElementById("silverAbsorbed").innerHTML = fnum(silverAbsorbed);
+			if(silverAbsorbed > 0 ){
+				document.getElementById('BatOoze').style.display = "block";
+			}
 		}			
 		if(localStorage.unitsSeduced != null){
 			unitsSeduced = parseInt(localStorage.unitsSeduced);
-			document.getElementById("unitsSeduced").innerHTML = unitsSeduced;
+			document.getElementById("unitsSeduced").innerHTML = fnum(unitsSeduced);
 		}	
 		if(localStorage.inbattle != null){
 			var myBool = (localStorage.inbattle == "true")
@@ -571,3 +594,161 @@ window.setInterval(function(){					//Autosaves every minute
 	saveCookie();
 }, 60000);
 			
+			
+function loadScenario(number){
+	switch(number){
+		case 1:
+			deleteCookie();
+			gold = 10000;
+			wood = 10000;
+			iron = 10000;
+			Peasant.number = 10;
+			Miner.number = 10;
+			Lumberjack.number = 10;
+			Page.number = 12;
+			lumbermillOpened = true;
+			barracksOpened = true;
+			minesOpened = true;
+			
+			saveCookie();
+			location.reload(false);
+		break;
+		
+		case 2:
+			deleteCookie();
+			gold = 100000;
+			wood = 100000;
+			iron = 100000;
+			silver = 100000;
+			Peasant.number = 50;
+			Miner.number = 50;
+			Lumberjack.number = 50;
+			Page.number = 20;
+			Squire.number = 5;
+			
+			defeatedGoblins = true;
+			defeatedBandits = true;
+			
+			squiresUnlocked = true;
+			lumbermillOpened = true;
+			barracksOpened = true;
+			minesOpened = true;
+			mSilverUpgrade = true;
+			mPanningUpgrade = true;
+			
+			saveCookie();
+			location.reload(false);		
+		break;
+
+		case 3:
+			deleteCookie();
+			gold = 500000;
+			wood = 500000;
+			iron = 500000;
+			silver = 500000;
+			faith = 100;
+			Tavern.number = 1;
+			Peasant.number = 100;
+			Miner.number = 100;
+			Lumberjack.number = 100;
+			Page.number = 20;
+			Squire.number = 15;
+			Knight.number = 10;
+			Acolyte.number = 10;
+			
+			defeatedGoblins = true;
+			defeatedBandits = true;
+			defeatedHermit = true;
+			
+			squiresUnlocked = true;
+			knightsUnlocked = true;
+			lumbermillOpened = true;
+			barracksOpened = true;
+			cathedralOpened = true;
+			minesOpened = true;
+			mSilverUpgrade = true;
+			mPanningUpgrade = true;
+			
+			saveCookie();
+			location.reload(false);		
+		break;
+		
+		case 4:
+			deleteCookie();
+			gold = 700000;
+			wood = 700000;
+			iron = 700000;
+			silver = 700000;
+			faith = 1000;
+			paper = 100;
+			Tavern.number = 2;
+			Peasant.number = 150;
+			Miner.number = 150;
+			Lumberjack.number = 150;
+			Page.number = 20;
+			Squire.number = 15;
+			Knight.number = 10;
+			Paladin.number = 5;
+			Acolyte.number = 10;
+			Priest.number = 5;
+			
+			defeatedGoblins = true;
+			defeatedBandits = true;
+			defeatedHermit = true;
+			defeatedOgre = true;
+			
+			squiresUnlocked = true;
+			knightsUnlocked = true;
+			lumbermillOpened = true;
+			barracksOpened = true;
+			cathedralOpened = true;
+			minesOpened = true;
+			mSilverUpgrade = true;
+			mPanningUpgrade = true;
+			
+			saveCookie();
+			location.reload(false);		
+		break;
+
+		case 5:
+			deleteCookie();
+			gold = 750000;
+			wood = 750000;
+			iron = 750000;
+			silver = 750000;
+			faith = 2000;
+			paper = 10000;
+			Tavern.number = 3;
+			Peasant.number = 200;
+			Miner.number = 200;
+			Lumberjack.number = 200;
+			Page.number = 20;
+			Squire.number = 15;
+			Knight.number = 10;
+			Paladin.number = 10;
+			Acolyte.number = 25;
+			Priest.number = 10;
+			Shade.number = 20;
+			
+			defeatedGoblins = true;
+			defeatedBandits = true;
+			defeatedHermit = true;
+			defeatedOgre = true;
+			defeatedHhounds = true;
+			
+			squiresUnlocked = true;
+			knightsUnlocked = true;
+			lumbermillOpened = true;
+			barracksOpened = true;
+			cathedralOpened = true;
+			minesOpened = true;
+			mSilverUpgrade = true;
+			mPanningUpgrade = true;
+			
+			saveCookie();
+			location.reload(false);		
+		break;
+		
+		default:
+	}
+}

@@ -18,6 +18,7 @@ var justKilled = 0;		//HHound statistic
 var peasantsKilled = 0; //HHound statistic
 var minersKilled = 0;	//HHound statistic
 var absorbedType = "none"//Ooze statistic
+var absorbedAmount = 0; //Ooze statistic
 var ironAbsorbed = 0;	//Ooze statistic
 var silverAbsorbed = 0; //Ooze statistic
 var unitsSeduced = 0;   //Succubus statistic
@@ -216,7 +217,7 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 		case 'Ooze':
 			if(defeatedOoze == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
-				document.getElementById(myButton).disabled = true;	
+				document.getElementById(myButton).disabled = true;
 			}			
 		
 		case 'Archmage':
@@ -429,7 +430,6 @@ function loadBattle(name, percent){
 		
 		case 'Hermit':
 			Hermit.fight();
-
 		break;		
 		
 		case 'Ogre':	
@@ -454,6 +454,7 @@ function loadBattle(name, percent){
 		
 		case 'Archmage':
 			Archmage.fight();
+		break;
 		
 		case 'Succubus':
 			Succubus.fight();
@@ -605,6 +606,7 @@ var Ooze = new Enemy("Ooze", oozeDesc, 'BatOozeProgBarBox','BatOozeProgBar','btn
 setEnemyDescription(Ooze, 'btnDescOoze');
 
 function triggerOoze(){
+//	console.log('Ooze triggered');
 	showBattle('Ooze');	
 	document.getElementById('BatOoze').style.display = "block";
 	oozeRaid();
@@ -614,12 +616,10 @@ function oozeRaid(){
 	
 	if(defeatedOoze == false){
 		var raidtime = Math.floor((Math.random() * 120) + 60); ;
-//		console.log("Raidtime in: " + raidtime)
 		var ticker = raidtime;
 		
 		var raid = setInterval(function() {
 			ticker = ticker - 1;  
-//			console.log(ticker);
 		  if (ticker == 0){
 			clearInterval(raid);
 			if(defeatedOoze == false && (inbattle == false || (inbattle == true && curBattling == "Ooze"))){	
@@ -636,20 +636,26 @@ function oozeAbsorb(){
 	if(flipCoin%2 == 0){
 		absorbedType = "iron";
 		ironAbsorbed = ironAbsorbed + Math.floor(iron/5);
+		absorbedAmount = Math.floor(iron/5);
 		iron = iron - Math.floor(iron/5);
 		document.getElementById('iron').innerHTML = fnum(iron);
-		console.log(absorbedType);	
+		document.getElementById('ironAbsorbed').innerHTML = fnum(ironAbsorbed);
+//		console.log(absorbedType);	
 	}
 	else{
 		absorbedType = "silver";
 		silverAbsorbed = silverAbsorbed + Math.floor(silver/5);
+		absorbedAmount = Math.floor(silver/5);
 		silver = silver - Math.floor(silver/5);
 		document.getElementById('silver').innerHTML = fnum(silver);
-		console.log(absorbedType);		
+		document.getElementById('silverAbsorbed').innerHTML = fnum(silverAbsorbed);
+		
+//		console.log(absorbedType);		
 	}
-	
+	document.getElementById('absorbedAmount').innerHTML = fnum(absorbedAmount);
 	document.getElementById('absorbedType').innerHTML = absorbedType;
 	document.getElementById('OozeAttackAlert').style.display = "block"
+	document.getElementById('BatOoze').style.display = "block";
 	
 	
 	//Dismisses Raid Alert

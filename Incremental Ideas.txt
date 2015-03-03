@@ -78,6 +78,7 @@ Archmage - open portal?
 	- transmutation/alchemy (convert resources)
 	- rapture (convert Master Paladin to Seraphim)
 	- Arcane Focus building - > lets you store more mana for more expensive spells
+	- Arcane Tomes - > lets you store mana in the form of books
 	
 
 Intermediate Goals: Defeat lieutenants 

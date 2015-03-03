@@ -33,6 +33,7 @@ var pGoldClickUpgrade = false;	//Peasant - Gold clicking upgrade
 var lwoodClickUpgrade = false;  //LJack - Wood collection rate upgrade 
 var mPanningUpgrade = false;	//Miner - Gold Panning upgrade
 var mSilverUpgrade = false;		//Miner - Silver Mining upgrade
+var prFaithUpgrade = false;     //Priest - Faith collection rate upgrade
 var paladinWepUpgrade = false;  //Paladin - Weapon Upgrade
 var tavernUpgrade = false;		//Tavern - Weapon Upgrade
 
@@ -222,11 +223,26 @@ function minerUpgradeSilver(){
 	}	
 };
 
+function priestUpgradeCollection(){
+	if(gold >= 7000 && wood >= 5000 && faith >= 500){
+		gold = gold - 7000
+		wood = wood - 5000
+		faith = faith - 500
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('wood').innerHTML = fnum(wood);
+		document.getElementById('faith').innerHTML = fnum(faith);
+		prFaithUpgrade = true;
+		document.getElementById("btnPriestUpgrade1").disabled = true;
+		document.getElementById("btnPriestUpgrade1").innerHTML = "Rosary Beads Crafted";
+	}	
+}
+
 function UnlockTomes(){
 	if(gold >= 12000 && paper >= 2000 && faith >= 1000){
 		tomesUnlocked = true;
 		document.getElementById('tomediv').style.display = "block";
 		document.getElementById('createTome').style.display = "block";
+		document.getElementById("btnTomeUnlock").disabled = true;		
 		document.getElementById("btnTomeUnlock").innerHTML = "Scribing Unlocked";
 	}
 }
@@ -287,6 +303,14 @@ function UpdateButtons() {
 	checkBuildingButtons();
 
 	//Upgrade Buttons//
+	
+	if(prFaithUpgrade == true || (gold < 7000 || wood < 5000 || faith < 500)){
+		document.getElementById("btnPriestUpgrade1").disabled = true;
+	}
+	else{
+		document.getElementById("btnPriestUpgrade1").disabled = false;
+	}
+	
 	//Unlock Squire Button
 	if(squiresUnlocked == true || (BattlePower < 120|| gold < 4000)){	
 		document.getElementById("btnPageUpgrade1").disabled = true;
@@ -303,6 +327,8 @@ function UpdateButtons() {
 		document.getElementById("btnSquireUpgrade1").disabled = false;
 	}		
 	//End of Upgrade Buttons//
+	
+	
 	checkBattleButtons();	
 	
 	//Changes status of Spell buttons
@@ -324,8 +350,7 @@ window.setInterval(function(){                                 //Update per seco
 		goldpersec = goldpersec + Miner.number;
 	}
 
-//	document.getElementById("goldpersec").innerHTML = goldpersec;	
-	 document.getElementById("resgoldimage").title = "Gold per second: " + goldpersec ; 
+	 document.getElementById("resgoldimage").title = "Gold per second: " + fnum(goldpersec) ; 
 
 	if(lwoodClickUpgrade == true){
 		woodpersec = Lumberjack.number*2;		
@@ -333,37 +358,31 @@ window.setInterval(function(){                                 //Update per seco
 	else{
 		woodpersec = Lumberjack.number;	
 	}
-	document.getElementById("reswoodimage").title = "Wood per second: " + woodpersec ; 	 
+	document.getElementById("reswoodimage").title = "Wood per second: " + fnum(woodpersec) ; 	 
 	 
 	ironpersec = Miner.number;
-//	document.getElementById("ironpersec").innerHTML = ironpersec;
-	document.getElementById("resironimage").title = "Iron per second: " + ironpersec ; 	 
+	document.getElementById("resironimage").title = "Iron per second: " + fnum(ironpersec) ; 	 
 	 
 	if(mSilverUpgrade == true)
 	{
 		silverpersec = Miner.number*0.5
 	}
-	document.getElementById("ressilverimage").title = "Silver per second: " + silverpersec ; 	 	
-	
-//	document.getElementById("silverpersec").innerHTML = silverpersec;	
+	document.getElementById("ressilverimage").title = "Silver per second: " + fnum(silverpersec) ; 	 	
+ 
   
-  
-    faithpersec = Priest.number*0.5 + Acolyte.number*0.1;
+    faithpersec = Bishop.number * 10 + Priest.number*0.5 + Acolyte.number*0.1;
 	faithpersec = faithpersec.toFixedDown(2)
- //   document.getElementById("faithpersec").innerHTML = faithpersec;
-    document.getElementById("resfaithimage").title = "Faith per second: " + faithpersec ; 
+    document.getElementById("resfaithimage").title = "Faith per second: " + fnum(faithpersec) ; 
 	
-    soulspersec = Paladin.number;
+    soulspersec = Paladin.number +  Aspect.number * 2;
 	if(paladinWepUpgrade == true){
-		soulspersec = soulspersec * 2;
+		soulspersec = Paladin.number * 2 +  Aspect.number * 2;
 	}
-//   document.getElementById("soulspersec").innerHTML = soulspersec;
-	document.getElementById("ressoulsimage").title = "Souls per second: " + soulspersec ; 
+	document.getElementById("ressoulsimage").title = "Souls per second: " + fnum(soulspersec) ; 
 	
 
 	manapersec = 1;
-//	document.getElementById("manapersec").innerHTML = manapersec;
-	document.getElementById("resmanaimage").title = "Mana per second: " + manapersec ; 	
+	document.getElementById("resmanaimage").title = "Mana per second: " + fnum(manapersec) ; 	
 	
    
 	document.getElementById("peasants").innerHTML = Peasant.number ;	//For testing
@@ -403,15 +422,15 @@ window.setInterval(function(){
 	silver = silver.toFixedDown(2);
 	
 	 //Faith Generation via priests etc every second
-	clickThing(Priest.number*0.5 + Acolyte.number*0.1, "faith");          
+	clickThing(Bishop.number * 10 + Priest.number*0.5 + Acolyte.number*0.1, "faith");          
 	faith = faith.toFixedDown(2);
 	
 	//Soul generation via paladins etc every second
 	if(paladinWepUpgrade == true){
-		clickThing(Paladin.number*2,"souls");	
+		clickThing(Paladin.number*2 + Aspect.number * 2,"souls");	
 	}
 	else{
-		clickThing(Paladin.number,"souls");	
+		clickThing(Paladin.number +  Aspect.number * 2,"souls");	
 	}
 
 	//Mana generation per second
