@@ -493,7 +493,7 @@ function banditLoot(){
 	};
 };
 
-setTimeout(function() { banditLoot(); }, 30000);//Triggers bandit looting
+setTimeout(function() { banditLoot(); }, 90000);//Triggers bandit looting
 
 var hermitDesc = "There is a hermit living in the middle of the forest. She keeps mostly to herself, but you can observe her cutting down trees from time to time. It is clear, however, that she is a menace because she has a tendency to throw poisoned knives at anyone who come near her.";
 var Hermit = new Enemy('Hermit', hermitDesc, 'BatHermitProgBarBox', 'BatHermitProgBar', 'btnBatHermit','paperMillAlert',250,0,0,2,500);
