@@ -481,6 +481,21 @@ window.setInterval(function(){
 
 window.setInterval(function(){					//Enables/disables buttons 
 	UpdateButtons();
+	
+	if(wood < 100){
+		document.getElementById('clickpaper').src = "images/parchmentgrayed.png"
+	}
+	else{
+		document.getElementById('clickpaper').src = "images/parchment.png"
+	}
+	
+	if(paper < 2000){
+		document.getElementById('clicktome').src = "images/booksgrayed.png"
+	}
+	else{
+		document.getElementById('clicktome').src = "images/books.png"
+	}	
+	
 }, 100);
 
 window.setInterval(function(){					//Increases totalTimePlayed by 1 second per second 
