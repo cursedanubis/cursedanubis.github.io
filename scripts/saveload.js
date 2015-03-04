@@ -28,6 +28,7 @@
 		localStorage.setItem("paladins",Paladin.number); 
 		localStorage.setItem("shades", Shade.number);
 		localStorage.setItem("aspects", Aspect.number);
+		localStorage.setItem("angels", Angel.number);
 		
 		//Building Variables
 		localStorage.setItem("taverns", Tavern.number);
@@ -54,8 +55,9 @@
 		localStorage.setItem("defeatedPixie",defeatedPixie);
 		localStorage.setItem("defeatedArmor",defeatedArmor);
 		localStorage.setItem("defeatedOoze",defeatedOoze);	
-		localStorage.setItem("defeatedArchmage",defeatedArchmage)
-		localStorage.setItem("defeatedSuccubus",defeatedSuccubus)
+		localStorage.setItem("defeatedArchmage",defeatedArchmage);
+		localStorage.setItem("defeatedSuccubus",defeatedSuccubus);
+		localStorage.setItem("defeatedUArmy", defeatedUArmy);
 		localStorage.setItem("peasantsKilled",peasantsKilled);
 		localStorage.setItem("minersKilled", minersKilled);
 		localStorage.setItem("ironAbsorbed",ironAbsorbed);
@@ -72,6 +74,7 @@
 		localStorage.setItem("prFaithUpgrade",prFaithUpgrade);
 		localStorage.setItem("squiresUnlocked",squiresUnlocked);
 		localStorage.setItem("knightsUnlocked",knightsUnlocked);
+		localStorage.setItem("angelsUnlocked", angelsUnlocked);
 		localStorage.setItem("tomesUnlocked",tomesUnlocked);
 		localStorage.setItem("PmillEffUpgr", PmillEffUpgr);
 		localStorage.setItem("paladinWepUpgrade",paladinWepUpgrade);
@@ -295,6 +298,11 @@
 		if(localStorage.aspects != null){
 			Aspect.number = parseInt(localStorage.aspects);
 			document.getElementById("aspects").innerHTML = Aspect.number;
+		}
+
+		if(localStorage.angels != null){
+			Angel.number = parseInt(localStorage.angels);
+			document.getElementById("angels").innerHTML = Angel.number;
 		}			
 		
 		if(localStorage.pGoldUpgrade != null){
@@ -413,6 +421,16 @@
 			}
 		}	
 		
+		if(localStorage.angelsUnlocked != null){
+			var myBool = (localStorage.angelsUnlocked == "true")
+			if(myBool == true){
+				angelsUnlocked = true;
+			document.getElementById('RelicPedestalTab').style.display = "none";
+//			document.getElementById('AngelUnlockAlert').style.display = "block";
+			document.getElementById('AngelTab').style.display = "block";				
+			}
+		}			
+		
 		if(localStorage.defeatedGoblins != null){
 			var myBool = (localStorage.defeatedGoblins == "true")
 			if(myBool == true){
@@ -513,6 +531,7 @@
 					document.getElementById("btnBatMage").disabled = true;
 					document.getElementById("btnBatMage").innerHTML = "Archmage Defeated!";
 					document.getElementById('BatSuccubus').style.display = "block";
+					document.getElementById('BatUndeadArmy').style.display = "block";
 					defeatedArchmage = true;
 					setTimeout(function() { succubusRaid(); }, 30000);			//defeated archmage but haven't defeated succubus yet, start raids again
 				}
@@ -523,7 +542,14 @@
 					document.getElementById('BatSuccubus').style.display = "block";
 					document.getElementById('btnBatSuccubus').innerHTML = this.name + " Defeated!"; 
 					document.getElementById("btnBatSuccubus").disabled = true;
+					document.getElementById('RelicPedestalTab').style.display = "block";
 					defeatedSuccubus = true;
+				}
+		};	
+		if(localStorage.defeatedUArmy != null){
+			var myBool = (localStorage.defeatedUArmy == "true")
+				if(myBool == true){
+					defeatedUArmy = true;
 				}
 		};	
 		if(localStorage.peasantsKilled != null){
@@ -558,7 +584,6 @@
 		if(localStorage.inbattle != null){
 			var myBool = (localStorage.inbattle == "true")
 			if(myBool == true){
-			//	inbattle = true;
 				curBattling = localStorage.curBattling;
 				battlePercent = localStorage.battlePercent;
 				console.log(curBattling + ": " + battlePercent + "%")
@@ -569,6 +594,9 @@
 		if(localStorage.faithDonated != null){
 			faithDonated = parseInt(localStorage.faithDonated);
 			document.getElementById("faithDonated").innerHTML = fnum(faithDonated);
+			if(faithDonated >= 500000){
+	//			document.getElementById('RelicPedestalTab').style.display = "none";
+			}			
 		}		
 		if(localStorage.lastPage != null){
 			lastPage = localStorage.lastPage;
@@ -803,6 +831,50 @@ function loadScenario(number){
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;
 			paladinWepUpgrade = true;
+			saveCookie();
+			location.reload(false);			
+		break;	
+
+		case 7:
+			gold = 1000000;
+			wood = 1000000;
+			iron = 1000000;
+			silver = 1000000;
+			faith = 50000;
+			paper = 100000;
+			mana = 2000;
+			Tavern.number = 5;
+			Peasant.number = 200;
+			Miner.number = 200;
+			Lumberjack.number = 200;
+			Page.number = 20;
+			Squire.number = 15;
+			Knight.number = 15;
+			Paladin.number = 44;
+			Acolyte.number = 25;
+			Priest.number = 10;
+			Shade.number = 30;
+			Aspect.number = 26;
+			
+			defeatedGoblins = true;
+			defeatedBandits = true;
+			defeatedHermit = true;
+			defeatedOgre = true;
+			defeatedHhounds = true;
+			defeatedPixie = true;
+			defeatedArmor = true;
+			defeatedOoze = true;
+			
+			squiresUnlocked = true;
+			knightsUnlocked = true;
+			lumbermillOpened = true;
+			barracksOpened = true;
+			cathedralOpened = true;
+			minesOpened = true;
+			mSilverUpgrade = true;
+			mPanningUpgrade = true;
+			paladinWepUpgrade = true;
+			
 			saveCookie();
 			location.reload(false);			
 		break;		

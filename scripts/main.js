@@ -41,6 +41,7 @@ var tavernUpgrade = false;		//Tavern - Weapon Upgrade
 
 var squiresUnlocked = false;	//Page - Squire Tier unlock
 var knightsUnlocked = false;    //Squire - Page Tier unlock
+var angelsUnlocked = false;
 
 var lumbermillOpened = false;
 var minesOpened = false;
@@ -315,7 +316,7 @@ function paladinUpgradeWeapon(){
 
 function addFaithToRelic(number){
 	
-	console.log(number);
+//	console.log(number);
 	if(number > faith){
 		alert("You don't have enough faith for that.")
 	}
@@ -324,6 +325,15 @@ function addFaithToRelic(number){
 		faithDonated = faithDonated + number;
 		document.getElementById('faithDonated').innerHTML = fnum(faithDonated)
 		document.getElementById('faith').innerHTML = fnum(faith)
+	}
+	
+	if(faithDonated >= 500000){
+		document.getElementById('RelicPedestalTab').style.display = "none";
+		document.getElementById('AngelUnlockAlert').style.display = "block";
+		document.getElementById('AngelTab').style.display = "block";
+		angelsUnlocked = true;
+		element_to_scroll_to = document.getElementById('AngelUnlockAlert');
+		element_to_scroll_to.scrollIntoView();	
 	}
 }
 
@@ -340,6 +350,7 @@ function recalculateCosts(){
 	Paladin.recalcCost();
 	Shade.recalcCost();
 	Aspect.recalcCost();
+	Angel.recalcCost();
 };
 
 function UpdateButtons() {
@@ -426,9 +437,9 @@ window.setInterval(function(){                                 //Update per seco
 	faithpersec = faithpersec.toFixedDown(2)
     document.getElementById("resfaithimage").title = "Faith per second: " + fnum(faithpersec) ; 
 	
-    soulspersec = Paladin.number +  Aspect.number * 2;
+    soulspersec = Paladin.number +  Aspect.number * 2  + Angel.number * 5;
 	if(paladinWepUpgrade == true){
-		soulspersec = Paladin.number * 2 +  Aspect.number * 2;
+		soulspersec = Paladin.number * 2 +  Aspect.number * 2 + Angel.number * 5;
 	}
 	document.getElementById("ressoulsimage").title = "Souls per second: " + fnum(soulspersec) ; 
 	
@@ -479,10 +490,10 @@ window.setInterval(function(){
 	
 	//Soul generation via paladins etc every second
 	if(paladinWepUpgrade == true){
-		clickThing(Paladin.number*2 + Aspect.number * 2,"souls");	
+		clickThing(Paladin.number*2 + Aspect.number * 2 + Angel.number * 5,"souls");	
 	}
 	else{
-		clickThing(Paladin.number +  Aspect.number * 2,"souls");	
+		clickThing(Paladin.number +  Aspect.number * 2 + Angel.number * 5,"souls");	
 	}
 
 	//Mana generation per second

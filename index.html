@@ -618,6 +618,25 @@
 				</div>
 			</div>			
 		</div>			
+
+		<div id ="AngelTab" class = "container" style="display: none;">
+			<br />
+		<a id = 'BtnAngelDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Angels"
+    		data-content="">Angels (<span id="angels">0</span>)</a>
+			<br /><br />
+			<button id=btnBuyAngel onclick="Angel.buyOne()"	type="button" class="btn btn-default">Summon Angel</button>
+			<button id=btnAngelUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#AngelUpgradeTab" aria-expanded="false" aria-controls="AngelUpgradeTab">Upgrades</button>
+			<br />
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="AngelCost">200,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="angelIronCost">500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="angelSilverCost">2500</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="angelSoulCost">1500</span> | <img src = "images/bookssmall.png" Title="Tomes"> <span id="angelTomeCost">50</span>
+			<br />
+			<hr>
+			<div id ="AngelUpgradeTab" class = "collapse">
+				<div class = "well">
+					 No Upgrades implemented for Angels yet.
+					<br />
+				</div>
+			</div>			
+		</div>		
 		
 	 </div>
 	
@@ -936,7 +955,35 @@
 					</div>
 			   </div>
 			</div>
-		  </div>	
+		  </div>
+
+		  <div class="panel panel-default" id="BatUndeadArmy" style="display: none;">
+			<div class="panel-heading" role="tab" id="headingEleven">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#UndeadArmyCollapse" aria-expanded="false" aria-controls="UndeadArmyCollapse">
+				  Undead Army
+				</a>
+			  </h4>
+			</div>
+			<div id="UndeadArmyCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEleven">
+			   <div class = "panel-body" >
+				<a id = 'btnDescUArmy' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="An Undead Army"
+				data-content="">An Undead Army</a>
+					<br />
+					<button id=btnBatUArmy onclick="UndeadArmy.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 4000 <br />
+					Requires spirit power: 3000 <br />
+						<div id="BatUArmyProgBarBox" class="progress" style="display: none;">
+						  <div id="BatUArmyProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+							0%
+						  </div>
+						</div>
+			   </div>
+			</div>
+		  </div>		  
+
+		  
 		</div>
 	</div>
 	 
@@ -1066,10 +1113,23 @@
 					close the angel grievous wounds. She feebly beckons for you to come closer, and when you do, she presses an ancient relic
 					into your hand. "... please defeat Him...", she whispers. Her body fades and dissolves into a million tiny glittering lights
 					that float gently up into the sky. Her demise only deepens your resolve to defeat The Evil One. Your priests take the relic
-					and place it <a href="javascript: toggle('SuccubusAttackAlert');CollapseAll();toggle('Cathedral')" class="alert-link">on a pedestal</a> in the cathedral.
+					and place it <a href="javascript: toggle('SuccubusDefeatAlert');CollapseAll();toggle('Cathedral')" class="alert-link">on a pedestal</a> in the cathedral.
 		</div>			
-		
-		
+
+		<div id = AngelUnlockAlert class="alert alert-info fade in" role="alert" style="display: none;">
+			<strong>New!</strong> The relic is overflowing with the faith! It starts to vibrate violently, and you decide the most prudent thing to do is to take it outside.
+					Just as you step foot outside the cathedral doors, flies out of your hands and hovers before you. You can literally feel the hum of power as the relic
+					emits a brilliant beam of light that shoots into the heavens. You watch as the skies are turned a vibrant gold.. all of the faith that was 
+					used to empower the relic opens up a <a href="javascript: toggle('AngelUnlockAlert');CollapseAll();toggle('Ethereal')" class="alert-link">divine gate</a>.
+					The gate is directly above your cathedral, but you swear you can see winged beings flapping just beyond the shimmering portal.
+		</div>			
+		<div id = 'UArmyDefeatAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>New!</strong> PLACEHOLDER
+			<!--<a href="javascript: toggle('unlockAspectofJustice')" class="alert-link">tower</a>-->
+				
+		</div>			
+	
 		<div id = saveAlert class="alert alert-success fade in" role="alert" style="display: none;">
 			<strong>Save!</strong> Your game has been saved!   
 		</div>

@@ -206,6 +206,10 @@ var aspectDesc = "These shades are now able to animate armor that you make from 
 var Aspect = new Unit("AspectofJustice",'aspects','AspectCost','aspectIronCost','aspectSilverCost','none','aspectSoulCost','none','btnBuyAspect',15000,1000,500,0,500,0,1.2, aspectDesc, 0, true, Shade);
 setDescription(Aspect, 'BtnAspectDesc');
 
+var angelDesc = "Divine warriors capable of flight summoned down from the heavens. They smell vaguely like freshly baked brownies. <br> Provides 450 army strength. <br>Provides 200 spiritual strength.<br> Provides 5 souls per second."
+var Angel = new Unit("Angel",'angels','AngelCost','angelIronCost','angelSilverCost','none','angelSoulCost','angelTomeCost','btnBuyAngel',200000,500,2500,0,1500,50,1.15, angelDesc, 0, false, "none");
+setDescription(Angel, 'BtnAngelDesc');
+
 function checkUnitButtons(){
 	//Unit Buttons //
 	//Enable/disables buy peasant button depending on if there is enough currency	
@@ -243,5 +247,8 @@ function checkUnitButtons(){
 	
 	//Enable/disables buy AofJustice button depending on if there is enough currency
 	Aspect.canBuy();	
+	
+	//Enable/disables buy AofJustice button depending on if there is enough currency
+	Angel.canBuy();		
 	// End of Unit Buttons//	
 };

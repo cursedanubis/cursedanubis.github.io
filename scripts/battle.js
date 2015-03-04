@@ -11,6 +11,7 @@ var defeatedOoze = false;
 var defeatedArchmage = false;
 var defeatedArmor = false;
 var defeatedSuccubus = false;
+var defeatedUArmy = false;
 var goldStolen = 0;
 var justStolen = 0;
 var typeKilled = "none"	//HHound statistic
@@ -39,7 +40,7 @@ function calculateBattlePower(){
 	{
 		weapmult = 2;
 	}
-	BattlePower =  (Page.number * 10) + (Squire.number*50) + (Knight.number*150) + (Paladin.number * 500 * weapmult) + (Shade.number * 5) + (Aspect.number * 100);
+	BattlePower =  (Page.number * 10) + (Squire.number*50) + (Knight.number*150) + (Paladin.number * 500 * weapmult) + (Shade.number * 5) + (Aspect.number * 100) + (Angel.number * 450);
 	document.getElementById("BattlePower").innerHTML = fnum(BattlePower);
 	document.getElementById("BattlePower2").innerHTML = BattlePower;
 };
@@ -50,7 +51,7 @@ function calculateSpiritPower(){
 	{
 		weapmult = 2;
 	}	
-	SpiritPower =  ((Paladin.number * 5 * weapmult)+(Shade.number*10) + (Aspect.number * 50) );
+	SpiritPower =  ((Paladin.number * 5 * weapmult)+(Shade.number*10) + (Aspect.number * 50) + (Angel.number * 200));
 	document.getElementById("SpiritPower").innerHTML = fnum(SpiritPower);
 	document.getElementById("SpiritPower2").innerHTML = SpiritPower;
 	if (SpiritPower > 0){
@@ -230,6 +231,13 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 			}							
 		break;	
 		
+		case 'UndeadArmy':
+			if(defeatedUArmy == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+			}							
+		break;			
+		
 		default:		
 	}
 };
@@ -303,9 +311,12 @@ function setDefeatEvents(name){
 		break;
 		
 		case 'Succubus':
-			console.log('defeated succubus')
 			defeatedSuccubus = true;
 			document.getElementById('RelicPedestalTab').style.display = "block";
+		break;
+		
+		case 'UndeadArmy':
+			alert("Unfinished battle!");
 		break;
 		
 		default:
@@ -412,6 +423,10 @@ function showUndefeatedBattles(){
 
 	if(defeatedSuccubus == false){
 		showBattle('Succubus');
+	}	
+	
+	if(defeatedUArmy == false){
+		showBattle('UndeadArmy');
 	}	
 }
 
@@ -739,6 +754,8 @@ function triggerSuccubus(){
 	document.getElementById('EvilOneIreAlert').style.display = "block";
 	showBattle('Succubus');	
 	document.getElementById('BatSuccubus').style.display = "block";
+	showBattle('UndeadArmy');
+	document.getElementById('BatUndeadArmy').style.display = "block";
 	succubusRaid();
 }
 
@@ -810,6 +827,11 @@ function succubusSeduce(){
 	//End Dismisses Raid Alert
 }
 
+var undeadArmyDesc = "You hear unearthly moaning and groaning from beyond your kingdom. You find the smell before the actual army. Even though the zombies are in an advanced state of decomposition, they are still equipped with dangerous weapons and tough looking armor.";
+var UndeadArmy = new Enemy("UndeadArmy", undeadArmyDesc, 'BatUArmyProgBarBox','BatUArmyProgBar','btnBatUArmy','UArmyDefeatAlert',40000,3000,0,1,3000);
+setEnemyDescription(UndeadArmy, 'btnDescUArmy');
+
+
 function checkBattleButtons(){
 	//Changes status of Battle Buttons
 	//Goblin Button
@@ -841,6 +863,9 @@ function checkBattleButtons(){
 
 	//Succubus Button
 	Succubus.canFight();
+	
+	//Undead Army Button
+	UndeadArmy.canFight();
 };
 
 window.setInterval(function(){					//Calculates Battle Power 
