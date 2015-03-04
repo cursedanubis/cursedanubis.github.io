@@ -159,7 +159,7 @@ function setDescription(Unit, element){
 //Unit constructor  (name, htmlNumRef, htmlNextGoldCost, htmlNextIronCost, htmlNextSilverCost, htmlNextFaithCost, htmlNextSoulCost, htmlNextTomeCost, htmlBuyBtn, 
 //					goldCost, ironCost, silverCost, faithCost, soulCost, tomeCost, costMult,description, costAdj, hasReqUnit, reqUnit){
 var peasDesc = "A lowly denizen of your realm. They are adept at farming and scrounging for gold but completely useless at fighting. <br> Generates 1 gold per second"
-var Peasant = new Unit("Peasant",'peasants','PeasantCost','none','none','none','none','none','btnbuyPeasant',50,0,0,0,0,0,1.15, peasDesc, tavernpeasants,false,"none");
+var Peasant = new Unit("Peasant",'peasants','PeasantCost','none','none','none','none','none','btnbuyPeasant',50,0,0,0,0,0,1.1, peasDesc, tavernpeasants,false,"none");
 setDescription(Peasant, 'BtnPeasantDesc');
 
 var lumberjackDesc = "These brawny men fell trees for you. <br> Generates 1 wood per second"
@@ -167,7 +167,7 @@ var Lumberjack = new Unit("Lumberjack",'lumberjacks','LumberjackCost','none','no
 setDescription(Lumberjack, 'BtnLumberjackDesc');
 
 var minerDesc = "These hard-working mine excavate minerals from the mine you have built. They bring canaries in with them to warn them of disasters. Also as lunch. <br> Generates 1 iron per second"
-var Miner = new Unit("Miner",'miners','MinerCost','none','none','none','none','none','btnbuyMiner',250,0,0,0,0,0,1.15, minerDesc, tavernminers, false, "none")
+var Miner = new Unit("Miner",'miners','MinerCost','none','none','none','none','none','btnbuyMiner',250,0,0,0,0,0,1.1, minerDesc, tavernminers, false, "none")
 setDescription(Miner, 'BtnMinerDesc');
 
 var pageDesc = "Young men in training to become knights. Not too great with weapons yet, but they're learning.  <br> Provides 10 army strength"

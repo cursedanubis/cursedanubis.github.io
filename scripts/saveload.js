@@ -58,11 +58,13 @@
 		localStorage.setItem("defeatedArchmage",defeatedArchmage);
 		localStorage.setItem("defeatedSuccubus",defeatedSuccubus);
 		localStorage.setItem("defeatedUArmy", defeatedUArmy);
+		localStorage.setItem("defeatedNecromancer", defeatedNecromancer);
 		localStorage.setItem("peasantsKilled",peasantsKilled);
 		localStorage.setItem("minersKilled", minersKilled);
 		localStorage.setItem("ironAbsorbed",ironAbsorbed);
 		localStorage.setItem("silverAbsorbed",silverAbsorbed);
 		localStorage.setItem("unitsSeduced", unitsSeduced);
+		localStorage.setItem("UARevivedCount",UARevivedCount);
 		
 		//Upgradeflags
 		localStorage.setItem("pGoldUpgrade",pGoldUpgrade);
@@ -390,6 +392,7 @@
 			if(myBool == true){
 				paladinWepUpgrade = true;
 				document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Bought";
+				document.getElementById("paladinUpgrade1").disabled = true;
 			}
 		}		
 
@@ -545,13 +548,20 @@
 					document.getElementById('RelicPedestalTab').style.display = "block";
 					defeatedSuccubus = true;
 				}
-		};	
+		};
+		
 		if(localStorage.defeatedUArmy != null){
 			var myBool = (localStorage.defeatedUArmy == "true")
 				if(myBool == true){
 					defeatedUArmy = true;
 				}
-		};	
+		};
+		if(localStorage.defeatedNecromancer != null){
+			var myBool = (localStorage.defeatedNecromancer == "true")
+				if(myBool == true){
+					defeatedNecromancer = true;
+				}
+		};			
 		if(localStorage.peasantsKilled != null){
 			peasantsKilled = parseInt(localStorage.peasantsKilled);
 			document.getElementById("peasantsKilled").innerHTML = peasantsKilled;
@@ -581,6 +591,11 @@
 			unitsSeduced = parseInt(localStorage.unitsSeduced);
 			document.getElementById("unitsSeduced").innerHTML = fnum(unitsSeduced);
 		}	
+		if(localStorage.UARevivedCount != null){
+			UARevivedCount = parseInt(localStorage.UARevivedCount);
+//			document.getElementById("UARevivedCount").innerHTML = fnum(UARevivedCount);
+		}			
+		
 		if(localStorage.inbattle != null){
 			var myBool = (localStorage.inbattle == "true")
 			if(myBool == true){
@@ -873,7 +888,9 @@ function loadScenario(number){
 			minesOpened = true;
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;
+			prFaithUpgrade = true;
 			paladinWepUpgrade = true;
+			tomesUnlocked = true;
 			
 			saveCookie();
 			location.reload(false);			

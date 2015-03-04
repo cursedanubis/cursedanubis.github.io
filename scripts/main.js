@@ -104,19 +104,23 @@ function clickThing(number, type)
 			break;	
 
 		case "tome":
-			if(paper >= 2000*number){
+			if(paper >= 2000*number && faith >= 100*number){
 				tomes = tomes + number;
 				paper = paper - number * 2000;
+				faith = faith - number * 100;
 				document.getElementById("paper").innerHTML = fnum(paper);
+				document.getElementById("faith").innerHTML = fnum(faith);
 				document.getElementById("tomes").innerHTML = fnum(tomes);
 			}
 			break;	
 
 		case "tomeMouse":
-			if(paper >= 2000*number){
+			if(paper >= 2000*number && faith >= 100*number){
 				tomes = tomes + number;
 				paper = paper - number * 2000;
+				faith = faith - number * 100;
 				document.getElementById("paper").innerHTML = fnum(paper);
+				document.getElementById("faith").innerHTML = fnum(faith);
 				document.getElementById("tomes").innerHTML = fnum(tomes);
 			}
 			break;				
@@ -609,7 +613,7 @@ function fnum(x) {
 	{
 		return x;
 	}
-}
+};
 
 function toggleTrunc(){
 	if(TruncateNumber == true){
@@ -619,5 +623,12 @@ function toggleTrunc(){
 		TruncateNumber = true;
 	}
 	
+};
+
+function scroll(name, timeout){
+	setTimeout(function() { 
+	element_to_scroll_to = document.getElementById(name);
+	element_to_scroll_to.scrollIntoView();
+	 }, timeout);
 }
 

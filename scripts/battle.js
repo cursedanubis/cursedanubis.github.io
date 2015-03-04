@@ -12,8 +12,10 @@ var defeatedArchmage = false;
 var defeatedArmor = false;
 var defeatedSuccubus = false;
 var defeatedUArmy = false;
-var goldStolen = 0;
-var justStolen = 0;
+var defeatedNecromancer = false;
+
+var goldStolen = 0;		//Bandit statistic
+var justStolen = 0;		//Bandit statistic
 var typeKilled = "none"	//HHound statistic
 var justKilled = 0;		//HHound statistic
 var peasantsKilled = 0; //HHound statistic
@@ -23,6 +25,7 @@ var absorbedAmount = 0; //Ooze statistic
 var ironAbsorbed = 0;	//Ooze statistic
 var silverAbsorbed = 0; //Ooze statistic
 var unitsSeduced = 0;   //Succubus statistic
+var UARevivedCount = 0; //Undead Army Statistic
 
 var inbattle = false;
 var curBattling;
@@ -116,10 +119,11 @@ Enemy.prototype.fight = function(){
 		  if (currWidth >= maxWidth){
 			clearInterval(progress);
 				$bar.text("Complete!");
-			document.getElementById(alert).style.display = "block";			//Displays alert related to this battle
 			document.getElementById(box).style.display = "none";			//Hides progress bar box
 			document.getElementById(btn).innerHTML = EnemyName + " Defeated!";     //Changes button text
 			document.getElementById(btn).disabled = true;					//disables the buttons
+			document.getElementById(alert).style.display = "block";			//Displays alert related to this battle
+			scroll(alert,500);
 			inbattle = false;
 			
 			setDefeatEvents(EnemyName);
@@ -133,16 +137,7 @@ Enemy.prototype.fight = function(){
 	}
 }
 
-Enemy.prototype.setPercent = function(num){
-	this.percentComplete = num;
-	$bar.width(num +'%');
-	$bar.attr('aria-valuenow',num);
-	$bar.text(num +'%');
-}
-
-
 Enemy.prototype.canFight = function(){		//Checks to see if this enemy can be fought
-	
 	var myButton = this.htmlBtnRef
 	
 	if(BattlePower >= this.BPReq && SpiritPower >= this.SPReq && inbattle == false){
@@ -233,6 +228,13 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 		
 		case 'UndeadArmy':
 			if(defeatedUArmy == true){
+				document.getElementById(myButton).innerHTML = "Undead Army" + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+			}							
+		break;		
+
+		case 'Necromancer':
+			if(defeatedUArmy == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
 			}							
@@ -316,8 +318,42 @@ function setDefeatEvents(name){
 		break;
 		
 		case 'UndeadArmy':
-			alert("Unfinished battle!");
+			defeatedUArmy = true;
+			UARevivedCount = UARevivedCount + 1;
+				switch(UARevivedCount){
+					case 1:
+						document.getElementById('UADefeatMessage').innerHTML = "The zombie army is chopped into arms, legs, torsos, and other various pieces by your army. " +
+						"You figure that they won't be able to cause any further harm in that shape and have your army bury the pieces that they can find. " +
+						"Everyone returns home to take a bath to get rid of the ungodly stench caused by the ichor that has splattered all over."
+						setTimeout(function() { necroReviveUA(); }, 60000);
+					break;
+					
+					case 2:
+						document.getElementById('UADefeatMessage').innerHTML = "The zombie army is chopped into finer pieces than before." +
+						"You figure that they won't be able to cause any further harm in that shape and have your army bury the pieces that they can find. " +
+						"Everyone returns home to take a bath to get rid of the ungodly stench caused by the ichor that has splattered all over."
+						setTimeout(function() { necroReviveUA(); }, 120000);
+					break;
+					
+					case 3:
+						document.getElementById('UADefeatMessage').innerHTML = "You realize that fighting the undead army is basically pointless, as they keep coming back. "+
+						"You have one of your paladins whom is more attuned to magic tracking seek out the source. It turns out there's a necromancer hiding in a cave you " +
+						"never noticed before! Clearly he was sent to harass you by The Evil One."
+						
+						setTimeout(function() { necroReviveUA(); }, 180000);
+						document.getElementById("BatNecromancer").style.display = "block";
+						showBattle('Necromancer');
+					break;					
+				}
+
+			
+		//	alert("Unfinished battle!");
 		break;
+		
+		case 'Necromancer':
+			defeatedNecromancer = true;
+//			document.getElementById('RelicPedestalTab').style.display = "block";
+		break;		
 		
 		default:
 	}	
@@ -381,6 +417,15 @@ function showBattle(name){
 		case 'Succubus':
 			$("#SuccubusCollapse").collapse('show');
 		break;
+
+		case 'UndeadArmy':
+			$("#UndeadArmyCollapse").collapse('show');
+		break;	
+
+		case 'Necromancer':
+			$("#NecromancerCollapse").collapse('show');
+		break;			
+		
 		default:
 	}	
 }
@@ -388,46 +433,62 @@ function showBattle(name){
 function showUndefeatedBattles(){
 	if(defeatedGoblins == false){
 		showBattle('Goblins');
+		scroll('BatGoblins', 500);	
 	}
 	if(defeatedBandits == false){
 		showBattle('Bandits');
+		scroll('BatBandits', 500);
 	}
 
 	if(defeatedHermit == false){
-		showBattle('Hermit');	
+		showBattle('Hermit');
+		scroll('BatHermit', 500);
 	}
 	
 	if(defeatedOgre == false){
 		showBattle('Ogre');
+		scroll('BatPixie', 500);
 	}
 	
 	if(defeatedHhounds == false){
 		showBattle('Hellhounds');
+		scroll('BatHellhound', 500)
 	}			
 
 	if(defeatedPixie == false){
-		showBattle('Pixie');	
+		showBattle('Pixie');
+		scroll('BatPixie', 500);	
 	}			
 
 	if(defeatedArmor == false){
-		showBattle('Armor');			
+		showBattle('Armor');
+		scroll('BatArmor', 500);				
 	}	
 
 	if(defeatedOoze == false){
-		showBattle('Ooze');			
+		showBattle('Ooze');
+		scroll('BatOoze', 500);		
 	}		
 
 	if(defeatedArchmage == false){
 		showBattle('Archmage');
+		scroll('BatArchMage', 500);
 	}							
 
 	if(defeatedSuccubus == false){
 		showBattle('Succubus');
+		scroll('BatSuccubus', 500);
 	}	
 	
 	if(defeatedUArmy == false){
 		showBattle('UndeadArmy');
-	}	
+		scroll('BatUndeadArmy', 500);
+	}
+
+	if(defeatedNecromancer == false){
+		showBattle('Necromancer');
+		scroll('BatNecromancer', 500);
+	}		
 }
 
 /*
@@ -443,7 +504,7 @@ function hideBattle(name){
 		
 		case 'Hermit':
 			$("#HermitCollapse").collapse('hide');
-		break;	s
+		break;	
 		
 		case 'Ogre':	
 			$("#OgreCollapse").collapse('hide');
@@ -532,6 +593,14 @@ function loadBattle(name, percent){
 		case 'Succubus':
 			Succubus.fight();
 		break;
+		
+		case 'UndeadArmy':
+			UndeadArmy.fight();
+		break;
+
+		case 'Necromancer':
+			Necromancer.fight();
+		break;			
 		
 		default:
 	}
@@ -679,14 +748,12 @@ var Ooze = new Enemy("Ooze", oozeDesc, 'BatOozeProgBarBox','BatOozeProgBar','btn
 setEnemyDescription(Ooze, 'btnDescOoze');
 
 function triggerOoze(){
-//	console.log('Ooze triggered');
 	showBattle('Ooze');	
 	document.getElementById('BatOoze').style.display = "block";
 	oozeRaid();
 }
 
 function oozeRaid(){
-	
 	if(defeatedOoze == false){
 		var raidtime = Math.floor((Math.random() * 120) + 60); ;
 		var ticker = raidtime;
@@ -760,7 +827,6 @@ function triggerSuccubus(){
 }
 
 function succubusRaid(){
-//		document.getElementById('BatSuccubus').style.display = "block";
 		if(defeatedSuccubus == false){
 		var raidtime = Math.floor((Math.random() * 130) + 70); ;
 //		console.log("Raidtime in: " + raidtime)
@@ -768,7 +834,6 @@ function succubusRaid(){
 		
 		var raid = setInterval(function() {
 			ticker = ticker - 1;  
-//			console.log(ticker);
 		  if (ticker == 0){
 			clearInterval(raid);
 			if(defeatedSuccubus == false && (inbattle == false || (inbattle == true && curBattling == "Succubus"))){
@@ -781,7 +846,7 @@ function succubusRaid(){
 }
 
 function succubusSeduce(){
-	//find highest tier unit in barracks
+	//find highest tier unit in Barracks
 	var highestTier
 	var previousTier
 	
@@ -830,6 +895,27 @@ function succubusSeduce(){
 var undeadArmyDesc = "You hear unearthly moaning and groaning from beyond your kingdom. You find the smell before the actual army. Even though the zombies are in an advanced state of decomposition, they are still equipped with dangerous weapons and tough looking armor.";
 var UndeadArmy = new Enemy("UndeadArmy", undeadArmyDesc, 'BatUArmyProgBarBox','BatUArmyProgBar','btnBatUArmy','UArmyDefeatAlert',40000,3000,0,1,3000);
 setEnemyDescription(UndeadArmy, 'btnDescUArmy');
+
+var necroDesc = "You hear unearthly moaning and groaning from beyond your kingdom. You find the smell before the actual army. Even though the zombies are in an advanced state of decomposition, they are still equipped with dangerous weapons and tough looking armor.";
+var Necromancer = new Enemy("Necromancer", necroDesc, 'BatNecroProgBarBox','BatNecroProgBar','btnBatNecro','NecromancerDefeatAlert',50000,5000,0,1,4000);
+setEnemyDescription(Necromancer, 'btnDescNecro');
+
+function necroReviveUA(){
+	if(defeatedUArmy == true){
+		defeatedUArmy = false;
+		document.getElementById('btnBatUArmy').innerHTML = "Battle Again!";
+		
+		document.getElementById(UndeadArmy.htmlBoxRef).style.display = "block";
+		$bar = $(document.getElementById(UndeadArmy.htmlBarRef));		
+		$bar.width(0 +'%');
+		$bar.attr('aria-valuenow',0);
+		$bar.text(0+'%');	
+		document.getElementById(UndeadArmy.htmlBoxRef).style.display = "none";
+		showBattle("UndeadArmy");
+		document.getElementById('UArmyReviveAlert').style.display = "block";
+		show('UArmyReviveAlert',500);
+	}
+}
 
 
 function checkBattleButtons(){
