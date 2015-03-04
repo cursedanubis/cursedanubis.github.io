@@ -1091,7 +1091,6 @@
 		<div id = 'tomeUnlockAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>New!</strong> With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href="javascript: toggle('tomeUnlockAlert'); CollapseAll(); toggle('Cathedral');" class="alert-link">someone</a> knows what to do with these...
-				
 		</div>			
 		
 		<div id = 'EvilOneIreAlert' class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">
@@ -1135,8 +1134,20 @@
 			<strong>What the!</strong> The moaning returns! While you are in the middle of ordering a scout to check the location you buried the undead army, a lookout comes
 					running into your quarters tells you that the undead army has risen and is marching on your kingdom <a href="javascript: toggle('UArmyReviveAlert');CollapseAll();toggle('Battle')" class="alert-link">again!</a>
 		</div>	
+
+		<div id = 'UArmyReviveAlert' class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">
+			<button type="button" class="close" onclick = "$('#UArmyReviveAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>What the!</strong> The moaning returns! While you are in the middle of ordering a scout to check the location you buried the undead army, a lookout comes
+					running into your quarters tells you that the undead army has risen and is marching on your kingdom <a href="javascript: toggle('UArmyReviveAlert');CollapseAll();toggle('Battle')" class="alert-link">again!</a>
+		</div>			
+
+		<div id = 'NecroDefeatAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>New!</strong> Congrats! You have defeated the highest implemented battle!
+			<!--<a href="javascript: toggle('unlockAspectofJustice')" class="alert-link">tower</a>-->
+				
+		</div>			
 		
-	
 		<div id = 'saveAlert' class="alert alert-success fade in" role="alert" style="display: none;">
 			<button type="button" class="close" onclick = "$('#saveAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>Save!</strong> Your game has been saved!   
