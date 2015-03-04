@@ -897,7 +897,7 @@ var UndeadArmy = new Enemy("UndeadArmy", undeadArmyDesc, 'BatUArmyProgBarBox','B
 setEnemyDescription(UndeadArmy, 'btnDescUArmy');
 
 var necroDesc = "You hear unearthly moaning and groaning from beyond your kingdom. You find the smell before the actual army. Even though the zombies are in an advanced state of decomposition, they are still equipped with dangerous weapons and tough looking armor.";
-var Necromancer = new Enemy("Necromancer", necroDesc, 'BatNecroProgBarBox','BatNecroProgBar','btnBatNecro','NecromancerDefeatAlert',50000,5000,0,1,4000);
+var Necromancer = new Enemy("Necromancer", necroDesc, 'BatNecroProgBarBox','BatNecroProgBar','btnBatNecro','NecromancerDefeatAlert',52500,6000,0,1,4000);
 setEnemyDescription(Necromancer, 'btnDescNecro');
 
 function necroReviveUA(){
