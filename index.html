@@ -64,7 +64,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-			  <li><a id="displayGatherOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Gather</a></li>	
+			  <li id = "GatherLi"><a id="displayGatherOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Gather</a></li>	
 			  <li class = 'active'><a id="ProductionMenu" href="javascript:CollapseAll(); toggle('Production'); setLastPage('Production');">Village</a></li>
 			  <li><a id="StructureMenu" href="javascript:CollapseAll(); toggle('Structures'); setLastPage('Structures');">Structures</a></li>
               <li><a id="FaithMenu" href="javascript:CollapseAll(); toggle('Cathedral'); setLastPage('Cathedral');" style="display: none;">Cathedral</a></li>
@@ -1229,7 +1229,42 @@
 		function setLastPage(name){
 			lastPage = name;
 		}
-   				
+   		
+		function clickLastPage(){
+			switch(lastPage){
+				case 'Battle':
+					document.getElementById("BattleMenu").click();
+				break;
+				
+				case 'Relics':
+					document.getElementById("BattleMenu").click();
+				break;
+				
+				case 'Ethereal':
+					document.getElementById("EtherealMenu").click();
+				break;		
+				
+				case 'Structures':
+					document.getElementById("StructuresMenu").click();
+				break;
+				
+				case 'Barracks':
+					document.getElementById("BarracksMenu").click();
+				break;
+				
+				case 'Cathedral':
+					document.getElementById("FaithMenu").click();
+				break;
+
+				case 'Production':
+					document.getElementById("ProductionMenu").click();
+				break;					
+				
+				case 'Magic':
+					document.getElementById("TowerMenu").click();
+				break;					
+			}
+		}
 	</script>
 
 	<!-- Google Analytics -->
@@ -1260,6 +1295,6 @@
 	
   </body>
   
-  <body onload = "loadCookie(); CollapseAll(); toggle(lastPage);" >
+  <body onload = "loadCookie(); CollapseAll(); clickLastPage();" >
  
 </html>
