@@ -529,7 +529,6 @@
 					document.getElementById("btnBatHellhound").disabled = true;
 					document.getElementById("btnBatHellhound").innerHTML = "Hellhounds Defeated!";
 					defeatedHhounds = true;
-					setTimeout(function() { triggerOoze(); }, 60000);				//restarts ooze raids after defeating hhounds
 				}
 				else if(defeatedOgre == true){
 					setTimeout(function() { hellHoundRaid(); }, 30000);			//killed ogre but haven't defeated hhounds yet, start raids again
@@ -554,8 +553,11 @@
 			var myBool = (localStorage.defeatedOoze == "true")
 				if(myBool == true){
 					defeatedOoze = true;
-					document.getElementById('BatOoze').style.display == "block"
+					document.getElementById('BatOoze').style.display = "block";
 					document.getElementById('tomeUnlock').style.display = "block";
+				}
+				else if(defeatedHhounds == true){
+					setTimeout(function() { triggerOoze(); }, 60000);				//restarts ooze raids after defeating hhounds
 				}
 		};			
 							

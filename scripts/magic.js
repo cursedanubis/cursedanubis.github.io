@@ -53,7 +53,7 @@ function setSpellDescription(Spell, element){
 };
 
 
-var fastForwardDesc = "The archmage casts a spell that warps your kingdom 15 minutes into the future. Unfortunately, the spell isn't strong enough to keep your taverns working for the duration of the spell.";
+var fastForwardDesc = "<img src='images/stopwatch.png'>The archmage casts a spell that warps your kingdom 15 minutes into the future. Unfortunately, the spell isn't strong enough to keep your taverns working for the duration of the spell.";
 var FastForward = new Spell("FastForward", fastForwardDesc, 0, 0, 'btnSpellFF', 'Alert', 0, 0, 0, 0, 0, 0, 1000);
 setSpellDescription(FastForward, 'BtnSpellFFDesc');
 
@@ -108,7 +108,7 @@ FastForward.cast = function(){
 	}
 }
 
-var fireBallDesc = "The archmage conjures a flaming ball of fire and sends it hurtling towards your foe! It will damage the enemy you are currently battling, pushing you 15% closer to victory!";
+var fireBallDesc = "<img src='images/fireball.png'>The archmage conjures a flaming ball of fire and sends it hurtling towards your foe! It will damage the enemy you are currently battling, pushing you 15% closer to victory!";
 var FireBall = new Spell("FireBall", fireBallDesc, 0, 0, 'btnSpellFB', 'Alert', 0, 0, 0, 0, 0, 0, 750);
 setSpellDescription(FireBall, 'BtnSpellFBDesc');
 
