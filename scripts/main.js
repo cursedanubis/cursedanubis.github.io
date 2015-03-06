@@ -19,6 +19,7 @@ var ironpersec = 0;
 var silverpersec = 0;
 var soulspersec = 0;
 var manapersec = 0;
+var paperpersec = 0;
 var faithDonated = 0;
 var totalTimePlayed = 0;
 var tTPinHHMMSS = 0;
@@ -590,7 +591,9 @@ window.setInterval(function(){                                 //Update per seco
 	}
 	document.getElementById("ressoulsimage").title = "Souls per second: " + fnum(soulspersec) ; 
 	
-
+	paperpersec = PaperMill.number / 10;	
+	document.getElementById("respaperimage").title = "Paper per 10 seconds: " + fnum(paperpersec * 10) ; 
+	
 	manapersec = 1;
 	document.getElementById("resmanaimage").title = "Mana per second: " + fnum(manapersec) ; 	
 	

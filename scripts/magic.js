@@ -66,6 +66,8 @@ FastForward.cast = function(){
 	var silverGained = 0;
 	var faithGained = 0;
 	var soulsGained = 0;
+	var paperGained = 0;
+	
 	if(mana >= 1000){
 	goldGained = timemultiplier*60*goldpersec;
 	gold = gold + goldGained;
@@ -91,13 +93,17 @@ FastForward.cast = function(){
 	souls = souls + soulsGained;
 	document.getElementById('souls').innerHTML = souls;  										          //updates the number of souls for the user		
 	
+	paperGained = timemultiplier*60*paperpersec;														// updates number of paper for the user
+	paper = paper + paperGained;	
+	document.getElementById('paper').innerHTML = paper;					
+	
 	
 	mana = mana - this.manaCost;                                                                  //removes the souls spent	
 	document.getElementById('mana').innerHTML = mana;  										      //updates the number of souls for the user
 	
 	
 	alert(this.name + " spell cast!\n\nYou gain " + goldGained + " gold. \nYou gain " + woodGained + 
-				     " wood.\nYou gain " + ironGained + " iron.\nYou gain " + silverGained + " silver.\nYou gain " + faithGained + " faith.\nYou gain " + soulsGained + " souls.");
+				     " wood.\nYou gain " + ironGained + " iron.\nYou gain " + silverGained + " silver.\nYou gain " + faithGained + " faith.\nYou gain " + soulsGained + " souls.\nYou gain " + paperGained + " paper.");
 
 	}
 }
