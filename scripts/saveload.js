@@ -81,6 +81,7 @@
 		localStorage.setItem("angelsUnlocked", angelsUnlocked);
 		localStorage.setItem("tomesUnlocked",tomesUnlocked);
 		localStorage.setItem("PmillEffUpgr", PmillEffUpgr);
+		localStorage.setItem("PmillEffUpgr2",PmillEffUpgr2);
 		localStorage.setItem("paladinWepUpgrade",paladinWepUpgrade);
 		localStorage.setItem("tavernUpgrade",tavernUpgrade);
 		localStorage.setItem("tavernUpgrade2", tavernUpgrade2);
@@ -403,7 +404,15 @@
 				document.getElementById("btnPmillEffUpgrade").disabled = true;
 				document.getElementById("btnPmillEffUpgrade").innerHTML = "Process Control Bought";
 			}
-		}			
+		}	
+		if(localStorage.PmillEffUpgr2 != null){
+			var myBool = (localStorage.PmillEffUpgr2 == "true")
+			if(myBool == true){
+				PmillEffUpgr2 = true;
+				document.getElementById("btnPmillEffUpgrade2").disabled = true;
+				document.getElementById("btnPmillEffUpgrade2").innerHTML = "Total Overhaul Bought";
+			}
+		}		
 		if(localStorage.paladinWepUpgrade != null){
 			var myBool = (localStorage.paladinWepUpgrade == "true")
 			if(myBool == true){
