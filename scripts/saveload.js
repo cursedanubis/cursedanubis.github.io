@@ -452,8 +452,8 @@
 			if(myBool == true){
 				angelsUnlocked = true;
 			document.getElementById('RelicPedestalTab').style.display = "none";
-//			document.getElementById('AngelUnlockAlert').style.display = "block";
-			document.getElementById('AngelTab').style.display = "block";				
+			document.getElementById('AngelTab').style.display = "block";	
+			document.getElementById("Etherealtitle").innerHTML = "Ethereal Rip & Angelic Gates";
 			}
 		}			
 		
@@ -545,6 +545,7 @@
 			var myBool = (localStorage.defeatedOoze == "true")
 				if(myBool == true){
 					defeatedOoze = true;
+					document.getElementById('BatOoze').style.display == "block"
 					document.getElementById('tomeUnlock').style.display = "block";
 				}
 		};			

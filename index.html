@@ -15,7 +15,7 @@
 
 	<!-- Custom styles for this template -->
     <link href="navbar.css" rel="stylesheet">
-	<link href="currency.css" rel="stylesheet">
+	<link href="holywars.css" rel="stylesheet">
 	
     <script src="dist/assets/js/ie-emulation-modes-warning.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -573,7 +573,7 @@
 	 
 	 <div id="Ethereal" class = "panel panel-default" style="display: none;">
 		<div class = "panel-heading">
-			<div class="panel-title">Ethereal Rip</div>
+			<div id=Etherealtitle class="panel-title">Ethereal Rip</div>
 		</div>	
 		
 		<div id ="ShadeTab" class = "container">
@@ -654,21 +654,23 @@
 			</div>	   
 			<h3> Current mana cap: <span id = "manaCap">0</span> </h3>
 	   </div>
-		<div id ="FireBallTab" class = "container">
+	   <div id = 'SpellsDiv'>
+			<div id ="FireBallTab" class = "spell well">
+				<br />
+				<a id = 'BtnSpellFBDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Fire Ball</a>
+				<br /><br />
+				<button id=btnSpellFB onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
+				<br />	<img src = "images/manasmall.png" Title="Mana">750
+			</div>			   
+			<div id ="FastForwardTab" class = "spell well">
+				<br />
+				<a id = 'BtnSpellFFDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Time Skip</a>
+				<br /><br />
+				<button id=btnSpellFF onclick="FastForward.cast()"	type="button" class="btn btn-default">Cast Spell</button>
+				<br />	<img src = "images/manasmall.png" Title="Mana">1,000
+			</div>				
 			<br />
-			<a id = 'BtnSpellFBDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Fire Ball</a>
-			<br /><br />
-			<button id=btnSpellFB onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
-			<br />	<img src = "images/manasmall.png" Title="Mana">750
-		</div>			   
-		<div id ="FastForwardTab" class = "container">
-			<br />
-			<a id = 'BtnSpellFFDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Time Skip</a>
-			<br /><br />
-			<button id=btnSpellFF onclick="FastForward.cast()"	type="button" class="btn btn-default">Cast Spell</button>
-			<br />	<img src = "images/manasmall.png" Title="Mana">1,000
-		</div>				
-		<br />
+		</div>
 	 </div>	 
 	 
 	 <div id="Battle" class = "panel panel-default" style="display: none;">

@@ -393,6 +393,7 @@ function addFaithToRelic(number){
 	}
 	
 	if(faithDonated >= 500000){
+		document.getElementById("Etherealtitle").innerHTML = "Ethereal Rip & Angelic Gates";
 		document.getElementById('RelicPedestalTab').style.display = "none";
 		document.getElementById('AngelUnlockAlert').style.display = "block";
 		document.getElementById('AngelTab').style.display = "block";

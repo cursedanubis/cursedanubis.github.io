@@ -90,8 +90,18 @@ padding: 0px;
 padding: 0px;
 }
 
+#SpellsDiv div{
+display: inline-block;
+}
+
 .upgrade {
 width: 350px;
+}
+
+.spell{
+padding-top: 0px;
+margin-left: 10px;
+width: auto;
 }
 
 
