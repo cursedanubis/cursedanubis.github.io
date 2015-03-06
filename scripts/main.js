@@ -385,7 +385,7 @@ function addFaithToRelic(number){
 		}
 		else if(faithDonate > 400000){
 			description = "The glowing from the relic intensifies, and now there is a slight shimmering around the surface! Just a little more, something is about to happen!"
-			document.getElementById('RelicAlmostAlert').style.display = "block";			
+			document.getElementById('RelicAlmostAlert').style.display = "block";
 		}
 		var popover = document.getElementById('BtnRelicDesc');
 		popover.setAttribute("data-content", description);

@@ -640,7 +640,7 @@
 			faithDonated = parseInt(localStorage.faithDonated);
 			document.getElementById("faithDonated").innerHTML = fnum(faithDonated);
 			if(faithDonated >= 500000){
-	//			document.getElementById('RelicPedestalTab').style.display = "none";
+				document.getElementById('RelicPedestalTab').style.display = "none";
 			}			
 		}		
 		if(localStorage.lastPage != null){

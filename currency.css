@@ -88,10 +88,10 @@ padding: 0px;
 
 #relicInputGroup input-group{
 padding: 0px;
+}
 
-
-Mining.collapse.upgrade{
-width: 300px
+.upgrade {
+width: 350px;
 }
 
 
