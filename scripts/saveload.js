@@ -558,7 +558,7 @@
 					document.getElementById('BatOoze').style.display = "block";
 					document.getElementById('tomeUnlock').style.display = "block";
 				}
-				else if(defeatedHhounds == true){
+				else if(defeatedHhounds == true && myBool == false){
 					setTimeout(function() { triggerOoze(); }, 60000);				//restarts ooze raids after defeating hhounds
 				}
 		};			

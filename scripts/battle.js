@@ -137,7 +137,7 @@ Enemy.prototype.fight = function(){
 					console.log(battleUnitLost.number);
 				}
 				else{
-					console.log("No Combat unit loss");
+//					console.log("No Combat unit loss");
 				}
 				
 				console.log(SpirReq);
@@ -148,7 +148,7 @@ Enemy.prototype.fight = function(){
 					console.log(ethUnitLost.number);					
 				}
 				else{
-					console.log("No Ethereal unit loss")
+//					console.log("No Ethereal unit loss")
 				}
 				
 				loseUnitAlert(EnemyName, battleUnitLost.name, battleUnitLostNum, ethUnitLost.name, ethUnitLostNum);
@@ -163,9 +163,12 @@ Enemy.prototype.fight = function(){
 			document.getElementById(alert).style.display = "block";			//Displays alert related to this battle
 			scroll(alert,500);
 			inbattle = false;
-			
 			setDefeatEvents(EnemyName);
-		  } 		
+		  } 
+			
+//			console.log("#" + EnemyName + "Collapse");
+			var collapsename = "#" + EnemyName + "Collapse"
+			$(collapsename).toggleClass("backgroundRed");
 		}, this.speed);
 		return true;
 	}
@@ -235,9 +238,7 @@ function loseUnitAlert(enemyName, bUnitName, bNumberLost, eUnitName, eNumberLost
 			loststring + "s";
 		}
 	}	
-	
 	loststring = loststring + '!';
-	
 	if(bNumberLost > 0 || eNumberLost > 0){
 		document.getElementById('UnitLossAlert').style.display = "block";
 		document.getElementById('unitlossstring').innerHTML = loststring;

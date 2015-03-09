@@ -190,7 +190,7 @@ var acolyteDesc = "Trainees in the world of the holy. Over time they may become 
 var Acolyte = new Unit("Acolyte",'acolytes','AcolyteCost','none','none','none','none','none','btnbuyAcolyte',500,0,0,0,0,0,1.1, acolyteDesc, 0, false, "none");	
 setDescription(Acolyte, 'BtnAcolyteDesc');
 
-var priestDesc = "Men of the cloth. Their piety helps them channel the holy energy from the universe."
+var priestDesc = "Men of the cloth. Their piety helps them channel the holy energy from the universe. They have duties ranging from teaching the acolytes to writing down of knowledge of the Order in <img src = 'images/bookssmall.png' Title='Tomes'>tomes."
 var Priest = new Unit("Priest",'priests','PriestCost','none','PriestSilverCost','PriestFaithCost','none','none','btnbuyPriest',1000,0,10,50,0,0,1.15, priestDesc, 0, true, Acolyte);	
 setDescription(Priest, 'BtnPriestDesc');
 
