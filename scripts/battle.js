@@ -234,7 +234,7 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 		break;		
 
 		case 'Necromancer':
-			if(defeatedUArmy == true){
+			if(defeatedNecromancer == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
 			}							
@@ -907,7 +907,7 @@ var UndeadArmy = new Enemy("UndeadArmy", undeadArmyDesc, 'BatUArmyProgBarBox','B
 setEnemyDescription(UndeadArmy, 'btnDescUArmy');
 
 var necroDesc = "A master of unholy magic, this wizard is quite adept at bringing corpses back to life. You really, really hope he's not into necrophilia.";
-var Necromancer = new Enemy("Necromancer", necroDesc, 'BatNecroProgBarBox','BatNecroProgBar','btnBatNecro','NecroDefeatAlert',52500,6000,0,1,4000);
+var Necromancer = new Enemy("Necromancer", necroDesc, 'BatNecroProgBarBox','BatNecroProgBar','btnBatNecromancer','NecroDefeatAlert',52500,6000,0,1,4000);
 setEnemyDescription(Necromancer, 'btnDescNecro');
 
 function necroReviveUA(){
@@ -922,7 +922,7 @@ function necroReviveUA(){
 		document.getElementById(UndeadArmy.htmlBoxRef).style.display = "none";
 		showBattle("UndeadArmy");
 		document.getElementById('UArmyReviveAlert').style.display = "block";
-		show('UArmyReviveAlert',500);
+		scroll('UArmyReviveAlert',500);
 	}
 }
 
@@ -961,6 +961,9 @@ function checkBattleButtons(){
 	
 	//Undead Army Button
 	UndeadArmy.canFight();
+	
+	//Necromancer Button
+	Necromancer.canFight();
 };
 
 window.setInterval(function(){					//Calculates Battle Power 
