@@ -77,7 +77,7 @@ var Enemy = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, html
 	this.fightable = false;
 	var $bar = $(document.getElementById(this.htmlBarRef));
 	this.spellBoostPercent;
-	//Need to add $bar here to add % fight spell?
+	this.lossPercentChance;
 };
 
 //Fighting enemy function prototype
@@ -89,11 +89,22 @@ Enemy.prototype.fight = function(){
 	var box = this.htmlBoxRef;
 	var bar = this.htmlBarRef;
 	var EnemyName = this.name;
+	var SpirReq = this.SPReq;
+	
+	var lossPercent = this.lossPercentCalc();
+	var battleUnitLost = selectRandomBattleUnit();
+	var battleUnitLostNum = 0;
+	var ethUnitLost = selectRandomEthUnit();
+	var ethUnitLostNum = 0;
 	
 	if(this.fightable == true){
 	inbattle = true;
 	curBattling = this.name
 	document.getElementById(this.htmlBoxRef).style.display = "block";
+	
+//	console.log(this.lossPercentCalc()*100 + '%');
+//	console.log(battleUnitLost.name);
+//	console.log(ethUnitLost.name);
 	
 	$bar = $(document.getElementById(this.htmlBarRef));
 		var progress = setInterval(function() {
@@ -115,6 +126,33 @@ Enemy.prototype.fight = function(){
 			perComplete = perComplete + perIncrement;
 			this.percentComplete = perComplete;
 			battlePercent = perComplete;
+			
+			
+			//Unit battle loss
+			if(perComplete%25 == 0){
+				if(loseUnit(lossPercent) == true){
+					console.log(battleUnitLost.name + " : " + battleUnitLost.number);
+					battleUnitLostNum = battleUnitLostNum + 1;
+					battleUnitLost.removeOne();
+					console.log(battleUnitLost.number);
+				}
+				else{
+					console.log("No Combat unit loss");
+				}
+				
+				console.log(SpirReq);
+				if(loseUnit(lossPercent) == true && SpirReq > 0){
+					console.log(ethUnitLost.name + " : " + ethUnitLost.number);
+					ethUnitLostNum = ethUnitLostNum + 1;
+					ethUnitLost.removeOne();
+					console.log(ethUnitLost.number);					
+				}
+				else{
+					console.log("No Ethereal unit loss")
+				}
+				
+				loseUnitAlert(EnemyName, battleUnitLost.name, battleUnitLostNum, ethUnitLost.name, ethUnitLostNum);
+			}
 			
 		  if (currWidth >= maxWidth){
 			clearInterval(progress);
@@ -151,6 +189,140 @@ Enemy.prototype.canFight = function(){		//Checks to see if this enemy can be fou
 		this.checkFlag();
 	}	
 };
+
+Enemy.prototype.lossPercentCalc = function(){ 	//Checks to see percentage of troop loss for the battle
+	var percent
+	var topend = this.BPReq * 2;
+	if(BattlePower >= topend){
+		return 0;
+	}
+	else{
+		percent = (topend - BattlePower)/BattlePower;
+		return percent;
+	}
+};
+
+function loseUnit(percent){
+	if(percent == 0){
+		return false;
+	}
+	else{
+		if(Math.floor((Math.random() * 100) + 1) < percent * 100){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+}
+
+function loseUnitAlert(enemyName, bUnitName, bNumberLost, eUnitName, eNumberLost){
+	var loststring = "In your battle with " + enemyName + ", you lose ";
+	
+	if(bNumberLost > 0){
+		loststring = loststring + bNumberLost + " " + bUnitName;
+		if(bNumberLost > 1){
+			loststring = loststring + "s"
+		}
+	}
+	
+	if(eNumberLost > 0){
+		if(bNumberLost > 0){
+			loststring = loststring + " and ";
+		}
+		loststring = loststring + eNumberLost + " " + eUnitName;
+		if(eNumberLost > 1){
+			loststring + "s";
+		}
+	}	
+	
+	loststring = loststring + '!';
+	
+	if(bNumberLost > 0 || eNumberLost > 0){
+		document.getElementById('UnitLossAlert').style.display = "block";
+		document.getElementById('unitlossstring').innerHTML = loststring;
+	}
+};
+
+function selectRandomBattleUnit(){
+	var rand = Math.floor(Math.random()*4) + 1;
+	
+	switch(rand){
+		case 1:
+			if(Page.number == 0){
+				return selectRandomBattleUnit();
+			}
+			else{
+				return Page;				
+			}
+
+		break;
+		
+		case 2:
+			if(Squire.number == 0){
+				return selectRandomBattleUnit();
+			}
+			else{
+				return Squire;				
+			}
+		break;
+		
+		case 3:
+			if(Knight.number == 0){
+				return selectRandomBattleUnit();
+			}
+			else{		
+				return Knight;
+			}
+		break;
+		
+		case 4:
+			if(Paladin.number == 0){
+				return selectRandomBattleUnit();
+			}
+			else{	
+				return Paladin;
+			}
+		break;
+	}
+}
+
+function selectRandomEthUnit(){
+	var rand = Math.floor(Math.random()*3) + 1;
+	
+	if(Shade.number == 0 && Aspect.number == 0 && Angel.number == 0){
+		return Shade;
+	}
+	
+	switch(rand){
+		case 1:
+			if(Shade.number == 0){
+				return selectRandomEthUnit();
+			}
+			else{
+				return Shade;
+			}
+		break;
+		
+		case 2:
+			if(Aspect.number == 0){
+				return selectRandomEthUnit();
+			}
+			else{
+				return Aspect;
+			}
+		break;
+		
+		case 3:
+			if(Angel.number == 0){
+				return selectRandomEthUnit();
+			}
+			else{
+				return Angel;				
+			}
+		break;
+	}	
+}
 
 Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won, if so change button to reflect
 	var myButton = this.htmlBtnRef

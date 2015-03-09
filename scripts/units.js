@@ -199,7 +199,7 @@ var Bishop = new Unit("Bishop",'bishops','BishopCost','none','BishopSilverCost',
 setDescription(Bishop, 'BtnBishopDesc');
 
 var shadeDesc = "This spirits are but a barely present in our world, but they are still capable of damaging demonic beings."
-var Shade = new Unit("BenevolentShade",'shades','ShadeCost','none','shadeSilverCost','none','shadeSoulCost','none','btnBuyShade',10000,0,250,0,200,0,1.15, shadeDesc, 0, false, "none");
+var Shade = new Unit("Shade",'shades','ShadeCost','none','shadeSilverCost','none','shadeSoulCost','none','btnBuyShade',10000,0,250,0,200,0,1.15, shadeDesc, 0, false, "none");
 setDescription(Shade, 'BtnShadeDesc');
 
 var aspectDesc = "These shades are now able to animate armor that you make from silver. They are much more capable of battling demonic beings."

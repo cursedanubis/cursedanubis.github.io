@@ -644,6 +644,7 @@
 		if(localStorage.inbattle != null){
 			var myBool = (localStorage.inbattle == "true")
 			if(myBool == true){
+//				inbattle = localStorage.inbattle;
 				curBattling = localStorage.curBattling;
 				battlePercent = localStorage.battlePercent;
 				console.log(curBattling + ": " + battlePercent + "%")
