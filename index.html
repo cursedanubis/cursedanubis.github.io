@@ -681,18 +681,18 @@
 			<h4> Relic Hunting </h4>
 			
 			<div class = 'container'>
-						<div class="spinbox" data-initialize="spinbox" id="mySpinbox">
-						  <input type="text" class="form-control input-mini spinbox-input">
-						  <div class="spinbox-buttons btn-group btn-group-vertical">
-							<button type="button" class="btn btn-default spinbox-up btn-xs">
-							  <span class="glyphicon glyphicon-chevron-up"></span><span class="sr-only">Increase</span>
-							</button>
-							<button type="button" class="btn btn-default spinbox-down btn-xs">
-							  <span class="glyphicon glyphicon-chevron-down"></span><span class="sr-only">Decrease</span>
-							</button>
-						  </div>
-						</div>
-			<div>
+				<div class = "row">
+					<div class = "col-xs-2">
+						<select class="form-control" id = "questpicker">
+						  <option>1</option>
+						  <option>2</option>
+						  <option>3</option>
+						  <option>4</option>
+						  <option>5</option>
+						</select>
+					</div>
+				</div>
+			</div>
 		</div>
 	   <hr>
 	 </div>
@@ -1335,6 +1335,8 @@
 	<script type="text/javascript" src="scripts/buildings.js"></script>    <!--Load building script -->
 	<script type="text/javascript" src="scripts/battle.js"></script>       <!--Load Battle script -->
 	<script type="text/javascript" src="scripts/magic.js"></script>       <!--Load Magic script -->
+	<script type="text/javascript" src="scripts/quests.js"></script>       <!--Load Quests script -->
+	
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
