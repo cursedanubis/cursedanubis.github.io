@@ -12,10 +12,10 @@
 	
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-
+	
 	<!-- Custom styles for this template -->
-    <link href="navbar.css" rel="stylesheet">
-	<link href="holywars.css" rel="stylesheet">
+    <link href="dist/css/navbar.css" rel="stylesheet">
+	<link href="dist/css/holywars.css" rel="stylesheet">
 	
     <script src="dist/assets/js/ie-emulation-modes-warning.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -71,6 +71,7 @@
 			  <li><a id="BarracksMenu" href="javascript:CollapseAll(); toggle('Barracks'); setLastPage('Barracks');" style="display: none; ">Barracks</a></li>
 			  <li><a id="EtherealMenu" href="javascript:CollapseAll(); toggle('Ethereal'); setLastPage('Ethereal');" style="display: none;">Ethereal</a></li>
 			  <li><a id="TowerMenu" href="javascript:CollapseAll(); toggle('Magic'); setLastPage('Magic');" style="display: none;">Tower</a></li>
+			  <li><a id="QuestMenu" href="javascript:CollapseAll(); toggle('Quests'); setLastPage('Quests');" >Quests</a></li>
     		  <li><a id="BattleMenu" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle');">Battle</a></li>
 			  <li><a id="RelicsMenu" href="javascript:CollapseAll(); toggle('Relics'); setLastPage('Relics');" style="display: none;">Relics</a></li>
 
@@ -671,6 +672,34 @@
 		</div>
 	 </div>	 
 	 
+	 <div id="Quests" class = "panel panel-default">
+		<div class = "panel-heading">
+			<div class="panel-title">Quests</div>
+		</div>
+		
+		<div>
+			<h4> Relic Hunting </h4>
+			
+			<div class = 'container'>
+						<div class="spinbox" data-initialize="spinbox" id="mySpinbox">
+						  <input type="text" class="form-control input-mini spinbox-input">
+						  <div class="spinbox-buttons btn-group btn-group-vertical">
+							<button type="button" class="btn btn-default spinbox-up btn-xs">
+							  <span class="glyphicon glyphicon-chevron-up"></span><span class="sr-only">Increase</span>
+							</button>
+							<button type="button" class="btn btn-default spinbox-down btn-xs">
+							  <span class="glyphicon glyphicon-chevron-down"></span><span class="sr-only">Decrease</span>
+							</button>
+						  </div>
+						</div>
+			<div>
+		</div>
+	   <hr>
+	 </div>
+	 
+
+	 
+	 <!---------------------------------BATTLE AREA -------------------------------------------------------------------------------------->
 	 <div id="Battle" class = "panel panel-default" style="display: none;">
 		<div class = "panel-heading">
 			<div class="panel-title">Battle</div>
@@ -1064,7 +1093,7 @@
 		</div>	
 		
 		<div id = 'hellHoundAttackAlert' class="alert alert-danger fade in" role="alert" style="display: none;">
-			<button type="button" class="close" onclick = "$('#saveAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<button type="button" class="close" onclick = "$('#hellHoundAttackAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>Oh No!!</strong> The Evil One's hellhounds break through your defenses and kill <span id = "justKilled">0</span> of your <span id = "typeKilled">x</span>. Build up your strength and <a href="javascript: toggle('hellHoundAttackAlert');CollapseAll();toggle('Battle')" class="alert-link">fight</a> them off!   
 		</div>		
 
@@ -1177,9 +1206,7 @@
 
 		<div id = 'NecroDefeatAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong> Congrats! You have defeated the highest implemented battle!
-			<!--<a href="javascript: toggle('unlockAspectofJustice')" class="alert-link">tower</a>-->
-				
+			<strong>New!</strong> Congrats! You have defeated the highest implemented battle!				
 		</div>			
 		
 		<div id = 'saveAlert' class="alert alert-success fade in" role="alert" style="display: none;">
@@ -1213,7 +1240,6 @@
 			Relics<br />
 			More Battles<br />
 			Prestige System<br /> <br />
-
 			
 			You have played Holy Wars for: <span id = tTPinHHMMSS>0</span>
 			<br />
@@ -1236,6 +1262,7 @@
 			document.getElementById("Cathedral").style.display = "none";
 			document.getElementById("Production").style.display = "none";
 			document.getElementById("Magic").style.display = "none";
+			document.getElementById("Quests").style.display = "none";
 		};
 		function setLastPage(name){
 			lastPage = name;
@@ -1269,6 +1296,10 @@
 
 				case 'Production':
 					document.getElementById("ProductionMenu").click();
+				break;
+
+				case 'Quests':
+					document.getElementById("QuestMenu").click();
 				break;					
 				
 				case 'Magic':
@@ -1311,7 +1342,7 @@
     <script src="dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
  <!--   <script src="assets/js/ie10-viewport-bug-workaround.js"></script>-->
-	
+
   </body>
   
   <body onload = "loadCookie(); CollapseAll(); clickLastPage();" >
