@@ -35,17 +35,16 @@ Quest.prototype.go = function(){
 	var btn = this.htmlBtnRef;
 	var box = this.htmlBoxRef;
 	var bar = this.htmlBarRef;
-	var EnemyName = this.name;
-	var SpirReq = this.SPReq;
+	var QuestName = this.name;
 		
 	inbattle = true;
-	curBattling = this.name
+	curQuest = this.name
 	document.getElementById(this.htmlBoxRef).style.display = "block";	
 	
 	$bar = $(document.getElementById(this.htmlBarRef));
 	var progress = setInterval(function() {
-		 currWidth = parseInt(this.$bar.attr('aria-valuenow'));
-		 maxWidth = parseInt(this.$bar.attr('aria-valuemax'));	
+	currWidth = parseInt(this.$bar.attr('aria-valuenow'));
+	maxWidth = parseInt(this.$bar.attr('aria-valuemax'));	
 			
 		//update the progress
 	
@@ -67,10 +66,6 @@ Quest.prototype.go = function(){
 //		inbattle = false;
 //		setDefeatEvents(EnemyName);
 	  } 
-		
-//			console.log("#" + EnemyName + "Collapse");
-//		var collapsename = "#" + EnemyName + "Collapse"
-//		$(collapsename).toggleClass("backgroundRed");
 	}, this.speed);
 	return true;
 }
@@ -147,7 +142,10 @@ function QuestCheckUnitOptions(){
 		$('.selectpicker').selectpicker('refresh');
 	}	
 }
+
+
+
 //var Quest = function(name, description, htmlBoxRef, htmlBarRef, htmlAlertRef, percentComplete, percentIncrement,speed){
 var relicHuntDesc = "Goblin description placeholder <br><br> You should probably stop them.";
-var RelicHunt = new Quest('Relic Hunt', relicHuntDesc, 'QuestProgBarBox', 'QuestProgBar','goblinDefeatAlert',0,10,500);
+var RelicHunt = new Quest('Relic Hunt', relicHuntDesc, 'QuestProgBarBox', 'QuestProgBar','goblinDefeatAlert',0,1,500);
 //setEnemyDescription(Goblins, 'btnDescGoblins');
