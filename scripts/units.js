@@ -95,6 +95,7 @@ Unit.prototype.buyOne = function(){
 			
 		};
 	}
+	QuestCheckUnitOptions(); //
 };
 
 Unit.prototype.removeOne = function(){
