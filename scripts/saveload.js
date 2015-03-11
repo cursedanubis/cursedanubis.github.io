@@ -670,6 +670,8 @@
 		}
 		recalculateCosts();
 		
+		QuestCheckUnitOptions();
+		
 //		setTimeout(function() { showUndefeatedBattles(); }, 1000)
 //		showUndefeatedBattles();
 		

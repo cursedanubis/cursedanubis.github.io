@@ -791,11 +791,11 @@ function loadBattle(name, percent){
 
 
 //function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, BPReq, SPReq, percentComplete, percentIncrement,speed)
-var goblinsDesc = "Goblin description placeholder <br><br> You should probably stop them.";
+var goblinsDesc = "Concerned with the security of your land, your spymaster has made a list of enemies spotted by your scouts.<br>The list begins with a den of greedy goblins in the nearby oak grove.<br>Though they have not made any aggressive moves toward your people and your holdings, theses capricious hoarders of all things shiny remain a threat.";
 var Goblins = new Enemy('Goblins', goblinsDesc, 'BatGoblinsProgBarBox', 'BatGoblinsProgBar', 'btnBatGoblins','goblinDefeatAlert',75,0,0,10,500);
 setEnemyDescription(Goblins, 'btnDescGoblins');
 
-var banditsDesc = "A bandit camp sits on the outskirts of your village. Bandits occasionally ride into your village and do dastardly things like looting and pillaging your poor peasants.  <br><br> You should probably stop them."
+var banditsDesc = "Scouts have reported sightings of a large group of marauders camped out on the plains.<br>Outfitted in leather armor and wielding iron weapons, these bandits roam the outskirts of your town and periodically pilfer from your peasants.  <br><br> You should probably stop them."
 var Bandits = new Enemy('Bandits', banditsDesc, 'BatBanditsProgBarBox', 'BatBanditsProgBar', 'btnBatBandits','unlockCathAlert',100,0,0,5,500);
 setEnemyDescription(Bandits, 'btnDescBandits');
 
@@ -837,7 +837,7 @@ function banditLoot(){
 
 setTimeout(function() { banditLoot(); }, 90000);//Triggers bandit looting
 
-var hermitDesc = "There is a hermit living in the middle of the forest. She keeps mostly to herself, but you can observe her cutting down trees from time to time. It is clear, however, that she is a menace because she has a tendency to throw poisoned knives at anyone who come near her.";
+var hermitDesc = "Your people have been warned away from the swampy western woods where the mists blanket everything except for the lone hovel at the center.<br>Its single occupant can be seen chopping wood and collecting wild plants from time to time, often singing to herself into a garbled, eldritch language.<br>Her age hides the true extent of her skills - she keeps visitors away with an array of throwing knives, all launched with terrifyingly great accuracy.";
 var Hermit = new Enemy('Hermit', hermitDesc, 'BatHermitProgBarBox', 'BatHermitProgBar', 'btnBatHermit','paperMillAlert',250,0,0,2,500);
 setEnemyDescription(Hermit, 'btnDescHermit');
 
