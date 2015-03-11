@@ -101,9 +101,6 @@ function returnPickerSelection(){			//Need to change function name to something 
 		 string = string + " out on the quest '" + $('#questSelectPicker').selectpicker('val') + "'";
 	  document.getElementById('questAlertString').innerHTML = string;
 	  document.getElementById('sendQuestAlert').style.display = "block";
-//	  alert(string);
-	
-
 	  
 	  switch($('#questSelectPicker').selectpicker('val'))
 	  {
