@@ -108,6 +108,7 @@ FastForward.cast = function(){
 	
 	document.getElementById('TimeWarpAlert').style.display = "block";
 	document.getElementById('timeWarpAlertString').innerHTML = alertString;
+	scroll('TimeWarpAlert',1000);
 	}
 }
 
@@ -117,9 +118,7 @@ setSpellDescription(FireBall, 'BtnSpellFBDesc');
 
 FireBall.cast = function(){
 	if(inbattle == false){
-		
 		document.getElementById('FireBallFailAlert').style.display = "block";
-//		alert("You are not in a battle! Your archmage declines to cast fireballs at nothing.");
 	}
 	else{
 		spellBoost(15);
@@ -130,7 +129,7 @@ FireBall.cast = function(){
 		var AlertString = "With a large 'woosh!' and a burst of intense light and heat, the archmage sends a fireball flying from his tower straight at " + curBattling + "!";
 		document.getElementById('fireBallAlertString').innerHTML = AlertString;
 		document.getElementById('FireBallAlert').style.display = "block";
-		
+		scroll('FireBallAlert',1000);
 	}
 
 }
