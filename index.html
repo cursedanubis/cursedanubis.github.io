@@ -1237,6 +1237,21 @@
 			<strong>New!</strong> Congrats! You have defeated the highest implemented battle!				
 		</div>	
 
+		<div id = 'TimeWarpAlert' class="alert alert-success fade in" role="alert" style="display: none;">
+			<button type="button" class="close" onclick = "$('#TimeWarpAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Time Warp!</strong> <span id = 'timeWarpAlertString'></span>  
+		</div>		
+
+		<div id = 'FireBallAlert' class="alert alert-success fade in" role="alert" style="display: none;">
+			<button type="button" class="close" onclick = "$('#FireBallAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Fire Ball!</strong> <span id = 'fireBallAlertString'></span>  
+		</div>
+
+		<div id = 'FireBallFailAlert' class="alert alert-danger fade in" role="alert" style="display: none;">
+			<button type="button" class="close" onclick = "$('#FireBallFailAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Fire Ball Fizzles!</strong> "You are not in a battle! Your archmage declines to cast fireballs at nothing." 
+		</div>			
+		
 		<div id = 'sendQuestAlert' class="alert alert-info fade in" role="alert" style="display: none;">
 			<button type="button" class="close" onclick = "$('#sendQuestAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>Questing!</strong> <span id = 'questAlertString'></span>

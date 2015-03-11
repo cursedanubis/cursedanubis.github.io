@@ -54,7 +54,7 @@ function setSpellDescription(Spell, element){
 
 
 var fastForwardDesc = "<img src='images/stopwatch.png'>The archmage casts a spell that warps your kingdom 15 minutes into the future. Unfortunately, the spell isn't strong enough to keep your taverns working for the duration of the spell.";
-var FastForward = new Spell("FastForward", fastForwardDesc, 0, 0, 'btnSpellFF', 'Alert', 0, 0, 0, 0, 0, 0, 1000);
+var FastForward = new Spell("Time Warp", fastForwardDesc, 0, 0, 'btnSpellFF', 'Alert', 0, 0, 0, 0, 0, 0, 1000);
 setSpellDescription(FastForward, 'BtnSpellFFDesc');
 
 FastForward.cast = function(){
@@ -102,9 +102,12 @@ FastForward.cast = function(){
 	document.getElementById('mana').innerHTML = mana;  										      //updates the number of souls for the user
 	
 	
-	alert(this.name + " spell cast!\n\nYou gain " + goldGained + " gold. \nYou gain " + woodGained + 
-				     " wood.\nYou gain " + ironGained + " iron.\nYou gain " + silverGained + " silver.\nYou gain " + faithGained + " faith.\nYou gain " + soulsGained + " souls.\nYou gain " + paperGained + " paper.");
-
+	var alertString = this.name + " spell cast! The world blurs before your eyes! "+
+					 "<br>You gain " + fnum(goldGained) + " gold. <br>You gain " + fnum(woodGained) + 
+				     " wood.<br>You gain " + fnum(ironGained) + " iron.<br>You gain " + fnum(silverGained) + " silver.<br>You gain " + fnum(faithGained) + " faith.<br>You gain " + fnum(soulsGained) + " souls.<br>You gain " + fnum(paperGained) + " paper.";
+	
+	document.getElementById('TimeWarpAlert').style.display = "block";
+	document.getElementById('timeWarpAlertString').innerHTML = alertString;
 	}
 }
 
@@ -114,14 +117,20 @@ setSpellDescription(FireBall, 'BtnSpellFBDesc');
 
 FireBall.cast = function(){
 	if(inbattle == false){
-		alert("You are not in a battle! Your archmage declines to cast fireballs at nothing.");
+		
+		document.getElementById('FireBallFailAlert').style.display = "block";
+//		alert("You are not in a battle! Your archmage declines to cast fireballs at nothing.");
 	}
 	else{
 		spellBoost(15);
 		mana = mana - this.manaCost;                                                                  //removes the souls spent	
 		document.getElementById('mana').innerHTML = mana;  										      //updates the number of souls for the user	
 		CollapseAll(); 
-		toggle('Battle');	
+		toggle('Battle');
+		var AlertString = "With a large 'woosh!' and a burst of intense light and heat, the archmage sends a fireball flying from his tower straight at " + curBattling + "!";
+		document.getElementById('fireBallAlertString').innerHTML = AlertString;
+		document.getElementById('FireBallAlert').style.display = "block";
+		
 	}
 
 }
