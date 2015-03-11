@@ -802,7 +802,6 @@ function toggleTrunc(){
 	else{
 		TruncateNumber = true;
 	}
-	
 };
 
 function scroll(name, timeout){
@@ -812,3 +811,35 @@ function scroll(name, timeout){
 	 }, timeout);
 }
 
+
+//Lifetime Variables
+var statResetted = 0;
+var statGoldCollected = 0;
+var statSelfGoldCollected = 0;
+var statWoodCollected = 0;
+var statSelfWoodCollected = 0;
+var statIronCollected = 0;
+var statSilverCollected = 0;
+var statPaperCrafted = 0;
+var statSelfPaperCrafted = 0;
+var statTomesCrafted = 0;
+var statSelfTomesCrafted = 0;
+var statPeasantsHired = 0;
+var statSelfPeasantsHired = 0;
+var statMinerHired = 0;
+var statSelfMinerHired = 0;
+var statTavernsBuilt = 0;
+var statPaperMillsBuilt = 0;
+var statAcolytesRecruited = 0;
+var statPriestsTrained = 0;
+var statBishopsTrained = 0;
+var statPagesTrained = 0;
+var statSquiresTrained = 0;
+var statKnightsTrained = 0;
+var statPaladinsTrained = 0;
+var statShadesSummoned = 0;
+var statAspectsTrained = 0;
+var statAngelsSummoned = 0;
+var statManaUsed = 0;
+var statCastedFireBall = 0;
+var statCastedTimeSkip = 0;
