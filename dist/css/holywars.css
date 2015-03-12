@@ -5,7 +5,7 @@ padding-top: 50px;
 #ResourcesWell
 {
 margin-top: 5px;
-margin-bottom: 5px;
+margin-bottom: 0px;
 }
 
 #ResourceList ul
@@ -35,6 +35,11 @@ padding-right: 60px;
 display: inline;
 margin: 9px 0px 0px;
 padding: 0px;
+}
+
+#SecondaryResources
+{
+padding-top: 5px
 }
 
 #SecondaryResourceWell
@@ -69,6 +74,11 @@ padding-right: 60px;
 display: inline;
 margin: 9px 0px 0px;
 padding: 0px;
+}
+
+#Gathering
+{
+padding-top: 5px;
 }
 
 #GatherList li
