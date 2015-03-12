@@ -65,29 +65,29 @@ function clickThing(number, type)
 {
 	switch(type){
 		case "gold":
-			gold = gold + number;
+			gold += number;
 			document.getElementById("gold").innerHTML = fnum(gold);			
 			break;
 			
 		case "goldMouse":
 			if(pGoldClickUpgrade == true){
-				number = number * 2;
+				number *= 2;
 			}
 			if(pGoldClickUpgrade2 == true){
-				number = number * 5
+				number *= 5
 			}
-			gold = gold + number;
+			gold += number;
 			document.getElementById("gold").innerHTML = fnum(gold);
 			break;
 
 		case "wood":
-			wood = wood + number;
+			wood += number;
 			document.getElementById("wood").innerHTML = fnum(wood);			
 			break;	
 
 		case "woodMouse":
 			if(lwoodClickUpgrade == true){
-				number = number * 5
+				number *= 5
 			}
 			wood = wood + number;
 			document.getElementById("wood").innerHTML = fnum(wood);
@@ -95,8 +95,8 @@ function clickThing(number, type)
 
 		case "paper":
 			if(wood >= 50*number){
-			paper = paper + number;
-			wood = wood - number * 50;
+			paper += number;
+			wood -= number * 50;
 			document.getElementById("paper").innerHTML = fnum(paper);
 			document.getElementById("wood").innerHTML = fnum(wood);
 			}
@@ -105,16 +105,16 @@ function clickThing(number, type)
 		case "paperMouse":
 			if(PmillEffUpgr == true){
 					if(wood >= 50*0.6*number){
-					paper = paper + number;
-					wood = wood - number * 50*0.6;
+					paper += number;
+					wood -= number * 50*0.6;
 					document.getElementById("paper").innerHTML = fnum(paper);
 					document.getElementById("wood").innerHTML = fnum(wood);
 				}
 			}
 			else{
 				if(wood >= 50*number){
-					paper = paper + number;
-					wood = wood - number * 50;
+					paper += number;
+					wood -= number * 50;
 					document.getElementById("paper").innerHTML = fnum(paper);
 					document.getElementById("wood").innerHTML = fnum(wood);
 				}
@@ -123,9 +123,9 @@ function clickThing(number, type)
 
 		case "tome":
 			if(paper >= 2000*number && faith >= 100*number){
-				tomes = tomes + number;
-				paper = paper - number * 2000;
-				faith = faith - number * 100;
+				tomes +=  number;
+				paper -=  number * 2000;
+				faith -=  number * 100;
 				document.getElementById("paper").innerHTML = fnum(paper);
 				document.getElementById("faith").innerHTML = fnum(faith);
 				document.getElementById("tomes").innerHTML = fnum(tomes);
@@ -134,9 +134,9 @@ function clickThing(number, type)
 
 		case "tomeMouse":
 			if(paper >= 2000*number && faith >= 100*number){
-				tomes = tomes + number;
-				paper = paper - number * 2000;
-				faith = faith - number * 100;
+				tomes += number;
+				paper -= number * 2000;
+				faith -= number * 100;
 				document.getElementById("paper").innerHTML = fnum(paper);
 				document.getElementById("faith").innerHTML = fnum(faith);
 				document.getElementById("tomes").innerHTML = fnum(tomes);
@@ -144,66 +144,67 @@ function clickThing(number, type)
 			break;				
 			
 		case "iron":
-			iron = iron + number;
+			iron += number;
 			document.getElementById("iron").innerHTML = fnum(iron);
 			break;
 		
 		case "silver":
-			silver = silver + number;
+			silver += number;
 			document.getElementById("silver").innerHTML = fnum(silver);
 			break;		
 			
 		case "faith":
-			faith = faith + number;
+			faith += number;
 			faith = faith.toFixedDown(2);
 			document.getElementById("faith").innerHTML = fnum(faith);		
 			break;
 		
 		case "peasant":
-			Peasant.number = Peasant.number + number;
+			Peasant.number += number;
 			document.getElementById("peasants").innerHTML = Peasant.number;
 			break;
 
 		case "miner":
-			Miner.number = Miner.number + number;
+			Miner.number += number;
 			document.getElementById("miners").innerHTML = Miner.number;	
 			break;
 
 		case "lumberjack":
-			Lumberjack.number = Lumberjack.number + number;
+			Lumberjack.number += number;
 			document.getElementById("lumberjacks").innerHTML = Lumberjack.number;	
 			break;				
 		
 		case "souls":
-			souls = souls + number;
+			souls += number;
 			document.getElementById("souls").innerHTML = fnum(souls);		
 			break;
 			
 		case "mana":
-			mana = mana + number;
+			mana += number;
 			document.getElementById("mana").innerHTML = fnum(mana);		
 		default:
 	}
 }
 
 function debugCurrency(){
-	gold = gold + 1000000;
-	wood = wood + 10000;
-	iron = iron + 10000;	
-	silver = silver + 10000;
-	faith = faith + 10000;
-	souls = souls + 10000;
-	mana = mana + 100000;
-	paper = 3000;
-	tomes = 1000;
+	gold += 1000000;
+	wood += 10000;
+	iron += 10000;	
+	silver += 10000;
+	faith += 10000;
+	souls += 10000;
+	mana += 100000;
+	paper += 3000;
+	tomes += 1000;
 };
 
 //UPGRADES
 
 function peasantUpgradeCollection(){	
 	if(gold >= 2000){
-		gold = gold - 2000;
-		pGoldUpgrade = true;	
+		gold -= 2000;
+		pGoldUpgrade = true;
+		Peasant.goldClickVal += 1;
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById("btnPeasantUpgrade1").disabled = true;
 		document.getElementById("btnPeasantUpgrade1").innerHTML = "Peasant Power Purchased";
@@ -212,7 +213,7 @@ function peasantUpgradeCollection(){
 
 function upgradeClickGoldMultiplier(){
 	if(gold >= 1500){
-		gold = gold - 1500;
+		gold -= 1500;
 		pGoldClickUpgrade = true;	
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById("clickGoldUpgrade").disabled = true;
@@ -222,7 +223,7 @@ function upgradeClickGoldMultiplier(){
 
 function upgradeClickGoldMultiplier2(){
 	if(gold >= 25000){
-		gold = gold - 25000;
+		gold -= 25000;
 		pGoldClickUpgrade2 = true;	
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById("clickGoldUpgrade2").disabled = true;
@@ -232,8 +233,8 @@ function upgradeClickGoldMultiplier2(){
 
 function lumberjackUpgradeCollection(){
 	if(gold >= 2500 && iron >= 1500){
-		gold = gold - 1500;
-		iron = iron - 1500;
+		gold -= 1500;
+		iron -= 1500;
 		lwoodUpgrade = true;	
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
@@ -244,11 +245,11 @@ function lumberjackUpgradeCollection(){
 
 function upgradeClickWoodMultiplier(){
 	if(gold >= 25000 && iron >= 20000 && silver >=15000 && souls >= 5000 && Shade.number >= 5){
-		gold = gold - 25000;
-		iron = iron - 20000;
-		silver = silver - 15000;
-		souls = souls - 5000;
-		Shade.number = Shade.number - 5;
+		gold -= 25000;
+		iron -= 20000;
+		silver -= 15000;
+		souls -= 5000;
+		Shade.number -= 5;
 		lwoodClickUpgrade = true;	
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
@@ -262,8 +263,8 @@ function upgradeClickWoodMultiplier(){
 
 function minerUpgradePanning(){
 	if(gold >= 3500 && iron >= 1000){
-		gold = gold - 3500;
-		iron = iron - 1000;
+		gold -= 3500;
+		iron -= 1000;
 		mPanningUpgrade = true;	
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
@@ -274,8 +275,8 @@ function minerUpgradePanning(){
 
 function minerUpgradeSilver(){
 	if(gold >= 7500 && iron >= 2500){
-		gold = gold - 7500;
-		iron = iron - 2500;
+		gold -= 7500;
+		iron -= 2500;
 		mSilverUpgrade = true;	
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
@@ -288,9 +289,9 @@ function minerUpgradeSilver(){
 
 function priestUpgradeCollection(){
 	if(gold >= 7000 && wood >= 5000 && faith >= 500){
-		gold = gold - 7000
-		wood = wood - 5000
-		faith = faith - 500
+		gold -= 7000
+		wood -= 5000
+		faith -= 500
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('wood').innerHTML = fnum(wood);
 		document.getElementById('faith').innerHTML = fnum(faith);
@@ -302,9 +303,9 @@ function priestUpgradeCollection(){
 
 function PmillEffUpgrade(){
 	if(gold >= 50000 && wood >= 25000 && iron >= 35000){
-		gold = gold - 50000
-		wood = wood - 25000
-		iron = iron - 35000
+		gold -= 50000
+		wood -= 25000
+		iron -= 35000
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('wood').innerHTML = fnum(wood);
 		document.getElementById('iron').innerHTML = fnum(iron);
@@ -316,10 +317,10 @@ function PmillEffUpgrade(){
 
 function PmillEffUpgrade2(){
 	if(gold >= 1000000 && wood >= 1000000 && iron >= 1000000 && souls >= 50000){
-		gold = gold - 1000000
-		wood = wood - 1000000
-		iron = iron - 1000000
-		souls = souls - 50000;
+		gold -= 1000000
+		wood -= 1000000
+		iron -= 1000000
+		souls -= 50000;
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('wood').innerHTML = fnum(wood);
 		document.getElementById('iron').innerHTML = fnum(iron);
@@ -332,9 +333,9 @@ function PmillEffUpgrade2(){
 
 function UnlockTomes(){
 	if(gold >= 12000 && paper >= 2000 && faith >= 1000){
-		gold = gold - 12000;
-		paper = paper - 2000;
-		faith = faith - 1000;
+		gold -= 12000;
+		paper -= 2000;
+		faith -= 1000;
 		tomesUnlocked = true;
 		document.getElementById('tomediv').style.display = "block";
 		document.getElementById('createTome').style.display = "block";
@@ -345,7 +346,7 @@ function UnlockTomes(){
 			
 function UnlockSquire(){
 	if(gold >= 4000 && BattlePower >= 120){
-		gold = gold - 400;
+		gold -= 400;
 		document.getElementById('gold').innerHTML = fnum(gold);
 		squiresUnlocked = true;
 		document.getElementById("btnPageUpgrade1").disabled = true;
@@ -356,7 +357,7 @@ function UnlockSquire(){
 
 function UnlockKnight(){
 	if(gold >= 8000 && BattlePower >= 500){
-		gold = gold - 8000;
+		gold -= 8000;
 		document.getElementById('gold').innerHTML = fnum(gold);
 		knightsUnlocked = true;
 		document.getElementById("btnSquireUpgrade1").disabled = true;
@@ -367,9 +368,9 @@ function UnlockKnight(){
 
 function paladinUpgradeWeapon(){
 	if(gold >= 20000 && iron >= 5000 && faith >=2500){
-		gold = gold - 20000;
-		iron = iron - 5000;
-		faith = faith - 2500;
+		gold -= 20000;
+		iron -= 5000;
+		faith -= 2500;
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById('faith').innerHTML = fnum(faith);
@@ -386,8 +387,8 @@ function addFaithToRelic(number){
 		alert("You don't have enough faith for that.")
 	}
 	else{
-		faith = faith - number;
-		faithDonated = faithDonated + number;
+		faith -= number;
+		faithDonated += number;
 		document.getElementById('faithDonated').innerHTML = fnum(faithDonated)
 		document.getElementById('faith').innerHTML = fnum(faith)
 

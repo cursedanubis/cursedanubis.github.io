@@ -85,13 +85,13 @@ Building.prototype.checkBtnFlag = function(){
 Building.prototype.buy = function(){
 
 		if(this.canBuy() == true ){    //checks that the player can afford the Building
-			this.number = this.number + 1;                                  							 	  //increases number of Unit
-			gold = gold - this.goldCost;                     										          //removes the gold spent
-			wood = wood - this.woodCost;                                                                      //removes the wood spent
-			iron = iron - this.ironCost;																	  //removes the iron spent
-			silver = silver - this.silverCost;                                                                //removes the silver spent
-			faith = faith - this.faithCost;																	  //removes the faith spent
-			souls = souls - this.soulCost;																	  //removes the souls spent
+			this.number +=  1;                                  							 	  //increases number of Unit
+			gold -= this.goldCost;                     										          //removes the gold spent
+			wood -= this.woodCost;                                                                      //removes the wood spent
+			iron -= this.ironCost;																	  //removes the iron spent
+			silver -= this.silverCost;                                                                //removes the silver spent
+			faith -= this.faithCost;																	  //removes the faith spent
+			souls -= this.soulCost;																	  //removes the souls spent
 			document.getElementById('gold').innerHTML = fnum(gold);  										          //updates the number of gold for the user
 			document.getElementById('wood').innerHTML = fnum(wood);  										          //updates the number of wood for the user
 			document.getElementById('iron').innerHTML = fnum(iron);  										          //updates the number of iron for the user
@@ -230,13 +230,13 @@ MultBuilding.prototype.buyOne = function(){
 	
 	if(this.hasReqUnit == false || (this.hasReqUnit == true && this.reqUnit.returnNumber() > 0)){
 		if(gold >= this.curGoldCost && wood >= this.curWoodCost && iron >= this.curIronCost && silver >= this.curSilverCost && faith >= this.curFaithCost && souls >= this.curSoulCost ){    //checks that the player can afford the Building
-			this.number = this.number + 1;                                  							 	  //increases number of Building
-			gold = gold - this.curGoldCost;                     										          //removes the gold spent
-			wood = wood - this.curWoodCost;																	  //removes the wood spent
-			iron = iron - this.curIronCost;																	  //removes the iron spent
-			silver = silver - this.curSilverCost;
-			faith = faith - this.curFaithCost;																	  //removes the faith spent
-			souls = souls - this.curSoulCost;																	  //removes the souls spent
+			this.number += 1;                                  							 	  //increases number of Building
+			gold -= this.curGoldCost;                     										          //removes the gold spent
+			wood -= this.curWoodCost;																	  //removes the wood spent
+			iron -= this.curIronCost;																	  //removes the iron spent
+			silver -= this.curSilverCost;
+			faith -= this.curFaithCost;																	  //removes the faith spent
+			souls -= this.curSoulCost;																	  //removes the souls spent
 			document.getElementById(this.htmlNumRef).innerHTML = this.number;  							      //updates the number of Buildings for the user
 			document.getElementById('gold').innerHTML = fnum(gold);  										          //updates the number of gold for the user
 			document.getElementById('wood').innerHTML = fnum(wood);  										          //updates the number of wood for the user
@@ -292,13 +292,13 @@ PaperMill.status = "On"
 
 function PaperMillOnPlus(){
 	if(PaperMill.numberOn + 1 <= PaperMill.number){
-	PaperMill.numberOn = PaperMill.numberOn + 1;
+	PaperMill.numberOn += 1;
 	}
 }
 
 function PaperMillOnMinus(){
 	if(PaperMill.numberOn - 1 >= 0){
-	PaperMill.numberOn = PaperMill.numberOn - 1;
+	PaperMill.numberOn -= 1;
 	}
 }
 
@@ -326,8 +326,8 @@ var Tavern = new MultBuilding('Tavern','taverns','TavernCost','tavernWoodCost', 
 function upgradeTavern(){
 	if(tavernUpgrade == false && gold >= 10000 && iron >= 5000)
 	{
-		gold = gold - 10000;
-		iron = iron - 5000;
+		gold -= 10000;
+		iron -= 5000;
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById('btnUpgradeTavern').innerHTML = "Mining Initiative Purchased";
@@ -338,9 +338,9 @@ function upgradeTavern(){
 function upgradeTavern2(){
 	if(tavernUpgrade2 == false && gold >= 15000 && iron >= 7000 && wood >= 2500)
 	{
-		gold = gold - 15000;
-		iron = iron - 7000;
-		wood = wood - 2500;
+		gold -= 15000;
+		iron -= 7000;
+		wood -= 2500;
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById('wood').innerHTML = fnum(wood);
@@ -410,7 +410,7 @@ window.setInterval(function(){					//Tavern unit generation
 	
 	if(tavernUpgrade == true){
 		clickThing(Tavern.number,"miner");
-		tavernminers = tavernminers + Tavern.number;
+		tavernminers += Tavern.number;
 		document.getElementById('tavernminers').innerHTML = tavernminers;
 		Miner.costAdj = tavernminers;
 		Miner.recalcCost();	
@@ -418,7 +418,7 @@ window.setInterval(function(){					//Tavern unit generation
 	
 	if(tavernUpgrade2 == true){
 		clickThing(Tavern.number,"lumberjack");
-		tavernlumberjacks = tavernlumberjacks + Tavern.number;
+		tavernlumberjacks += Tavern.number;
 		document.getElementById('tavernlumberjacks').innerHTML = tavernlumberjacks;
 		Lumberjack.costAdj = tavernlumberjacks;
 		Lumberjack.recalcCost();	
@@ -437,9 +437,9 @@ var run = setInterval(request , interval); // start setInterval as "run"
 
          // dynamically change the run interval
         if(interval>200 ){
-          interval = interval*.8;
+          interval *= 0.8;
         }else{
-          interval = interval*1.2;
+          interval *= 1.2;
         }
 
         run = setInterval(request, interval); // start the setInterval()

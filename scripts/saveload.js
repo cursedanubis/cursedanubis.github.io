@@ -527,6 +527,7 @@
 					document.getElementById('SpiritualStrength').style.display = "block";
 					document.getElementById('BatPixie').style.display = "block";
 					document.getElementById('BatArmor').style.display = "block";
+					document.getElementById('BatOoze').style.display = "block";
 					document.getElementById('BatHhoundProgBarBox').style.display = "none";
 					document.getElementById("btnBatHellhound").disabled = true;
 					document.getElementById("btnBatHellhound").innerHTML = "Hellhounds Defeated!";

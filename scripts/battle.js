@@ -37,26 +37,31 @@ var BattlePower = 0;
 var SpiritPower = 0;
 
 
+
 function calculateBattlePower(){
-	var weapmult = 1;
-	if(paladinWepUpgrade == true)
-	{
-		weapmult = 2;
-	}
-	BattlePower =  (Page.number * 10) + (Squire.number*50) + (Knight.number*150) + (Paladin.number * 500 * weapmult) + (Shade.number * 5) + (Aspect.number * 100) + (Angel.number * 450);
+	BattlePower = 0;
+	
+	BattlePower += Page.totalArmyPower();
+	BattlePower += Squire.totalArmyPower();
+	BattlePower += Paladin.totalArmyPower();
+	BattlePower += Shade.totalArmyPower();
+	BattlePower += Aspect.totalArmyPower();
+	BattlePower += Angel.totalArmyPower();
+	
 	document.getElementById("BattlePower").innerHTML = fnum(BattlePower);
 	document.getElementById("BattlePower2").innerHTML = BattlePower;
 };
 
 function calculateSpiritPower(){
-	var weapmult = 1;
-	if(paladinWepUpgrade == true)
-	{
-		weapmult = 2;
-	}	
-	SpiritPower =  ((Paladin.number * 5 * weapmult)+(Shade.number*10) + (Aspect.number * 50) + (Angel.number * 200));
+	SpiritPower = 0;
+	
+	SpiritPower += Paladin.totalSpiritPower();
+	SpiritPower += Shade.totalSpiritPower();
+	SpiritPower += Aspect.totalSpiritPower();
+	SpiritPower += Angel.totalSpiritPower();
 	document.getElementById("SpiritPower").innerHTML = fnum(SpiritPower);
 	document.getElementById("SpiritPower2").innerHTML = SpiritPower;
+	
 	if (SpiritPower > 0){
 		document.getElementById('spiritarmystrdiv').style.display = "block";
 	}
@@ -156,7 +161,7 @@ Enemy.prototype.fight = function(){
 			
 		  if (currWidth >= maxWidth){
 			clearInterval(progress);
-				$bar.text("Complete!");
+			$bar.text("Complete!");
 			document.getElementById(box).style.display = "none";			//Hides progress bar box
 			document.getElementById(btn).innerHTML = EnemyName + " Defeated!";     //Changes button text
 			document.getElementById(btn).disabled = true;					//disables the buttons
@@ -193,7 +198,7 @@ Enemy.prototype.canFight = function(){		//Checks to see if this enemy can be fou
 	}	
 };
 
-Enemy.prototype.lossPercentCalc = function(){ 	//Checks to see percentage of troop loss for the battle
+Enemy.prototype.lossPercentCalc = function(){ 	//Checks to see percentage of troop loss for the battle (Loss % = 0 at 2x the battle requirement)
 	var percent
 	var topend = this.BPReq * 2;
 	if(BattlePower >= topend){
