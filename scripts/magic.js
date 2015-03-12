@@ -102,10 +102,15 @@ FastForward.cast = function(){
 	document.getElementById('mana').innerHTML = mana;  										      //updates the number of souls for the user
 	
 	
-	var alertString = this.name + " spell cast! The world blurs before your eyes! "+
-					 "<br>You gain " + fnum(goldGained) + " gold. <br>You gain " + fnum(woodGained) + 
-				     " wood.<br>You gain " + fnum(ironGained) + " iron.<br>You gain " + fnum(silverGained) + " silver.<br>You gain " + fnum(faithGained) + " faith.<br>You gain " + fnum(soulsGained) + " souls.<br>You gain " + fnum(paperGained) + " paper.";
-	
+	var alertString = "The archmage releases a burst of magic causing the world to blur before your eyes! ";
+		if(goldGained > 0){alertString = alertString + "<br>You gain " + fnum(goldGained)+ " gold."}
+		if(woodGained > 0){alertString = alertString + "<br>You gain " + fnum(woodGained) + " wood. "}
+		if(ironGained > 0){alertString = alertString + "<br>You gain " + fnum(ironGained) + " iron."}
+		if(silverGained > 0){alertString = alertString + "<br>You gain " + fnum(silverGained) + " silver."}
+		if(faithGained > 0){alertString = alertString + "<br>You gain " + fnum(faithGained) + " faith."}
+		if(soulsGained > 0){alertString = alertString + "<br>You gain " + fnum(soulsGained) + " souls."}
+		if(paperGained > 0){alertString = alertString + "<br>You gain " + fnum(paperGained) + " paper."}
+					 
 	document.getElementById('TimeWarpAlert').style.display = "block";
 	document.getElementById('timeWarpAlertString').innerHTML = alertString;
 	scroll('TimeWarpAlert',1000);

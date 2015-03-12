@@ -126,9 +126,6 @@ function returnPickerSelection(){			//Need to change function name to something 
 			console.log('Help the People');
 		 break;
 	  }
-	//  console.log($('#questSelectPicker').selectpicker('val'));
-	//  console.log($('#unitSelectPicker').selectpicker('val'));
-	//  console.log($('#QuestNumSelect').val()); 
 	 }
 };
 
@@ -186,31 +183,30 @@ function QuestCheckUnitOptions(){
 }
 
 
-
 //var Quest = function(name, description, htmlBoxRef, htmlBarRef, htmlAlertRef, percentComplete, percentIncrement,speed){
 var relicHuntDesc = "";
 var RelicHunt = new Quest('Relic Hunt', relicHuntDesc, 'QuestProgBarBox', 'QuestProgBar', 'btnQuestGo','goblinDefeatAlert',0,1,500);
 //setEnemyDescription(Goblins, 'btnDescGoblins');
 
 RelicHunt.go = function(){
-	var perComplete = this.percentComplete;
-	var perIncrement = this.percentIncrement;
-	var alert = this.htmlAlertRef;
-	var btn = this.htmlBtnRef;
-	var box = this.htmlBoxRef;
-	var bar = this.htmlBarRef;
-	var QuestName = this.name;
-	var foundRelic = false;
-		
-	inQuest = true;
-	curQuestType = this.name
-	document.getElementById(this.htmlBoxRef).style.display = "block";	
-	
-	$bar = $(document.getElementById(this.htmlBarRef));
-	var progress = setInterval(function() {
-	currWidth = parseInt(this.$bar.attr('aria-valuenow'));
-	maxWidth = parseInt(this.$bar.attr('aria-valuemax'));	
+		var perComplete = this.percentComplete;
+		var perIncrement = this.percentIncrement;
+		var alert = this.htmlAlertRef;
+		var btn = this.htmlBtnRef;
+		var box = this.htmlBoxRef;
+		var bar = this.htmlBarRef;
+		var QuestName = this.name;
+		var foundRelic = false;
 			
+		inQuest = true;
+		curQuestType = this.name
+		document.getElementById(this.htmlBoxRef).style.display = "block";	
+		
+		$bar = $(document.getElementById(this.htmlBarRef));
+		var progress = setInterval(function() {
+		currWidth = parseInt(this.$bar.attr('aria-valuenow'));
+		maxWidth = parseInt(this.$bar.attr('aria-valuemax'));	
+				
 		//update the progress
 		$bar.width(perComplete +'%');
 		$bar.attr('aria-valuenow',perComplete);
@@ -225,24 +221,24 @@ RelicHunt.go = function(){
 		document.getElementById('unitSelectPicker').disabled = true;   //disables picker
 		document.getElementById('QuestNumSelect').disabled = true;		//disables number select
 		
-	  if (currWidth >= maxWidth){
-		clearInterval(progress);
+		if (currWidth >= maxWidth){
+			clearInterval(progress);
 			$bar.text("Complete!");
-		document.getElementById(box).style.display = "none";			//Hides progress bar box
-		document.getElementById(btn).innerHTML = "Send";                 //Changes button text
-		document.getElementById(btn).disabled = false;					//enables the buttons
-		document.getElementById('questSelectPicker').disabled = false;  //enables picker
-		document.getElementById('unitSelectPicker').disabled = false;   //enables picker
-		document.getElementById('QuestNumSelect').disabled = false;		//enables number select
-//		document.getElementById(alert).style.display = "block";			//Displays alert related to this battle
-//		scroll(alert,500);
-		inQuest = false;
-		
-		$bar.width(0 +'%');
-		$bar.attr('aria-valuenow',0);
-		$bar.text(0+'%');		
-//		setDefeatEvents(EnemyName);
-	  } 
+			document.getElementById(box).style.display = "none";			//Hides progress bar box
+			document.getElementById(btn).innerHTML = "Send";                 //Changes button text
+			document.getElementById(btn).disabled = false;					//enables the buttons
+			document.getElementById('questSelectPicker').disabled = false;  //enables picker
+			document.getElementById('unitSelectPicker').disabled = false;   //enables picker
+			document.getElementById('QuestNumSelect').disabled = false;		//enables number select
+	//		document.getElementById(alert).style.display = "block";			//Displays alert related to this battle
+	//		scroll(alert,500);
+			inQuest = false;
+			
+			$bar.width(0 +'%');
+			$bar.attr('aria-valuenow',0);
+			$bar.text(0+'%');		
+	//		setDefeatEvents(EnemyName);
+		} 
 	}, this.speed);
 	return true;
 }
