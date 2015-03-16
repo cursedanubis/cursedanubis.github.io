@@ -2,6 +2,8 @@ var relicFragment = 0;
 
 var inQuest = false;
 var curQuestType = "";
+var UnitOnQuest = "";
+var NumUnitOnQuest = 0;
 var questBoost = 0;
 
 $('#unitSelectPicker').selectpicker({
@@ -201,8 +203,12 @@ RelicHunt.startQuest = function(){
 		inQuest = true;
 		curQuestType = this.name
 		document.getElementById(this.htmlBoxRef).style.display = "block";	
-		
 		$bar = $(document.getElementById(this.htmlBarRef));
+		
+		UnitOnQuest = $('#unitSelectPicker').selectpicker('val')
+		NumUnitOnQuest = $('#QuestNumSelect').val();		
+		holdUnitforQuest();
+		
 		var progress = setInterval(function() {
 		currWidth = parseInt(this.$bar.attr('aria-valuenow'));
 		maxWidth = parseInt(this.$bar.attr('aria-valuemax'));	
@@ -240,8 +246,8 @@ RelicHunt.startQuest = function(){
 			
 			$bar.width(0 +'%');
 			$bar.attr('aria-valuenow',0);
-			$bar.text(0+'%');		
-	//		setDefeatEvents(EnemyName);
+			$bar.text(0+'%');
+			returnUnitfromQuest();
 		} 
 	}, this.speed);
 	return true;
@@ -270,3 +276,41 @@ function rollForFragment(){
 		console.log("No Relic found");
 	}
 }
+
+function holdUnitforQuest(){
+	switch(UnitOnQuest){
+		case "Paladin":
+			Paladin.number -= NumUnitOnQuest;
+			Paladin.totalArmyPower();
+			Paladin.totalSpiritPower();
+			document.getElementById('paladins').innerHTML = Paladin.number;
+			calculateBattlePower()
+			calculateSpiritPower()			
+		break;
+		
+		case "Knight":
+		break;
+		
+		case "Squire":
+		break;		
+	}
+};
+
+function returnUnitfromQuest(){
+	switch(UnitOnQuest){
+		case "Paladin":
+			Paladin.number += NumUnitOnQuest;
+			Paladin.totalArmyPower();
+			Paladin.totalSpiritPower();
+			document.getElementById('paladins').innerHTML = Paladin.number;
+			calculateBattlePower()
+			calculateSpiritPower()			
+		break;
+		
+		case "Knight":
+		break;
+		
+		case "Squire":
+		break;		
+	}
+};

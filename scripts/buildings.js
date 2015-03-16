@@ -259,39 +259,33 @@ MultBuilding.prototype.buyOne = function(){
 			
 			this.nextGoldCost = Math.floor(this.goldCost * Math.pow(this.costMult,this.number-this.costAdj));         //works out the next gold cost of the next Building
 			document.getElementById(this.htmlNextGoldCost).innerHTML = fnum(this.nextGoldCost);  						      //updates the Building cost for the user
-//			this.curGoldCost = this.nextGoldCost;
+
 			if(this.htmlNextWoodCost != 'none'){
 				this.nextWoodCost = Math.floor(this.woodCost * Math.pow(this.costMult,this.number));                      //works out the iron cost of the next Building
 				document.getElementById(this.htmlNextWoodCost).innerHTML = fnum(this.nextWoodCost);  						      //updates the Building iron cost for the user
-//				this.curIronCost = this.nextIronCost;
 			}			
 			if(this.htmlNextIronCost != 'none'){
 				this.nextIronCost = Math.floor(this.ironCost * Math.pow(this.costMult,this.number));                      //works out the iron cost of the next Building
 				document.getElementById(this.htmlNextIronCost).innerHTML = fnum(this.nextIronCost);  						      //updates the Building iron cost for the user
-//				this.curIronCost = this.nextIronCost;
 			}
 			
 			if(this.htmlNextSilverCost != 'none'){
 				this.nextSilverCost = Math.floor(this.silverCost * Math.pow(this.costMult,this.number));                    //works out the silver cost of the next Building	
 				document.getElementById(this.htmlNextSilverCost).innerHTML = fnum(this.nextSilverCost);  						      //updates the Building silver cost for the user
-//				this.curSilverCost = this.nextSilverCost
 			}
 			
 			if(this.htmlNextFaithCost != 'none'){
 				this.nextFaithCost = Math.floor(this.faithCost * Math.pow(this.costMult,this.number));                      //works out the faith cost of the next Building
 				document.getElementById(this.htmlNextFaithCost).innerHTML = fnum(this.nextFaithCost);  						      //updates the Building faith cost for the user	
-//				this.curFaithCost = this.nextFaithCost
 			}	
 
 			if(this.htmlNextSoulCost != 'none'){
 				this.nextSoulCost = Math.floor(this.soulCost * Math.pow(this.costMult,this.number));                       //works out the Soul cost of the next Building
 				document.getElementById(this.htmlNextSoulCost).innerHTML = fnum(this.nextSoulCost);  						      //updates the Building Soul cost for the user
-//				this.curSoulCost = this.nextSoulCost
 			}	
 			if(this.htmlNextTomeCost != 'none'){
 				this.nextTomeCost = Math.floor(this.tomeCost * Math.pow(this.costMult,this.number));                       //works out the Soul cost of the next Building
 				document.getElementById(this.htmlNextTomeCost).innerHTML = fnum(this.nextTomeCost);  						      //updates the Building Soul cost for the user
-//				this.curSoulCost = this.nextSoulCost
 			}			
 		};
 	}
