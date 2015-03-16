@@ -66,7 +66,13 @@ function clickThing(number, type)
 	switch(type){
 		case "gold":
 			gold += number;
-			document.getElementById("gold").innerHTML = fnum(gold);			
+			statGoldCollected += number;
+			statTotalGoldCollected += number;
+			
+			document.getElementById("gold").innerHTML = fnum(gold);	
+			document.getElementById("statgoldcollected").innerHTML = fnum(statGoldCollected);
+			document.getElementById("stattotalgoldcollected").innerHTML = fnum(statTotalGoldCollected);
+			
 			break;
 			
 		case "goldMouse":
@@ -77,12 +83,24 @@ function clickThing(number, type)
 				number *= 5
 			}
 			gold += number;
+			statSelfGoldCollected += number;
+			statTotalSelfGoldCollected += number;
+			statTotalGoldCollected += number;
+			
 			document.getElementById("gold").innerHTML = fnum(gold);
+			document.getElementById("statselfgoldcollected").innerHTML = fnum(statSelfGoldCollected);
+			document.getElementById("stattotalselfgoldcollected").innerHTML = fnum(statTotalSelfGoldCollected);
+			document.getElementById("stattotalgoldcollected").innerHTML = fnum(statTotalGoldCollected);
 			break;
 
 		case "wood":
 			wood += number;
-			document.getElementById("wood").innerHTML = fnum(wood);			
+			statWoodCollected += number;
+			statTotalWoodCollected += number;
+			
+			document.getElementById("wood").innerHTML = fnum(wood);
+			document.getElementById("statWoodCollected").innerHTML = fnum(statWoodCollected);
+			document.getElementById("statTotalWoodCollected").innerHTML = fnum(statTotalWoodCollected);		
 			break;	
 
 		case "woodMouse":
@@ -90,14 +108,27 @@ function clickThing(number, type)
 				number *= 5
 			}
 			wood = wood + number;
+			statWoodCollected += number;
+			statSelfWoodCollected += number;
+			statTotalWoodCollected += number;
+			statTotalSelfWoodCollected += number;
+			
 			document.getElementById("wood").innerHTML = fnum(wood);
+			document.getElementById("statWoodCollected").innerHTML = fnum(statWoodCollected);		
+			document.getElementById("statSelfWoodCollected").innerHTML = fnum(statSelfWoodCollected);		
+			document.getElementById("statTotalWoodCollected").innerHTML = fnum(statTotalWoodCollected);		
+			document.getElementById("statTotalSelfWoodCollected").innerHTML = fnum(statTotalSelfWoodCollected);		
 			break;
 
 		case "paper":
 			if(wood >= 50*number){
 			paper += number;
+			statPaperCrafted += number;
+			statTotalPaperCrafted += number;
 			wood -= number * 50;
 			document.getElementById("paper").innerHTML = fnum(paper);
+			document.getElementById("statPaperCrafted").innerHTML = fnum(statPaperCrafted);
+			document.getElementById("statTotalPaperCrafted").innerHTML = fnum(statTotalPaperCrafted);
 			document.getElementById("wood").innerHTML = fnum(wood);
 			}
 			break;				
@@ -106,16 +137,32 @@ function clickThing(number, type)
 			if(PmillEffUpgr == true){
 					if(wood >= 50*0.6*number){
 					paper += number;
+					statPaperCrafted += number;
+					statTotalPaperCrafted += number;
+					statSelfPaperCrafted += number;
+					statTotalSelfPaperCrafted += number;
 					wood -= number * 50*0.6;
 					document.getElementById("paper").innerHTML = fnum(paper);
+					document.getElementById("statPaperCrafted").innerHTML = fnum(statPaperCrafted);
+					document.getElementById("statTotalPaperCrafted").innerHTML = fnum(statTotalPaperCrafted);
+					document.getElementById("statSelfPaperCrafted").innerHTML = fnum(statSelfPaperCrafted);
+					document.getElementById("statTotalSelfPaperCrafted").innerHTML = fnum(statTotalSelfPaperCrafted);
 					document.getElementById("wood").innerHTML = fnum(wood);
 				}
 			}
 			else{
 				if(wood >= 50*number){
 					paper += number;
+					statPaperCrafted += number;
+					statTotalPaperCrafted += number;
+					statSelfPaperCrafted += number;
+					statTotalSelfPaperCrafted += number;
 					wood -= number * 50;
 					document.getElementById("paper").innerHTML = fnum(paper);
+					document.getElementById("statPaperCrafted").innerHTML = fnum(statPaperCrafted);
+					document.getElementById("statTotalPaperCrafted").innerHTML = fnum(statTotalPaperCrafted);
+					document.getElementById("statSelfPaperCrafted").innerHTML = fnum(statSelfPaperCrafted);
+					document.getElementById("statTotalSelfPaperCrafted").innerHTML = fnum(statTotalSelfPaperCrafted);					
 					document.getElementById("wood").innerHTML = fnum(wood);
 				}
 			}
@@ -145,18 +192,30 @@ function clickThing(number, type)
 			
 		case "iron":
 			iron += number;
+			statIronCollected += number;
+			statTotalIronCollected += number;
 			document.getElementById("iron").innerHTML = fnum(iron);
+			document.getElementById("statIronCollected").innerHTML = fnum(statIronCollected);
+			document.getElementById("statTotalIronCollected").innerHTML = fnum(statTotalIronCollected);
 			break;
 		
 		case "silver":
 			silver += number;
+			statSilverCollected += number;
+			statTotalSilverCollected += number;
 			document.getElementById("silver").innerHTML = fnum(silver);
+			document.getElementById("statSilverCollected").innerHTML = fnum(statSilverCollected);
+			document.getElementById("statTotalSilverCollected").innerHTML = fnum(statTotalSilverCollected);
 			break;		
 			
 		case "faith":
 			faith += number;
+			statFaithCollected += number;
+			statTotalFaithCollected += number;
 			faith = faith.toFixedDown(2);
-			document.getElementById("faith").innerHTML = fnum(faith);		
+			document.getElementById("faith").innerHTML = fnum(faith);
+			document.getElementById("statFaithCollected").innerHTML = fnum(statFaithCollected.toFixedDown(2));	
+			document.getElementById("statTotalFaithCollected").innerHTML = fnum(statTotalFaithCollected.toFixedDown(2));				
 			break;
 		
 		case "peasant":
@@ -176,7 +235,11 @@ function clickThing(number, type)
 		
 		case "souls":
 			souls += number;
-			document.getElementById("souls").innerHTML = fnum(souls);		
+			statSoulsCollected += number;
+			statTotalSoulsCollected += number;
+			document.getElementById("souls").innerHTML = fnum(souls);
+			document.getElementById("statSoulsCollected").innerHTML = fnum(statSoulsCollected);
+			document.getElementById("statTotalSoulsCollected").innerHTML = fnum(statTotalSoulsCollected);
 			break;
 			
 		case "mana":
@@ -645,7 +708,7 @@ window.setInterval(function(){
 	}
 	if(mPanningUpgrade == true)
 	{
-		number = number + Miner.number;
+		number += Miner.number;
 	}
 	clickThing(number, "gold");
 
@@ -815,32 +878,83 @@ function scroll(name, timeout){
 
 //Lifetime Variables
 var statResetted = 0;
+
 var statGoldCollected = 0;
 var statSelfGoldCollected = 0;
+var statTotalSelfGoldCollected = 0;
+var statTotalGoldCollected = 0;
+
 var statWoodCollected = 0;
 var statSelfWoodCollected = 0;
+var statTotalWoodCollected = 0;
+var statTotalSelfWoodCollected = 0;
+
 var statIronCollected = 0;
+var statTotalIronCollected = 0;
+
 var statSilverCollected = 0;
+var statTotalSilverCollected = 0;
+
 var statPaperCrafted = 0;
 var statSelfPaperCrafted = 0;
+var statTotalPaperCrafted = 0;
+var statTotalSelfPaperCrafted = 0;
+
 var statTomesCrafted = 0;
 var statSelfTomesCrafted = 0;
+var statTotalTomesCrafted = 0;
+
+var statFaithCollected = 0;
+var statTotalFaithCollected = 0;
+
+var statSoulsCollected = 0;
+var statTotalSoulsCollected = 0;
+
 var statPeasantsHired = 0;
 var statSelfPeasantsHired = 0;
+var statTotalPeasantsHired = 0;
+
 var statMinerHired = 0;
 var statSelfMinerHired = 0;
+var statTotalMinerHired = 0;
+
 var statTavernsBuilt = 0;
 var statPaperMillsBuilt = 0;
+
 var statAcolytesRecruited = 0;
+var statTotalAcolytesRecruited = 0;
+
 var statPriestsTrained = 0;
+var statTotalPriestsTrained = 0;
+
 var statBishopsTrained = 0;
+var statTotalBishopsTrained = 0;
+
 var statPagesTrained = 0;
+var statTotalPagesTrained = 0;
+
 var statSquiresTrained = 0;
+var statTotalSquiresTrained = 0;
+
 var statKnightsTrained = 0;
+var statTotalKnightsTrained = 0;
+
 var statPaladinsTrained = 0;
+var statTotalPaladinsTrained = 0;
+
 var statShadesSummoned = 0;
+var statTotalShadesSummoned = 0;
+
 var statAspectsTrained = 0;
+var statTotalAspectsTrained = 0;
+
 var statAngelsSummoned = 0;
+var statTotalAngelsSummoned = 0;
+
 var statManaUsed = 0;
+
 var statCastedFireBall = 0;
+var statTotalCastedFireBall = 0;
+
 var statCastedTimeSkip = 0;
+var statTotalCastedTimeSkip = 0;

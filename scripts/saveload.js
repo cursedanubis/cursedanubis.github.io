@@ -1,97 +1,186 @@
 //Save and Loading Script for HW //
+	
+	function save(key, value){
+		localStorage.setItem(key, value);
+	}
 
 	function saveCookie(){
 		if(typeof(Storage) !== "undefined"){
 		//Currency variables
-		localStorage.setItem("gold",gold);
-		localStorage.setItem("wood", wood);
-		localStorage.setItem("paper",paper);
-		localStorage.setItem("iron",iron);
-		localStorage.setItem("silver",silver);			
-		localStorage.setItem("faith",faith);
-		localStorage.setItem("souls",souls);
-		localStorage.setItem("tomes",tomes);
-		localStorage.setItem("mana",mana);
-		localStorage.setItem("goldStolen",goldStolen);
-		localStorage.setItem("totalTimePlayed",totalTimePlayed);
+		save("gold",gold);
+		save("wood", wood);
+		save("paper",paper);
+		save("iron",iron);
+		save("silver",silver);			
+		save("faith",faith);
+		save("souls",souls);
+		save("tomes",tomes);
+		save("mana",mana);
+		save("goldStolen",goldStolen);
+		save("totalTimePlayed",totalTimePlayed);
 		
 		//Unit variables
- 		localStorage.setItem("peasants",Peasant.number - tavernpeasants);
-		localStorage.setItem("lumberjacks", Lumberjack.number - tavernlumberjacks);
-		localStorage.setItem("miners",Miner.number - tavernminers);
-		localStorage.setItem("personPage",Page.number);
-		localStorage.setItem("squires",Squire.number);
-		localStorage.setItem("knights",Knight.number);
-		localStorage.setItem("acolytes",Acolyte.number);
-		localStorage.setItem("priests",Priest.number);
-		localStorage.setItem("bishops", Bishop.number);
-		localStorage.setItem("paladins",Paladin.number); 
-		localStorage.setItem("shades", Shade.number);
-		localStorage.setItem("aspects", Aspect.number);
-		localStorage.setItem("angels", Angel.number);
+ 		save("peasants",Peasant.number - tavernpeasants);
+		save("lumberjacks", Lumberjack.number - tavernlumberjacks);
+		save("miners",Miner.number - tavernminers);
+		save("personPage",Page.number);
+		save("squires",Squire.number);
+		save("knights",Knight.number);
+		save("acolytes",Acolyte.number);
+		save("priests",Priest.number);
+		save("bishops", Bishop.number);
+		save("paladins",Paladin.number); 
+		save("shades", Shade.number);
+		save("aspects", Aspect.number);
+		save("angels", Angel.number);
 		
 		//Building Variables
-		localStorage.setItem("taverns", Tavern.number);
-		localStorage.setItem("tavernpeasants",tavernpeasants);
-		localStorage.setItem("tavernminers",tavernminers);
-		localStorage.setItem("tavernlumberjacks",tavernlumberjacks);
-		localStorage.setItem("papermills", PaperMill.number)
-		localStorage.setItem("papermillstatus", PaperMill.status)
-		localStorage.setItem("papermillnumon",PaperMill.numberOn)
+		save("taverns", Tavern.number);
+		save("tavernpeasants",tavernpeasants);
+		save("tavernminers",tavernminers);
+		save("tavernlumberjacks",tavernlumberjacks);
+		save("papermills", PaperMill.number)
+		save("papermillstatus", PaperMill.status)
+		save("papermillnumon",PaperMill.numberOn)
 		
 		//Building flags
-		localStorage.setItem("lumbermillOpened",lumbermillOpened);
-		localStorage.setItem("minesOpened",minesOpened);
-		localStorage.setItem("cathedralOpened",cathedralOpened);
-		localStorage.setItem("barracksOpened",barracksOpened);
-		localStorage.setItem("towerUnlocked",towerUnlocked);
-		localStorage.setItem("towerBuilt",towerBuilt);
+		save("lumbermillOpened",lumbermillOpened);
+		save("minesOpened",minesOpened);
+		save("cathedralOpened",cathedralOpened);
+		save("barracksOpened",barracksOpened);
+		save("towerUnlocked",towerUnlocked);
+		save("towerBuilt",towerBuilt);
 		
 		//Battle flags
-		localStorage.setItem("defeatedGoblins",defeatedGoblins);
-		localStorage.setItem("defeatedBandits",defeatedBandits);
-		localStorage.setItem("defeatedHermit",defeatedHermit);
-		localStorage.setItem("defeatedOgre",defeatedOgre); 
-		localStorage.setItem("defeatedHhounds",defeatedHhounds);
-		localStorage.setItem("defeatedPixie",defeatedPixie);
-		localStorage.setItem("defeatedArmor",defeatedArmor);
-		localStorage.setItem("defeatedOoze",defeatedOoze);	
-		localStorage.setItem("defeatedArchmage",defeatedArchmage);
-		localStorage.setItem("defeatedSuccubus",defeatedSuccubus);
-		localStorage.setItem("defeatedUArmy", defeatedUArmy);
-		localStorage.setItem("defeatedNecromancer", defeatedNecromancer);
-		localStorage.setItem("peasantsKilled",peasantsKilled);
-		localStorage.setItem("minersKilled", minersKilled);
-		localStorage.setItem("ironAbsorbed",ironAbsorbed);
-		localStorage.setItem("silverAbsorbed",silverAbsorbed);
-		localStorage.setItem("unitsSeduced", unitsSeduced);
-		localStorage.setItem("UARevivedCount",UARevivedCount);
+		save("defeatedGoblins",defeatedGoblins);
+		save("defeatedBandits",defeatedBandits);
+		save("defeatedHermit",defeatedHermit);
+		save("defeatedOgre",defeatedOgre); 
+		save("defeatedHhounds",defeatedHhounds);
+		save("defeatedPixie",defeatedPixie);
+		save("defeatedArmor",defeatedArmor);
+		save("defeatedOoze",defeatedOoze);	
+		save("defeatedArchmage",defeatedArchmage);
+		save("defeatedSuccubus",defeatedSuccubus);
+		save("defeatedUArmy", defeatedUArmy);
+		save("defeatedNecromancer", defeatedNecromancer);
+		save("peasantsKilled",peasantsKilled);
+		save("minersKilled", minersKilled);
+		save("ironAbsorbed",ironAbsorbed);
+		save("silverAbsorbed",silverAbsorbed);
+		save("unitsSeduced", unitsSeduced);
+		save("UARevivedCount",UARevivedCount);
 		
 		//Upgradeflags
-		localStorage.setItem("pGoldUpgrade",pGoldUpgrade);
-		localStorage.setItem("pGoldClickUpgrade",pGoldClickUpgrade);
-		localStorage.setItem("pGoldClickUpgrade2",pGoldClickUpgrade2);
-		localStorage.setItem("lwoodUpgrade",lwoodUpgrade);
-		localStorage.setItem("lwoodClickUpgrade",lwoodClickUpgrade);
-		localStorage.setItem("mPanningUpgrade",mPanningUpgrade);
-		localStorage.setItem("mSilverUpgrade",mSilverUpgrade);
-		localStorage.setItem("prFaithUpgrade",prFaithUpgrade);
-		localStorage.setItem("squiresUnlocked",squiresUnlocked);
-		localStorage.setItem("knightsUnlocked",knightsUnlocked);
-		localStorage.setItem("angelsUnlocked", angelsUnlocked);
-		localStorage.setItem("tomesUnlocked",tomesUnlocked);
-		localStorage.setItem("PmillEffUpgr", PmillEffUpgr);
-		localStorage.setItem("PmillEffUpgr2",PmillEffUpgr2);
-		localStorage.setItem("paladinWepUpgrade",paladinWepUpgrade);
-		localStorage.setItem("tavernUpgrade",tavernUpgrade);
-		localStorage.setItem("tavernUpgrade2", tavernUpgrade2);
+		save("pGoldUpgrade",pGoldUpgrade);
+		save("pGoldClickUpgrade",pGoldClickUpgrade);
+		save("pGoldClickUpgrade2",pGoldClickUpgrade2);
+		save("lwoodUpgrade",lwoodUpgrade);
+		save("lwoodClickUpgrade",lwoodClickUpgrade);
+		save("mPanningUpgrade",mPanningUpgrade);
+		save("mSilverUpgrade",mSilverUpgrade);
+		save("prFaithUpgrade",prFaithUpgrade);
+		save("squiresUnlocked",squiresUnlocked);
+		save("knightsUnlocked",knightsUnlocked);
+		save("angelsUnlocked", angelsUnlocked);
+		save("tomesUnlocked",tomesUnlocked);
+		save("PmillEffUpgr", PmillEffUpgr);
+		save("PmillEffUpgr2",PmillEffUpgr2);
+		save("paladinWepUpgrade",paladinWepUpgrade);
+		save("tavernUpgrade",tavernUpgrade);
+		save("tavernUpgrade2", tavernUpgrade2);
 		
 		//MiscFlags
-		localStorage.setItem("faithDonated", faithDonated);
-		localStorage.setItem("lastPage",lastPage);
-		localStorage.setItem("inbattle",inbattle);
-		localStorage.setItem("curBattling",curBattling);
-		localStorage.setItem("battlePercent", battlePercent);
+		save("faithDonated", faithDonated);
+		save("lastPage",lastPage);
+		save("inbattle",inbattle);
+		save("curBattling",curBattling);
+		save("battlePercent", battlePercent);
+		
+		//Statistic/Lifetime Variables
+		save("statResetted", statResetted);
+		
+		save("statGoldCollected", statGoldCollected);
+		save("statTotalGoldCollected", statTotalGoldCollected);
+		save("statSelfGoldCollected", statSelfGoldCollected);
+		save("statTotalSelfGoldCollected", statTotalSelfGoldCollected);
+
+		save("statWoodCollected", statWoodCollected);
+		save("statSelfWoodCollected", statSelfWoodCollected);
+		save("statTotalWoodCollected", statTotalWoodCollected);
+		save("statTotalSelfWoodCollected", statTotalSelfWoodCollected);
+		
+		save("statIronCollected", statIronCollected);
+		save("statTotalIronCollected", statTotalIronCollected);
+
+		save("statSilverCollected", statSilverCollected);
+		save("statTotalSilverCollected", statTotalSilverCollected);
+
+		save("statPaperCrafted", statPaperCrafted);
+		save("statSelfPaperCrafted", statSelfPaperCrafted);
+		save("statTotalPaperCrafted", statTotalPaperCrafted);
+		save("statTotalSelfPaperCrafted", statTotalSelfPaperCrafted);
+		
+		save("statTomesCrafted", statTomesCrafted);
+		save("statSelfTomesCrafted", statSelfTomesCrafted);
+		save("statTotalTomesCrafted", statTotalTomesCrafted);
+		
+		save("statFaithCollected",statFaithCollected);
+		save("statTotalFaithCollected",statTotalFaithCollected);
+
+		save("statSoulsCollected",statSoulsCollected);
+		save("statTotalSoulsCollected",statTotalSoulsCollected);
+		
+		save("statPeasantsHired", statPeasantsHired);
+		save("statSelfPeasantsHired", statSelfPeasantsHired);
+		save("statTotalPeasantsHired", statTotalPeasantsHired);
+
+		save("statMinerHired", statMinerHired);
+		save("statSelfMinerHired", statSelfMinerHired);
+		save("statTotalMinerHired", statTotalMinerHired);
+
+		save("statTavernsBuilt", statTavernsBuilt);
+		save("statPaperMillsBuilt", statPaperMillsBuilt);
+
+		save("statAcolytesRecruited", statAcolytesRecruited);
+		save("statTotalAcolytesRecruited", statTotalAcolytesRecruited);
+
+		save("statPriestsTrained", statPriestsTrained);
+		save("statTotalPriestsTrained", statTotalPriestsTrained);
+
+		save("statBishopsTrained", statBishopsTrained);
+		save("statTotalBishopsTrained", statTotalBishopsTrained);
+
+		save("statPagesTrained", statPagesTrained);
+		save("statTotalPagesTrained", statTotalPagesTrained);
+
+		save("statSquiresTrained", statSquiresTrained);
+		save("statTotalSquiresTrained", statTotalSquiresTrained);
+
+		save("statKnightsTrained", statKnightsTrained);
+		save("statTotalKnightsTrained", statTotalKnightsTrained);
+
+		save("statPaladinsTrained", statPaladinsTrained);
+		save("statTotalPaladinsTrained", statTotalPaladinsTrained);
+
+		save("statShadesSummoned", statShadesSummoned);
+		save("statTotalShadesSummoned", statTotalShadesSummoned);
+
+		save("statAspectsTrained", statAspectsTrained);
+		save("statTotalAspectsTrained", statTotalAspectsTrained);
+
+		save("statAngelsSummoned", statAngelsSummoned);
+		save("statTotalAngelsSummoned", statTotalAngelsSummoned);
+
+		save("statManaUsed", statManaUsed);
+
+		save("statCastedFireBall", statCastedFireBall);
+		save("statTotalCastedFireBall", statTotalCastedFireBall);
+
+		save("statCastedTimeSkip", statCastedTimeSkip);
+		save("statTotalCastedTimeSkip", statTotalCastedTimeSkip);		
+		
+		
 		
 		document.getElementById('saveAlert').style.display = "block";  //Displays saved alert
 		
@@ -117,6 +206,7 @@
 		localStorage.clear();
 		console.log("Your cookies have been cleared.")
 	};
+	
 	
 	function loadCookie(){
 	//	console.debug($.cookie("gold"));
@@ -669,8 +759,120 @@
 		else{
 			lastPage = 'Production';
 		}
-		recalculateCosts();
+
+		//Statistic Page variables 
 		
+			//Gold Stats
+		if(localStorage.statGoldCollected != null){
+			statGoldCollected = parseInt(localStorage.statGoldCollected);
+			document.getElementById('statgoldcollected').innerHTML = fnum(statGoldCollected);
+		}
+		
+		if(localStorage.statTotalGoldCollected != null){
+			statTotalGoldCollected = parseInt(localStorage.statTotalGoldCollected);
+			document.getElementById('stattotalgoldcollected').innerHTML = fnum(statTotalGoldCollected);
+		}
+
+		if(localStorage.statSelfGoldCollected != null){
+			statSelfGoldCollected = parseInt(localStorage.statSelfGoldCollected);
+			document.getElementById('statselfgoldcollected').innerHTML = fnum(statSelfGoldCollected);
+		}
+
+		if(localStorage.statTotalSelfGoldCollected != null){
+			statTotalSelfGoldCollected = parseInt(localStorage.statTotalSelfGoldCollected);
+			document.getElementById('stattotalselfgoldcollected').innerHTML = fnum(statTotalSelfGoldCollected);
+		}			
+		
+			//Wood Stats
+		if(localStorage.statWoodCollected != null){
+			statWoodCollected = parseInt(localStorage.statWoodCollected);
+			document.getElementById('statWoodCollected').innerHTML = fnum(statWoodCollected);
+		}
+		
+		if(localStorage.statTotalWoodCollected != null){
+			statTotalWoodCollected = parseInt(localStorage.statTotalWoodCollected);
+			document.getElementById('statTotalWoodCollected').innerHTML = fnum(statTotalWoodCollected);
+		}
+
+		if(localStorage.statSelfWoodCollected != null){
+			statSelfWoodCollected = parseInt(localStorage.statSelfWoodCollected);
+			document.getElementById('statSelfWoodCollected').innerHTML = fnum(statSelfWoodCollected);
+		}
+
+		if(localStorage.statTotalSelfWoodCollected != null){
+			statTotalSelfWoodCollected = parseInt(localStorage.statTotalSelfWoodCollected);
+			document.getElementById('statTotalSelfWoodCollected').innerHTML = fnum(statTotalSelfWoodCollected);
+		}	
+
+			//Iron
+		if(localStorage.statIronCollected != null){
+			statIronCollected = parseInt(localStorage.statIronCollected);
+			document.getElementById('statIronCollected').innerHTML = fnum(statIronCollected);
+		}
+
+		if(localStorage.statTotalIronCollected != null){
+			statTotalIronCollected = parseInt(localStorage.statTotalIronCollected);
+			document.getElementById('statTotalIronCollected').innerHTML = fnum(statTotalIronCollected);
+		}			
+		
+			//Silver
+		if(localStorage.statSilverCollected != null){
+			statSilverCollected = parseInt(localStorage.statSilverCollected);
+			document.getElementById('statSilverCollected').innerHTML = fnum(statSilverCollected);
+		}
+
+		if(localStorage.statTotalSilverCollected != null){
+			statTotalSilverCollected = parseInt(localStorage.statTotalSilverCollected);
+			document.getElementById('statTotalSilverCollected').innerHTML = fnum(statTotalSilverCollected);
+		}			
+		
+			//Paper
+		if(localStorage.statPaperCrafted != null){
+			statPaperCrafted = parseInt(localStorage.statPaperCrafted);
+			document.getElementById('statPaperCrafted').innerHTML = fnum(statPaperCrafted);
+		}
+		
+		if(localStorage.statTotalPaperCrafted != null){
+			statTotalPaperCrafted = parseInt(localStorage.statTotalPaperCrafted);
+			document.getElementById('statTotalPaperCrafted').innerHTML = fnum(statTotalPaperCrafted);
+		}
+
+		if(localStorage.statSelfPaperCrafted != null){
+			statSelfPaperCrafted = parseInt(localStorage.statSelfPaperCrafted);
+			document.getElementById('statSelfPaperCrafted').innerHTML = fnum(statSelfPaperCrafted);
+		}
+
+		if(localStorage.statTotalSelfPaperCrafted != null){
+			statTotalSelfPaperCrafted = parseInt(localStorage.statTotalSelfPaperCrafted);
+			document.getElementById('statTotalSelfPaperCrafted').innerHTML = fnum(statTotalSelfPaperCrafted);
+		}			
+		
+			//Faith
+		if(localStorage.statFaithCollected != null){
+			statFaithCollected = parseInt(localStorage.statFaithCollected);
+			document.getElementById('statFaithCollected').innerHTML = fnum(statFaithCollected);
+		}
+
+		if(localStorage.statTotalFaithCollected != null){
+			statTotalFaithCollected = parseInt(localStorage.statTotalFaithCollected);
+			document.getElementById('statTotalFaithCollected').innerHTML = fnum(statTotalFaithCollected);
+		}
+		
+			//Souls
+			
+		if(localStorage.statSoulsCollected != null){
+			statSoulsCollected = parseInt(localStorage.statSoulsCollected);
+			document.getElementById('statSoulsCollected').innerHTML = fnum(statSoulsCollected);
+		}
+
+		if(localStorage.statTotalSoulsCollected != null){
+			statTotalSoulsCollected = parseInt(localStorage.statTotalSoulsCollected);
+			document.getElementById('statTotalSoulsCollected').innerHTML = fnum(statTotalSoulsCollected);
+		}			
+		
+		//End Statistic Page variables loaded
+		
+		recalculateCosts();
 		QuestCheckUnitOptions();
 		
 //		setTimeout(function() { showUndefeatedBattles(); }, 1000)

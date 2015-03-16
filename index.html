@@ -28,7 +28,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="dist/js/jquery.bootstrap-touchspin.js"></script>
 	<script src="dist/js/bootstrap-select.js"></script>
-	<script type="text/javascript" src="scripts/saveload.js"></script>
+
 	
 	<script language="javascript"> 
 	function toggle(elementId) {
@@ -90,7 +90,8 @@
                   <li><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources">Toggle Resources</a></li>
 				  <li><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources">Toggle Secondary Resources</a></li>
                   <li><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Toggle Gathering</a></li>
-<!--				  <li><a id="UndefeatedOpt" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle'); showUndefeatedBattles();">Show Undefeated Enemies</a></li> -->
+				  <li><a id="ToggleTrunc" href="javascript:toggleTrunc();">Toggle Number Truncation</a></li>
+				  <!--				  <li><a id="UndefeatedOpt" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle'); showUndefeatedBattles();">Show Undefeated Enemies</a></li> -->
 				  <li class="divider"></li>
 				  <li><a id="save" href="javascript:saveCookie();">Save</a></li>
                   <li><a id="load" href="javascript:loadCookie()">Load</a></li>
@@ -99,7 +100,7 @@
 				  <li><a id="hardreset" href="javascript:hardReset()">!Hard reset!</a></li>
 				  <li class="divider"></li>
                   <li class="dropdown-header"></li>
-				  <li><a id="ToggleTrunc" href="javascript:toggleTrunc();">Toggle Number Truncation</a></li>
+				  <li><a href="#" data-toggle="modal" data-target="#statmodal">Statistics</a></li>
 				  <li><a id="verinfo" target="_blank" href="changelog.html">Version 0.6.9.5</a></li>
                   <li><a href="#" data-toggle="modal" data-target="#aboutmodal">About</a></li>
                 </ul>
@@ -1290,7 +1291,6 @@
 			More Battles<br />
 			Prestige System<br /> <br />
 			
-			You have played Holy Wars for: <span id = tTPinHHMMSS>0</span>
 			<br />
 				
 		  </div>
@@ -1299,7 +1299,60 @@
 		  </div>
 		</div>
 	  </div>
-	</div>	
+	</div>
+
+	<div class="modal fade" id="statmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Your Game Statistics</h4>
+		  </div>
+		  <div class="modal-body">
+						
+			You have played Holy Wars for: <span id = tTPinHHMMSS>0</span>
+			<br />
+			<h4>Gold</h4>
+			Lifetime Gold Collected: <img src = "images/money_goldsmall.png" title ="Gold" ><span id= "stattotalgoldcollected">0</span><br />
+			Gold Collected this game: <img src = "images/money_goldsmall.png" title ="Gold" ><span id= "statgoldcollected">0</span><br /><br />
+			Gold Collected by clicking this game: <img src = "images/money_goldsmall.png" title ="Gold" ><span id= "statselfgoldcollected">0</span><br />
+			Lifetime Gold collected by clicking: <img src = "images/money_goldsmall.png" title ="Gold" ><span id= "stattotalselfgoldcollected">0</span><br /><br />
+			
+			<h4>Wood</h4>
+			Lifetime Wood Collected: <img src = "images/woodsmall.png" title = "Wood"><span id= "statTotalWoodCollected">0</span><br />
+			Wood Collected this game: <img src = "images/woodsmall.png" title = "Wood"><span id= "statWoodCollected">0</span><br />
+			Lifetime Wood collected by clicking:<img src = "images/woodsmall.png" title = "Wood"><span id= "statTotalSelfWoodCollected">0</span><br />
+			Wood Collected by clicking this game: <img src = "images/woodsmall.png" title = "Wood"><span id= "statSelfWoodCollected">0</span> <br /><br />
+
+			<h4>Iron</h4>
+			Lifetime Iron Collected: <img src = "images/ironsmall.png" title="Iron"><span id= "statTotalIronCollected">0</span><br />
+			Iron Collected this game: <img src = "images/ironsmall.png" title="Iron"><span id= "statIronCollected">0</span><br /> <br />
+
+			<h4>Silver</h4>
+			Lifetime Silver Collected: <img src = "images/silverOresmall.png" title="Silver"><span id= "statTotalSilverCollected">0</span><br />
+			Silver Collected this game: <img src = "images/silverOresmall.png" title="Silver"><span id= "statSilverCollected">0</span><br /> <br />			
+			
+			<h4>Paper</h4>
+			Lifetime Paper Collected: <img src = "images/parchmentsmall.png" Title="Paper"><span id= "statTotalPaperCrafted">0</span><br />
+			Paper Collected this game: <img src = "images/parchmentsmall.png" Title="Paper"><span id= "statPaperCrafted">0</span><br />
+			Lifetime Paper collected by clicking:<img src = "images/parchmentsmall.png" Title="Paper"><span id= "statTotalSelfPaperCrafted">0</span><br />
+			Paper Collected by clicking this game: <img src = "images/parchmentsmall.png" Title="Paper"><span id= "statSelfPaperCrafted">0</span> <br /><br />			
+
+			<h4>Faith</h4>
+			Lifetime Faith Collected: <img src = "images/faithsmall.png" Title="Faith"><span id= "statTotalFaithCollected">0</span><br />
+			Faith Collected this game: <img src = "images/faithsmall.png" Title="Faith"><span id= "statFaithCollected">0</span><br /> <br />					
+
+			<h4>Souls</h4>
+			Lifetime Souls Collected: <img src = "images/soulssmall.png" title="Souls"><span id= "statTotalSoulsCollected">0</span><br />
+			Souls Collected this game: <img src = "images/soulssmall.png" title="Souls"><span id= "statSoulsCollected">0</span><br /> <br />				
+			
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>		
 	
 	<script type ="text/javascript">
 		function CollapseAll(){
@@ -1385,6 +1438,7 @@
 	<script type="text/javascript" src="scripts/battle.js"></script>       <!--Load Battle script -->
 	<script type="text/javascript" src="scripts/magic.js"></script>       <!--Load Magic script -->
 	<script type="text/javascript" src="scripts/quests.js"></script>       <!--Load Quests script -->
+	<script type="text/javascript" src="scripts/saveload.js"></script>
 	
     <!-- Bootstrap core JavaScript
     ================================================== -->

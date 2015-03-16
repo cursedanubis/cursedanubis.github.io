@@ -186,36 +186,36 @@ function setClickVal(Unit, type, value){
 	switch(type)
 	{
 		case 'gold':
-			this.goldClickVal = value;
+			Unit.goldClickVal = value;
 		break;
 		
 		case 'wood':
-			this.woodClickVal = value;
+			Unit.woodClickVal = value;
 		break;
 		
 		case 'iron':
-			this.ironClickVal = value;
+			Unit.ironClickVal = value;
 		break;
 		
 		case 'silver':
-			this.silverClickVal = value;
+			Unit.silverClickVal = value;
 		break;
 		
 		case 'faith':
-			this.faithClickVal = value;
+			Unit.faithClickVal = value;
 		break;
 		
 		case 'tome':
-			this.tomeClickVal = value;
+			Unit.tomeClickVal = value;
 		break;
 		
 		case 'souls':
-			this.soulsClickVal = value;
+			Unit.soulsClickVal = value;
 		break;
 	}
 }
 
-//Unit constructor  (name, htmlNumRef, htmlNextGoldCost, htmlNextIronCost, htmlNextSilverCost, htmlNextFaithCost, htmlNextSoulCost, htmlNextTomeCost, htmlBuyBtn, 
+//Unit constructor  (name, htmlNumRef, htmlNextGodCost, htmlNextIronCost, htmlNextSilverCost, htmlNextFaithCost, htmlNextSoulCost, htmlNextTomeCost, htmlBuyBtn, 
 //					goldCost, ironCost, silverCost, faithCost, soulCost, tomeCost, costMult,description, costAdj, hasReqUnit, reqUnit){
 var peasDesc = "A lowly denizen of your realm. They are adept at farming and scrounging for gold but completely useless at fighting."
 var Peasant = new Unit("Peasant",'peasants','PeasantCost','none','none','none','none','none','btnbuyPeasant',50,0,0,0,0,0,1.1, peasDesc, tavernpeasants,false,"none");
@@ -298,13 +298,14 @@ var Aspect = new Unit("AspectofJustice",'aspects','AspectCost','aspectIronCost',
 setDescription(Aspect, 'BtnAspectDesc');
 setArmyPower(Aspect, 100);
 setSpiritPower(Aspect, 50);
+setClickVal(Aspect, 'souls', 2);
 
 var angelDesc = "Divine warriors capable of flight summoned down from the heavens. They smell vaguely like freshly baked brownies."
 var Angel = new Unit("Angel",'angels','AngelCost','angelIronCost','angelSilverCost','none','angelSoulCost','angelTomeCost','btnBuyAngel',200000,500,2500,0,1500,30,1.15, angelDesc, 0, false, "none");
 setDescription(Angel, 'BtnAngelDesc');
 setArmyPower(Angel, 450)
 setSpiritPower(Angel, 200);
-
+setClickVal(Angel, 'souls', 5);
 
 function checkUnitButtons(){
 	//Unit Buttons //
@@ -367,18 +368,19 @@ function updateUnitPopover(){
 	setDescription(Lumberjack, 'BtnLumberjackDesc');
 	
 	//Miner
-	var minerGPS = 0;
-	var minerSilPS = 0;
-	var tempmindesc = minerDesc
+	var tempMinerDesc = minerDesc
+	
+	tempMinerDesc = tempMinerDesc + "<br> Generates " + Miner.ironClickVal + "<img src='images/ironsmall.png'> per second"
+	
 	if(mPanningUpgrade == true){
-		minerGPS += 1;
-		tempmindesc = tempmindesc + "<br> Generates " + minerGPS + "<img src='images/money_goldsmall.png'> per second"
+		Miner.goldClickVal = 1;
+		tempMinerDesc = tempMinerDesc + "<br> Generates " + Miner.goldClickVal + "<img src='images/money_goldsmall.png'> per second"
 	}
 	if(mSilverUpgrade == true){
-		minerSilPS += 0.5;
-		tempmindesc = tempmindesc + "<br> Generates " + minerSilPS + "<img src = 'images/silverOresmall.png'> per second"
+		Miner.silverClickVal = 0.5;
+		tempMinerDesc = tempMinerDesc + "<br> Generates " + Miner.silverClickVal + "<img src = 'images/silverOresmall.png'> per second"
 	}
-	Miner.description = tempmindesc;
+	Miner.description = tempMinerDesc;
 	setDescription(Miner, 'BtnMinerDesc');
 	
 //	setDescription(Page, 'BtnPageDesc');
@@ -386,29 +388,25 @@ function updateUnitPopover(){
 //	setDescription(Knight, 'BtnKnightDesc');
 
 	//Paladin
-	var palSoPS = 1;
 	if(paladinWepUpgrade == true){
-		palSoPS *= 2;
+		Paladin.soulsClickVal = 2;
 	}
-	Paladin.description = paladinDesc + "<br> Provides <img src = 'images/armsmall.png'> " + Paladin.armyPower + " army strength. <br>Provides <img src = 'images/armsmall.png'> " + Paladin.spiritPower + " spiritual strength. <br>Generates " + palSoPS + " <img src = 'images/soulssmall.png'> per second."
+	Paladin.description = paladinDesc + "<br> Provides <img src = 'images/armsmall.png'> " + Paladin.armyPower + " army strength. <br>Provides <img src = 'images/armsmall.png'> " + Paladin.spiritPower + " spiritual strength. <br>Generates " + Paladin.soulsClickVal + " <img src = 'images/soulssmall.png'> per second."
 	setDescription(Paladin, 'BtnPaladinDesc')
 	
 	//Acolyte
-	var acoFPS = 0.1
-	Acolyte.description = acolyteDesc + "<br> Generates "+ acoFPS +" <img src = 'images/faithsmall.png'> per second"
+	Acolyte.description = acolyteDesc + "<br> Generates "+ Acolyte.faithClickVal +" <img src = 'images/faithsmall.png'> per second"
 	setDescription(Acolyte, 'BtnAcolyteDesc');
 	
 	//Priest
-	var priestFPS = 0.5
 	if(prFaithUpgrade == true){
-		priestFPS = priestFPS * 2
+		Priest.faithClickVal = 1
 	}
-	Priest.description = priestDesc + "<br>Generates " + priestFPS + " <img src = 'images/faithsmall.png'> per second";
+	Priest.description = priestDesc + "<br>Generates " + Priest.faithClickVal + " <img src = 'images/faithsmall.png'> per second";
 	setDescription(Priest, 'BtnPriestDesc');
 	
 	//Bishop
-	var bishopFPS = 10;
-	Bishop.description = bishopDesc + "<br> Generates " + bishopFPS + " <img src = 'images/faithsmall.png'> per second";
+	Bishop.description = bishopDesc + "<br> Generates " + Bishop.faithClickVal + " <img src = 'images/faithsmall.png'> per second";
 	setDescription(Bishop, 'BtnBishopDesc');
 	
 	//Shade
@@ -416,14 +414,12 @@ function updateUnitPopover(){
 	setDescription(Shade, 'BtnShadeDesc');
 	
 	//Aspect
-	var aspectSoPS = 2
 	Aspect.description = aspectDesc + "<br> Provides <img src = 'images/armsmall.png'> " + Aspect.armyPower + " army strength. <br>Provides <img src = 'images/armsmall.png'>" + Aspect.spiritPower +
-							" spiritual strength.<br> Generates " + aspectSoPS + " <img src = 'images/soulssmall.png'> per second."
+							" spiritual strength.<br> Generates " + Aspect.soulsClickVal + " <img src = 'images/soulssmall.png'> per second."
 	setDescription(Aspect, 'BtnAspectDesc');
 	
 	//Angel
-	var angelSoPS = 5
 	Angel.description = angelDesc + "<br> Provides <img src = 'images/armsmall.png'> " + Angel.armyPower + " army strength. <br>Provides <img src = 'images/armsmall.png'> " +
-						Angel.spiritPower + " spiritual strength.<br>Generates " + angelSoPS + " <img src = 'images/soulssmall.png'> per second.";
+						Angel.spiritPower + " spiritual strength.<br>Generates " + Angel.soulsClickVal + " <img src = 'images/soulssmall.png'> per second.";
 	setDescription(Angel, 'BtnAngelDesc'); 
 };
