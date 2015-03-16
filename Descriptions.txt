@@ -8,7 +8,6 @@ The list begins with a den of greedy goblins in the nearby oak grove.
 Though they have not made any aggressive moves toward your people and your holdings, theses capricious hoarders of all things shiny remain a threat.
 
 
-
 Bandits
 -------
 Scouts have reported sightings of a large group of marauders camped out on the plains. 
@@ -24,25 +23,37 @@ Her age hides the true extent of her skills - she keeps visitors away with an ar
 
 Smelly Ogre
 ------------
+Some of the peasants have reported missing livestock - cattle, pigs, geese and even chickens. At the same time, your villagers have been complaining of a spectacularly 
+foul smell drifting in with the eastern wind. Your scouts track down the nauseating fumes to a dark cave in the cliffs where they find a large and particularly odorous ogre
+munching on YOUR livestock. Take it out before it eats more of your livestock or decides to pass more wind in your direction.
 
 
 Pack of Hellhounds
 -------------------
-A 
+Your hunters come across signs of a large pack of canine-like creatures wandering the plains. Nightmarish howls can be heard day and night, frightening the livestock and putting
+your people on edge. The most experienced of your hunters finally witnesses a portal rip open one night, dark smoke billowing forth from the dark red maw and spitting out 
+wicked hounds of enormous size glowing like the embers of smoldering lava. The pack will harass your defences and occasionally kill some of your peasants and miners.
 
 
 Evil Pixie
------------
-
+--------
+Research turns up notes about a trickster that delights in playing with mortals. One ancient scroll describes the creature as possessing an deceptively innocent appearance,
+a small and sprtiely winged form dressed in the earhtly browns and bright greens of the forest designed to lure in unsuspecting humans. Written in the margins of the scroll is a 
+warning to the reader to beware of the creature's cunningness.
 
 
 Haunted Armor
 --------------
+The region has been inhabited for a very long time, resutling in many remnants from previous civilizations. 
+The surprisingly intact ancient ruins of one such civilization stands out on the southern horizon. Your night patrol spotted movements in the ruin's shadows and 
+upon closer inspection, discovered an empty set of armor of blackened steel engraved with mysterious runes. It floats mid-air with deadly grace, making threatening gestures from afar.
 
 
 Gelatinous Ooze
 ----------------
-
+Your mine tunnels intersect a long and winding cave system where slimy and moist sounds echo throughout the night. Exploring the cavern, you discover an undulating translucent blob  
+oozing slowly over the iron and silver deposits. The ooze appears to be consuming the deposits as ore fragments are being rapidly absorbed into its metallic copper surface. Conventional 
+weapons slide right through the gelatinous creature - you need to find some other means of defeating it. 
 
 
 Corrupted Archmage
