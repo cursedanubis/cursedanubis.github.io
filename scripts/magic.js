@@ -99,8 +99,15 @@ FastForward.cast = function(){
 	
 	
 	mana = mana - this.manaCost;                                                                  //removes the souls spent	
+	statManaUsed += this.manaCost;
+	statTotalManaUsed += this.manaCost;
+	statCastedTimeSkip += 1;
+	statTotalCastedTimeSkip +=1;
 	document.getElementById('mana').innerHTML = mana;  										      //updates the number of souls for the user
-	
+	document.getElementById('statManaUsed').innerHTML = statManaUsed;
+	document.getElementById('statTotalManaUsed').innerHTML = statTotalManaUsed;
+	document.getElementById('statCastedTimeSkip').innerHTML = statCastedTimeSkip;
+	document.getElementById('statTotalCastedTimeSkip').innerHTML = statTotalCastedTimeSkip;
 	
 	var alertString = "The archmage releases a burst of magic causing the world to blur before your eyes! ";
 		if(goldGained > 0){alertString = alertString + "<br>You gain " + fnum(goldGained)+ " gold."}
@@ -128,7 +135,15 @@ FireBall.cast = function(){
 	else{
 		spellBoost(15);
 		mana = mana - this.manaCost;                                                                  //removes the souls spent	
+		statManaUsed += this.manaCost;
+		statTotalManaUsed += this.manaCost;	
+		statCastedFireBall += 1;
+		statTotalCastedFireBall += 1;
 		document.getElementById('mana').innerHTML = mana;  										      //updates the number of souls for the user	
+		document.getElementById('statManaUsed').innerHTML = statManaUsed;
+		document.getElementById('statTotalManaUsed').innerHTML = statTotalManaUsed;
+		document.getElementById('statCastedFireBall').innerHTML = statCastedFireBall;
+		document.getElementById('statTotalCastedFireBall').innerHTML = statTotalCastedFireBall;
 		CollapseAll(); 
 		toggle('Battle');
 		var AlertString = "With a large 'woosh!' and a burst of intense light and heat, the archmage sends a fireball flying from his tower straight at " + curBattling + "!";

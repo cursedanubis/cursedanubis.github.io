@@ -133,11 +133,24 @@
 		
 		save("statPeasantsHired", statPeasantsHired);
 		save("statSelfPeasantsHired", statSelfPeasantsHired);
+		save("statTotalSelfPeasantsHired", statTotalSelfPeasantsHired);
+		save("statTavernPeasantsHired", statTavernPeasantsHired);
+		save("statTotalTavernPeasantsHired", statTotalTavernPeasantsHired);
 		save("statTotalPeasantsHired", statTotalPeasantsHired);
 
-		save("statMinerHired", statMinerHired);
-		save("statSelfMinerHired", statSelfMinerHired);
-		save("statTotalMinerHired", statTotalMinerHired);
+		save("statMinersHired", statMinersHired);
+		save("statSelfMinersHired", statSelfMinersHired);
+		save("statTotalSelfMinersHired", statTotalSelfMinersHired);
+		save("statTavernMinersHired", statTavernMinersHired);
+		save("statTotalTavernMinersHired", statTotalTavernMinersHired);
+		save("statTotalMinersHired", statTotalMinersHired);
+		
+		save("statLumberjacksHired", statLumberjacksHired);
+		save("statSelfLumberjacksHired", statSelfLumberjacksHired);
+		save("statTotalSelfMinersHired", statTotalSelfMinersHired);
+		save("statTavernLumberjacksHired", statTavernLumberjacksHired);
+		save("statTotalTavernLumberjacksHired", statTotalTavernLumberjacksHired);
+		save("statTotalLumberjacksHired", statTotalLumberjacksHired);		
 
 		save("statTavernsBuilt", statTavernsBuilt);
 		save("statPaperMillsBuilt", statPaperMillsBuilt);
@@ -172,7 +185,10 @@
 		save("statAngelsSummoned", statAngelsSummoned);
 		save("statTotalAngelsSummoned", statTotalAngelsSummoned);
 
+		save("statManaGained", statManaGained);
+		save("statTotalManaGained", statTotalManaGained);
 		save("statManaUsed", statManaUsed);
+		save("statTotalManaUsed", statManaUsed);
 
 		save("statCastedFireBall", statCastedFireBall);
 		save("statTotalCastedFireBall", statTotalCastedFireBall);
@@ -870,7 +886,220 @@
 			document.getElementById('statTotalSoulsCollected').innerHTML = fnum(statTotalSoulsCollected);
 		}			
 		
-		//End Statistic Page variables loaded
+			//Peasants
+		if(localStorage.statPeasantsHired != null){
+			statPeasantsHired = parseInt(localStorage.statPeasantsHired);
+			document.getElementById('statPeasantsHired').innerHTML = fnum(statPeasantsHired);
+		}
+		if(localStorage.statSelfPeasantsHired != null){
+			statSelfPeasantsHired = parseInt(localStorage.statSelfPeasantsHired);
+			document.getElementById('statSelfPeasantsHired').innerHTML = fnum(statSelfPeasantsHired);
+		}
+		if(localStorage.statTotalSelfPeasantsHired != null){
+			statTotalSelfPeasantsHired = parseInt(localStorage.statTotalSelfPeasantsHired);
+			document.getElementById('statTotalSelfPeasantsHired').innerHTML = fnum(statTotalSelfPeasantsHired);
+		}	
+		if(localStorage.statTavernPeasantsHired != null){
+			statTavernPeasantsHired = parseInt(localStorage.statTavernPeasantsHired);
+			document.getElementById('statTavernPeasantsHired').innerHTML = fnum(statTavernPeasantsHired);
+		}	
+		if(localStorage.statTotalTavernPeasantsHired != null){
+			statTotalTavernPeasantsHired = parseInt(localStorage.statTotalTavernPeasantsHired);
+			document.getElementById('statTotalTavernPeasantsHired').innerHTML = fnum(statTotalTavernPeasantsHired);
+		}
+		if(localStorage.statTotalPeasantsHired != null){
+			statTotalPeasantsHired = parseInt(localStorage.statTotalPeasantsHired);
+			document.getElementById('statTotalPeasantsHired').innerHTML = fnum(statTotalPeasantsHired);
+		}				
+		
+			//Miners
+		if(localStorage.statMinersHired != null){
+			statMinersHired = parseInt(localStorage.statMinersHired);
+			document.getElementById('statMinersHired').innerHTML = fnum(statMinersHired);
+		}
+		if(localStorage.statSelfMinersHired != null){
+			statSelfMinersHired = parseInt(localStorage.statSelfMinersHired);
+			document.getElementById('statSelfMinersHired').innerHTML = fnum(statSelfMinersHired);
+		}
+		if(localStorage.statTotalSelfMinersHired != null){
+			statTotalSelfMinersHired = parseInt(localStorage.statTotalSelfMinersHired);
+			document.getElementById('statTotalSelfMinersHired').innerHTML = fnum(statTotalSelfMinersHired);
+		}	
+		if(localStorage.statTavernMinersHired != null){
+			statTavernMinersHired = parseInt(localStorage.statTavernMinersHired);
+			document.getElementById('statTavernMinersHired').innerHTML = fnum(statTavernMinersHired);
+		}	
+		if(localStorage.statTotalTavernMinersHired != null){
+			statTotalTavernMinersHired = parseInt(localStorage.statTotalTavernMinersHired);
+			document.getElementById('statTotalTavernMinersHired').innerHTML = fnum(statTotalTavernMinersHired);
+		}
+		if(localStorage.statTotalMinersHired != null){
+			statTotalMinersHired = parseInt(localStorage.statTotalMinersHired);
+			document.getElementById('statTotalMinersHired').innerHTML = fnum(statTotalMinersHired);
+		}
+		
+			//Lumberjacks
+		if(localStorage.statLumberjacksHired != null){
+			statLumberjacksHired = parseInt(localStorage.statLumberjacksHired);
+			document.getElementById('statLumberjacksHired').innerHTML = fnum(statLumberjacksHired);
+		}
+		if(localStorage.statSelfLumberjacksHired != null){
+			statSelfLumberjacksHired = parseInt(localStorage.statSelfLumberjacksHired);
+			document.getElementById('statSelfLumberjacksHired').innerHTML = fnum(statSelfLumberjacksHired);
+		}
+		if(localStorage.statTotalSelfLumberjacksHired != null){
+			statTotalSelfLumberjacksHired = parseInt(localStorage.statTotalSelfLumberjacksHired);
+			document.getElementById('statTotalSelfLumberjacksHired').innerHTML = fnum(statTotalSelfLumberjacksHired);
+		}	
+		if(localStorage.statTavernLumberjacksHired != null){
+			statTavernLumberjacksHired = parseInt(localStorage.statTavernLumberjacksHired);
+			document.getElementById('statTavernLumberjacksHired').innerHTML = fnum(statTavernLumberjacksHired);
+		}	
+		if(localStorage.statTotalTavernLumberjacksHired != null){
+			statTotalTavernLumberjacksHired = parseInt(localStorage.statTotalTavernLumberjacksHired);
+			document.getElementById('statTotalTavernLumberjacksHired').innerHTML = fnum(statTotalTavernLumberjacksHired);
+		}
+		if(localStorage.statTotalLumberjacksHired != null){
+			statTotalLumberjacksHired = parseInt(localStorage.statTotalLumberjacksHired);
+			document.getElementById('statTotalLumberjacksHired').innerHTML = fnum(statTotalLumberjacksHired);
+		}			
+		
+			//Pages
+		if(localStorage.statPagesTrained != null){
+			statPagesTrained = parseInt(localStorage.statPagesTrained);
+			document.getElementById('statPagesTrained').innerHTML = fnum(statPagesTrained);
+		}
+		if(localStorage.statTotalPagesTrained != null){
+			statTotalPagesTrained = parseInt(localStorage.statTotalPagesTrained);
+			document.getElementById('statTotalPagesTrained').innerHTML = fnum(statTotalPagesTrained);
+		}
+		
+			//Squires
+		if(localStorage.statSquiresTrained != null){
+			statSquiresTrained = parseInt(localStorage.statSquiresTrained);
+			document.getElementById('statSquiresTrained').innerHTML = fnum(statSquiresTrained);
+		}
+		if(localStorage.statTotalSquiresTrained != null){
+			statTotalSquiresTrained = parseInt(localStorage.statTotalSquiresTrained);
+			document.getElementById('statTotalSquiresTrained').innerHTML = fnum(statTotalSquiresTrained);
+		}
+		
+			//Knights
+		if(localStorage.statKnightsTrained != null){
+			statKnightsTrained = parseInt(localStorage.statKnightsTrained);
+			document.getElementById('statKnightsTrained').innerHTML = fnum(statKnightsTrained);
+		}
+		if(localStorage.statTotalKnightsTrained != null){
+			statTotalKnightsTrained = parseInt(localStorage.statTotalKnightsTrained);
+			document.getElementById('statTotalKnightsTrained').innerHTML = fnum(statTotalKnightsTrained);
+		}
+		
+			//Paladins
+		if(localStorage.statPaladinsTrained != null){
+			statPaladinsTrained = parseInt(localStorage.statPaladinsTrained);
+			document.getElementById('statPaladinsTrained').innerHTML = fnum(statPaladinsTrained);
+		}
+		if(localStorage.statTotalPaladinsTrained != null){
+			statTotalPaladinsTrained = parseInt(localStorage.statTotalPaladinsTrained);
+			document.getElementById('statTotalPaladinsTrained').innerHTML = fnum(statTotalPaladinsTrained);
+		}
+		
+			//Acolytes
+		if(localStorage.statAcolytesRecruited != null){
+			statAcolytesRecruited = parseInt(localStorage.statAcolytesRecruited);
+			document.getElementById('statAcolytesRecruited').innerHTML = fnum(statAcolytesRecruited);
+		}
+		if(localStorage.statTotalAcolytesRecruited != null){
+			statTotalAcolytesRecruited = parseInt(localStorage.statTotalAcolytesRecruited);
+			document.getElementById('statTotalAcolytesRecruited').innerHTML = fnum(statTotalAcolytesRecruited);
+		}
+
+			//Priests
+		if(localStorage.statPriestsTrained != null){
+			statPriestsTrained = parseInt(localStorage.statPriestsTrained);
+			document.getElementById('statPriestsTrained').innerHTML = fnum(statPriestsTrained);
+		}
+		if(localStorage.statTotalPriestsTrained != null){
+			statTotalPriestsTrained = parseInt(localStorage.statTotalPriestsTrained);
+			document.getElementById('statTotalPriestsTrained').innerHTML = fnum(statTotalPriestsTrained);
+		}
+
+			//Bishops
+		if(localStorage.statBishopsTrained != null){
+			statBishopsTrained = parseInt(localStorage.statBishopsTrained);
+			document.getElementById('statBishopsTrained').innerHTML = fnum(statBishopsTrained);
+		}
+		if(localStorage.statTotalBishopsTrained != null){
+			statTotalBishopsTrained = parseInt(localStorage.statTotalBishopsTrained);
+			document.getElementById('statTotalBishopsTrained').innerHTML = fnum(statTotalBishopsTrained);
+		}		
+			
+			//Shades
+		if(localStorage.statShadesSummoned != null){
+			statShadesSummoned = parseInt(localStorage.statShadesSummoned);
+			document.getElementById('statShadesSummoned').innerHTML = fnum(statShadesSummoned);
+		}
+		if(localStorage.statTotalShadesSummoned != null){
+			statTotalShadesSummoned = parseInt(localStorage.statTotalShadesSummoned);
+			document.getElementById('statTotalShadesSummoned').innerHTML = fnum(statTotalShadesSummoned);
+		}
+
+			//Aspects
+		if(localStorage.statAspectsTrained != null){
+			statAspectsTrained = parseInt(localStorage.statAspectsTrained);
+			document.getElementById('statAspectsTrained').innerHTML = fnum(statAspectsTrained);
+		}
+		if(localStorage.statTotalAspectsTrained != null){
+			statTotalAspectsTrained = parseInt(localStorage.statTotalAspectsTrained);
+			document.getElementById('statTotalAspectsTrained').innerHTML = fnum(statTotalAspectsTrained);
+		}
+			
+			//Angels
+		if(localStorage.statAngelsSummoned != null){
+			statAngelsSummoned = parseInt(localStorage.statAngelsSummoned);
+			document.getElementById('statAngelsSummoned').innerHTML = fnum(statAngelsSummoned);
+		}
+		if(localStorage.statTotalAngelsSummoned != null){
+			statTotalAngelsSummoned = parseInt(localStorage.statTotalAngelsSummoned);
+			document.getElementById('statTotalAngelsSummoned').innerHTML = fnum(statTotalAngelsSummoned);
+		}
+		
+			//Battles
+			
+			//Magic
+		if(localStorage.statManaGained != null){
+			statManaGained = parseInt(localStorage.statManaGained);
+			document.getElementById('statManaGained').innerHTML = fnum(statManaGained);
+		}
+		if(localStorage.statTotalManaGained != null){
+			statTotalManaGained = parseInt(localStorage.statTotalManaGained);
+			document.getElementById('statTotalManaGained').innerHTML = fnum(statTotalManaGained);
+		}
+		if(localStorage.statManaUsed != null){
+			statManaUsed = parseInt(localStorage.statManaUsed);
+			document.getElementById('statManaUsed').innerHTML = fnum(statManaUsed);
+		}
+		if(localStorage.statTotalManaUsed != null){
+			statTotalManaUsed = parseInt(localStorage.statTotalManaUsed);
+			document.getElementById('statTotalManaUsed').innerHTML = fnum(statTotalManaUsed);
+		}
+		if(localStorage.statCastedFireBall != null){
+			statCastedFireBall = parseInt(localStorage.statCastedFireBall);
+			document.getElementById('statCastedFireBall').innerHTML = fnum(statCastedFireBall);
+		}
+		if(localStorage.statCastedTimeSkip != null){
+			statCastedTimeSkip = parseInt(localStorage.statCastedTimeSkip);
+			document.getElementById('statCastedTimeSkip').innerHTML = fnum(statCastedTimeSkip);
+		}
+		if(localStorage.statTotalCastedFireBall != null){
+			statTotalCastedFireBall = parseInt(localStorage.statTotalCastedFireBall);
+			document.getElementById('statTotalCastedFireBall').innerHTML = fnum(statTotalCastedFireBall);
+		}
+		if(localStorage.statTotalCastedTimeSkip != null){
+			statTotalCastedTimeSkip = parseInt(localStorage.statTotalCastedTimeSkip);
+			document.getElementById('statTotalCastedTimeSkip').innerHTML = fnum(statTotalCastedTimeSkip);
+		}		
+		//End Statistics Page variables loaded
 		
 		recalculateCosts();
 		QuestCheckUnitOptions();

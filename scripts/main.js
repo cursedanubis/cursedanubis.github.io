@@ -244,7 +244,11 @@ function clickThing(number, type)
 			
 		case "mana":
 			mana += number;
-			document.getElementById("mana").innerHTML = fnum(mana);		
+			statManaGained += number;
+			statTotalManaGained += number;
+			document.getElementById("mana").innerHTML = fnum(mana);
+			document.getElementById("statManaGained").innerHTML = fnum(statManaGained);		
+			document.getElementById("statTotalManaGained").innerHTML = fnum(statTotalManaGained);		
 		default:
 	}
 }
@@ -912,23 +916,24 @@ var statTotalSoulsCollected = 0;
 
 var statPeasantsHired = 0;
 var statSelfPeasantsHired = 0;
+var statTotalSelfPeasantsHired = 0;
+var statTavernPeasantsHired = 0;
+var statTotalTavernPeasantsHired = 0;
 var statTotalPeasantsHired = 0;
 
-var statMinerHired = 0;
-var statSelfMinerHired = 0;
-var statTotalMinerHired = 0;
+var statMinersHired = 0;
+var statSelfMinersHired = 0;
+var statTotalSelfMinersHired = 0;
+var statTavernMinersHired = 0;
+var statTotalTavernMinersHired = 0;
+var statTotalMinersHired = 0;
 
-var statTavernsBuilt = 0;
-var statPaperMillsBuilt = 0;
-
-var statAcolytesRecruited = 0;
-var statTotalAcolytesRecruited = 0;
-
-var statPriestsTrained = 0;
-var statTotalPriestsTrained = 0;
-
-var statBishopsTrained = 0;
-var statTotalBishopsTrained = 0;
+var statLumberjacksHired = 0;
+var statSelfLumberjacksHired = 0;
+var statTotalSelfLumberjacksHired = 0;
+var statTavernLumberjacksHired = 0;
+var statTotalTavernLumberjacksHired = 0;
+var statTotalLumberjacksHired = 0;
 
 var statPagesTrained = 0;
 var statTotalPagesTrained = 0;
@@ -942,6 +947,15 @@ var statTotalKnightsTrained = 0;
 var statPaladinsTrained = 0;
 var statTotalPaladinsTrained = 0;
 
+var statAcolytesRecruited = 0;
+var statTotalAcolytesRecruited = 0;
+
+var statPriestsTrained = 0;
+var statTotalPriestsTrained = 0;
+
+var statBishopsTrained = 0;
+var statTotalBishopsTrained = 0;
+
 var statShadesSummoned = 0;
 var statTotalShadesSummoned = 0;
 
@@ -951,7 +965,13 @@ var statTotalAspectsTrained = 0;
 var statAngelsSummoned = 0;
 var statTotalAngelsSummoned = 0;
 
+var statTavernsBuilt = 0;
+var statPaperMillsBuilt = 0;
+
+var statManaGained = 0;
+var statTotalManaGained = 0;
 var statManaUsed = 0;
+var statTotalManaUsed = 0;
 
 var statCastedFireBall = 0;
 var statTotalCastedFireBall = 0;

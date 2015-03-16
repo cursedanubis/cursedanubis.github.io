@@ -100,8 +100,9 @@ Unit.prototype.buyOne = function(){
 			if(this.htmlNextTomeCost != 'none'){
 				this.nextTomeCost = Math.floor(this.tomeCost * Math.pow(this.costMult,this.number));                       //works out the Tome cost of the next Unit
 				document.getElementById(this.htmlNextTomeCost).innerHTML = fnum(this.nextTomeCost);  						      //updates the Unit Tome cost for the user
-			}				
+			}	
 			
+			updateStatistic(this.name, 1);
 		};
 	}
 	QuestCheckUnitOptions(); //
@@ -212,6 +213,116 @@ function setClickVal(Unit, type, value){
 		case 'souls':
 			Unit.soulsClickVal = value;
 		break;
+	}
+}
+
+function updateStatistic(name, value){
+//	console.log(name);
+	switch(name)
+	{
+		case 'Peasant':
+			statPeasantsHired += value;
+			statTotalPeasantsHired += value;
+			statSelfPeasantsHired += value;
+			statTotalSelfPeasantsHired += value;
+			document.getElementById('statPeasantsHired').innerHTML = statPeasantsHired;
+			document.getElementById('statSelfPeasantsHired').innerHTML = statSelfPeasantsHired;
+			document.getElementById('statTotalSelfPeasantsHired').innerHTML = statTotalSelfPeasantsHired;
+			document.getElementById('statTotalPeasantsHired').innerHTML = statTotalPeasantsHired;
+		break;
+		
+		case 'Miner':
+			statMinersHired += value;
+			statSelfMinersHired += value;
+			statTotalSelfMinersHired += value;
+			statTotalMinersHired += value;
+			document.getElementById('statMinersHired').innerHTML = statMinersHired;
+			document.getElementById('statSelfMinersHired').innerHTML = statSelfMinersHired;
+			document.getElementById('statTotalSelfMinersHired').innerHTML = statTotalSelfMinersHired;
+			document.getElementById('statTotalMinersHired').innerHTML = statTotalMinersHired;
+			console.log('Lumberjack');
+		break;
+		
+		case 'Lumberjack':
+			statLumberjacksHired += value;
+			statSelfLumberjacksHired += value;
+			statTotalSelfLumberjacksHired += value;
+			statTotalLumberjacksHired += value;
+			document.getElementById('statLumberjacksHired').innerHTML = statLumberjacksHired;
+			document.getElementById('statSelfLumberjacksHired').innerHTML = statSelfLumberjacksHired;
+			document.getElementById('statTotalSelfLumberjacksHired').innerHTML = statTotalSelfLumberjacksHired;
+			document.getElementById('statTotalLumberjacksHired').innerHTML = statTotalLumberjacksHired;			
+		break;
+		
+		case 'Page':
+			statPagesTrained += value;
+			statTotalPagesTrained += value;
+			document.getElementById('statPagesTrained').innerHTML = statPagesTrained;
+			document.getElementById('statTotalPagesTrained').innerHTML = statTotalPagesTrained;
+		break;
+		
+		case 'Squire':
+			statSquiresTrained += value;
+			statTotalSquiresTrained += value;
+			document.getElementById('statSquiresTrained').innerHTML = statSquiresTrained;
+			document.getElementById('statTotalSquiresTrained').innerHTML = statTotalSquiresTrained;
+		break;
+
+		case 'Knight':
+			statKnightsTrained += value;
+			statTotalKnightsTrained += value;
+			document.getElementById('statKnightsTrained').innerHTML = statKnightsTrained;
+			document.getElementById('statTotalKnightsTrained').innerHTML = statTotalKnightsTrained;			
+		break;	
+
+		case 'Paladin':
+			statPaladinsTrained += value;
+			statTotalPaladinsTrained += value;
+			document.getElementById('statPaladinsTrained').innerHTML = statPaladinsTrained;
+			document.getElementById('statTotalPaladinsTrained').innerHTML = statTotalPaladinsTrained;		
+		break;
+
+		case 'Acolyte':
+			statAcolytesRecruited += value;
+			statTotalAcolytesRecruited += value;
+			document.getElementById('statAcolytesRecruited').innerHTML = statAcolytesRecruited;
+			document.getElementById('statTotalAcolytesRecruited').innerHTML = statTotalAcolytesRecruited;	
+		break;
+
+		case 'Priest':
+			statPriestsTrained += value;
+			statTotalPriestsTrained += value;
+			document.getElementById('statPriestsTrained').innerHTML = statPriestsTrained;
+			document.getElementById('statTotalPriestsTrained').innerHTML = statTotalPriestsTrained;			
+		break;
+
+		case 'Bishop':
+			statBishopsTrained += value;
+			statTotalBishopsTrained += value;
+			document.getElementById('statBishopsTrained').innerHTML = statBishopsTrained;
+			document.getElementById('statTotalBishopsTrained').innerHTML = statTotalBishopsTrained;				
+		break;
+
+		case 'Shade':
+			statShadesSummoned += value;
+			statTotalShadesSummoned += value;
+			document.getElementById('statShadesSummoned').innerHTML = statShadesSummoned;
+			document.getElementById('statTotalShadesSummoned').innerHTML = statTotalShadesSummoned;				
+		break;
+
+		case 'AspectofJustice':
+			statAspectsTrained += value;
+			statTotalAspectsTrained += value;
+			document.getElementById('statAspectsTrained').innerHTML = statAspectsTrained;
+			document.getElementById('statTotalAspectsTrained').innerHTML = statTotalAspectsTrained;				
+		break;	
+
+		case 'Angel':
+			statAngelsSummoned += value;
+			statTotalAngelsSummoned += value;
+			document.getElementById('statAngelsSummoned').innerHTML = statAngelsSummoned;
+			document.getElementById('statTotalAngelsSummoned').innerHTML = statTotalAngelsSummoned;				
+		break;			
 	}
 }
 

@@ -403,15 +403,32 @@ function checkBuildingButtons(){
 
 window.setInterval(function(){					//Tavern unit generation
 	clickThing(Tavern.number,"peasant");
-	tavernpeasants = tavernpeasants + Tavern.number;
+	tavernpeasants += Tavern.number;
+	statTavernPeasantsHired += Tavern.number;
+	statTotalTavernPeasantsHired += Tavern.number;
+	statPeasantsHired += Tavern.number;
+	statTotalPeasantsHired += Tavern.number;
 	document.getElementById('tavernpeasants').innerHTML = tavernpeasants;
+	document.getElementById('statTavernPeasantsHired').innerHTML = statTavernPeasantsHired;
+	document.getElementById('statTotalTavernPeasantsHired').innerHTML = statTotalTavernPeasantsHired;
+	document.getElementById('statPeasantsHired').innerHTML = statPeasantsHired;
+	document.getElementById('statTotalPeasantsHired').innerHTML = statTotalPeasantsHired;
+	
 	Peasant.costAdj = tavernpeasants;
 	Peasant.recalcCost();
 	
 	if(tavernUpgrade == true){
 		clickThing(Tavern.number,"miner");
 		tavernminers += Tavern.number;
+		statTavernMinersHired += Tavern.number;
+		statTotalTavernMinersHired += Tavern.number;
+		statMinersHired += Tavern.number;
+		statTotalMinersHired += Tavern.number;			
 		document.getElementById('tavernminers').innerHTML = tavernminers;
+		document.getElementById('statTavernMinersHired').innerHTML = statTavernMinersHired;
+		document.getElementById('statTotalTavernMinersHired').innerHTML = statTotalTavernMinersHired;
+		document.getElementById('statMinersHired').innerHTML = statMinersHired;
+		document.getElementById('statTotalMinersHired').innerHTML = statTotalMinersHired;
 		Miner.costAdj = tavernminers;
 		Miner.recalcCost();	
 	}
@@ -419,7 +436,15 @@ window.setInterval(function(){					//Tavern unit generation
 	if(tavernUpgrade2 == true){
 		clickThing(Tavern.number,"lumberjack");
 		tavernlumberjacks += Tavern.number;
+		statTavernLumberjacksHired += Tavern.number;
+		statTotalTavernLumberjacksHired += Tavern.number;
+		statLumberjacksHired += Tavern.number;
+		statTotalLumberjacksHired += Tavern.number;			
 		document.getElementById('tavernlumberjacks').innerHTML = tavernlumberjacks;
+		document.getElementById('statTavernLumberjacksHired').innerHTML = statTavernLumberjacksHired;
+		document.getElementById('statTotalTavernLumberjacksHired').innerHTML = statTotalTavernLumberjacksHired;
+		document.getElementById('statLumberjacksHired').innerHTML = statLumberjacksHired;
+		document.getElementById('statTotalLumberjacksHired').innerHTML = statTotalLumberjacksHired;
 		Lumberjack.costAdj = tavernlumberjacks;
 		Lumberjack.recalcCost();	
 	}	
