@@ -23,6 +23,7 @@ Enemy:  Horde of cliff Racers
 //	Corrupted Archmage (B)
 	Corrupted Sylph
 
+	Change battle to a subtractive HP system? ie Bandits start out with 500 hp, -battle power every second?
 
 Base unit: Peasant
 
@@ -117,9 +118,6 @@ Issues:
 
 - Magic casting unit collects gold
 
-- Training page button causing iron currency to briefly change to gold amount - Fixed
-
-https://github.com/MikeMcl/decimal.js/
 
 
 

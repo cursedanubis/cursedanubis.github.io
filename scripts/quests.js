@@ -17,7 +17,7 @@ $("input[name='QuestNumSelect']").TouchSpin({
   prefix: 'Send',
   verticalbuttons: true,
   min: 1,
-  max: 50
+  max: 100
 });
 
 
@@ -188,7 +188,7 @@ var relicHuntDesc = "";
 var RelicHunt = new Quest('Relic Hunt', relicHuntDesc, 'QuestProgBarBox', 'QuestProgBar', 'btnQuestGo','goblinDefeatAlert',0,1,500);
 //setEnemyDescription(Goblins, 'btnDescGoblins');
 
-RelicHunt.go = function(){
+RelicHunt.startQuest = function(){
 		var perComplete = this.percentComplete;
 		var perIncrement = this.percentIncrement;
 		var alert = this.htmlAlertRef;
@@ -214,12 +214,16 @@ RelicHunt.go = function(){
 		perComplete = perComplete + perIncrement;
 		this.percentComplete = perComplete;
 		battlePercent = perComplete;
-		
+
+		if(perComplete%50 == 0){
+			rollForFragment();
+		}	
 		document.getElementById(btn).disabled = true;					//disables the buttons
 		document.getElementById(btn).innerHTML = QuestName + " in progress!";     //Changes button text
 		document.getElementById('questSelectPicker').disabled = true;  //disables picker
 		document.getElementById('unitSelectPicker').disabled = true;   //disables picker
 		document.getElementById('QuestNumSelect').disabled = true;		//disables number select
+
 		
 		if (currWidth >= maxWidth){
 			clearInterval(progress);
@@ -241,4 +245,28 @@ RelicHunt.go = function(){
 		} 
 	}, this.speed);
 	return true;
+}
+
+function rollForFragment(){
+	var unitType = $('#unitSelectPicker').selectpicker('val')
+	var numUnits = $('#QuestNumSelect').val();
+	var percentFind = 0;
+	var multiplier = 1.5
+	var rand = Math.floor(Math.random()*100) + 1;
+	switch(unitType){
+		case "Paladin":
+			for (i = 0; i < numUnits; i++) { 
+				percentFind += multiplier;
+				multiplier *= .975;
+			}
+		break;
+		default:
+	}
+	console.log(percentFind + '% chance to find a relic');
+	if(percentFind >= rand){
+		alert("Relic fragment found!");		
+	}
+	else{
+		console.log("No Relic found");
+	}
 }

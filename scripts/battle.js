@@ -145,7 +145,7 @@ Enemy.prototype.fight = function(){
 //					console.log("No Combat unit loss");
 				}
 				
-				console.log(SpirReq);
+//				console.log(SpirReq);
 				if(loseUnit(lossPercent) == true && SpirReq > 0){
 					console.log(ethUnitLost.name + " : " + ethUnitLost.number);
 					ethUnitLostNum = ethUnitLostNum + 1;
@@ -157,6 +157,8 @@ Enemy.prototype.fight = function(){
 				}
 				
 				loseUnitAlert(EnemyName, battleUnitLost.name, battleUnitLostNum, ethUnitLost.name, ethUnitLostNum);
+				document.getElementById('UnitLossAlert').style.display = "block";
+				scroll(UnitLossAlert,500);
 			}
 			
 		  if (currWidth >= maxWidth){
@@ -248,6 +250,7 @@ function loseUnitAlert(enemyName, bUnitName, bNumberLost, eUnitName, eNumberLost
 		document.getElementById('UnitLossAlert').style.display = "block";
 		document.getElementById('unitlossstring').innerHTML = loststring;
 	}
+//	scroll(UnitLossAlert, 500);
 };
 
 function selectRandomBattleUnit(){
@@ -386,9 +389,11 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 		
 		case 'Ooze':
 			if(defeatedOoze == true){
+				console.log(defeatedOoze);
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;
-			}			
+			}
+		break;
 		
 		case 'Archmage':
 			if(defeatedArchmage == true){

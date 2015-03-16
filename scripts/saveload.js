@@ -223,9 +223,7 @@
 		console.log("Your cookies have been cleared.")
 	};
 	
-	
 	function loadCookie(){
-	//	console.debug($.cookie("gold"));
 		if(localStorage.gold != null){
 			gold = parseInt(localStorage.gold);
 			document.getElementById("gold").innerHTML = fnum(gold);
@@ -617,7 +615,6 @@
 				defeatedOgre = true;
 				document.getElementById('soulsdiv').style.display = "block";
 				document.getElementById('PaladinTab').style.display = "block";
-//				document.getElementById('PaladinWeaponTab').style.display = "block";   //Until a drop unlocks paladin weapon upgrade
 				document.getElementById('BatOgreProgBarBox').style.display = "none";
 				document.getElementById("btnBatOgre").disabled = true;
 				document.getElementById("btnBatOgre").innerHTML = "Ogre Defeated!";
@@ -666,6 +663,7 @@
 					document.getElementById('tomeUnlock').style.display = "block";
 				}
 				else if(defeatedHhounds == true && myBool == false){
+					console.log('triggering ooze')
 					setTimeout(function() { triggerOoze(); }, 60000);				//restarts ooze raids after defeating hhounds
 				}
 		};			

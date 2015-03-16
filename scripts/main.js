@@ -693,8 +693,6 @@ window.setInterval(function(){                                 //Update per seco
 		document.getElementById("respaperimage").title = "Paper per 10 seconds: " + fnum(paperpersec * 10) ; 
 	}
 	
-
-	
 	manapersec = 1;
 	document.getElementById("resmanaimage").title = "Mana per second: " + fnum(manapersec) ; 	
 	
