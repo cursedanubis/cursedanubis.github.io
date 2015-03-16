@@ -135,8 +135,8 @@ Building.prototype.buy = function(){
 		}
 }
 
-var MultBuilding = function(name, htmlNumRef, htmlNextGoldCost, htmlNextWoodCost, htmlNextIronCost, htmlNextSilverCost, htmlNextFaithCost, htmlNextSoulCost, htmlBuyBtn, 
-					goldCost, woodCost, ironCost, silverCost, faithCost, soulCost, costMult,description, costAdj, hasReqUnit, reqUnit){
+var MultBuilding = function(name, htmlNumRef, htmlNextGoldCost, htmlNextWoodCost, htmlNextIronCost, htmlNextSilverCost, htmlNextFaithCost, htmlNextSoulCost, htmlNextTomeCost, htmlBuyBtn, 
+					goldCost, woodCost, ironCost, silverCost, faithCost, soulCost, tomeCost, costMult,description, costAdj, hasReqUnit, reqUnit){
 	this.name = name;
 	this.htmlNumRef = htmlNumRef;	
 	this.htmlNextGoldCost = htmlNextGoldCost;
@@ -145,6 +145,7 @@ var MultBuilding = function(name, htmlNumRef, htmlNextGoldCost, htmlNextWoodCost
 	this.htmlNextSilverCost = htmlNextSilverCost;
 	this.htmlNextFaithCost = htmlNextFaithCost;
 	this.htmlNextSoulCost = htmlNextSoulCost;
+	this.htmlNextTomeCost = htmlNextTomeCost;
 	this.htmlBuyBtn = htmlBuyBtn;
 	this.goldCost = goldCost;
 	this.woodCost = woodCost;
@@ -152,18 +153,21 @@ var MultBuilding = function(name, htmlNumRef, htmlNextGoldCost, htmlNextWoodCost
 	this.silverCost = silverCost;
 	this.faithCost = faithCost;
 	this.soulCost = soulCost;
+	this.tomeCost = tomeCost;
 	this.curGoldCost = 0;
 	this.curWoodCost = 0;
 	this.curIronCost = 0;
 	this.curSilverCost = 0;	
 	this.curFaithCost = 0;
 	this.curSoulCost = 0;
+	this.curTomeCost = 0;
 	this.nextGoldCost = 0;
 	this.nextWoodCost = 0;
 	this.nextIronCost = 0;
 	this.nextSilverCost = 0;
 	this.nextFaithCost = 0;
 	this.nextSoulCost = 0;	
+	this.nextTomeCost = 0;
 	this.description = description;
 	this.costAdj = costAdj;	
 	this.costMult = costMult;
@@ -177,7 +181,7 @@ MultBuilding.prototype.canBuy = function(){
 	this.recalcCost();
 	
 	if(this.hasReqUnit == false || (this.hasReqUnit == true && this.reqUnit.returnNumber() > 0)){
-		if(gold >= this.curGoldCost && wood >= this.curWoodCost && iron >= this.curIronCost && silver >= this.curSilverCost && faith >= this.curFaithCost && souls >= this.curSoulCost ){    //checks that the player can afford the Building
+		if(gold >= this.curGoldCost && wood >= this.curWoodCost && iron >= this.curIronCost && silver >= this.curSilverCost && faith >= this.curFaithCost && souls >= this.curSoulCost && tomes >= this.curTomeCost ){    //checks that the player can afford the Building
 			document.getElementById(myButton).disabled = false;
 		}
 		else
@@ -217,7 +221,12 @@ MultBuilding.prototype.recalcCost = function(){
 	if(this.htmlNextSoulCost != 'none'){
 		this.curSoulCost = Math.floor(this.soulCost * Math.pow(this.costMult,this.number));                       //works out the Soul cost of the next Building
 		document.getElementById(this.htmlNextSoulCost).innerHTML = fnum(this.curSoulCost);  						      //updates the Building Soul cost for the user
-	}	
+	}
+	
+	if(this.htmlNextTomeCost != 'none'){
+		this.curTomeCost = Math.floor(this.tomeCost * Math.pow(this.costMult,this.number));                       //works out the Soul cost of the next Building
+		document.getElementById(this.htmlNextTomeCost).innerHTML = fnum(this.curTomeCost);  						      //updates the Building Soul cost for the user
+	}		
 };
 
 MultBuilding.prototype.buyOne = function(){
@@ -227,9 +236,10 @@ MultBuilding.prototype.buyOne = function(){
 	this.curSilverCost =  Math.floor(this.silverCost * Math.pow(this.costMult,this.number));
 	this.curFaithCost =  Math.floor(this.faithCost * Math.pow(this.costMult,this.number));
 	this.curSoulCost =  Math.floor(this.soulCost * Math.pow(this.costMult,this.number));
+	this.curTomeCost =  Math.floor(this.tomeCost * Math.pow(this.costMult,this.number));
 	
 	if(this.hasReqUnit == false || (this.hasReqUnit == true && this.reqUnit.returnNumber() > 0)){
-		if(gold >= this.curGoldCost && wood >= this.curWoodCost && iron >= this.curIronCost && silver >= this.curSilverCost && faith >= this.curFaithCost && souls >= this.curSoulCost ){    //checks that the player can afford the Building
+		if(gold >= this.curGoldCost && wood >= this.curWoodCost && iron >= this.curIronCost && silver >= this.curSilverCost && faith >= this.curFaithCost && souls >= this.curSoulCost && tomes >= this.curTomeCost ){    //checks that the player can afford the Building
 			this.number += 1;                                  							 	  //increases number of Building
 			gold -= this.curGoldCost;                     										          //removes the gold spent
 			wood -= this.curWoodCost;																	  //removes the wood spent
@@ -237,6 +247,7 @@ MultBuilding.prototype.buyOne = function(){
 			silver -= this.curSilverCost;
 			faith -= this.curFaithCost;																	  //removes the faith spent
 			souls -= this.curSoulCost;																	  //removes the souls spent
+			tomes -= this.curTomeCost;
 			document.getElementById(this.htmlNumRef).innerHTML = this.number;  							      //updates the number of Buildings for the user
 			document.getElementById('gold').innerHTML = fnum(gold);  										          //updates the number of gold for the user
 			document.getElementById('wood').innerHTML = fnum(wood);  										          //updates the number of wood for the user
@@ -244,8 +255,9 @@ MultBuilding.prototype.buyOne = function(){
 			document.getElementById('silver').innerHTML = fnum(silver);  										          //updates the number of silver for the user
 			document.getElementById('faith').innerHTML = fnum(faith);  										          //updates the number of faith for the user
 			document.getElementById('souls').innerHTML = fnum(souls);  										          //updates the number of souls for the user
+			document.getElementById('tomes').innerHTML = fnum(tomes);  										          //updates the number of tomes for the user
 			
-			this.nextGoldCost = Math.floor(this.goldCost * Math.pow(this.costMult,this.number-this.costAdj));         //works out the cost of the next Building
+			this.nextGoldCost = Math.floor(this.goldCost * Math.pow(this.costMult,this.number-this.costAdj));         //works out the next gold cost of the next Building
 			document.getElementById(this.htmlNextGoldCost).innerHTML = fnum(this.nextGoldCost);  						      //updates the Building cost for the user
 //			this.curGoldCost = this.nextGoldCost;
 			if(this.htmlNextWoodCost != 'none'){
@@ -276,6 +288,11 @@ MultBuilding.prototype.buyOne = function(){
 				document.getElementById(this.htmlNextSoulCost).innerHTML = fnum(this.nextSoulCost);  						      //updates the Building Soul cost for the user
 //				this.curSoulCost = this.nextSoulCost
 			}	
+			if(this.htmlNextTomeCost != 'none'){
+				this.nextTomeCost = Math.floor(this.tomeCost * Math.pow(this.costMult,this.number));                       //works out the Soul cost of the next Building
+				document.getElementById(this.htmlNextTomeCost).innerHTML = fnum(this.nextTomeCost);  						      //updates the Building Soul cost for the user
+//				this.curSoulCost = this.nextSoulCost
+			}			
 		};
 	}
 };
@@ -284,7 +301,7 @@ var lumermillDesc = "Constructing a lumber mill allows you to hire lumberjacks a
 var Lumbermill = new Building('Lumbermill','btnOpenMill',750,100,0,0,0,0,lumermillDesc,"none",'lumbermillOpened');
 
 var papermillDesc = "Constructing a paper mill allows you to automatically convert wood into paper. Converts 50 <img src = 'images/woodsmall.png'> to 1 <img src = 'images/parchmentsmall.png'> every 10 seconds";
-var PaperMill = new MultBuilding('Papermill','papermills', 'pMillCost', 'pMillWoodCost','pMillIronCost','none','none','none','btnbuyPMill',4500,2000,1500,0,0,0,1.5,papermillDesc,0,false,0);
+var PaperMill = new MultBuilding('Papermill','papermills', 'pMillCost', 'pMillWoodCost','pMillIronCost','none','none','none','none','btnbuyPMill',4500,2000,1500,0,0,0,0,1.5,papermillDesc,0,false,0);
 setDescription(PaperMill,'BtnPMillDesc')
 
 PaperMill.numberOn = 0;
@@ -321,7 +338,7 @@ var minesDesc = "Opening the mines lets you collect minerals";
 var Mines = new Building('Mines','btnOpenMines',1250,200,0,0,0,0,minesDesc,"none",'minesOpened');
 
 var tavernDesc = "A cozy place where many people gather to drink and celebrate. <br> Recruits 1 peasant every 30 seconds."
-var Tavern = new MultBuilding('Tavern','taverns','TavernCost','tavernWoodCost', 'tavernIronCost','none','none','none','btnbuyTavern',5000,2500,2000,0,0,0,2,tavernDesc,0,false,0);
+var Tavern = new MultBuilding('Tavern','taverns','TavernCost','tavernWoodCost', 'tavernIronCost','none','none','none','none','btnbuyTavern',5000,2500,2000,0,0,0,0,2,tavernDesc,0,false,0);
 
 function upgradeTavern(){
 	if(tavernUpgrade == false && gold >= 10000 && iron >= 5000)
@@ -358,6 +375,10 @@ var Cathedral = new Building('Cathedral','btnOpenCathedral',15000,2500,500,100,0
 
 var towerDesc = ""
 var Tower = new Building('Tower','btnOpenTower',1000000,700000,10000,500,1000,0,towerDesc,"none",'towerBuilt');
+
+var aLibraryDesc = ""
+var ArcaneLibrary = new MultBuilding('Arcane Library','ArcaneLibrary','aLibraryCost','aLibraryWoodCost', 'aLibraryIronCost','none','none','none','aLibraryTomeCost','btnbuyALibrary',1000000,725000,250000,0,0,0,250,1.5,aLibraryDesc,0,false,0);
+
 
 function checkBuildingButtons(){
 		//Structure Buttons
@@ -398,6 +419,9 @@ function checkBuildingButtons(){
 
 	//Changes status of the building tower button
 	Tower.canBuy();
+	
+	//Changes status of the building arcane library button
+	ArcaneLibrary.canBuy();	
 	//End of Structure Buttons
 };
 

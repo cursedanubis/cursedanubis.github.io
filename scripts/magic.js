@@ -1,3 +1,4 @@
+var defaultManaCap = 2000;
 var manaCap = 2000;
 
 var Spell = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, goldCost, woodCost, ironCost, silverCost, faithCost, soulCost, manaCost){
@@ -163,7 +164,11 @@ function checkSpellButtons(){
 	FireBall.canCast();
 };
 
-window.setInterval(function(){                                 
+window.setInterval(function(){ 
+	if(ArcaneLibrary.number > 0){
+		manaCap = defaultManaCap + ArcaneLibrary.number * 500;
+		document.getElementById("manaIncreasedBy").innerHTML = ArcaneLibrary.number * 500;
+	}                                
 	document.getElementById("manaCap").innerHTML = fnum(manaCap);	
 	
 	var percentFull = ((mana/manaCap)*100).toFixedDown(1);

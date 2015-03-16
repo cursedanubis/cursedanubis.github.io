@@ -683,17 +683,17 @@
 			<br />
 		</div>
 		
-		<div id = "ArcaneLibrary" class = "container">
+		<div id = "ArcaneLibraryTab" class = "container">
 				<br />
 				<a id = 'BtnALibraryDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Arcane Library"
-				data-content="These libraries are filled to the top with magical books with runes burned into their spines. Even when newly built they somehow still have a musty smell. <br> Increases maximum mana cap by 500">Arcane Library (<span id="ArcaneLibrary">0</span>)</a>			
+				data-content="These libraries are filled to the top with magical books with ancient runes burned into their spines. Even when newly built they somehow still have a musty smell. <br> Increases maximum mana cap by 500">Arcane Library (<span id="ArcaneLibrary">0</span>)</a>			
 				<br /><br />
 				<button id=btnbuyALibrary title="Arcane libraries increase the amount of mana your archmage is able to store." onclick="ArcaneLibrary.buyOne()"	type="button" class="btn btn-default">Build Arcane Library</button>	
 				<button id=btnALibraryUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#ALibraryUpgradeCollapse" aria-expanded="false" aria-controls="ALibraryUpgradeCollapse">Upgrades</button>
 				<br />
 				<img src = "images/money_goldsmall.png" title ="Gold"> <span id="aLibraryCost">1,000,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id="aLibraryWoodCost">725,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="aLibraryIronCost">250,000</span> | <img src = "images/bookssmall.png" Title="Tomes"><span id="aLibraryTomeCost">250</span>
 				<br />
-				Maximum mana increased by: 
+				Maximum mana increased by: <span id="manaIncreasedBy">0</span>
 				<div id = "ALibraryUpgradeCollapse" class = "upgrade collapse" >
 					<div class = "well">
 						None implemented

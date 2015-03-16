@@ -42,6 +42,7 @@
 		save("papermills", PaperMill.number)
 		save("papermillstatus", PaperMill.status)
 		save("papermillnumon",PaperMill.numberOn)
+		save("arcanelibrary", ArcaneLibrary.number);
 		
 		//Building flags
 		save("lumbermillOpened",lumbermillOpened);
@@ -346,6 +347,11 @@
 			if(localStorage.papermillnumon != null){
 				PaperMill.numberOn = parseInt(localStorage.papermillnumon);
 			}
+		}
+		
+		if(localStorage.arcanelibrary != null){
+			ArcaneLibrary.number = parseInt(localStorage.arcanelibrary);
+			document.getElementById("ArcaneLibrary").innerHTML = ArcaneLibrary.number;
 		}		
 		
 		if(localStorage.barracksOpened != null){
@@ -663,7 +669,6 @@
 					document.getElementById('tomeUnlock').style.display = "block";
 				}
 				else if(defeatedHhounds == true && myBool == false){
-					console.log('triggering ooze')
 					setTimeout(function() { triggerOoze(); }, 60000);				//restarts ooze raids after defeating hhounds
 				}
 		};			
