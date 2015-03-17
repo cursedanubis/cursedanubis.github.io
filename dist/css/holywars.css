@@ -128,10 +128,14 @@ width: auto;
 }
 
 .panel-collapse{
-	-webkit-transition: background 1.0s ease-in-out;
+	-webkit-transition: background 1.0s ease-in-out;	
 	-moz-transition:    background 1.0s ease-in-out;
 	-ms-transition:     background 1.0s ease-in-out;
 	transition:         background 1.0s ease-in-out;
 }
 
 
+.popover{
+max-width: 100%;
+width: 300px;
+}
