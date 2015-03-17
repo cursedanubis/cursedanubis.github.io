@@ -801,11 +801,11 @@ function loadBattle(name, percent){
 
 
 //function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, BPReq, SPReq, percentComplete, percentIncrement,speed)
-var goblinsDesc = "Concerned with the security of your land, your spymaster has made a list of enemies spotted by your scouts.<br>The list begins with a den of greedy goblins in the nearby oak grove.<br>Though they have not made any aggressive moves toward your people and your holdings, theses capricious hoarders of all things shiny remain a threat.";
+var goblinsDesc = "Concerned with the security of your land, your spymaster has made a list of enemies spotted by your scouts. <br><br> The list begins with a den of greedy goblins in the nearby oak grove.<br><br>Though they have not made any aggressive moves toward your people and your holdings, these capricious hoarders of all things shiny remain a threat.";
 var Goblins = new Enemy('Goblins', goblinsDesc, 'BatGoblinsProgBarBox', 'BatGoblinsProgBar', 'btnBatGoblins','goblinDefeatAlert',75,0,0,10,500);
 setEnemyDescription(Goblins, 'btnDescGoblins');
 
-var banditsDesc = "Scouts have reported sightings of a large group of marauders camped out on the plains.<br>Outfitted in leather armor and wielding iron weapons, these bandits roam the outskirts of your town and periodically pilfer from your peasants.  <br><br> You should probably stop them."
+var banditsDesc = "Scouts have reported sightings of a large group of marauders camped out on the plains. <br><br> Outfitted in leather armor and wielding iron weapons, these bandits roam the outskirts of your town and periodically pilfer from your peasants.  <br><br> You should probably stop them."
 var Bandits = new Enemy('Bandits', banditsDesc, 'BatBanditsProgBarBox', 'BatBanditsProgBar', 'btnBatBandits','unlockCathAlert',100,0,0,5,500);
 setEnemyDescription(Bandits, 'btnDescBandits');
 
@@ -847,15 +847,15 @@ function banditLoot(){
 
 setTimeout(function() { banditLoot(); }, 90000);//Triggers bandit looting
 
-var hermitDesc = "Your people have been warned away from the swampy western woods where the mists blanket everything except for the lone hovel at the center.<br>Its single occupant can be seen chopping wood and collecting wild plants from time to time, often singing to herself into a garbled, eldritch language.<br>Her age hides the true extent of her skills - she keeps visitors away with an array of throwing knives, all launched with terrifyingly great accuracy.";
+var hermitDesc = "Your people have been warned away from the swampy western woods where the mists blanket everything except for the lone hovel at the center. <br><br> Its single occupant can be seen chopping wood and collecting wild plants from time to time, often singing to herself into a garbled, eldritch language. <br><br> Her age hides the true extent of her skills - she keeps visitors away with an array of throwing knives, all launched with terrifyingly great accuracy.";
 var Hermit = new Enemy('Hermit', hermitDesc, 'BatHermitProgBarBox', 'BatHermitProgBar', 'btnBatHermit','paperMillAlert',250,0,0,2,500);
 setEnemyDescription(Hermit, 'btnDescHermit');
 
-var ogreDesc = "A large and particularly odorous Ogre is threatening your village! Take it out before it tries to eat any more of your cattle or decides to pass wind in your direction.";
+var ogreDesc = "Some of the peasants have reported missing livestock - cattle, pigs, geese and even chickens. At the same time, your villagers have been complaining of a spectacularly foul smell drifting in with the eastern wind. <br><br> Your scouts track down the nauseating fumes to a dark cave in the cliffs where they find a large and particularly odorous ogre munching on YOUR livestock. <br><br> Take it out before it eats more of your livestock or decides to pass more wind in your direction.";
 var Ogre = new Enemy("Ogre", ogreDesc, 'BatOgreProgBarBox','BatOgreProgBar','btnBatOgre','unlockPaladinsAlert',500,0,0,1,500);
 setEnemyDescription(Ogre, 'btnDescOgre');
 
-var hellhoundsDesc = "The Evil One has released these fiery hounds to stalk your village. Occasionally the are able to slip past your defences and kill some of your peasants and miners.";
+var hellhoundsDesc = "Your hunters come across signs of a large pack of canine-like creatures wandering the plains. <br><br> Nightmarish howls can be heard day and night, frightening the livestock and putting your people on edge. <br><br> The most experienced of your hunters finally witnesses a portal rip open one night, sulfurous smoke billowing forth from the dark red maw and spitting out wicked hounds of enormous size that glow like the embers of smoldering lava. <br><br>  The pack will harass your defences and occasionally kill some of your peasants and miners.";
 var Hellhounds = new Enemy("Hellhounds", hellhoundsDesc, 'BatHhoundProgBarBox','BatHhoundProgBar','btnBatHellhound','openEtherealAlert',2000,0,0,1,1000);
 setEnemyDescription(Hellhounds, 'btnDescHellhounds');
 
@@ -928,15 +928,15 @@ function hellhoundCull(){
 };
 
 
-var pixieDesc = "This little pixie hates your guts.";
+var pixieDesc = "Research turns up notes about a trickster that delights in playing with mortals. <br><br> One ancient scroll describes the creature as possessing an deceptively innocent appearance, a small and spritely winged form dressed in the earhtly browns and bright greens of the forest designed to lure in unsuspecting humans. <br><br> Written in the margins of the scroll is a warning to the reader to beware of the creature's cunningness.";
 var Pixie = new Enemy("Pixie", pixieDesc, 'BatPixieProgBarBox','BatPixieProgBar','btnBatPixie','PixieDefeatAlert',3500,100,0,1,1000);
 setEnemyDescription(Pixie, 'btnDescPixie');
 
-var armorDesc = "In the woods nearby, you notice a nasty looking armor hanging about in the shadows. It makes threatening gestures at you from afar.";
+var armorDesc = "The region has been inhabited for a very long time, resulting in many remnants from previous civilizations.<br><br> The surprisingly intact ancient ruins of one such civilization stands out on the southern horizon. <br><br> Your night patrol spots movement in the ruin's shadows and upon closer inspection, discovers an empty set of armor of blackened steel engraved with mysterious runes. It floats mid-air with deadly grace, making threatening gestures from afar.";
 var Armor = new Enemy("Armor", armorDesc, 'BatArmorProgBarBox','BatArmorProgBar','btnBatArmor','unlockAspectofJustice',4000,250,0,1,1000);
 setEnemyDescription(Armor, 'btnDescArmor');
 
-var oozeDesc = "Nasty and moist noises come from your mines at night. Upon deeper exploration of the cave system attached to your mines, you find a particularly large and copper-toned ooze sucking up iron and silver. Somehow it is both gelatinous and metallic at the same time... Conventional weapons don't seem to hurt it at all."
+var oozeDesc = "Your mine tunnels intersect a long and winding cave system where slimy and moist sounds echo throughout the night. <br><br> Exploring the cavern, you discover an undulating translucent blob oozing slowly over the iron and silver deposits. <br><br> The ooze appears to be consuming the deposits as ore fragments are being rapidly absorbed into its metallic copper surface. <br><br> Conventional weapons slide right through the gelatinous creature - you need to find some other means of defeating it. "
 var Ooze = new Enemy("Ooze", oozeDesc, 'BatOozeProgBarBox','BatOozeProgBar','btnBatOoze','tomeUnlockAlert',0,550,0,1,1500);
 setEnemyDescription(Ooze, 'btnDescOoze');
 
@@ -1002,11 +1002,11 @@ function oozeAbsorb(){
 	//End Dismisses Raid Alert	
 };
 
-var archmageDesc = "One of The Evil One's lieutenants, capable of casting nasty and powerful spells.";
+var archmageDesc = "A crumbling tower springs up overnight, constructed at the will of some unknown force. <br><br> The tower's only inhabitant can be frequently seen practicing magic, its dark robes whipping up with the force of the spells. The gold and silver symbols embroidered into the robes indicate this is no ordinary mage but rather an Archmage, a caster whose many years of study and experience have bestowed upon him/her great skill and power. <br><br> Your scholars warn you that physical power alone will not net you victory - you must acquire those skilled in the spiritual arts in order to face this foe and succeed. ";
 var Archmage = new Enemy("Archmage", archmageDesc, 'BatMageProgBarBox','BatMageProgBar','btnBatMage','unlockWizardTowerAlert',20000,750,0,1,2000);
 setEnemyDescription(Archmage, 'btnDescMage');
 
-var succubusDesc = "A very shapely demon. She has magic powers that make it difficult to resist her will. Not wearing any clothes probably helps too.";
+var succubusDesc = "The unknown force has also deposited temptation at your doorstep in the form of one...very shapely demon. <br><br> The magical powers it commands makes it difficult to resist its will as somehow its androgynous appearance lures in both men and women alike. <br><br> The fact that what it wears barely covers its...uh, more luscious bits...well, let's stop right there, shall we? ";
 var Succubus = new Enemy("Succubus", succubusDesc, 'BatSuccubusProgBarBox','BatSuccubusProgBar','btnBatSuccubus','SuccubusDefeatAlert',35000,2000,0,1,3000);
 setEnemyDescription(Succubus, 'btnDescSuccubus');
 
@@ -1085,7 +1085,7 @@ function succubusSeduce(){
 	//End Dismisses Raid Alert
 }
 
-var undeadArmyDesc = "You hear unearthly moaning and groaning from beyond your kingdom. You find the smell before the actual army. Even though the zombies are in an advanced state of decomposition, they are still equipped with dangerous weapons and tough looking armor.";
+var undeadArmyDesc = "Your patrols are returning with reports of unearthly moaning and groaning beyond the borders of your kingdom. <br><br> The sound are accompanied by the echo of footsteps in the distance as well as the stench of decaying flesh. <br> As if the ragged decomposed beings weren't frightening enough, a majority of the walking dead bear weapons and armor in relatively good shape. <br><br> You may need to bring spiritual forces to combat this unnatural army. ";
 var UndeadArmy = new Enemy("UndeadArmy", undeadArmyDesc, 'BatUArmyProgBarBox','BatUArmyProgBar','btnBatUArmy','UArmyDefeatAlert',40000,3000,0,1,3000);
 setEnemyDescription(UndeadArmy, 'btnDescUArmy');
 
