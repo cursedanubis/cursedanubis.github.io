@@ -299,7 +299,7 @@ function holdUnitforQuest(){
 function returnUnitfromQuest(){
 	switch(UnitOnQuest){
 		case "Paladin":
-			Paladin.number += NumUnitOnQuest;
+			Paladin.number += parseInt(NumUnitOnQuest);
 			Paladin.totalArmyPower();
 			Paladin.totalSpiritPower();
 			document.getElementById('paladins').innerHTML = Paladin.number;
