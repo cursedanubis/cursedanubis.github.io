@@ -8,6 +8,7 @@ var defeatedOgre = false;
 var defeatedHhounds = false;
 var defeatedPixie = false;
 var defeatedOoze = false;
+var defeatedDwarf = false;
 var defeatedArchmage = false;
 var defeatedArmor = false;
 var defeatedSuccubus = false;
@@ -389,10 +390,17 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 		
 		case 'Ooze':
 			if(defeatedOoze == true){
-				console.log(defeatedOoze);
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;
 			}
+		break;
+		
+		case 'Dwarf':
+			if(defeatedDwarf == true){
+				console.log(defeatedOoze);
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;
+			}		
 		break;
 		
 		case 'Archmage':
@@ -477,8 +485,15 @@ function setDefeatEvents(name){
 		case 'Ooze':
 			document.getElementById('tomeUnlock').style.display = "block";
 			document.getElementById('tomeUnlockAlert').style.display = "block";
+			document.getElementById('BatDwarf').style.display = "block";
 			defeatedOoze = true;
 		break;	
+		
+		case 'Dwarf':
+//			document.getElementById('tomeUnlock').style.display = "block";
+//			document.getElementById('tomeUnlockAlert').style.display = "block";
+			defeatedDwarf = true;		
+		break;
 		
 		case 'Pixie':
 			defeatedPixie = true;
@@ -602,6 +617,10 @@ function showBattle(name){
 			$("#OozeCollapse").collapse('show');
 		break;			
 		
+		case 'Dwarf':
+			$("#DwarfCollapse").collapse('show');
+		break;			
+		
 		case 'Archmage':
 			$("#ArchmageCollapse").collapse('show');
 		break;	
@@ -660,6 +679,11 @@ function showUndefeatedBattles(){
 	if(defeatedOoze == false){
 		showBattle('Ooze');
 		scroll('BatOoze', 500);		
+	}
+	
+	if(defeatedDwarf == false){
+		showBattle('Dwarf');
+		scroll('BatDwarf', 500);		
 	}		
 
 	if(defeatedArchmage == false){
@@ -778,6 +802,10 @@ function loadBattle(name, percent){
 		case 'Ooze':
 			Ooze.fight();
 		break;			
+		
+		case 'Dwarf':
+			Dwarf.fight();
+		break;				
 		
 		case 'Archmage':
 			Archmage.fight();
@@ -1002,6 +1030,10 @@ function oozeAbsorb(){
 	//End Dismisses Raid Alert	
 };
 
+var dwarfDesc = "In one of the side channels of your mine that was previously blocked off by the gooey ooze you discover an ancient looking abode. <br><br> Inside the carved dwelling is a malevolent looking dwarf that cusses and spits at you and your troops when you get close to him. <br><br> From what you can see of his dwelling, you spy many delicate looking instruments which you presume are used for identification and categorizing. ";
+var Dwarf = new Enemy("Dwarf", dwarfDesc, 'BatDwarfProgBarBox','BatDwarfProgBar','btnBatDwarf','',17500,650,0,1,2000);
+setEnemyDescription(Dwarf, 'btnDescDwarf');
+
 var archmageDesc = "A crumbling tower springs up overnight, constructed at the will of some unknown force. <br><br> The tower's only inhabitant can be frequently seen practicing magic, its dark robes whipping up with the force of the spells. The gold and silver symbols embroidered into the robes indicate this is no ordinary mage but rather an Archmage, a caster whose many years of study and experience have bestowed upon him/her great skill and power. <br><br> Your scholars warn you that physical power alone will not net you victory - you must acquire those skilled in the spiritual arts in order to face this foe and succeed. ";
 var Archmage = new Enemy("Archmage", archmageDesc, 'BatMageProgBarBox','BatMageProgBar','btnBatMage','unlockWizardTowerAlert',20000,750,0,1,2000);
 setEnemyDescription(Archmage, 'btnDescMage');
@@ -1135,6 +1167,9 @@ function checkBattleButtons(){
 	
 	//Ooze Button
 	Ooze.canFight();
+	
+	//Dwarf Button
+	Dwarf.canFight();
 	
 	//Archmage Button
 	Archmage.canFight();

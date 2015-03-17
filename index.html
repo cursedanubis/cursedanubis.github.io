@@ -686,7 +686,7 @@
 		<div id = "ArcaneLibraryTab" class = "container">
 				<br />
 				<a id = 'BtnALibraryDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Arcane Library"
-				data-content="These libraries are filled to the top with magical books with ancient runes burned into their spines. Even when newly built they somehow still have a musty smell. <br> Increases maximum mana cap by 500">Arcane Library (<span id="ArcaneLibrary">0</span>)</a>			
+				data-content="These libraries are filled to the top with magical books with ancient runes burned into their spines. Even when newly built they somehow still have a musty smell. <br><br> Increases maximum mana cap by 500.">Arcane Library (<span id="ArcaneLibrary">0</span>)</a>			
 				<br /><br />
 				<button id=btnbuyALibrary title="Arcane libraries increase the amount of mana your archmage is able to store." onclick="ArcaneLibrary.buyOne()"	type="button" class="btn btn-default">Build Arcane Library</button>	
 				<button id=btnALibraryUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#ALibraryUpgradeCollapse" aria-expanded="false" aria-controls="ALibraryUpgradeCollapse">Upgrades</button>
@@ -976,6 +976,32 @@
 			   </div>	
 			</div>
 		  </div>			  
+
+		  <div class="panel panel-default" id="BatDwarf" style="display: none;">
+			<div class="panel-heading" role="tab" id="headingThirteen">
+			  <h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#DwarfCollapse" aria-expanded="false" aria-controls="DwarfCollapse">
+				  An Ancient Corrupted Dwarf
+				</a>
+			  </h4>
+			</div>
+			<div id="DwarfCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThirteen">
+			   <div class = "panel-body" >
+				<a id = 'btnDescDwarf' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Dwarf"
+				data-content="">An Ancient Corrupted Dwarf</a>
+					<br />
+					<button id=btnBatDwarf onclick="Dwarf.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 17,500 <br />
+					Requires spirit power: 650 <br />
+					<div id="BatDwarfProgBarBox" class="progress" style="display: none;">
+					  <div id="BatDwarfProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+						0%
+					  </div>
+					</div>
+			   </div>	
+			</div>
+		  </div>		  
 		  
 		  <div class="panel panel-default" id="BatArchMage">
 			<div class="panel-heading" role="tab" id="headingEight">

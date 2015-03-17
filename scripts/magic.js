@@ -71,32 +71,60 @@ FastForward.cast = function(){
 	
 	if(mana >= 1000){
 	goldGained = timemultiplier*60*goldpersec;
-	gold = gold + goldGained;
+	gold += goldGained;
+	statGoldCollected += goldGained;
+	statTotalGoldCollected += goldGained;	
 	document.getElementById('gold').innerHTML = gold;  										          //updates the number of gold for the user	
-
+	document.getElementById('statgoldcollected').innerHTML = statGoldCollected;
+	document.getElementById('stattotalgoldcollected').innerHTML = statTotalGoldCollected;
+	
 	woodGained = timemultiplier*60*woodpersec;
-	wood = wood + woodGained;
+	wood += woodGained;
+	statWoodCollected += woodGained;
+	statTotalWoodCollected += woodGained;	
 	document.getElementById('wood').innerHTML = wood;  										          //updates the number of wood for the user	
-
+	document.getElementById('statWoodCollected').innerHTML = statWoodCollected;
+	document.getElementById('statTotalWoodCollected').innerHTML = statTotalWoodCollected;
+	
 	ironGained = timemultiplier*60*ironpersec;
-	iron = iron + ironGained;
+	iron += ironGained;
+	statIronCollected += ironGained;
+	statTotalIronCollected += ironGained;	
 	document.getElementById('iron').innerHTML = iron;  										          //updates the number of iron for the user	
-
+	document.getElementById('statIronCollected').innerHTML = statIronCollected;
+	document.getElementById('statTotalIronCollected').innerHTML = statTotalIronCollected;
+	
 	silverGained = timemultiplier*60*silverpersec;
-	silver = silver + silverGained;
+	silver += silverGained;
+	statSilverCollected += silverGained;
+	statTotalSilverCollected += silverGained;
 	document.getElementById('silver').innerHTML = silver;  										          //updates the number of gold for the user	
-
+	document.getElementById('statSilverCollected').innerHTML = statSilverCollected;  
+	document.getElementById('statTotalSilverCollected').innerHTML = statTotalSilverCollected;  
+	
 	faithGained = timemultiplier*60*faithpersec;
-	faith = faith + faithGained;
+	faith += faithGained;
+	statFaithCollected += faithGained;
+	statTotalFaithCollected += faithGained;	
 	document.getElementById('faith').innerHTML = faith;  										          //updates the number of faith for the user	
-
+	document.getElementById('statFaithCollected').innerHTML = statFaithCollected; 
+	document.getElementById('statTotalFaithCollected').innerHTML = statTotalFaithCollected; 
+	
 	soulsGained = timemultiplier*60*soulspersec;
-	souls = souls + soulsGained;
+	souls += soulsGained;
+	statSoulsCollected += soulsGained;
+	statTotalSoulsCollected += soulsGained;
 	document.getElementById('souls').innerHTML = souls;  										          //updates the number of souls for the user		
+	document.getElementById('statSoulsCollected').innerHTML = statSoulsCollected; 
+	document.getElementById('statTotalSoulsCollected').innerHTML = statTotalSoulsCollected; 
 	
 	paperGained = timemultiplier*60*paperpersec;														// updates number of paper for the user
-	paper = paper + paperGained;	
-	document.getElementById('paper').innerHTML = paper;					
+	paper += paperGained;	
+	statPaperCrafted += paperGained;
+	statTotalPaperCrafted += paperGained;
+	document.getElementById('paper').innerHTML = paper;
+	document.getElementById('statPaperCrafted').innerHTML = statPaperCrafted;	
+	document.getElementById('statTotalPaperCrafted').innerHTML = statTotalPaperCrafted;	
 	
 	
 	mana = mana - this.manaCost;                                                                  //removes the souls spent	

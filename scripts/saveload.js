@@ -61,6 +61,7 @@
 		save("defeatedPixie",defeatedPixie);
 		save("defeatedArmor",defeatedArmor);
 		save("defeatedOoze",defeatedOoze);	
+		save("defeatedDwarf",defeatedDwarf);
 		save("defeatedArchmage",defeatedArchmage);
 		save("defeatedSuccubus",defeatedSuccubus);
 		save("defeatedUArmy", defeatedUArmy);
@@ -666,10 +667,19 @@
 				if(myBool == true){
 					defeatedOoze = true;
 					document.getElementById('BatOoze').style.display = "block";
+					document.getElementById('BatDwarf').style.display = "block";
 					document.getElementById('tomeUnlock').style.display = "block";
 				}
 				else if(defeatedHhounds == true && myBool == false){
 					setTimeout(function() { triggerOoze(); }, 60000);				//restarts ooze raids after defeating hhounds
+				}
+		};	
+
+		if(localStorage.defeatedDwarf != null){
+			var myBool = (localStorage.defeatedDwarf == "true")
+				if(myBool == true){
+					defeatedDwarf = true;
+					document.getElementById('BatDwarf').style.display = "block";
 				}
 		};			
 							
