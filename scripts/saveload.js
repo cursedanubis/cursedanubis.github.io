@@ -101,8 +101,7 @@
 		save("UnitOnQuest", UnitOnQuest);
 		save("NumUnitOnQuest", NumUnitOnQuest);
 		save("questPercent",questPercent);
-		save("UnitOnQuest",UnitOnQuest);
-		save("NumUnitOnQuest",NumUnitOnQuest);
+		save("relicFragment",relicFragment);
 		
 		//MiscFlags
 		save("faithDonated", faithDonated);
@@ -689,6 +688,8 @@
 				if(myBool == true){
 					defeatedDwarf = true;
 					document.getElementById('BatDwarf').style.display = "block";
+					document.getElementById('Relics').style.display = "block";
+					document.getElementById('RelicsMenu').style.display = "block";					
 				}
 		};			
 							
@@ -793,6 +794,10 @@
 				setTimeout(function() { loadQuest(curQuestType, questPercent, UnitOnQuest, NumUnitOnQuest); }, 500)
 			}
 		}
+		
+		if(localStorage.relicFragment != null){
+			relicFragment = localStorage.relicFragment;
+		}	
 		
 		if(localStorage.faithDonated != null){
 			faithDonated = parseInt(localStorage.faithDonated);

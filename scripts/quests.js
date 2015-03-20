@@ -50,14 +50,17 @@ Quest.prototype.startQuest = function(){
 	inQuest = true;
 	curQuestType = this.name
 	document.getElementById(this.htmlBoxRef).style.display = "block";	
-	
 	$bar = $(document.getElementById(this.htmlBarRef));
-
+	UnitOnQuest = $('#unitSelectPicker').selectpicker('val')
+	NumUnitOnQuest = $('#QuestNumSelect').val();		
+	holdUnitforQuest();
+	
 	document.getElementById(btn).disabled = true;					//disables the buttons
 	document.getElementById(btn).innerHTML = QuestName + " in progress!";     //Changes button text
 	document.getElementById('questSelectPicker').disabled = true;  //disables picker
 	document.getElementById('unitSelectPicker').disabled = true;   //disables picker
 	document.getElementById('QuestNumSelect').disabled = true;		//disables number select	
+	
 	
 	var progress = setInterval(function() {
 	currWidth = parseInt(this.$bar.attr('aria-valuenow'));
@@ -91,6 +94,7 @@ Quest.prototype.startQuest = function(){
 		document.getElementById('QuestNumSelect').disabled = false;		//enables number select
 //		document.getElementById(alert).style.display = "block";			//Displays alert related to this battle
 //		scroll(alert,500);
+		returnUnitfromQuest();
 		inQuest = false;
 		$bar.width(0 +'%');
 		$bar.attr('aria-valuenow',0);
@@ -104,9 +108,9 @@ Quest.prototype.startQuest = function(){
 
 function loadQuest(QuestName, percent, unit, numUnit){
 	questSpellBoost(percent);
-	document.getElementById('unitSelectPicker').value = unit;
-	document.getElementById('QuestNumSelect').value = numUnit;
-	document.getElementById('questSelectPicker').value = QuestName;
+	document.getElementById('unitSelectPicker').value = unit;		//Type of unit sent
+	document.getElementById('QuestNumSelect').value = numUnit;		//Number of units sent
+	document.getElementById('questSelectPicker').value = QuestName; //Quest type
 
 	$('.selectpicker').selectpicker('refresh');
 	
@@ -114,7 +118,6 @@ function loadQuest(QuestName, percent, unit, numUnit){
 		case 'Relic Hunt':
 			RelicHunt.startQuest();
 		break;
-		
 	}
 	
 };
@@ -302,8 +305,9 @@ function rollForFragment(){
 		break;
 		default:
 	}
-	console.log(percentFind + '% chance to find a relic');
+	console.log(percentFind + '% chance to find a relic fragment');
 	if(percentFind >= rand){
+		relicFragment += 1;
 		alert("Relic fragment found!");		
 	}
 	else{
@@ -324,9 +328,19 @@ function holdUnitforQuest(){
 		break;
 		
 		case "Knight":
+			Knight.number -= parseInt(NumUnitOnQuest);
+			Knight.totalArmyPower();
+			document.getElementById('knights').innerHTML = Knight.number;	
+			calculateBattlePower();
+			console.log("taking knights");		
 		break;
 		
 		case "Squire":
+			Squire.number -= parseInt(NumUnitOnQuest);
+			Squire.totalArmyPower();
+			document.getElementById('squire').innerHTML = Squire.number;	
+			calculateBattlePower();
+			console.log("taking Squires");		
 		break;		
 	}
 };
@@ -344,9 +358,48 @@ function returnUnitfromQuest(){
 		break;
 		
 		case "Knight":
+			Knight.number += parseInt(NumUnitOnQuest);
+			Knight.totalArmyPower();
+			document.getElementById('knights').innerHTML = Knight.number;	
+			calculateBattlePower();
+			console.log("returned knights");
 		break;
 		
 		case "Squire":
+			Squire.number += parseInt(NumUnitOnQuest);
+			Squire.totalArmyPower();
+			document.getElementById('squire').innerHTML = Squire.number;	
+			calculateBattlePower();
+			console.log("returned Squires");
 		break;		
 	}
 };
+
+$(function() {
+  $('#unitSelectPicker').on('change', function(){
+	var newMax;
+	switch($('#unitSelectPicker').selectpicker('val')){
+		case 'Paladin':
+			newMax = Paladin.number;
+		break;
+		
+		case 'Knight':
+			newMax = Knight.number;
+		break;
+		
+		case 'Squire':
+			newMax = Squire.number;
+		break;
+		
+		default:
+			newMax = 50;
+	}
+	
+//	console.log(newMax);
+	if(newMax > document.getElementById('QuestNumSelect').value){
+		document.getElementById('QuestNumSelect').value = newMax;
+	}
+	$("input").trigger("touchspin.updatesettings", {max: newMax});
+  });
+  
+});

@@ -397,7 +397,6 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 		
 		case 'Dwarf':
 			if(defeatedDwarf == true){
-				console.log(defeatedOoze);
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;
 			}		
@@ -490,8 +489,8 @@ function setDefeatEvents(name){
 		break;	
 		
 		case 'Dwarf':
-//			document.getElementById('tomeUnlock').style.display = "block";
-//			document.getElementById('tomeUnlockAlert').style.display = "block";
+			document.getElementById('Relics').style.display = "block";
+			document.getElementById('RelicsMenu').style.display = "block";
 			defeatedDwarf = true;		
 		break;
 		
