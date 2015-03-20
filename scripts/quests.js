@@ -4,7 +4,8 @@ var inQuest = false;
 var curQuestType = "";
 var UnitOnQuest = "";
 var NumUnitOnQuest = 0;
-var questBoost = 0;
+var questPercent = 0;
+var spellBoostPercent;
 
 $('#unitSelectPicker').selectpicker({
 	 style: 'btn-info'
@@ -33,6 +34,7 @@ var Quest = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, html
 	this.percentComplete = percentComplete;
 	this.percentIncrement = percentIncrement;
 	this.speed = speed;
+	this.questSpellBoostPercent;
 	var $bar = $(document.getElementById(this.htmlBarRef));
 };
 
@@ -67,8 +69,17 @@ Quest.prototype.startQuest = function(){
 		$bar.text(perComplete+'%');
 		perComplete = perComplete + perIncrement;
 		this.percentComplete = perComplete;
-		battlePercent = perComplete;
-				
+		questPercent = perComplete;
+
+		//update the progress
+		if(this.questSpellBoostPercent > 0){
+			perComplete = perComplete + parseInt(questSpellBoostPercent);
+			questSpellBoostPercent = 0
+			if(perComplete > 100){
+				perComplete = 100;
+			}
+		}		
+		
 	  if (currWidth >= maxWidth){
 		clearInterval(progress);
 		$bar.text("Complete!");
@@ -91,7 +102,22 @@ Quest.prototype.startQuest = function(){
 	return true;
 }
 
+function loadQuest(QuestName, percent, unit, numUnit){
+	questSpellBoost(percent);
+	document.getElementById('unitSelectPicker').value = unit;
+	document.getElementById('QuestNumSelect').value = numUnit;
+	document.getElementById('questSelectPicker').value = QuestName;
 
+	$('.selectpicker').selectpicker('refresh');
+	
+	switch(QuestName){
+		case 'Relic Hunt':
+			RelicHunt.startQuest();
+		break;
+		
+	}
+	
+};
 
 function returnPickerSelection(){			//Need to change function name to something more intuitive
 
@@ -219,7 +245,7 @@ RelicHunt.startQuest = function(){
 		$bar.text(perComplete+'%');
 		perComplete = perComplete + perIncrement;
 		this.percentComplete = perComplete;
-		battlePercent = perComplete;
+		questPercent = perComplete;
 
 		if(perComplete%50 == 0){
 			rollForFragment();
@@ -230,6 +256,14 @@ RelicHunt.startQuest = function(){
 		document.getElementById('unitSelectPicker').disabled = true;   //disables picker
 		document.getElementById('QuestNumSelect').disabled = true;		//disables number select
 
+		//update the progress
+		if(this.questSpellBoostPercent > 0){
+			perComplete = perComplete + parseInt(questSpellBoostPercent);
+			questSpellBoostPercent = 0
+			if(perComplete > 100){
+				perComplete = 100;
+			}
+		}		
 		
 		if (currWidth >= maxWidth){
 			clearInterval(progress);
@@ -242,12 +276,12 @@ RelicHunt.startQuest = function(){
 			document.getElementById('QuestNumSelect').disabled = false;		//enables number select
 	//		document.getElementById(alert).style.display = "block";			//Displays alert related to this battle
 	//		scroll(alert,500);
+			returnUnitfromQuest();
 			inQuest = false;
 			
 			$bar.width(0 +'%');
 			$bar.attr('aria-valuenow',0);
 			$bar.text(0+'%');
-			returnUnitfromQuest();
 		} 
 	}, this.speed);
 	return true;
@@ -284,8 +318,9 @@ function holdUnitforQuest(){
 			Paladin.totalArmyPower();
 			Paladin.totalSpiritPower();
 			document.getElementById('paladins').innerHTML = Paladin.number;
-			calculateBattlePower()
-			calculateSpiritPower()			
+			calculateBattlePower();
+			calculateSpiritPower();	
+			console.log("taking paladins");			
 		break;
 		
 		case "Knight":
@@ -303,8 +338,9 @@ function returnUnitfromQuest(){
 			Paladin.totalArmyPower();
 			Paladin.totalSpiritPower();
 			document.getElementById('paladins').innerHTML = Paladin.number;
-			calculateBattlePower()
-			calculateSpiritPower()			
+			calculateBattlePower();
+			calculateSpiritPower();
+			console.log("returned paladins");
 		break;
 		
 		case "Knight":

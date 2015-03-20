@@ -72,6 +72,9 @@
 		save("silverAbsorbed",silverAbsorbed);
 		save("unitsSeduced", unitsSeduced);
 		save("UARevivedCount",UARevivedCount);
+		save("inbattle",inbattle);
+		save("curBattling",curBattling);
+		save("battlePercent", battlePercent);
 		
 		//Upgradeflags
 		save("pGoldUpgrade",pGoldUpgrade);
@@ -91,14 +94,20 @@
 		save("paladinWepUpgrade",paladinWepUpgrade);
 		save("tavernUpgrade",tavernUpgrade);
 		save("tavernUpgrade2", tavernUpgrade2);
+
+		//Quest Variables
+		save("inQuest", inQuest);
+		save("curQuestType", curQuestType);
+		save("UnitOnQuest", UnitOnQuest);
+		save("NumUnitOnQuest", NumUnitOnQuest);
+		save("questPercent",questPercent);
+		save("UnitOnQuest",UnitOnQuest);
+		save("NumUnitOnQuest",NumUnitOnQuest);
 		
 		//MiscFlags
 		save("faithDonated", faithDonated);
 		save("lastPage",lastPage);
-		save("inbattle",inbattle);
-		save("curBattling",curBattling);
-		save("battlePercent", battlePercent);
-		
+
 		//Statistic/Lifetime Variables
 		save("statResetted", statResetted);
 		
@@ -771,6 +780,20 @@
 				setTimeout(function() { loadBattle(curBattling, battlePercent); }, 500)
 			}
 		}
+		
+		if(localStorage.inQuest != null){
+			var myBool = (localStorage.inQuest == "true")
+			if(myBool == true){
+//				inbattle = localStorage.inbattle;
+				curQuestType = localStorage.curQuestType;
+				questPercent = localStorage.questPercent;
+				UnitOnQuest = localStorage.UnitOnQuest;
+				NumUnitOnQuest = localStorage.NumUnitOnQuest;
+				console.log(curQuestType + ": " + questPercent + "%" + UnitOnQuest + " " + NumUnitOnQuest);
+				setTimeout(function() { loadQuest(curQuestType, questPercent, UnitOnQuest, NumUnitOnQuest); }, 500)
+			}
+		}
+		
 		if(localStorage.faithDonated != null){
 			faithDonated = parseInt(localStorage.faithDonated);
 			document.getElementById("faithDonated").innerHTML = fnum(faithDonated);

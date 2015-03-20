@@ -404,7 +404,7 @@ setDescription(Shade, 'BtnShadeDesc');
 setArmyPower(Shade, 5);
 setSpiritPower(Shade, 10);
 
-var aspectDesc = "These shades are now able to animate armor that you make from silver. They are much more capable of battling demonic beings."
+var aspectDesc = "You are able to improve your shades by providing them a more concrete anchor into the physical realm in the form of suit of armor made from blessed silver. Once bound to this armor, they are much more capable of battling demonic beings."
 var Aspect = new Unit("AspectofJustice",'aspects','AspectCost','aspectIronCost','aspectSilverCost','none','aspectSoulCost','none','btnBuyAspect',15000,1000,500,0,500,0,1.2, aspectDesc, 0, true, Shade);
 setDescription(Aspect, 'BtnAspectDesc');
 setArmyPower(Aspect, 100);
@@ -456,7 +456,7 @@ function checkUnitButtons(){
 	//Enable/disables buy AofJustice button depending on if there is enough currency
 	Aspect.canBuy();	
 	
-	//Enable/disables buy AofJustice button depending on if there is enough currency
+	//Enable/disables buy Angel button depending on if there is enough currency
 	Angel.canBuy();		
 	// End of Unit Buttons//	
 };

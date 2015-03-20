@@ -187,6 +187,10 @@ function spellBoost(num){			//Boosts current battle completion percent by desire
 	spellBoostPercent = num;
 }
 
+function questSpellBoost(num){			//Boosts current Quest completion percent by desired number
+	questSpellBoostPercent = num;
+}
+
 function checkSpellButtons(){
 	FastForward.canCast();
 	FireBall.canCast();
