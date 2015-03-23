@@ -21,7 +21,7 @@ Enemy:  Horde of cliff Racers
 	Elder Vampire (L)
 //	Succubus (L)
 //	Corrupted Archmage (B)
-	Corrupted Sylph
+//	Corrupted Sylph
 
 	Change battle to a subtractive HP system? ie Bandits start out with 500 hp, -battle power every second?
 

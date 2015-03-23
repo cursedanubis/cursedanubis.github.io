@@ -634,6 +634,7 @@ function UpdateButtons() {
 	//Changes status of Spell buttons
 	checkSpellButtons();
 	
+//	checkQuestGoButton();
 }
 
 window.setInterval(function(){                                 //Update per second counts

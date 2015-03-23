@@ -185,6 +185,22 @@ function checkQuestSelection(){
 	return true;
 }
 
+function checkQuestGoButton(){
+	if(inQuest == false){
+		if($('#unitSelectPicker').selectpicker('val') == "" || $('#questSelectPicker').selectpicker('val') == "" ){
+			document.getElementById('btnQuestGo').disabled = true;
+		}
+		else
+		{
+			document.getElementById('btnQuestGo').disabled = false;
+		}		
+	}
+	else
+	{
+		document.getElementById('btnQuestGo').disabled = false;
+	}
+}
+
 function QuestCheckUnitOptions(){
 	if(Paladin.number == 0){
 		$('#PaladinOption').prop("disabled", true);
@@ -402,4 +418,43 @@ $(function() {
 	$("input").trigger("touchspin.updatesettings", {max: newMax});
   });
   
+});
+
+$(function() {
+  $('#questSelectPicker').on('change', function(){
+	switch($('#questSelectPicker').selectpicker('val')){
+		case 'Relic Hunt':									//Only Paladins or higher can go on Relic Hunts
+			$('#KnightOption').prop("disabled", true);
+			$('#SquireOption').prop("disabled", true);
+			$('.selectpicker').selectpicker('refresh');
+		break;
+		
+		case 'Demon Hunt':
+			$('#PaladinOption').prop("disabled", false);
+			$('#KnightOption').prop("disabled", false);
+			$('#SquireOption').prop("disabled", false);
+			$('.selectpicker').selectpicker('refresh');				
+		break;
+		
+		case 'Slay Treants':
+			$('#PaladinOption').prop("disabled", false);
+			$('#KnightOption').prop("disabled", false);
+			$('#SquireOption').prop("disabled", false);
+			$('.selectpicker').selectpicker('refresh');				
+		break;
+		
+		case 'Help the People':
+			$('#PaladinOption').prop("disabled", false);
+			$('#KnightOption').prop("disabled", false);
+			$('#SquireOption').prop("disabled", false);
+			$('.selectpicker').selectpicker('refresh');				
+		break;		
+		
+		default:
+			$('#PaladinOption').prop("disabled", false);
+			$('#KnightOption').prop("disabled", false);
+			$('#SquireOption').prop("disabled", false);
+			$('.selectpicker').selectpicker('refresh');		
+	}
+  });
 });
