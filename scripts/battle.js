@@ -14,6 +14,11 @@ var defeatedArmor = false;
 var defeatedSuccubus = false;
 var defeatedUArmy = false;
 var defeatedNecromancer = false;
+var defeatedEarthElemental = false;
+var defeatedFireElemental = false;
+var defeatedWindElemental = false;
+var defeatedWaterElemental = false;
+var defeatedGeomancer = false;
 
 var goldStolen = 0;		//Bandit statistic
 var justStolen = 0;		//Bandit statistic
@@ -551,14 +556,34 @@ function setDefeatEvents(name){
 						document.getElementById("BatNecromancer").style.display = "block";
 						showBattle('Necromancer');					
 				}
-
-			
-		//	alert("Unfinished battle!");
 		break;
 		
 		case 'Necromancer':
 			defeatedNecromancer = true;
-//			document.getElementById('RelicPedestalTab').style.display = "block";
+			document.getElementById('BatEarthElemental').style.display = "block";
+			document.getElementById('BatFireElemental').style.display = "block";	
+			document.getElementById('BatWindElemental').style.display = "block";
+			document.getElementById('BatWaterElemental').style.display = "block";				
+		break;		
+
+		case 'Earth Elemental':
+			defeatedEarthElemental = true;
+		break;
+
+		case 'Fire Elemental':
+			defeatedFireElemental = true;
+		break;	
+
+		case 'Wind Elemental':
+			defeatedWindElemental = true;
+		break;	
+
+		case 'Water Elemental':
+			defeatedWaterElemental = true;
+		break;			
+	
+		case 'Geomancer':
+			defeatedGeomancer = true;
 		break;		
 		
 		default:
@@ -634,7 +659,27 @@ function showBattle(name){
 
 		case 'Necromancer':
 			$("#NecromancerCollapse").collapse('show');
+		break;	
+
+		case 'EarthElmental':
+			$("#EarthElementalCollapse").collapse('show');
 		break;			
+
+		case 'FireElmental':
+			$("#FireElementalCollapse").collapse('show');
+		break;		
+
+		case 'WindElmental':
+			$("#WindElementalCollapse").collapse('show');
+		break;		
+
+		case 'WaterElmental':
+			$("#WaterElementalCollapse").collapse('show');
+		break;		
+
+		case 'Geomancer':
+			$("#GeomancerCollapse").collapse('show');
+		break;				
 		
 		default:
 	}	
@@ -703,6 +748,31 @@ function showUndefeatedBattles(){
 	if(defeatedNecromancer == false){
 		showBattle('Necromancer');
 		scroll('BatNecromancer', 500);
+	}
+
+	if(defeatedEarthElemental == false){
+		showBattle('EarthElmental');
+		scroll('BatEarthElemental', 500);
+	}		
+
+	if(defeatedFireElemental == false){
+		showBattle('FireElmental');
+		scroll('BatFireElemental', 500);
+	}	
+
+	if(defeatedWindElemental == false){
+		showBattle('WindElmental');
+		scroll('BatWindElemental', 500);
+	}	
+
+	if(defeatedWaterElemental == false){
+		showBattle('WaterElmental');
+		scroll('BatWaterElemental', 500);
+	}	
+
+	if(defeatedGeomancer == false){
+		showBattle('Geomancer');
+		scroll('BatGeomancer', 500);
 	}		
 }
 
@@ -821,6 +891,26 @@ function loadBattle(name, percent){
 		case 'Necromancer':
 			Necromancer.fight();
 		break;			
+		
+		case 'Earth Elemental':
+			ElementalEarth.fight();
+		break;
+		
+		case 'Fire Elemental':
+			ElementalFire.fight();
+		break;
+
+		case 'Wind Elemental':
+			ElementalWind.fight();
+		break;
+
+		case 'Water Elemental':
+			ElementalWater.fight();
+		break;		
+		
+		case 'Geomancer':
+			Geomancer.fight();
+		break;		
 		
 		default:
 	}
@@ -1140,6 +1230,25 @@ function necroReviveUA(){
 	}
 }
 
+var elementalEarthDesc = "";
+var ElementalEarth = new Enemy("Earth Elemental", ElementalEarth, 'BatEarthElementalProgBarBox','BatEarthElementalProgBar','btnBatEarthElemental','EarthElementalDefeatAlert',52500,6000,0,1,4000);
+setEnemyDescription(ElementalEarth, 'btnDescEarthElemental');
+
+var elementalFireDesc = "";
+var ElementalFire = new Enemy("Fire Elemental", ElementalFire, 'BatFireElementalProgBarBox','BatFireElementalProgBar','btnBatFireElemental','FireElementalDefeatAlert',52500,6000,0,1,4000);
+setEnemyDescription(ElementalFire, 'btnDescFireElemental');
+
+var elementalWindDesc = "";
+var ElementalWind = new Enemy("Wind Elemental", ElementalWind, 'BatWindElementalProgBarBox','BatWindElementalProgBar','btnBatWindElemental','WindElementalDefeatAlert',52500,6000,0,1,4000);
+setEnemyDescription(ElementalWind, 'btnDescWindElemental');
+
+var elementalWaterDesc = "";
+var ElementalWater = new Enemy("Water Elemental", ElementalWater, 'BatWaterElementalProgBarBox','BatWaterElementalProgBar','btnBatWaterElemental','WaterElementalDefeatAlert',52500,6000,0,1,4000);
+setEnemyDescription(ElementalWater, 'btnDescWaterElemental');
+
+var geomancerDesc = "";
+var Geomancer = new Enemy("Geomancer", Geomancer, 'BatGeomancerProgBarBox','BatGeomancerProgBar','btnBatGeomancer','GeomancerDefeatAlert',52500,6000,0,1,4000);
+setEnemyDescription(Geomancer, 'btnDescGeomancer');
 
 function checkBattleButtons(){
 	//Changes status of Battle Buttons
@@ -1181,6 +1290,21 @@ function checkBattleButtons(){
 	
 	//Necromancer Button
 	Necromancer.canFight();
+	
+	//Earth Elemental Button
+	ElementalEarth.canFight();
+	
+	//Fire Elemental Button
+	ElementalFire.canFight();
+	
+	//Wind Elemental Button
+	ElementalWind.canFight();
+	
+	//Water Elemental Button
+	ElementalWater.canFight();	
+	
+	//Geomancer Button
+	Geomancer.canFight();	
 };
 
 window.setInterval(function(){					//Calculates Battle Power 

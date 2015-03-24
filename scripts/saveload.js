@@ -66,6 +66,11 @@
 		save("defeatedSuccubus",defeatedSuccubus);
 		save("defeatedUArmy", defeatedUArmy);
 		save("defeatedNecromancer", defeatedNecromancer);
+		save("defeatedEarthElemental",defeatedEarthElemental);
+		save("defeatedFireElemental",defeatedFireElemental);		
+		save("defeatedWaterElemental",defeatedWaterElemental);
+		save("defeatedWindElemental",defeatedWindElemental);
+		save("defeatedGeomancer",defeatedGeomancer);
 		save("peasantsKilled",peasantsKilled);
 		save("minersKilled", minersKilled);
 		save("ironAbsorbed",ironAbsorbed);
@@ -741,7 +746,43 @@
 				if(myBool == true){
 					defeatedNecromancer = true;
 				}
-		};			
+		};
+		
+		if(localStorage.defeatedEarthElemental != null){
+			var myBool = (localStorage.defeatedEarthElemental == "true")
+				if(myBool == true){
+					defeatedEarthElemental = true;
+				}
+		};
+
+		if(localStorage.defeatedFireElemental != null){
+			var myBool = (localStorage.defeatedFireElemental == "true")
+				if(myBool == true){
+					defeatedFireElemental = true;
+				}
+		};
+		
+		if(localStorage.defeatedWindElemental != null){
+			var myBool = (localStorage.defeatedWindElemental == "true")
+				if(myBool == true){
+					defeatedWindElemental = true;
+				}
+		};
+		
+		if(localStorage.defeatedWaterElemental != null){
+			var myBool = (localStorage.defeatedWaterElemental == "true")
+				if(myBool == true){
+					defeatedWaterElemental = true;
+				}
+		};		
+
+		if(localStorage.defeatedGeomancer != null){
+			var myBool = (localStorage.defeatedGeomancer == "true")
+				if(myBool == true){
+					defeatedGeomancer = true;
+				}
+		};		
+		
 		if(localStorage.peasantsKilled != null){
 			peasantsKilled = parseInt(localStorage.peasantsKilled);
 			document.getElementById("peasantsKilled").innerHTML = peasantsKilled;
