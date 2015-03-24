@@ -102,11 +102,12 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 		$bar.attr('aria-valuenow',0);
 		$bar.text(0+'%');	
 		
-		var finishString;	
+		var finishString;
+		resourceEarned = questCalcReward(resource, UnitOnQuest);
+		
 		switch(resource){
-
 			case 'gold':
-				 resourceEarned = QuestDuration*goldpersec;
+//				 resourceEarned = QuestDuration*goldpersec;
 				 console.log(QuestDuration + " seconds * " + goldpersec + " = " + resourceEarned)
 				 gold += resourceEarned;
 				 statGoldCollected += resourceEarned;
@@ -119,7 +120,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 			break;
 			
 			case 'wood':
-				 resourceEarned = QuestDuration*woodpersec;
+//				 resourceEarned = QuestDuration*woodpersec;
 				 console.log(QuestDuration + " seconds * " + woodpersec + " = " + resourceEarned)
 				 wood += resourceEarned;
 				 statWoodCollected += resourceEarned;
@@ -132,7 +133,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 			break;
 			
 			case 'iron':
-				 resourceEarned = QuestDuration*ironpersec;
+//				 resourceEarned = QuestDuration*ironpersec;
 				 console.log(QuestDuration + " seconds * " + ironpersec + " = " + resourceEarned)
 				 iron += resourceEarned;
 				 statIronCollected += resourceEarned;
@@ -145,7 +146,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 			break;
 
 			case 'silver':
-				 resourceEarned = QuestDuration*silverpersec;
+//				 resourceEarned = QuestDuration*silverpersec;
 				 console.log(QuestDuration + " seconds * " + silverpersec + " = " + resourceEarned)
 				 silver += resourceEarned;
 				 statSilverCollected += resourceEarned;
@@ -158,7 +159,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 			break;
 
 			case 'souls':
-				 resourceEarned = QuestDuration*soulspersec;
+//				 resourceEarned = QuestDuration*soulspersec;
 				 console.log(QuestDuration + " seconds * " + soulspersec + " = " + resourceEarned)
 				 souls += resourceEarned;
 				 statSoulsCollected += resourceEarned;
@@ -178,6 +179,49 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 	}, this.speed);
 	return true;
 }
+
+function questCalcReward(type, unit){
+	var unitPower = 0;
+	console.log(unit);
+	switch(unit){
+		case 'Squire':
+			unitPower = 0.05 * NumUnitOnQuest;
+		break;
+
+		case 'Knight':
+			unitPower = 0.15 * NumUnitOnQuest;
+		break;
+
+		case 'Paladin':
+			unitPower = 0.35 * NumUnitOnQuest;
+		break;
+		
+	}
+	
+	switch(type){
+		case 'gold':
+			console.log(QuestDuration * unitPower * goldpersec);
+			return QuestDuration * unitPower * goldpersec;
+		break;
+		
+		case 'wood':
+			console.log(QuestDuration * unitPower * woodpersec);
+			return QuestDuration * unitPower * woodpersec;
+		break;
+		
+		case 'iron':
+			return QuestDuration * unitPower * ironpersec;
+		break;
+		
+		case 'silver':
+			return QuestDuration * unitPower * silverpersec;
+		break;
+		
+		case 'souls':
+			return QuestDuration * unitPower * soulspersec;
+		break;
+	}
+};
 
 function loadQuest(QuestName, percent, unit, numUnit){
 	questSpellBoost(percent);
@@ -231,6 +275,19 @@ function btnSendQuest(){
 		 string = string + " out on the quest '" + $('#questSelectPicker').selectpicker('val') + "'";
 	  document.getElementById('questAlertString').innerHTML = string;
 	  document.getElementById('sendQuestAlert').style.display = "block";
+	  
+		//Dismisses Alert
+		var ticker = 0 ;
+		var clearAlert = setInterval(function() {
+			ticker = ticker + 1;   
+		  if (ticker == 5){
+			clearInterval(clearAlert);
+			if(document.getElementById('sendQuestAlert').style.display == "block"){
+				document.getElementById("sendQuestAlert").style.display = "none";
+			}	
+		  }
+		}, 1000);	
+	    //End Dismisses Alert	  
 	  
 	  switch($('#questSelectPicker').selectpicker('val'))
 	  {
