@@ -102,6 +102,7 @@
 		save("NumUnitOnQuest", NumUnitOnQuest);
 		save("questPercent",questPercent);
 		save("relicFragment",relicFragment);
+		save("QuestDuration",QuestDuration);
 		
 		//MiscFlags
 		save("faithDonated", faithDonated);
@@ -788,8 +789,9 @@
 //				inbattle = localStorage.inbattle;
 				curQuestType = localStorage.curQuestType;
 				questPercent = localStorage.questPercent;
-				UnitOnQuest = localStorage.UnitOnQuest;
-				NumUnitOnQuest = localStorage.NumUnitOnQuest;
+				UnitOnQuest = localStorage.UnitOnQuest;	
+				NumUnitOnQuest = parseInt(localStorage.NumUnitOnQuest);
+				QuestDuration = parseInt(localStorage.QuestDuration);
 				console.log(curQuestType + ": " + questPercent + "%" + UnitOnQuest + " " + NumUnitOnQuest);
 				setTimeout(function() { loadQuest(curQuestType, questPercent, UnitOnQuest, NumUnitOnQuest); }, 500)
 			}

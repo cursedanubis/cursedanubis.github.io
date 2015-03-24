@@ -814,7 +814,7 @@ function dhms(s, f) { // seconds, format
   else {
     f = d + 'd:' + h + 'h:' + m + 'm:' + s + 's';
   }
-  return f; // :) omg...
+  return f;
 }
 
 function fnum(x) {

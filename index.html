@@ -87,22 +87,22 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources">Toggle Resources</a></li>
-				  <li><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources">Toggle Secondary Resources</a></li>
-                  <li><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Toggle Gathering</a></li>
-				  <li><a id="ToggleTrunc" href="javascript:toggleTrunc();">Toggle Number Truncation</a></li>
+                  <li><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Resources</a></li>
+				  <li><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Secondary Resources</a></li>
+                  <li><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Gathering</a></li>
+				  <li><a id="ToggleTrunc" href="javascript:toggleTrunc();"><span class="glyphicon glyphicon-superscript" aria-hidden="true"></span> Toggle Number Truncation</a></li>
 				  <!--				  <li><a id="UndefeatedOpt" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle'); showUndefeatedBattles();">Show Undefeated Enemies</a></li> -->
 				  <li class="divider"></li>
-				  <li><a id="save" href="javascript:saveCookie();">Save</a></li>
-                  <li><a id="load" href="javascript:loadCookie()">Load</a></li>
+				  <li><a id="save" href="javascript:saveCookie();"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</a></li>
+                  <li><a id="load" href="javascript:loadCookie()"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Load</a></li>
 <!--				  <li><a id="debugmoney" href="javascript:debugCurrency()">Add debugging currency</a></li> -->
                   <li class="divider"></li>
-				  <li><a id="hardreset" href="javascript:hardReset()">!Hard reset!</a></li>
+				  <li><a id="hardreset" href="javascript:hardReset()"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Hard Reset</a></li>
 				  <li class="divider"></li>
                   <li class="dropdown-header"></li>
-				  <li><a href="#" data-toggle="modal" data-target="#statmodal">Statistics</a></li>
-				  <li><a id="verinfo" target="_blank" href="changelog.html">Version 0.6.9.5</a></li>
-                  <li><a href="#" data-toggle="modal" data-target="#aboutmodal">About</a></li>
+				  <li><a href="#" data-toggle="modal" data-target="#statmodal"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Statistics</a></li>
+				  <li><a id="verinfo" target="_blank" href="changelog.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Version 0.6.9.5</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#aboutmodal"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</a></li>
                 </ul>
               </li>
             </ul>
@@ -701,7 +701,8 @@
 						None implemented
 					</div>
 				</div>				
-		</div>		
+		</div>
+		<hr> 
 	 </div>	 
 	 
 	 
@@ -720,15 +721,17 @@
 					</div>
 				<div class = "row">
 					<div class = "col-xs-2">
-						<input id="QuestNumSelect" type="text" value="1" name="QuestNumSelect"> 
+						<input id="QuestUnitNumSelect" type="text" value="1" name="QuestUnitNumSelect"> 
 					</div>
 					<div class = "col-xs-3">
 						 <select class="selectpicker" id = "questSelectPicker" title = "Pick a quest">
 							<option id = "nullOption"></option>
+							<option id = "PeopleChoice">Help the People</option>
+							<option id = "TreantChoice">Slay Treants</option>
+							<option id = "IGolemChoice">Slay Iron Golems</option>
+							<option id = "SpriteChoice">Aid the Sprites</option>
 							<option id = "RelicChoice">Relic Hunt</option>
 							<option id = "DemonChoice">Demon Hunt</option>
-							<option id = "TreantChoice">Slay Treants</option>
-							<option id = "PeopleChoice">Help the People</option>
 						  </select>
 					</div>					
 					<div class = "col-xs-3">
@@ -742,7 +745,7 @@
 					
 				</div>
 				<br />
-					<button id=btnQuestGo onclick="returnPickerSelection();"	type="button" class="btn btn-default">Send!</button>
+					<button id=btnQuestGo onclick="btnSendQuest();"	type="button" class="btn btn-default">Send!</button>
 		
 			</div>
 		</div>
@@ -1310,7 +1313,27 @@
 		<div id = 'sendQuestAlert' class="alert alert-info fade in" role="alert" style="display: none;">
 			<button type="button" class="close" onclick = "$('#sendQuestAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>Questing!</strong> <span id = 'questAlertString'></span>
-		</div> 		
+		</div> 
+
+		<div id = 'goldQuestFinishAlert' class="alert alert-info fade in" role="alert" style="display: none;">
+			<button type="button" class="close" onclick = "$('#goldQuestFinishAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Quest Finished!</strong> <span id = 'questFinishAlertString'></span>
+		</div>
+
+		<div id = 'woodQuestFinishAlert' class="alert alert-info fade in" role="alert" style="display: none;">
+			<button type="button" class="close" onclick = "$('#woodQuestFinishAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Quest Finished!</strong> <span id = 'questWoodFinishAlertString'></span>
+		</div> 			
+		
+		<div id = 'ironQuestFinishAlert' class="alert alert-info fade in" role="alert" style="display: none;">
+			<button type="button" class="close" onclick = "$('#ironQuestFinishAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Quest Finished!</strong> <span id = 'questIronFinishAlertString'></span>
+		</div> 			
+
+		<div id = 'silverQuestFinishAlert' class="alert alert-info fade in" role="alert" style="display: none;">
+			<button type="button" class="close" onclick = "$('#silverQuestFinishAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Quest Finished!</strong> <span id = 'questSilverFinishAlertString'></span>
+		</div>
 		
 		<div id = 'saveAlert' class="alert alert-success fade in" role="alert" style="display: none;">
 			<button type="button" class="close" onclick = "$('#saveAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -1346,6 +1369,7 @@
 			
 			<br />
 				
+			Glyphicons provided by <a href = "http://glyphicons.com/">Glyphicons</a>	
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -1363,7 +1387,7 @@
 		  </div>
 		  <div class="modal-body">
 						
-			You have played Holy Wars for: <span id = tTPinHHMMSS>0</span>
+			<span class="glyphicon glyphicon-time" aria-hidden="true"></span> You have played Holy Wars for: <span id = tTPinHHMMSS>0</span>
 			<br />
 			<h4>Gold</h4>
 			Lifetime Gold Collected: <img src = "images/money_goldsmall.png" title ="Gold" ><span id= "stattotalgoldcollected">0</span><br />
