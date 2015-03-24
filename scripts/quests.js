@@ -111,6 +111,9 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 gold += resourceEarned;
 				 statGoldCollected += resourceEarned;
 				 statTotalGoldCollected += resourceEarned;
+				 document.getElementById('gold').innerHTML = fnum(gold);
+				 document.getElementById('stattotalgoldcollected').innerHTML = fnum(statTotalGoldCollected);
+				 document.getElementById('statgoldcollected').innerHTML = fnum(statGoldCollected);
 				 finishString = "Your units return from helping out the people in your kingdom! They bring back " + fnum(resourceEarned) + " gold to add to your coffers.";
 				 document.getElementById('questFinishAlertString').innerHTML = finishString;
 			break;
@@ -121,6 +124,9 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 wood += resourceEarned;
 				 statWoodCollected += resourceEarned;
 				 statTotalWoodCollected += resourceEarned;
+				 document.getElementById('wood').innerHTML = fnum(wood);
+				 document.getElementById('statWoodCollected').innerHTML = fnum(statWoodCollected);
+				 document.getElementById('statTotalWoodCollected').innerHTML = fnum(statTotalWoodCollected);
 				 finishString = "Your units return from vanquishing a bunch of angry treants! They bring back " + fnum(resourceEarned) + " wood to add to your collection.";
 				 document.getElementById('questWoodFinishAlertString').innerHTML = finishString;			
 			break;
@@ -131,6 +137,9 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 iron += resourceEarned;
 				 statIronCollected += resourceEarned;
 				 statTotalIronCollected += resourceEarned;
+				 document.getElementById('iron').innerHTML = fnum(iron);
+				 document.getElementById('statIronCollected').innerHTML = fnum(statIronCollected);
+				 document.getElementById('statTotalIronCollected').innerHTML = fnum(statTotalIronCollected);				 
 				 finishString = "Your units return from vanquishing a bunch of sturdy animated iron golems! It wasn't easy, but they bring back " + fnum(resourceEarned) + " iron to add to your collection.";
 				 document.getElementById('questIronFinishAlertString').innerHTML = finishString;			
 			break;
@@ -141,8 +150,24 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 silver += resourceEarned;
 				 statSilverCollected += resourceEarned;
 				 statTotalSilverCollected += resourceEarned;
+				 document.getElementById('silver').innerHTML = fnum(silver);
+				 document.getElementById('statSilverCollected').innerHTML = fnum(statSilverCollected);
+				 document.getElementById('statTotalSilverCollected').innerHTML = fnum(statTotalSilverCollected);					 
 				 finishString = "Your units successfully help the the friendly sprites living in your mines. As a token of their gratitude, they send you " + fnum(resourceEarned) + " silver to add to your collection.";
 				 document.getElementById('questSilverFinishAlertString').innerHTML = finishString;			
+			break;
+
+			case 'souls':
+				 resourceEarned = QuestDuration*soulspersec;
+				 console.log(QuestDuration + " seconds * " + soulspersec + " = " + resourceEarned)
+				 souls += resourceEarned;
+				 statSoulsCollected += resourceEarned;
+				 statTotalSoulsCollected += resourceEarned;
+				 document.getElementById('souls').innerHTML = fnum(souls);
+				 document.getElementById('statSoulsCollected').innerHTML = fnum(statSoulsCollected);
+				 document.getElementById('statTotalSoulsCollected').innerHTML = fnum(statTotalSoulsCollected);				 
+				 finishString = "Your units successfully help the the defeat some lesser demons plaguing the countryside. When they die, your troops are able to collect " + fnum(resourceEarned) + " souls.";
+				 document.getElementById('questSoulsFinishAlertString').innerHTML = finishString;			
 			break;				
 			
 		}
@@ -181,7 +206,12 @@ function loadQuest(QuestName, percent, unit, numUnit){
 		case 'Aid the Sprites':
 			silverQuest.startQuest('silver');
 			UnitOnQuest = unit;
-		break;			
+		break;
+
+		case 'Hunt lesser demons':
+			soulsQuest.startQuest('souls');
+			UnitOnQuest = unit;
+		break;		
 		
 		case 'Relic Hunt':
 			RelicHunt.startQuest();
@@ -223,6 +253,11 @@ function btnSendQuest(){
 			console.log('Aid the Sprites');
 			silverQuest.startQuest('silver');
 		 break;	 
+		 
+		 case 'Hunt lesser demons':
+			console.log('Hunt lesser demons');
+			soulsQuest.startQuest('souls');
+		 break;		 
 		 
 		 case 'Relic Hunt':
 			if($('#unitSelectPicker').selectpicker('val') == 'Paladin')
@@ -321,6 +356,9 @@ var ironQuest = new Quest('Slay Iron Golems', ironQuestDesc, 'QuestProgBarBox', 
 
 var silverQuestDesc = "";
 var silverQuest = new Quest('Aid the Sprites', silverQuestDesc, 'QuestProgBarBox', 'QuestProgBar', 'btnQuestGo','silverQuestFinishAlert',0,1,500);
+
+var soulsQuestDesc = "";
+var soulsQuest = new Quest('Hunt lesser demons', soulsQuestDesc, 'QuestProgBarBox', 'QuestProgBar', 'btnQuestGo','soulsQuestFinishAlert',0,1,500);
 
 //var Quest = function(name, description, htmlBoxRef, htmlBarRef, htmlAlertRef, percentComplete, percentIncrement,speed){
 var relicHuntDesc = "";

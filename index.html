@@ -730,8 +730,8 @@
 							<option id = "TreantChoice">Slay Treants</option>
 							<option id = "IGolemChoice">Slay Iron Golems</option>
 							<option id = "SpriteChoice">Aid the Sprites</option>
+							<option id = "DemonChoice">Hunt lesser demons</option>							
 							<option id = "RelicChoice">Relic Hunt</option>
-							<option id = "DemonChoice">Demon Hunt</option>
 						  </select>
 					</div>					
 					<div class = "col-xs-3">
@@ -1334,6 +1334,11 @@
 			<button type="button" class="close" onclick = "$('#silverQuestFinishAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>Quest Finished!</strong> <span id = 'questSilverFinishAlertString'></span>
 		</div>
+		
+		<div id = 'soulsQuestFinishAlert' class="alert alert-info fade in" role="alert" style="display: none;">
+			<button type="button" class="close" onclick = "$('#soulsQuestFinishAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Quest Finished!</strong> <span id = 'questSoulsFinishAlertString'></span>
+		</div>		
 		
 		<div id = 'saveAlert' class="alert alert-success fade in" role="alert" style="display: none;">
 			<button type="button" class="close" onclick = "$('#saveAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
