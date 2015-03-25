@@ -46,8 +46,12 @@
 	
     $(function () {
         $('.navbar-nav li').click(function () {
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
+				
+			if($(this).hasClass('dropdown')== false && $(this).hasClass('opt') == false) {
+				console.log($(this).attr('class'));
+				$(this).siblings().removeClass('active');
+				$(this).addClass('active');	
+			}
         });
     });
 
@@ -83,27 +87,28 @@
 			  <li><a id="QuestMenu" href="javascript:CollapseAll(); toggle('Quests'); setLastPage('Quests');" >Quests</a></li>
     		  <li><a id="BattleMenu" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle');">Battle</a></li>
 			  <li><a id="RelicsMenu" href="javascript:CollapseAll(); toggle('Relics'); setLastPage('Relics');" style="display: none;">Relics</a></li>
-			  <li><a id="AchievmentsMenu" href="javascript:CollapseAll(); toggle('Achievements'); setLastPage('Achievements');">Achievements</a></li>
+<!--		  <li><a id="AchievmentsMenu" href="javascript:CollapseAll(); toggle('Achievements'); setLastPage('Achievements');">Achievements</a></li> -->
 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Resources</a></li>
-				  <li><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Secondary Resources</a></li>
-                  <li><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Gathering</a></li>
-				  <li><a id="ToggleTrunc" href="javascript:toggleTrunc();"><span class="glyphicon glyphicon-superscript" aria-hidden="true"></span> Toggle Number Truncation</a></li>
+                  <li class = 'opt'><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Resources</a></li>
+				  <li class = 'opt'><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Secondary Resources</a></li>
+                  <li class = 'opt'><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Gathering</a></li>
+				  <li class = 'opt'><a id="ToggleTrunc" href="javascript:toggleTrunc();"><span class="glyphicon glyphicon-superscript" aria-hidden="true"></span> Toggle Number Truncation</a></li>
 				  <!--				  <li><a id="UndefeatedOpt" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle'); showUndefeatedBattles();">Show Undefeated Enemies</a></li> -->
 				  <li class="divider"></li>
-				  <li><a id="save" href="javascript:saveCookie();"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</a></li>
-                  <li><a id="load" href="javascript:loadCookie()"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Load</a></li>
+				  <li class = 'opt'><a id="save" href="javascript:saveCookie();"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</a></li>
+                  <li class = 'opt'><a id="load" href="javascript:loadCookie()"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Load</a></li>
 <!--				  <li><a id="debugmoney" href="javascript:debugCurrency()">Add debugging currency</a></li> -->
                   <li class="divider"></li>
-				  <li><a id="hardreset" href="javascript:hardReset()"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Hard Reset</a></li>
+				  <li class = 'opt'><a id="hardreset" href="javascript:hardReset()"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Hard Reset</a></li>
 				  <li class="divider"></li>
                   <li class="dropdown-header"></li>
-				  <li><a href="#" data-toggle="modal" data-target="#statmodal"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Statistics</a></li>
-				  <li><a id="verinfo" target="_blank" href="changelog.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Version 0.6.9.5</a></li>
-                  <li><a href="#" data-toggle="modal" data-target="#aboutmodal"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</a></li>
+				  <li class = 'opt'><a href="#" data-toggle="modal" data-target="#statmodal"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Statistics</a></li>
+				  <li class = 'opt'><a id="AchievmentsMenu" href="javascript:CollapseAll(); toggle('Achievements');">Achievements</a></li>
+				  <li class = 'opt'><a id="verinfo" target="_blank" href="changelog.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Version 0.6.9.5</a></li>
+                  <li class = 'opt'><a href="#" data-toggle="modal" data-target="#aboutmodal"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</a></li>
                 </ul>
               </li>
             </ul>
