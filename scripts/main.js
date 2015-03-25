@@ -967,6 +967,18 @@ var statTotalAngelsSummoned = 0;
 var statTavernsBuilt = 0;
 var statPaperMillsBuilt = 0;
 
+//Battle Stats
+var statTotalEnemiesDefeated = 0;
+var statEnemiesDefeated = 0;
+var statUnitsKilledInBattle = 0;
+var statTotalUnitsKilledInBattle = 0;
+var statTotalGoldStolen = 0;
+var statTotalPeasantsKilled = 0;
+var statTotalMinersKilled = 0;
+var statTotalIronStolen = 0;
+var statTotalSilverStolen = 0;
+var statTotalUnitsSeduced = 0;
+
 var statManaGained = 0;
 var statTotalManaGained = 0;
 var statManaUsed = 0;

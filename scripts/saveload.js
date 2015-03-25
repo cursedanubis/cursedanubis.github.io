@@ -70,7 +70,7 @@
 		save("defeatedFireElemental",defeatedFireElemental);		
 		save("defeatedWaterElemental",defeatedWaterElemental);
 		save("defeatedWindElemental",defeatedWindElemental);
-		save("defeatedGeomancer",defeatedGeomancer);
+		save("defeatedThaumaturge",defeatedThaumaturge);
 		save("peasantsKilled",peasantsKilled);
 		save("minersKilled", minersKilled);
 		save("ironAbsorbed",ironAbsorbed);
@@ -201,6 +201,22 @@
 		save("statAngelsSummoned", statAngelsSummoned);
 		save("statTotalAngelsSummoned", statTotalAngelsSummoned);
 
+		save("statTotalEnemiesDefeated",statTotalEnemiesDefeated);
+		save("statEnemiesDefeated",statEnemiesDefeated);
+
+		save("statTotalGoldStolen",statTotalGoldStolen);
+
+		save("statTotalPeasantsKilled",statTotalPeasantsKilled);
+		save("statTotalMinersKilled",statTotalMinersKilled);
+
+		save("statTotalIronStolen",statTotalIronStolen);
+		save("statTotalSilverStolen",statTotalSilverStolen);
+		
+		save("statTotalUnitsSeduced",statTotalUnitsSeduced);
+		
+		save("statUnitsKilledInBattle",statUnitsKilledInBattle);
+		save("statTotalUnitsKilledInBattle",statTotalUnitsKilledInBattle);
+	
 		save("statManaGained", statManaGained);
 		save("statTotalManaGained", statTotalManaGained);
 		save("statManaUsed", statManaUsed);
@@ -745,6 +761,11 @@
 			var myBool = (localStorage.defeatedNecromancer == "true")
 				if(myBool == true){
 					defeatedNecromancer = true;
+					document.getElementById('BatEarthElemental').style.display = "block";
+					document.getElementById('BatFireElemental').style.display = "block";	
+					document.getElementById('BatWindElemental').style.display = "block";
+					document.getElementById('BatWaterElemental').style.display = "block";	
+					document.getElementById('BatThaumaturge').style.display = "block";					
 				}
 		};
 		
@@ -776,10 +797,10 @@
 				}
 		};		
 
-		if(localStorage.defeatedGeomancer != null){
-			var myBool = (localStorage.defeatedGeomancer == "true")
+		if(localStorage.defeatedThaumaturge != null){
+			var myBool = (localStorage.defeatedThaumaturge == "true")
 				if(myBool == true){
-					defeatedGeomancer = true;
+					defeatedThaumaturge = true;
 				}
 		};		
 		
@@ -1149,6 +1170,51 @@
 		}
 		
 			//Battles
+		if(localStorage.statTotalEnemiesDefeated != null){
+			statTotalEnemiesDefeated = parseInt(localStorage.statTotalEnemiesDefeated);
+			document.getElementById('statTotalEnemiesDefeated').innerHTML = fnum(statTotalEnemiesDefeated);
+		}	
+		if(localStorage.statEnemiesDefeated != null){
+			statEnemiesDefeated = parseInt(localStorage.statEnemiesDefeated);
+			document.getElementById('statEnemiesDefeated').innerHTML = fnum(statEnemiesDefeated);
+		}				
+		if(localStorage.statTotalGoldStolen != null){
+			statTotalGoldStolen = parseInt(localStorage.statTotalGoldStolen);
+			document.getElementById('statTotalGoldStolen').innerHTML = fnum(statTotalGoldStolen);
+		}	
+
+		if(localStorage.statTotalPeasantsKilled != null){
+			statTotalPeasantsKilled = parseInt(localStorage.statTotalPeasantsKilled);
+			document.getElementById('statTotalPeasantsKilled').innerHTML = fnum(statTotalPeasantsKilled);
+		}			
+		
+		if(localStorage.statTotalMinersKilled != null){
+			statTotalMinersKilled = parseInt(localStorage.statTotalMinersKilled);
+			document.getElementById('statTotalMinersKilled').innerHTML = fnum(statTotalMinersKilled);
+		}	
+
+		if(localStorage.statTotalIronStolen != null){
+			statTotalIronStolen = parseInt(localStorage.statTotalIronStolen);
+			document.getElementById('statTotalIronStolen').innerHTML = fnum(statTotalIronStolen);
+		}
+
+		if(localStorage.statTotalSilverStolen != null){
+			statTotalSilverStolen = parseInt(localStorage.statTotalSilverStolen);
+			document.getElementById('statTotalSilverStolen').innerHTML = fnum(statTotalSilverStolen);
+		}		
+		if(localStorage.statTotalUnitsSeduced != null){
+			statTotalUnitsSeduced = parseInt(localStorage.statTotalUnitsSeduced);
+			document.getElementById('statTotalUnitsSeduced').innerHTML = fnum(statTotalUnitsSeduced);
+		}
+		if(localStorage.statUnitsKilledInBattle != null){
+			statUnitsKilledInBattle = parseInt(localStorage.statUnitsKilledInBattle);
+			document.getElementById('statUnitsKilledInBattle').innerHTML = fnum(statUnitsKilledInBattle);
+		}		
+		
+		if(localStorage.statTotalUnitsKilledInBattle != null){
+			statTotalUnitsKilledInBattle = parseInt(localStorage.statTotalUnitsKilledInBattle);
+			document.getElementById('statTotalUnitsKilledInBattle').innerHTML = fnum(statTotalUnitsKilledInBattle);
+		}		
 			
 			//Magic
 		if(localStorage.statManaGained != null){

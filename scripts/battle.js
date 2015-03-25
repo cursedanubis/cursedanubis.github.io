@@ -18,7 +18,7 @@ var defeatedEarthElemental = false;
 var defeatedFireElemental = false;
 var defeatedWindElemental = false;
 var defeatedWaterElemental = false;
-var defeatedGeomancer = false;
+var defeatedThaumaturge = false;
 
 var goldStolen = 0;		//Bandit statistic
 var justStolen = 0;		//Bandit statistic
@@ -145,6 +145,10 @@ Enemy.prototype.fight = function(){
 					console.log(battleUnitLost.name + " : " + battleUnitLost.number);
 					battleUnitLostNum = battleUnitLostNum + 1;
 					battleUnitLost.removeOne();
+					statUnitsKilledInBattle += 1;
+					statTotalUnitsKilledInBattle += 1;
+					document.getElementById('statUnitsKilledInBattle').innerHTML = statUnitsKilledInBattle;
+					document.getElementById('statTotalUnitsKilledInBattle').innerHTML = statTotalUnitsKilledInBattle;
 					console.log(battleUnitLost.number);
 				}
 				else{
@@ -156,6 +160,10 @@ Enemy.prototype.fight = function(){
 					console.log(ethUnitLost.name + " : " + ethUnitLost.number);
 					ethUnitLostNum = ethUnitLostNum + 1;
 					ethUnitLost.removeOne();
+					statUnitsKilledInBattle += 1;
+					statTotalUnitsKilledInBattle += 1;
+					document.getElementById('statUnitsKilledInBattle').innerHTML = statUnitsKilledInBattle;
+					document.getElementById('statTotalUnitsKilledInBattle').innerHTML = statTotalUnitsKilledInBattle;					
 					console.log(ethUnitLost.number);					
 				}
 				else{
@@ -175,6 +183,10 @@ Enemy.prototype.fight = function(){
 			document.getElementById(btn).disabled = true;					//disables the buttons
 			document.getElementById(alert).style.display = "block";			//Displays alert related to this battle
 			scroll(alert,500);
+			statEnemiesDefeated += 1;
+			statTotalEnemiesDefeated += 1;
+			document.getElementById('statEnemiesDefeated').innerHTML = statEnemiesDefeated;
+			document.getElementById('statTotalEnemiesDefeated').innerHTML = statTotalEnemiesDefeated;
 			inbattle = false;
 			setDefeatEvents(EnemyName);
 		  } 
@@ -563,7 +575,8 @@ function setDefeatEvents(name){
 			document.getElementById('BatEarthElemental').style.display = "block";
 			document.getElementById('BatFireElemental').style.display = "block";	
 			document.getElementById('BatWindElemental').style.display = "block";
-			document.getElementById('BatWaterElemental').style.display = "block";				
+			document.getElementById('BatWaterElemental').style.display = "block";	
+			document.getElementById('BatThaumaturge').style.display = "block";
 		break;		
 
 		case 'Earth Elemental':
@@ -582,8 +595,8 @@ function setDefeatEvents(name){
 			defeatedWaterElemental = true;
 		break;			
 	
-		case 'Geomancer':
-			defeatedGeomancer = true;
+		case 'Thaumaturge':
+			defeatedThaumaturge = true;
 		break;		
 		
 		default:
@@ -677,8 +690,8 @@ function showBattle(name){
 			$("#WaterElementalCollapse").collapse('show');
 		break;		
 
-		case 'Geomancer':
-			$("#GeomancerCollapse").collapse('show');
+		case 'Thaumaturge':
+			$("#ThaumaturgeCollapse").collapse('show');
 		break;				
 		
 		default:
@@ -770,9 +783,9 @@ function showUndefeatedBattles(){
 		scroll('BatWaterElemental', 500);
 	}	
 
-	if(defeatedGeomancer == false){
-		showBattle('Geomancer');
-		scroll('BatGeomancer', 500);
+	if(defeatedThaumaturge == false){
+		showBattle('Thaumaturge');
+		scroll('BatThaumaturge', 500);
 	}		
 }
 
@@ -908,8 +921,8 @@ function loadBattle(name, percent){
 			ElementalWater.fight();
 		break;		
 		
-		case 'Geomancer':
-			Geomancer.fight();
+		case 'Thaumaturge':
+			Thaumaturge.fight();
 		break;		
 		
 		default:
@@ -938,10 +951,12 @@ function banditLoot(){
 			if(defeatedBandits == false){
 				justStolen =  Math.ceil(gold*1/5);
 				goldStolen = goldStolen + justStolen;
+				statTotalGoldStolen += justStolen;
 				gold = gold - justStolen;
 				document.getElementById("gold").innerHTML = fnum(gold);
 				document.getElementById("goldStolen").innerHTML = fnum(goldStolen);
 				document.getElementById("justStolen").innerHTML = fnum(justStolen);
+				document.getElementById("statTotalGoldStolen").innerHTML = fnum(statTotalGoldStolen);
 				document.getElementById("banditLootAlert").style.display = "block";
 				banditLoot();
 				//Dismisses Raid Alert
@@ -1023,23 +1038,29 @@ function hellhoundCull(){
 			typeKilled = "peasants";
 			document.getElementById("typeKilled").innerHTML = typeKilled;
 			justKilled = Math.floor(Peasant.number / 10);
-			Peasant.number = Peasant.number - justKilled;
+			Peasant.number -= justKilled;
 			document.getElementById("justKilled").innerHTML = justKilled;
-			peasantsKilled = peasantsKilled + justKilled;
+			peasantsKilled += justKilled;
+			statTotalPeasantsKilled += justKilled;
 			document.getElementById("peasants").innerHTML = Peasant.number;
 			document.getElementById('hellHoundAttackAlert').style.display = "block"
 			document.getElementById("peasantsKilled").innerHTML = peasantsKilled;
+			document.getElementById("peasantsKilled2").innerHTML = peasantsKilled;
+			document.getElementById("statTotalPeasantsKilled").innerHTML = statTotalPeasantsKilled;
 		}
 		else{
 			typeKilled = "miners";
 			document.getElementById("typeKilled").innerHTML = typeKilled;
 			justKilled = Math.floor(Miner.number / 10);
-			Miner.number = Miner.number - justKilled;
+			Miner.number -= justKilled;
 			document.getElementById("justKilled").innerHTML = justKilled;
-			minersKilled = minersKilled + justKilled;
+			minersKilled += justKilled;
+			statTotalMinersKilled += justKilled;
 			document.getElementById("miners").innerHTML = Miner.number;
 			document.getElementById('hellHoundAttackAlert').style.display = "block"
 			document.getElementById("minersKilled").innerHTML = minersKilled;
+			document.getElementById("minersKilled2").innerHTML = minersKilled;
+			document.getElementById("statTotalMinersKilled").innerHTML = statTotalMinersKilled;
 		}
 		recalculateCosts();
 };
@@ -1085,19 +1106,25 @@ function oozeAbsorb(){
 	var flipCoin = Math.floor(Math.random()*10+1);    //Determining which unit gets killed
 	if(flipCoin%2 == 0){
 		absorbedType = "iron";
-		ironAbsorbed = ironAbsorbed + Math.floor(iron/5);
+		ironAbsorbed += Math.floor(iron/5);
+		statTotalIronStolen += Math.floor(iron/5);
 		absorbedAmount = Math.floor(iron/5);
-		iron = iron - Math.floor(iron/5);
+		iron -= Math.floor(iron/5);
 		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById('ironAbsorbed').innerHTML = fnum(ironAbsorbed);
+		document.getElementById('ironAbsorbed2').innerHTML = fnum(ironAbsorbed);
+		document.getElementById('statTotalIronStolen').innerHTML = fnum(statTotalIronStolen);
 	}
 	else{
 		absorbedType = "silver";
-		silverAbsorbed = silverAbsorbed + Math.floor(silver/5);
+		silverAbsorbed += Math.floor(silver/5);
+		statTotalSilverStolen += Math.floor(silver/5);
 		absorbedAmount = Math.floor(silver/5);
-		silver = silver - Math.floor(silver/5);
+		silver -= Math.floor(silver/5);
 		document.getElementById('silver').innerHTML = fnum(silver);
-		document.getElementById('silverAbsorbed').innerHTML = fnum(silverAbsorbed);	
+		document.getElementById('silverAbsorbed').innerHTML = fnum(silverAbsorbed);
+		document.getElementById('silverAbsorbed2').innerHTML = fnum(silverAbsorbed);
+		document.getElementById('statTotalSilverStolen').innerHTML = fnum(statTotalSilverStolen);
 	}
 	document.getElementById('absorbedAmount').innerHTML = fnum(absorbedAmount);
 	document.getElementById('absorbedType').innerHTML = absorbedType;
@@ -1180,16 +1207,18 @@ function succubusSeduce(){
 		return;
 	}
 	
-	highestTier.number = highestTier.number - 1;
-	previousTier.number = previousTier.number + 1;
-	unitsSeduced = unitsSeduced + 1;
+	highestTier.number -= 1;
+	previousTier.number += 1;
+	unitsSeduced += 1;
+	statTotalUnitsSeduced += 1;
 	
 	document.getElementById(highestTier.htmlNumRef).innerHTML = highestTier.number;
 	document.getElementById(previousTier.htmlNumRef).innerHTML = previousTier.number;		
 	document.getElementById('seducedUnitType').innerHTML = highestTier.name;
 	document.getElementById('previousUnitType').innerHTML = previousTier.name;
 	document.getElementById('unitsSeduced').innerHTML = unitsSeduced;
-	
+	document.getElementById('unitsSeduced2').innerHTML = unitsSeduced;
+	document.getElementById('statTotalUnitsSeduced').innerHTML = statTotalUnitsSeduced;
 	document.getElementById('SuccubusAttackAlert').style.display = "block"
 	
 	//Dismisses Raid Alert
@@ -1246,9 +1275,9 @@ var elementalWaterDesc = "";
 var ElementalWater = new Enemy("Water Elemental", ElementalWater, 'BatWaterElementalProgBarBox','BatWaterElementalProgBar','btnBatWaterElemental','WaterElementalDefeatAlert',52500,6000,0,1,4000);
 setEnemyDescription(ElementalWater, 'btnDescWaterElemental');
 
-var geomancerDesc = "";
-var Geomancer = new Enemy("Geomancer", Geomancer, 'BatGeomancerProgBarBox','BatGeomancerProgBar','btnBatGeomancer','GeomancerDefeatAlert',52500,6000,0,1,4000);
-setEnemyDescription(Geomancer, 'btnDescGeomancer');
+var ThaumaturgeDesc = "";
+var Thaumaturge = new Enemy("Thaumaturge", Thaumaturge, 'BatThaumaturgeProgBarBox','BatThaumaturgeProgBar','btnBatThaumaturge','ThaumaturgeDefeatAlert',52500,6000,0,1,4000);
+setEnemyDescription(Thaumaturge, 'btnDescThaumaturge');
 
 function checkBattleButtons(){
 	//Changes status of Battle Buttons
@@ -1303,8 +1332,8 @@ function checkBattleButtons(){
 	//Water Elemental Button
 	ElementalWater.canFight();	
 	
-	//Geomancer Button
-	Geomancer.canFight();	
+	//Thaumaturge Button
+	Thaumaturge.canFight();	
 };
 
 window.setInterval(function(){					//Calculates Battle Power 
