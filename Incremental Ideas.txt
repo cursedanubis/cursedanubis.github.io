@@ -9,19 +9,22 @@ Enemy:  Horde of cliff Racers
 	Dire Wolves
 //	Putrid Ooze
 
-	Angry Demon
+
 //	Possessed Armor
 //	Hellhound
 //	Undead Army + Necromancer
-	Elemental (fire, earth, air, water) - Requires specific relics to beat
-	Ancient Corrupted Dwarf - Relic identification, trades relic fragments for relics
+//	Elemental (fire, earth, air, water) - Requires specific relics to beat
+//	Ancient Corrupted Dwarf - Relic identification, trades relic fragments for relics
 	Witch
 	Werewolves
 	Bloody Wraith
 	Elder Vampire (L)
+	Gemini Monster (Two monsters requiring deaths within a certain period to kill them both or they revive)
 //	Succubus (L)
 //	Corrupted Archmage (B)
 //	Corrupted Sylph
+	Cerberus
+	Archdemon
 
 	Change battle to a subtractive HP system? ie Bandits start out with 500 hp, -battle power every second?
 

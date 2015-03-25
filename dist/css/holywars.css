@@ -108,6 +108,10 @@ padding: 0px;
 display: inline-block;
 }
 
+#AchievementsDiv div{
+display: inline-block;
+}
+
 .panel{
 margin-top:10px;
 }
@@ -122,6 +126,21 @@ padding-top: 0px;
 margin-left: 10px;
 width: auto;
 }
+
+.achievement{
+padding-top: 0px;
+margin-left: 10px;
+width: auto;
+color: gray;
+}
+
+.achievementearned{
+padding-top: 0px;
+margin-left: 10px;
+width: auto;
+color: black;
+}
+
 
 .backgroundRed{
 	background: #FF9999;

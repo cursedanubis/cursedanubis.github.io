@@ -83,6 +83,7 @@
 			  <li><a id="QuestMenu" href="javascript:CollapseAll(); toggle('Quests'); setLastPage('Quests');" >Quests</a></li>
     		  <li><a id="BattleMenu" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle');">Battle</a></li>
 			  <li><a id="RelicsMenu" href="javascript:CollapseAll(); toggle('Relics'); setLastPage('Relics');" style="display: none;">Relics</a></li>
+			  <li><a id="AchievmentsMenu" href="javascript:CollapseAll(); toggle('Achievements'); setLastPage('Achievements');">Achievements</a></li>
 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
@@ -1249,6 +1250,71 @@
 		</div>
 	</div>
 	 
+	 
+	 <div id="Achievements" class = "panel panel-default" style="">
+		<div class = "panel-heading">
+			<div class="panel-title">Achievements</div>
+		</div>		
+	
+	   <div id="AchievementsDiv">  
+			<br />
+			<div id ="Clicked1KTimes" class = "achievementearned well">
+				<br />
+				<span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span><br />
+				You have clicked 1,000 times!
+			</div>	
+
+			<div id ="Clicked10KTimes" class = "achievement well">
+				<br />
+				<span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span><br />
+				You have clicked 10,000 times!
+			</div>
+
+			<div id ="Clicked100KTimes" class = "achievement well">
+				<br />
+				<span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span><br />
+				You have clicked 100,000 times!
+			</div>				
+
+			<div id ="Clicked1MTimes" class = "achievement well">
+				<br />
+				<span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span><br />
+				You have clicked 1,000,000 times!
+			</div>	
+			
+			<div id ="Clicked1BTimes" class = "achievement well">
+				<br />
+				<span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span><br />
+				You have clicked 1,000,000,000 times!
+			</div>				
+			
+			<div id ="Collected1KGold" class = "achievement well">
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" >
+				You have collected 1,000 gold!
+			</div>
+
+			<div id ="Collected100KGold" class = "achievement well">
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" >
+				You have collected 100,000 gold!
+			</div>	
+
+			<div id ="Collected1MGold" class = "achievement well">
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" >
+				You have collected 1,000,000 gold!
+			</div>
+
+			<div id ="Collected1BGold" class = "achievement well">
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" >
+				You have collected 1,000,000,000 gold!
+			</div>				
+			
+	   </div>   
+	   
+	 </div>	 
 
 	 <!---------------------------------------------- ALERTS SECTION  --------------------------------------------------------------------------->
 	<div id = 'alerts' type = 'container'>
@@ -1678,6 +1744,7 @@
 			document.getElementById("Production").style.display = "none";
 			document.getElementById("Magic").style.display = "none";
 			document.getElementById("Quests").style.display = "none";
+			document.getElementById("Achievements").style.display = "none";
 		};
 		function setLastPage(name){
 			lastPage = name;
@@ -1690,7 +1757,7 @@
 				break;
 				
 				case 'Relics':
-					document.getElementById("BattleMenu").click();
+					document.getElementById("RelicMenu").click();
 				break;
 				
 				case 'Ethereal':
@@ -1719,7 +1786,12 @@
 				
 				case 'Magic':
 					document.getElementById("TowerMenu").click();
-				break;					
+				break;				
+
+				case 'Achievements':
+					document.getElementById("AchievmentsMenu").click();
+				break;				
+				
 			}
 		}
 		
@@ -1751,7 +1823,8 @@
 	<script type="text/javascript" src="scripts/battle.js"></script>       <!--Load Battle script -->
 	<script type="text/javascript" src="scripts/magic.js"></script>       <!--Load Magic script -->
 	<script type="text/javascript" src="scripts/quests.js"></script>       <!--Load Quests script -->
-	<script type="text/javascript" src="scripts/saveload.js"></script>
+	<script type="text/javascript" src="scripts/stats.js"></script>       <!--Load Stats script -->
+	<script type="text/javascript" src="scripts/saveload.js"></script>		<!--Load Save/Load Script -->
 	
     <!-- Bootstrap core JavaScript
     ================================================== -->
