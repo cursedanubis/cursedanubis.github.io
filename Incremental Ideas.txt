@@ -121,6 +121,8 @@ Issues:
 
 - Magic casting unit collects gold
 
+- Shoing UnitLossAlert when no units lost  
+
 
 
 
