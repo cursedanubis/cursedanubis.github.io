@@ -103,7 +103,7 @@ Intermediate Goals: Defeat lieutenants
 
 
 Ultimate Goal: Challenge the Evil One 
-	- Available when minimum number of divine archons have been summoned
+	- Available when minimum number of divint archons have been summoned
 	- Success on dependent on your army composition and number of units 
 
 
@@ -122,6 +122,8 @@ Issues:
 - Magic casting unit collects gold
 
 - Shoing UnitLossAlert when no units lost  
+
+- Change Succubus drop to mysterious pendant
 
 
 
