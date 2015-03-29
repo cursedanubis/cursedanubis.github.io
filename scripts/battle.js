@@ -141,6 +141,7 @@ Enemy.prototype.fight = function(){
 			
 			//Unit battle loss
 			if(perComplete%25 == 0){
+				var unitLost = false;
 				if(loseUnit(lossPercent) == true){
 					console.log(battleUnitLost.name + " : " + battleUnitLost.number);
 					battleUnitLostNum = battleUnitLostNum + 1;
@@ -150,6 +151,7 @@ Enemy.prototype.fight = function(){
 					document.getElementById('statUnitsKilledInBattle').innerHTML = statUnitsKilledInBattle;
 					document.getElementById('statTotalUnitsKilledInBattle').innerHTML = statTotalUnitsKilledInBattle;
 					console.log(battleUnitLost.number);
+					unitLost = true;
 				}
 				else{
 //					console.log("No Combat unit loss");
@@ -164,15 +166,17 @@ Enemy.prototype.fight = function(){
 					statTotalUnitsKilledInBattle += 1;
 					document.getElementById('statUnitsKilledInBattle').innerHTML = statUnitsKilledInBattle;
 					document.getElementById('statTotalUnitsKilledInBattle').innerHTML = statTotalUnitsKilledInBattle;					
-					console.log(ethUnitLost.number);					
+					console.log(ethUnitLost.number);
+					unitLost = true;					
 				}
 				else{
 //					console.log("No Ethereal unit loss")
 				}
-				
-				loseUnitAlert(EnemyName, battleUnitLost.name, battleUnitLostNum, ethUnitLost.name, ethUnitLostNum);
-				document.getElementById('UnitLossAlert').style.display = "block";
-				scroll(UnitLossAlert,500);
+				if(unitLost == true){
+					loseUnitAlert(EnemyName, battleUnitLost.name, battleUnitLostNum, ethUnitLost.name, ethUnitLostNum);
+					document.getElementById('UnitLossAlert').style.display = "block";
+					scroll(UnitLossAlert,500);				
+				}
 			}
 			
 		  if (currWidth >= maxWidth){
