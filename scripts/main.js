@@ -61,6 +61,7 @@ var towerBuilt = false;
 //Etc Variables//
 var lastPage;
 var TruncateNumber = true;
+var KingdomName = "";
 
 function clickThing(number, type)
 {
@@ -251,6 +252,14 @@ function clickThing(number, type)
 			document.getElementById("statManaGained").innerHTML = fnum(statManaGained);		
 			document.getElementById("statTotalManaGained").innerHTML = fnum(statTotalManaGained);		
 		default:
+	}
+}
+
+function renameKingdom(){
+	KingdomName = prompt("Name your kingdom", "");
+	if (KingdomName != null) {
+		document.getElementById("ProductionMenu").innerHTML = KingdomName;
+		document.getElementById("ProductionTitle").innerHTML = KingdomName;
 	}
 }
 

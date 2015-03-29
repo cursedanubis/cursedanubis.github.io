@@ -113,6 +113,7 @@
 		//MiscFlags
 		save("faithDonated", faithDonated);
 		save("lastPage",lastPage);
+		save("KingdomName",KingdomName);
 
 		//Statistic/Lifetime Variables
 		save("statResetted", statResetted);
@@ -880,6 +881,13 @@
 				document.getElementById('RelicPedestalTab').style.display = "none";
 			}			
 		}		
+		
+		if(localStorage.KingdomName != null){
+			KingdomName = localStorage.KingdomName;
+			document.getElementById("ProductionMenu").innerHTML = KingdomName;
+			document.getElementById("ProductionTitle").innerHTML = KingdomName;
+		}		
+		
 		if(localStorage.lastPage != null){
 			lastPage = localStorage.lastPage;
 		}
