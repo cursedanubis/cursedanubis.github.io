@@ -89,6 +89,7 @@
 		save("lwoodClickUpgrade",lwoodClickUpgrade);
 		save("mPanningUpgrade",mPanningUpgrade);
 		save("mSilverUpgrade",mSilverUpgrade);
+		save("acFaithUpgrade",acFaithUpgrade);
 		save("prFaithUpgrade",prFaithUpgrade);
 		save("squiresUnlocked",squiresUnlocked);
 		save("knightsUnlocked",knightsUnlocked);
@@ -521,6 +522,15 @@
 				document.getElementById("btnminerUpgrade1").disabled = true;
 			}
 		}
+		
+		if(localStorage.acFaithUpgrade != null){
+			var myBool = (localStorage.acFaithUpgrade == "true")
+			if(myBool == true){
+				acFaithUpgrade = true;
+				document.getElementById("btnAcolyteUpgrade1").disabled = true;
+				document.getElementById("btnAcolyteUpgrade1").innerHTML = "Rosary Beads Crafted";
+			}
+		}	
 		if(localStorage.prFaithUpgrade != null){
 			var myBool = (localStorage.prFaithUpgrade == "true")
 			if(myBool == true){

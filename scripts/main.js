@@ -38,6 +38,7 @@ var lwoodUpgrade = false;		//Ljack - Collection rate upgrade
 var lwoodClickUpgrade = false;  //LJack - Wood click rate upgrade 
 var mPanningUpgrade = false;	//Miner - Gold Panning upgrade
 var mSilverUpgrade = false;		//Miner - Silver Mining upgrade
+var acFaithUpgrade = false; 	//Acolyte - Faith collection rate upgrade
 var prFaithUpgrade = false;     //Priest - Faith collection rate upgrade
 var paladinWepUpgrade = false;  //Paladin - Weapon Upgrade
 var tavernUpgrade = false;		//Tavern - Miner Upgrade
@@ -353,6 +354,20 @@ function minerUpgradeSilver(){
 		document.getElementById("btnminerUpgrade2").innerHTML = "Learned Silver Studies";
 	}	
 };
+
+function acolyteUpgradeCollection(){
+	if(gold >= 5000 && wood >= 3000 && faith >= 250){
+		gold -= 5000
+		wood -= 3000
+		faith -= 250
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('wood').innerHTML = fnum(wood);
+		document.getElementById('faith').innerHTML = fnum(faith);
+		acFaithUpgrade = true;
+		document.getElementById("btnAcolyteUpgrade1").disabled = true;
+		document.getElementById("btnAcolyteUpgrade1").innerHTML = "Trainee Vestaments Crafted";
+	}	
+}
 
 function priestUpgradeCollection(){
 	if(gold >= 7000 && wood >= 5000 && faith >= 500){
@@ -735,7 +750,17 @@ window.setInterval(function(){
 	silver = silver.toFixedDown(2);
 	
 	 //Faith Generation via priests etc every second
-	clickThing(Bishop.number * 10 + Priest.number*0.5 + Acolyte.number*0.1, "faith");          
+	 
+	var acoMult = 0.1;	
+	var priestMult = 0.5;
+	if(acFaithUpgrade == true){
+		acoMult = 0.2
+	}
+	if(prFaithUpgrade == true){
+		priestMult = 1.0
+	}	
+	 
+	clickThing(Bishop.number * 10 + Priest.number*priestMult + Acolyte.number*acoMult, "faith");          
 	faith = faith.toFixedDown(2);
 	
 	//Soul generation via paladins etc every second
