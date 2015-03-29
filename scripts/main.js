@@ -54,6 +54,7 @@ var cathedralOpened = false;
 var tomesUnlocked = false;
 var PmillEffUpgr = false;		//Paper mill efficiency upgrade cost
 var PmillEffUpgr2 = false;
+var PmillClickUpgr = false;		//Paper mill - Click multiplier
 var barracksOpened = false;
 var towerUnlocked = false;
 var towerBuilt = false;
@@ -136,14 +137,18 @@ function clickThing(number, type)
 			break;				
 			
 		case "paperMouse":
+			var numMade = 1;
+			if(PmillClickUpgr == true){
+				numMade = 10;
+			}
 			if(PmillEffUpgr == true){
-					if(wood >= 50*0.6*number){
-					paper += number;
-					statPaperCrafted += number;
-					statTotalPaperCrafted += number;
-					statSelfPaperCrafted += number;
-					statTotalSelfPaperCrafted += number;
-					wood -= number * 50*0.6;
+					if(wood >= 50*0.6*number*numMade){
+					paper += number*numMade;
+					statPaperCrafted += number*numMade;
+					statTotalPaperCrafted += number*numMade;
+					statSelfPaperCrafted += number*numMade;
+					statTotalSelfPaperCrafted += number*numMade;
+					wood -= number * 50*0.6*numMade;
 					document.getElementById("paper").innerHTML = fnum(paper);
 					document.getElementById("statPaperCrafted").innerHTML = fnum(statPaperCrafted);
 					document.getElementById("statTotalPaperCrafted").innerHTML = fnum(statTotalPaperCrafted);
@@ -153,13 +158,13 @@ function clickThing(number, type)
 				}
 			}
 			else{
-				if(wood >= 50*number){
-					paper += number;
-					statPaperCrafted += number;
-					statTotalPaperCrafted += number;
-					statSelfPaperCrafted += number;
-					statTotalSelfPaperCrafted += number;
-					wood -= number * 50;
+				if(wood >= 50*number*numMade){
+					paper += number*numMade;
+					statPaperCrafted += number*numMade;
+					statTotalPaperCrafted += number*numMade;
+					statSelfPaperCrafted += number*numMade;
+					statTotalSelfPaperCrafted += number*numMade;
+					wood -= number * 50*numMade;
 					document.getElementById("paper").innerHTML = fnum(paper);
 					document.getElementById("statPaperCrafted").innerHTML = fnum(statPaperCrafted);
 					document.getElementById("statTotalPaperCrafted").innerHTML = fnum(statTotalPaperCrafted);
@@ -419,6 +424,22 @@ function PmillEffUpgrade2(){
 		PmillEffUpgr2 = true;
 		document.getElementById("btnPmillEffUpgrade2").disabled = true;
 		document.getElementById("btnPmillEffUpgrade2").innerHTML = "Total Overhaul Purchased";
+	}		
+}
+
+function PmillClickUpgrade(){
+	if(gold >= 1200000 && wood >= 1500000 && iron >= 1200000 && souls >= 50000){
+		gold -= 1200000
+		wood -= 1500000
+		iron -= 1200000
+		souls -= 50000;
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('wood').innerHTML = fnum(wood);
+		document.getElementById('iron').innerHTML = fnum(iron);
+		document.getElementById('souls').innerHTML = fnum(souls);
+		PmillClickUpgr = true;
+		document.getElementById("btnPmillClickUpgrade").disabled = true;
+		document.getElementById("btnPmillClickUpgrade").innerHTML = "Production Oversight Purchased";
 	}		
 }
 

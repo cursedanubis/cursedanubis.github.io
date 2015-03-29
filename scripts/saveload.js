@@ -97,6 +97,7 @@
 		save("tomesUnlocked",tomesUnlocked);
 		save("PmillEffUpgr", PmillEffUpgr);
 		save("PmillEffUpgr2",PmillEffUpgr2);
+		save("PmillClickUpgr",PmillClickUpgr);
 		save("paladinWepUpgrade",paladinWepUpgrade);
 		save("tavernUpgrade",tavernUpgrade);
 		save("tavernUpgrade2", tavernUpgrade2);
@@ -566,7 +567,15 @@
 				document.getElementById("btnPmillEffUpgrade2").disabled = true;
 				document.getElementById("btnPmillEffUpgrade2").innerHTML = "Total Overhaul Bought";
 			}
-		}		
+		}	
+		if(localStorage.PmillClickUpgr != null){
+			var myBool = (localStorage.PmillClickUpgr == "true")
+			if(myBool == true){
+				PmillClickUpgr = true;
+				document.getElementById("btnPmillClickUpgrade").disabled = true;
+				document.getElementById("btnPmillClickUpgrade").innerHTML = "Production Oversight Purchased";
+			}
+		}			
 		if(localStorage.paladinWepUpgrade != null){
 			var myBool = (localStorage.paladinWepUpgrade == "true")
 			if(myBool == true){
