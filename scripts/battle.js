@@ -607,6 +607,15 @@ function setDefeatEvents(name){
 	}	
 };
 
+function raidBattleCheck(name){
+	if(name == curBattling && inbattle == true){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
 $(document).ready(function(){
     $(".toggle-false").click(function(){
         $("#myCollapsible").collapse({
@@ -953,15 +962,17 @@ function banditLoot(){
 		  if (ticker == 0){
 			clearInterval(raid);
 			if(defeatedBandits == false){
-				justStolen =  Math.ceil(gold*1/5);
-				goldStolen = goldStolen + justStolen;
-				statTotalGoldStolen += justStolen;
-				gold = gold - justStolen;
-				document.getElementById("gold").innerHTML = fnum(gold);
-				document.getElementById("goldStolen").innerHTML = fnum(goldStolen);
-				document.getElementById("justStolen").innerHTML = fnum(justStolen);
-				document.getElementById("statTotalGoldStolen").innerHTML = fnum(statTotalGoldStolen);
-				document.getElementById("banditLootAlert").style.display = "block";
+				if(raidBattleCheck('Bandits') == false){
+					justStolen =  Math.ceil(gold*1/5);
+					goldStolen = goldStolen + justStolen;
+					statTotalGoldStolen += justStolen;
+					gold = gold - justStolen;
+					document.getElementById("gold").innerHTML = fnum(gold);
+					document.getElementById("goldStolen").innerHTML = fnum(goldStolen);
+					document.getElementById("justStolen").innerHTML = fnum(justStolen);
+					document.getElementById("statTotalGoldStolen").innerHTML = fnum(statTotalGoldStolen);
+					document.getElementById("banditLootAlert").style.display = "block";
+				}
 				banditLoot();
 				//Dismisses Raid Alert
 				var ticker2 = 0 ;
@@ -1014,7 +1025,7 @@ function hellHoundRaid(){
 //			console.log(ticker);
 		  if (ticker == 0){
 			clearInterval(raid);
-			if(defeatedHhounds == false && (inbattle == false || (inbattle == true && curBattling == "Hellhounds"))){	
+			if(defeatedHhounds == false && raidBattleCheck('Hellhounds') == false){	
 				hellhoundCull();
 				hellHoundRaid();
 				//Dismisses Raid Alert
@@ -1097,7 +1108,7 @@ function oozeRaid(){
 			ticker = ticker - 1;  
 		  if (ticker == 0){
 			clearInterval(raid);
-			if(defeatedOoze == false && (inbattle == false || (inbattle == true && curBattling == "Ooze"))){	
+			if(defeatedOoze == false && raidBattleCheck('Ooze') == false){	
 				oozeAbsorb();
 				oozeRaid();
 			}
@@ -1181,7 +1192,7 @@ function succubusRaid(){
 			ticker = ticker - 1;  
 		  if (ticker == 0){
 			clearInterval(raid);
-			if(defeatedSuccubus == false && (inbattle == false || (inbattle == true && curBattling == "Succubus"))){
+			if(defeatedSuccubus == false && raidBattleCheck('Succubus') == false){
 				succubusSeduce();
 				succubusRaid();
 			}
