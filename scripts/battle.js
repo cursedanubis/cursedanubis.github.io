@@ -142,7 +142,7 @@ Enemy.prototype.fight = function(){
 			//Unit battle loss
 			if(perComplete%25 == 0){
 				var unitLost = false;
-				if(loseUnit(lossPercent) == true){
+				if(loseUnit(lossPercent) == true && battleUnitLost.number > 0){
 					console.log(battleUnitLost.name + " : " + battleUnitLost.number);
 					battleUnitLostNum = battleUnitLostNum + 1;
 					battleUnitLost.removeOne();
@@ -158,7 +158,7 @@ Enemy.prototype.fight = function(){
 				}
 				
 //				console.log(SpirReq);
-				if(loseUnit(lossPercent) == true && SpirReq > 0){
+				if(loseUnit(lossPercent) == true && SpirReq > 0 && ethUnitLost.number > 0){
 					console.log(ethUnitLost.name + " : " + ethUnitLost.number);
 					ethUnitLostNum = ethUnitLostNum + 1;
 					ethUnitLost.removeOne();
