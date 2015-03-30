@@ -634,7 +634,7 @@ $(function() {
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
 			$('.selectpicker').selectpicker('refresh');
-			questDescription = "Send your units out to slay lesser demons attacking the people in your Kingdom. <br>Reward: Souls"
+			questDescription = "Send your units out to slay lesser demons attacking the people in " + KingdomName + ". <br>Reward: Souls"
 			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;
 		
@@ -661,7 +661,7 @@ $(function() {
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
 			$('.selectpicker').selectpicker('refresh');	
-			questDescription = "Send your units out to help the people with generic problems, like little children falling down a well. <br>Reward: Gold"
+			questDescription = "Send your units out to help the people of " + KingdomName + " with generic problems, like little children falling down a well. <br>Reward: Gold"
 			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;
 
