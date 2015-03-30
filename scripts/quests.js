@@ -511,6 +511,7 @@ function rollForFragment(){
 	console.log(percentFind + '% chance to find a relic fragment');
 	if(percentFind >= rand){
 		relicFragment += 1;
+		document.getElementById('relicBadge').innerHTML = relicFragment;
 		alert("Relic fragment found!");		
 	}
 	else{

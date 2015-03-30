@@ -1,4 +1,5 @@
 //Save and Loading Script for HW //
+	var saveTime;
 	
 	function save(key, value){
 		localStorage.setItem(key, value);
@@ -6,6 +7,9 @@
 
 	function saveCookie(){
 		if(typeof(Storage) !== "undefined"){
+		saveTime = Date.now();
+		save("saveTime", saveTime);
+		
 		//Currency variables
 		save("gold",gold);
 		save("wood", wood);
@@ -259,6 +263,11 @@
 	};
 	
 	function loadCookie(){
+		if(localStorage.saveTime != null){
+			saveTime = localStorage.saveTime;
+//			console.log(Math.floor((Date.now()-saveTime)/1000));
+		}	
+		
 		if(localStorage.gold != null){
 			gold = parseInt(localStorage.gold);
 			document.getElementById("gold").innerHTML = fnum(gold);

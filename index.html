@@ -86,7 +86,7 @@
 			  <li><a id="TowerMenu" href="javascript:CollapseAll(); toggle('Magic'); setLastPage('Magic');" style="display: none;">Tower</a></li>
 			  <li><a id="QuestMenu" href="javascript:CollapseAll(); toggle('Quests'); setLastPage('Quests');" >Quests</a></li>
     		  <li><a id="BattleMenu" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle');">Battle</a></li>
-			  <li><a id="RelicsMenu" href="javascript:CollapseAll(); toggle('Relics'); setLastPage('Relics');" style="display: none;">Relics</a></li>
+			  <li><a id="RelicsMenu" href="javascript:CollapseAll(); toggle('Relics'); setLastPage('Relics');" style="display: none;">Relics <span class="badge" id = "relicBadge">0</span></a></li>
 <!--		  <li><a id="AchievmentsMenu" href="javascript:CollapseAll(); toggle('Achievements'); setLastPage('Achievements');">Achievements</a></li> -->
 
               <li class="dropdown">
@@ -1779,7 +1779,7 @@
 				break;
 				
 				case 'Relics':
-					document.getElementById("RelicMenu").click();
+					document.getElementById("RelicsMenu").click();
 				break;
 				
 				case 'Ethereal':
