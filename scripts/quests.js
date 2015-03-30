@@ -267,7 +267,7 @@ function loadQuest(QuestName, percent, unit, numUnit){
 
 function btnSendQuest(){			
 
-	 if (checkQuestSelection() == true){
+	 if (checkQuestSelection() == true && $('#unitSelectPicker').selectpicker('val') != "" && $('#questSelectPicker').selectpicker('val') != ""){
 		 var string = "You send " + $('#QuestUnitNumSelect').val() + " " + $('#unitSelectPicker').selectpicker('val');
 		 if($('#QuestUnitNumSelect').val() > 1){
 			 string = string + "s";
@@ -625,7 +625,7 @@ $(function() {
 			$('#KnightOption').prop("disabled", true);
 			$('#SquireOption').prop("disabled", true);
 			$('.selectpicker').selectpicker('refresh');
-			questDescription = "Send your units out to look for mysterious relics. <br>Reward: Chance at relics"
+			questDescription = "Send your units out to look for mysterious relics. <br>Requires Paladins or higher units. <br>Reward: Chance at relics"
 			document.getElementById('questDescString').innerHTML = questDescription;
 		break;
 		
