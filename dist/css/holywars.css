@@ -116,6 +116,10 @@ display: inline-block;
 display: inline-block;
 }
 
+.defeatedtitle{
+text-decoration: line-through;
+}
+
 .panel{
 margin-top:10px;
 }

@@ -667,6 +667,7 @@
 	 <div id="Relics" class = "panel panel-default" style="display: none;">
 		<div class = "panel-heading">
 			<div class="panel-title">Relics</div>
+			<h3>You have <span id = relicFragments>0</span> relics fragments.</h3>
 		</div>			
 	   <div id="RelicsContainer" class = "container">   
 	   </div>
@@ -798,7 +799,7 @@
 		
 		  <div class="panel panel-default">
 			<div class="panel-heading" role="tab" id="GoblinTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'goblinh4' class="panel-title">
 				<a data-toggle="collapse" data-parent="#accordion" href="#GoblinCollapse" aria-expanded="true" aria-controls="GoblinCollapse">
 				  A Horde of Goblins
 				</a>
@@ -806,7 +807,7 @@
 			</div>
 			<div id="GoblinCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="GoblinTitle">
 			   <div id="BatGoblins" class = "panel-body">
-				<a id = btnDescGoblins tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Horde of Goblins"
+				<a id = 'btnDescGoblins' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Horde of Goblins"
 				data-content="" >A Horde of Goblins</a>
 				<br />
 						<button id=btnBatGoblins onclick="Goblins.fight()"	type="button" class="btn btn-danger">Battle!</button>
@@ -822,7 +823,7 @@
 		  
 		  <div class="panel panel-default">
 			<div class="panel-heading" role="tab" id="BanditTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'bandith4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#BanditCollapse" aria-expanded="false" aria-controls="BanditCollapse">
 				  Bunch of Bandits
 				</a>
@@ -830,7 +831,7 @@
 			</div>
 		   <div id="BanditCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="BanditTitle">
 			   <div id="BatBandits" class="panel-body">
-				<a id = btnDescBandits tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Pack of Bandits"
+				<a id = 'btnDescBandits' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="A Pack of Bandits"
 				data-content="" >Bunch of Bandits</a>
 				<br />
 						<button id=btnBatBandits onclick="Bandits.fight()"	type="button" class="btn btn-danger">Battle!</button>
@@ -848,7 +849,7 @@
 		  
 		  <div class="panel panel-default">
 			<div class="panel-heading" role="tab" id="HermitTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'hermith4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#HermitCollapse" aria-expanded="false" aria-controls="HermitCollapse">
 				  A Reclusive Hermit
 				</a>
@@ -873,7 +874,7 @@
 		  
 		  <div class="panel panel-default">
 			<div class="panel-heading" role="tab" id="OgreTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'ogreh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#OgreCollapse" aria-expanded="false" aria-controls="OgreCollapse">
 				  A Smelly Ogre
 				</a>
@@ -898,7 +899,7 @@
 
 		  <div class="panel panel-default" id="BatHellhound" style="display: none;">
 			<div class="panel-heading" role="tab" id="HellhoundTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'hellhoundsh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#HellhoundsCollapse" aria-expanded="false" aria-controls="HellhoundsCollapse">
 				  Pack of Hellhounds
 				</a>
@@ -925,7 +926,7 @@
 
 		  <div class="panel panel-default" id = "BatPixie" style="display: none;">
 			<div class="panel-heading" role="tab" id="PixieTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'pixieh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#pixieCollapse" aria-expanded="false" aria-controls="pixieCollapse">
 				  An Evil Pixie
 				</a>
@@ -952,7 +953,7 @@
 		  
 		  <div class="panel panel-default" id="BatArmor" style="display: none;">
 			<div class="panel-heading" role="tab" id="ArmorTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'armorh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#ArmorCollapse" aria-expanded="false" aria-controls="ArmorCollapse">
 				  Haunted Armor
 				</a>
@@ -978,7 +979,7 @@
 
 		  <div class="panel panel-default" id="BatOoze" style="display: none;">
 			<div class="panel-heading" role="tab" id="OozeTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'oozeh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#OozeCollapse" aria-expanded="false" aria-controls="OozeCollapse">
 				  Gelatinous Ooze
 				</a>
@@ -1006,7 +1007,7 @@
 
 		  <div class="panel panel-default" id="BatDwarf" style="display: none;">
 			<div class="panel-heading" role="tab" id="DwarfTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'dwarfh4'  class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#DwarfCollapse" aria-expanded="false" aria-controls="DwarfCollapse">
 				  An Ancient Corrupted Dwarf
 				</a>
@@ -1032,7 +1033,7 @@
 		  
 		  <div class="panel panel-default" id="BatArchMage">
 			<div class="panel-heading" role="tab" id="ArchMageTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'archmageh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#ArchmageCollapse" aria-expanded="false" aria-controls="ArchmageCollapse">
 				  Corrupted Archmage
 				</a>
@@ -1059,7 +1060,7 @@
 
 		  <div class="panel panel-default" id="BatSuccubus" style="display: none;">
 			<div class="panel-heading" role="tab" id="SuccubusTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'succubush4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SuccubusCollapse" aria-expanded="false" aria-controls="SuccubusCollapse">
 				  Seductive Succubus
 				</a>
@@ -1087,7 +1088,7 @@
 
 		  <div class="panel panel-default" id="BatUndeadArmy" style="display: none;">
 			<div class="panel-heading" role="tab" id="UndeadArmyTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'uarmyh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#UndeadArmyCollapse" aria-expanded="false" aria-controls="UndeadArmyCollapse">
 				  Undead Army
 				</a>
@@ -1113,7 +1114,7 @@
 		  
 		  <div class="panel panel-default" id="BatNecromancer" style="display: none;">
 			<div class="panel-heading" role="tab" id="NecromancerTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'necromancerh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#NecromancerCollapse" aria-expanded="false" aria-controls="NecromancerCollapse">
 				  Necromancer
 				</a>
@@ -1139,7 +1140,7 @@
 
 		  <div class="panel panel-default" id="BatEarthElemental" style="display: none;">
 			<div class="panel-heading" role="tab" id="EarthElementalTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'earthelementalh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#EarthElementalCollapse" aria-expanded="false" aria-controls="EarthElementalCollapse">
 				  Earth Elemental
 				</a>
@@ -1165,7 +1166,7 @@
 		  
 		  <div class="panel panel-default" id="BatFireElemental" style="display: none;">
 			<div class="panel-heading" role="tab" id="FireElementalTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'fireelementalh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#FireElementalCollapse" aria-expanded="false" aria-controls="FireElementalCollapse">
 				  Fire Elemental
 				</a>
@@ -1191,7 +1192,7 @@
 
 		  <div class="panel panel-default" id="BatWindElemental" style="display: none;">
 			<div class="panel-heading" role="tab" id="WindElementalTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'windelementalh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#WindElementalCollapse" aria-expanded="false" aria-controls="WindElementalCollapse">
 				  Wind Elemental
 				</a>
@@ -1218,7 +1219,7 @@
 
 		  <div class="panel panel-default" id="BatWaterElemental" style="display: none;">
 			<div class="panel-heading" role="tab" id="WaterElementalTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'waterelementalh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#WaterElementalCollapse" aria-expanded="false" aria-controls="WaterElementalCollapse">
 				  Water Elemental
 				</a>
@@ -1244,7 +1245,7 @@
 		  
 		  <div class="panel panel-default" id="BatThaumaturge" style="display: none;">
 			<div class="panel-heading" role="tab" id="ThaumaturgeTitle">
-			  <h4 class="panel-title">
+			  <h4 id = 'thamaturgeh4' class="panel-title">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#ThaumaturgeCollapse" aria-expanded="false" aria-controls="ThaumaturgeCollapse">
 				  Thaumaturge
 				</a>
@@ -1449,7 +1450,7 @@
 
 		<div id = 'DwarfDefeatAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong> The dwarf coughs and the ire fades from his eyes. <a href="javascript: toggle('tomeUnlockAlert'); CollapseAll(); toggle('Cathedral');" class="alert-link">someone</a> knows what to do with these...
+			<strong>New!</strong> The dwarf coughs and the ire fades from his eyes. After a few moments gathering his composure, the dwarf offers to use his skills and tools to<a href="javascript: toggle('DwarfDefeatAlert'); CollapseAll(); toggle('Relics');" class="alert-link">identify relics</a> for you.
 		</div>		
 		
 		<div id = 'EvilOneIreAlert' class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">

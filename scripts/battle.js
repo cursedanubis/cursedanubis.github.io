@@ -361,7 +361,8 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 		case 'Goblins':
 			if(defeatedGoblins == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
-				document.getElementById(myButton).disabled = true;	
+				document.getElementById(myButton).disabled = true;
+				document.getElementById('goblinh4').classList.add('defeatedtitle');			
 			}
 						
 		break;	
@@ -369,14 +370,16 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 		case 'Bandits':
 			if(defeatedBandits == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
-				document.getElementById(myButton).disabled = true;	
+				document.getElementById(myButton).disabled = true;
+				document.getElementById('bandith4').classList.add('defeatedtitle');					
 			}
 		break;
 		
 		case 'Hermit':
 			if(defeatedHermit == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
-				document.getElementById(myButton).disabled = true;	
+				document.getElementById(myButton).disabled = true;
+				document.getElementById('hermith4').classList.add('defeatedtitle');	
 			}
 		break;		
 		
@@ -384,21 +387,24 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 		case 'Ogre':
 			if(defeatedOgre == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
-				document.getElementById(myButton).disabled = true;	
+				document.getElementById(myButton).disabled = true;
+				document.getElementById('ogreh4').classList.add('defeatedtitle');	
 			}
 			break;
 		
 		case 'Hellhounds':
 			if(defeatedHhounds == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
-				document.getElementById(myButton).disabled = true;	
+				document.getElementById(myButton).disabled = true;
+				document.getElementById('hellhoundsh4').classList.add('defeatedtitle');
 			}			
 		break;
 		
 		case 'Pixie':
 			if(defeatedPixie == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
-				document.getElementById(myButton).disabled = true;	
+				document.getElementById(myButton).disabled = true;
+				document.getElementById('pixieh4').classList.add('defeatedtitle');
 			}			
 		break;
 
@@ -406,6 +412,7 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 			if(defeatedArmor == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
+				document.getElementById('armorh4').classList.add('defeatedtitle');	
 			}			
 		break;	
 		
@@ -413,6 +420,7 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 			if(defeatedOoze == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;
+				document.getElementById('oozeh4').classList.add('defeatedtitle');	
 			}
 		break;
 		
@@ -420,6 +428,7 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 			if(defeatedDwarf == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;
+				document.getElementById('dwarfh4').classList.add('defeatedtitle');	
 			}		
 		break;
 		
@@ -427,13 +436,15 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 			if(defeatedArchmage == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
+				document.getElementById('archmageh4').classList.add('defeatedtitle');	
 			}							
 		break;
 		
 		case 'Succubus':
 			if(defeatedSuccubus == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
-				document.getElementById(myButton).disabled = true;	
+				document.getElementById(myButton).disabled = true;
+				document.getElementById('succubush4').classList.add('defeatedtitle');		
 			}							
 		break;	
 		
@@ -441,6 +452,7 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 			if(defeatedUArmy == true){
 				document.getElementById(myButton).innerHTML = "Undead Army" + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
+				document.getElementById('uarmyh4').classList.add('defeatedtitle');	
 			}							
 		break;		
 
@@ -448,8 +460,49 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 			if(defeatedNecromancer == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
+				document.getElementById('necromancerh4').classList.add('defeatedtitle');
 			}							
-		break;			
+		break;
+
+		case 'EarthElmental':
+			if(defeatedNecromancer == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+				document.getElementById('earthelementalh4').classList.add('defeatedtitle');
+			}			
+		break;
+		
+		case 'FireElmental':
+			if(defeatedFireElmental == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+				document.getElementById('fireelementalh4').classList.add('defeatedtitle');
+			}			
+		break;
+
+		case 'WindElmental':
+			if(defeatedWindElmental == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+				document.getElementById('windelementalh4').classList.add('defeatedtitle');
+			}			
+		break;
+
+		case 'WaterElmental':
+			if(defeatedWaterElmental == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+				document.getElementById('waterelementalh4').classList.add('defeatedtitle');
+			}			
+		break;
+
+		case 'Thaumaturge':
+			if(defeatedThaumaturge == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+				document.getElementById('thaumaturgeh4').classList.add('defeatedtitle');
+			}			
+		break;		
 		
 		default:		
 	}

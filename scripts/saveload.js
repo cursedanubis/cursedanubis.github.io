@@ -636,6 +636,7 @@
 				document.getElementById('BatGoblinsProgBarBox').style.display = "none";			
 				document.getElementById("btnBatGoblins").innerHTML = "Goblins Defeated!";
 				document.getElementById("btnBatGoblins").disabled = true;
+				document.getElementById('goblinh4').classList.add('defeatedtitle');		
 				defeatedGoblins = true;
 			}
 		}
@@ -648,6 +649,7 @@
 				document.getElementById('FaithStructuresTab').style.display = "block";				
 				document.getElementById("btnBatBandits").innerHTML = "Bandits Defeated!";
 				document.getElementById("btnBatBandits").disabled = true;
+				document.getElementById('bandith4').classList.add('defeatedtitle');					
 				defeatedBandits = true;
 			}
 		}
@@ -662,6 +664,7 @@
 				document.getElementById('paperdiv').style.display = "block";
 				document.getElementById("btnBatHermit").innerHTML = "Bandits Defeated!";
 				document.getElementById("btnBatHermit").disabled = true;
+				document.getElementById('hermith4').classList.add('defeatedtitle');	
 				defeatedBandits = true;
 			}
 		}				
@@ -676,6 +679,7 @@
 				document.getElementById("btnBatOgre").disabled = true;
 				document.getElementById("btnBatOgre").innerHTML = "Ogre Defeated!";
 				document.getElementById('BatHellhound').style.display = "block";
+				document.getElementById('ogreh4').classList.add('defeatedtitle');	
 			}
 		}
 		if(localStorage.defeatedHhounds != null){
@@ -691,6 +695,7 @@
 					document.getElementById('BatHhoundProgBarBox').style.display = "none";
 					document.getElementById("btnBatHellhound").disabled = true;
 					document.getElementById("btnBatHellhound").innerHTML = "Hellhounds Defeated!";
+					document.getElementById('hellhoundsh4').classList.add('defeatedtitle');	
 					defeatedHhounds = true;
 				}
 				else if(defeatedOgre == true){
@@ -700,6 +705,7 @@
 		if(localStorage.defeatedPixie != null){
 			var myBool = (localStorage.defeatedPixie == "true")
 				if(myBool == true){
+					document.getElementById('pixieh4').classList.add('defeatedtitle');	
 					defeatedPixie = true;
 				}
 		};
@@ -708,6 +714,7 @@
 			var myBool = (localStorage.defeatedArmor == "true")
 				if(myBool == true){
 					defeatedArmor = true;
+					document.getElementById('armorh4').classList.add('defeatedtitle');	
 					document.getElementById('AspectofJustice').style.display = "block";
 				}
 		};
@@ -718,6 +725,7 @@
 					defeatedOoze = true;
 					document.getElementById('BatOoze').style.display = "block";
 					document.getElementById('BatDwarf').style.display = "block";
+					document.getElementById('oozeh4').classList.add('defeatedtitle');	
 					document.getElementById('tomeUnlock').style.display = "block";
 				}
 				else if(defeatedHhounds == true && myBool == false){
@@ -731,7 +739,8 @@
 					defeatedDwarf = true;
 					document.getElementById('BatDwarf').style.display = "block";
 					document.getElementById('Relics').style.display = "block";
-					document.getElementById('RelicsMenu').style.display = "block";					
+					document.getElementById('RelicsMenu').style.display = "block";
+					document.getElementById('dwarfh4').classList.add('defeatedtitle');		
 				}
 		};			
 							
@@ -744,6 +753,7 @@
 					document.getElementById("btnBatMage").innerHTML = "Archmage Defeated!";
 					document.getElementById('BatSuccubus').style.display = "block";
 					document.getElementById('BatUndeadArmy').style.display = "block";
+					document.getElementById('archmageh4').classList.add('defeatedtitle');	
 					defeatedArchmage = true;
 					setTimeout(function() { succubusRaid(); }, 30000);			//defeated archmage but haven't defeated succubus yet, start raids again
 				}
@@ -755,6 +765,7 @@
 					document.getElementById('btnBatSuccubus').innerHTML = this.name + " Defeated!"; 
 					document.getElementById("btnBatSuccubus").disabled = true;
 					document.getElementById('RelicPedestalTab').style.display = "block";
+					document.getElementById('succubush4').classList.add('defeatedtitle');	
 					defeatedSuccubus = true;
 				}
 		};
@@ -763,6 +774,7 @@
 			var myBool = (localStorage.defeatedUArmy == "true")
 				if(myBool == true){
 					defeatedUArmy = true;
+					document.getElementById('uarmyh4').classList.add('defeatedtitle');	
 				}
 		};
 		
@@ -785,7 +797,8 @@
 					document.getElementById('BatFireElemental').style.display = "block";	
 					document.getElementById('BatWindElemental').style.display = "block";
 					document.getElementById('BatWaterElemental').style.display = "block";	
-					document.getElementById('BatThaumaturge').style.display = "block";					
+					document.getElementById('BatThaumaturge').style.display = "block";
+					document.getElementById('necromancerh4').classList.add('defeatedtitle');						
 				}
 		};
 		
@@ -793,6 +806,7 @@
 			var myBool = (localStorage.defeatedEarthElemental == "true")
 				if(myBool == true){
 					defeatedEarthElemental = true;
+					document.getElementById('earthelementalh4').classList.add('defeatedtitle');	
 				}
 		};
 
@@ -800,6 +814,7 @@
 			var myBool = (localStorage.defeatedFireElemental == "true")
 				if(myBool == true){
 					defeatedFireElemental = true;
+					document.getElementById('fireelementalh4').classList.add('defeatedtitle');	
 				}
 		};
 		
@@ -807,6 +822,7 @@
 			var myBool = (localStorage.defeatedWindElemental == "true")
 				if(myBool == true){
 					defeatedWindElemental = true;
+					document.getElementById('windelementalh4').classList.add('defeatedtitle');	
 				}
 		};
 		
@@ -814,6 +830,7 @@
 			var myBool = (localStorage.defeatedWaterElemental == "true")
 				if(myBool == true){
 					defeatedWaterElemental = true;
+					document.getElementById('waterelementalh4').classList.add('defeatedtitle');	
 				}
 		};		
 
@@ -821,6 +838,7 @@
 			var myBool = (localStorage.defeatedThaumaturge == "true")
 				if(myBool == true){
 					defeatedThaumaturge = true;
+					document.getElementById('thaumaturgeh4').classList.add('defeatedtitle');	
 				}
 		};		
 		
