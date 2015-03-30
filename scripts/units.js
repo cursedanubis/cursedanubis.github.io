@@ -412,7 +412,7 @@ setSpiritPower(Aspect, 50);
 setClickVal(Aspect, 'souls', 2);
 
 var angelDesc = "Divine warriors capable of flight summoned down from the heavens. They smell vaguely like freshly baked brownies."
-var Angel = new Unit("Angel",'angels','AngelCost','angelIronCost','angelSilverCost','none','angelSoulCost','angelTomeCost','btnBuyAngel',200000,500,2500,0,1500,30,1.15, angelDesc, 0, false, "none");
+var Angel = new Unit("Angel",'angels','AngelCost','angelIronCost','angelSilverCost','angelFaithCost','angelSoulCost','angelTomeCost','btnBuyAngel',200000,500,2500,25000,1500,20,1.15, angelDesc, 0, false, "none");
 setDescription(Angel, 'BtnAngelDesc');
 setArmyPower(Angel, 450)
 setSpiritPower(Angel, 200);

@@ -379,7 +379,7 @@ function acolyteUpgradeCollection(){
 		document.getElementById('faith').innerHTML = fnum(faith);
 		acFaithUpgrade = true;
 		document.getElementById("btnAcolyteUpgrade1").disabled = true;
-		document.getElementById("btnAcolyteUpgrade1").innerHTML = "Trainee Vestaments Crafted";
+		document.getElementById("btnAcolyteUpgrade1").innerHTML = "Trainee Vestments Crafted";
 	}	
 }
 
@@ -814,13 +814,23 @@ window.setInterval(function(){
 
 window.setInterval(function(){					//Enables/disables buttons 
 	UpdateButtons();
+	var nummult = 1;
+	var costmult = 1;
+	if(PmillClickUpgr == true)
+	{
+		nummult = 10;
+	}
+	if(PmillEffUpgr == true){
+		costmult = 0.6;
+	}
 	
-	if(wood < 100){
+	if(wood < 100*nummult*costmult){
 		document.getElementById('clickpaper').src = "images/parchmentgrayed.png"
 	}
 	else{
 		document.getElementById('clickpaper').src = "images/parchment.png"
-	}
+	}	
+
 	
 	if(paper < 2000){
 		document.getElementById('clicktome').src = "images/booksgrayed.png"
