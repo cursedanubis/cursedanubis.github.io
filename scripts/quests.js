@@ -608,7 +608,7 @@ $(function() {
 	}
 	
 //	console.log(newMax);
-	if(newMax > document.getElementById('QuestUnitNumSelect').value){
+	if(newMax < document.getElementById('QuestUnitNumSelect').value){
 		document.getElementById('QuestUnitNumSelect').value = newMax;
 	}
 	$("input").trigger("touchspin.updatesettings", {max: newMax});

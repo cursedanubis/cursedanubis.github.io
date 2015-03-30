@@ -261,10 +261,26 @@ function clickThing(number, type)
 }
 
 function renameKingdom(){
-	KingdomName = prompt("Name your kingdom", "");
-	if (KingdomName != null) {
-		document.getElementById("ProductionMenu").innerHTML = KingdomName;
-		document.getElementById("ProductionTitle").innerHTML = KingdomName;
+	
+//	KingdomName = prompt("Name your kingdom", "");
+		bootbox.prompt({
+		  title: "Name your Kingdom",
+		  value: KingdomName,
+		  callback: function(result) {
+			if (result === null) {
+
+			} else {
+				KingdomName = result;
+				document.getElementById("ProductionMenu").innerHTML = KingdomName;
+				document.getElementById("ProductionTitle").innerHTML = KingdomName;				
+			}
+		  }
+		});
+}
+
+function checkKingdomName(){
+	if (KingdomName == ""){
+		renameKingdom();
 	}
 }
 

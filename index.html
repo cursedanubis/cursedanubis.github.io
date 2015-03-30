@@ -15,6 +15,7 @@
 	
 	<!--Touchspin CSS-->
 	<link href="dist/css/jquery.bootstrap-touchspin.css" rel="stylesheet">
+	
 
 	<!--BootstrapSelect CSS-->
 	<link href="dist/css/bootstrap-select.css" rel="stylesheet">	
@@ -28,6 +29,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="dist/js/jquery.bootstrap-touchspin.js"></script>
 	<script src="dist/js/bootstrap-select.js"></script>
+	<script src="dist/js/bootbox.min.js"></script>
 
 	
 	<script language="javascript"> 
@@ -733,7 +735,7 @@
 		
 		<div>
 			<br />
-			<div id = "questContainer" class = 'container'>
+			<div id = "questContainer" class = 'well'>
 				<div class = 'well' id = 'QuestDescBox'>
 					<span id = 'questDescString'></span>
 				</div>
@@ -747,6 +749,14 @@
 						<input id="QuestUnitNumSelect" type="text" value="1" name="QuestUnitNumSelect"> 
 					</div>
 					<div class = "col-xs-3">
+						 <select class="selectpicker" id = "unitSelectPicker" title = "Pick a unit">
+							<option id = "nullOption2" ></option>
+							<option id = "SquireOption">Squire</option>
+							<option id = "KnightOption">Knight</option>
+							<option id = "PaladinOption">Paladin</option>
+						  </select>
+					</div>					
+					<div class = "col-xs-3">
 						 <select class="selectpicker" id = "questSelectPicker" title = "Pick a quest">
 							<option id = "nullOption"></option>
 							<option id = "PeopleChoice">Help the People</option>
@@ -757,14 +767,7 @@
 							<option id = "RelicChoice">Relic Hunt</option>
 						  </select>
 					</div>					
-					<div class = "col-xs-3">
-						 <select class="selectpicker" id = "unitSelectPicker" title = "Pick a unit">
-							<option id = "nullOption2" ></option>
-							<option id = "SquireOption">Squire</option>
-							<option id = "KnightOption">Knight</option>
-							<option id = "PaladinOption">Paladin</option>
-						  </select>
-					</div>
+
 					
 				</div>
 				<br />
@@ -1860,6 +1863,6 @@
 
   </body>
   
-  <body onload = "loadCookie(); CollapseAll(); clickLastPage();" >
+  <body onload = "loadCookie(); CollapseAll(); clickLastPage(); checkKingdomName();" >
  
 </html>
