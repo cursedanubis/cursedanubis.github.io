@@ -628,7 +628,7 @@ $(function() {
 			document.getElementById('questDescString').innerHTML = questDescription;
 		break;
 		
-		case 'Demon Hunt':
+		case 'Hunt lesser demons':
 			$('#PaladinOption').prop("disabled", false);
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
@@ -645,6 +645,15 @@ $(function() {
 			questDescription = "Send your units out to slay treants menacing the lumberjacks in the woods. <br>Reward: Wood"
 			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;
+		
+		case 'Slay Iron Golems':
+			$('#PaladinOption').prop("disabled", false);
+			$('#KnightOption').prop("disabled", false);
+			$('#SquireOption').prop("disabled", false);
+			$('.selectpicker').selectpicker('refresh');
+			questDescription = "Send your units out to slay the iron golems summoned by the Evil One in your mines. <br>Reward: Iron"
+			document.getElementById('questDescString').innerHTML = questDescription;			
+		break;		
 		
 		case 'Help the People':
 			$('#PaladinOption').prop("disabled", false);
