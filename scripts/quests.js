@@ -557,6 +557,10 @@ function returnUnitfromQuest(){
 			document.getElementById('paladins').innerHTML = Paladin.number;
 			calculateBattlePower();
 			calculateSpiritPower();
+			document.getElementById("BattlePower").innerHTML = fnum(BattlePower);
+			document.getElementById("BattlePower2").innerHTML = BattlePower;			
+			document.getElementById("SpiritPower").innerHTML = fnum(SpiritPower);
+			document.getElementById("SpiritPower2").innerHTML = SpiritPower;
 			console.log("returned paladins");
 		break;
 		
@@ -565,6 +569,8 @@ function returnUnitfromQuest(){
 			Knight.totalArmyPower();
 			document.getElementById('knights').innerHTML = Knight.number;	
 			calculateBattlePower();
+			document.getElementById("BattlePower").innerHTML = fnum(BattlePower);
+			document.getElementById("BattlePower2").innerHTML = BattlePower;					
 			console.log("returned knights");
 		break;
 		
@@ -573,6 +579,8 @@ function returnUnitfromQuest(){
 			Squire.totalArmyPower();
 			document.getElementById('squire').innerHTML = Squire.number;	
 			calculateBattlePower();
+			document.getElementById("BattlePower").innerHTML = fnum(BattlePower);
+			document.getElementById("BattlePower2").innerHTML = BattlePower;					
 			console.log("returned Squires");
 		break;		
 	}
@@ -609,33 +617,52 @@ $(function() {
 
 $(function() {
   $('#questSelectPicker').on('change', function(){
+	var questDescription = "";
+	
 	switch($('#questSelectPicker').selectpicker('val')){
 		case 'Relic Hunt':									//Only Paladins or higher can go on Relic Hunts
 			$('#KnightOption').prop("disabled", true);
 			$('#SquireOption').prop("disabled", true);
 			$('.selectpicker').selectpicker('refresh');
+			questDescription = "Send your units out to look for mysterious relics. <br>Reward: Chance at relics"
+			document.getElementById('questDescString').innerHTML = questDescription;
 		break;
 		
 		case 'Demon Hunt':
 			$('#PaladinOption').prop("disabled", false);
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
-			$('.selectpicker').selectpicker('refresh');				
+			$('.selectpicker').selectpicker('refresh');
+			questDescription = "Send your units out to slay lesser demons attacking the people in your Kingdom. <br>Reward: Souls"
+			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;
 		
 		case 'Slay Treants':
 			$('#PaladinOption').prop("disabled", false);
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
-			$('.selectpicker').selectpicker('refresh');				
+			$('.selectpicker').selectpicker('refresh');
+			questDescription = "Send your units out to slay treants menacing the lumberjacks in the woods. <br>Reward: Wood"
+			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;
 		
 		case 'Help the People':
 			$('#PaladinOption').prop("disabled", false);
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
-			$('.selectpicker').selectpicker('refresh');				
-		break;		
+			$('.selectpicker').selectpicker('refresh');	
+			questDescription = "Send your units out to help the people with generic problems, like little children falling down a well. <br>Reward: Gold"
+			document.getElementById('questDescString').innerHTML = questDescription;			
+		break;
+
+		case 'Aid the Sprites':
+			$('#PaladinOption').prop("disabled", false);
+			$('#KnightOption').prop("disabled", false);
+			$('#SquireOption').prop("disabled", false);
+			$('.selectpicker').selectpicker('refresh');	
+			questDescription = "Send your units into your mines to help the sprites residing within. <br>Reward: Silver"
+			document.getElementById('questDescString').innerHTML = questDescription;			
+		break;			
 		
 		default:
 			$('#PaladinOption').prop("disabled", false);
