@@ -428,27 +428,27 @@ RelicHunt.startQuest = function(){
 		var alert = this.htmlAlertRef;
 		var btn = this.htmlBtnRef;
 		var box = this.htmlBoxRef;
-		var bar = this.htmlBarRef;
+		var qbar = this.htmlBarRef;
 		var QuestName = this.name;
 		var foundRelic = false;
 			
 		inQuest = true;
 		curQuestType = this.name
 		document.getElementById(this.htmlBoxRef).style.display = "block";	
-		$bar = $(document.getElementById(this.htmlBarRef));
+		$qbar = $(document.getElementById(this.htmlBarRef));
 		
 		UnitOnQuest = $('#unitSelectPicker').selectpicker('val');
 		NumUnitOnQuest = $('#QuestUnitNumSelect').val();		
 		holdUnitforQuest();
 		
-		var progress = setInterval(function() {
-		currWidth = parseInt(this.$bar.attr('aria-valuenow'));
-		maxWidth = parseInt(this.$bar.attr('aria-valuemax'));	
+		var questprogress = setInterval(function() {
+		currWidth = parseInt(this.$qbar.attr('aria-valuenow'));
+		maxWidth = parseInt(this.$qbar.attr('aria-valuemax'));	
 				
 		//update the progress
-		$bar.width(perComplete +'%');
-		$bar.attr('aria-valuenow',perComplete);
-		$bar.text(perComplete+'%');
+		$qbar.width(perComplete +'%');
+		$qbar.attr('aria-valuenow',perComplete);
+		$qbar.text(perComplete+'%');
 		perComplete = perComplete + perIncrement;
 		this.percentComplete = perComplete;
 		questPercent = perComplete;
@@ -472,8 +472,8 @@ RelicHunt.startQuest = function(){
 		}		
 		
 		if (currWidth >= maxWidth){
-			clearInterval(progress);
-			$bar.text("Complete!");
+			clearInterval(questprogress);
+			$qbar.text("Complete!");
 			document.getElementById(box).style.display = "none";			//Hides progress bar box
 			document.getElementById(btn).innerHTML = "Send";                 //Changes button text
 			document.getElementById(btn).disabled = false;					//enables the buttons
@@ -485,9 +485,9 @@ RelicHunt.startQuest = function(){
 			returnUnitfromQuest();
 			inQuest = false;
 			
-			$bar.width(0 +'%');
-			$bar.attr('aria-valuenow',0);
-			$bar.text(0+'%');
+			$qbar.width(0 +'%');
+			$qbar.attr('aria-valuenow',0);
+			$qbar.text(0+'%');
 		} 
 	}, this.speed);
 	return true;
