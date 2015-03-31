@@ -907,7 +907,7 @@
 		}
 		
 		if(localStorage.relicFragment != null){
-			relicFragment = localStorage.relicFragment;
+			relicFragment = parseInt(localStorage.relicFragment);
 		}	
 		
 		if(localStorage.faithDonated != null){
