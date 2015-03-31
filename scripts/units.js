@@ -28,6 +28,7 @@ var Unit = function(name, htmlNumRef, htmlNextGoldCost, htmlNextIronCost, htmlNe
 	this.faithClickVal = 0;
 	this.soulsClickVal = 0;
 	this.tomeClickVal = 0;
+	this.manaClickVal = 0;
 	this.armyPower = 0;
 	this.spiritPower = 0;
 	this.curGoldCost = 0;
@@ -229,6 +230,10 @@ function setClickVal(Unit, type, value){
 		
 		case 'souls':
 			Unit.soulsClickVal = value;
+		break;
+		
+		case 'mana':
+			Unit.manaClickVal = value;
 		break;
 	}
 }
@@ -443,9 +448,10 @@ setArmyPower(Angel, 450)
 setSpiritPower(Angel, 200);
 setClickVal(Angel, 'souls', 5);
 
-var spriteDesc = "These petite, fairy-like creatures are intensely attracted to the arcane aura emanating from your tower. Just being around them makes your mind sharpen to the arcane energies of the universe."
+var spriteDesc = "These petite, fairy-like creatures are intensely attracted to the arcane aura emanating from your tower. Just being around them makes your mind sharpen to the arcane energies of the universe. <br><br>Increases mana generation by 0.1 <img src = 'images/manasmall.png' Title='Mana'> per second."
 var Sprite = new Unit("Sprite",'sprites','SpriteCost','none','spriteSilverCost','spriteFaithCost','spriteSoulCost','spriteTomeCost', 'spriteManaCost','btnBuySprite',750000,500000,2500,50000,2000,25,2000,1.5, spriteDesc, 0, false, "none");
 setDescription(Sprite, 'BtnSpritesDesc');
+setClickVal(Sprite, 'mana', 0.1);
 
 function checkUnitButtons(){
 	//Unit Buttons //

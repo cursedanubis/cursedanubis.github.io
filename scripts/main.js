@@ -254,8 +254,8 @@ function clickThing(number, type)
 			statManaGained += number;
 			statTotalManaGained += number;
 			document.getElementById("mana").innerHTML = fnum((Math.round( mana * 10) / 10).toFixedDown(1));
-			document.getElementById("statManaGained").innerHTML = fnum(statManaGained);		
-			document.getElementById("statTotalManaGained").innerHTML = fnum(statTotalManaGained);		
+			document.getElementById("statManaGained").innerHTML = fnum(statManaGained.toFixedDown(1));		
+			document.getElementById("statTotalManaGained").innerHTML = fnum(statTotalManaGained.toFixedDown(1));		
 		default:
 	}
 }
