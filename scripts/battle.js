@@ -570,6 +570,7 @@ function setDefeatEvents(name){
 		
 		case 'Pixie':
 			defeatedPixie = true;
+			document.getElementById('ArcaneSpritesTab').style.display = "block";
 		break;	
 
 		case 'Armor':

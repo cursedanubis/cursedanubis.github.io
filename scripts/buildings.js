@@ -371,7 +371,7 @@ var towerDesc = ""
 var Tower = new Building('Tower','btnOpenTower',1000000,700000,10000,500,1000,0,towerDesc,"none",'towerBuilt');
 
 var aLibraryDesc = ""
-var ArcaneLibrary = new MultBuilding('Arcane Library','ArcaneLibrary','aLibraryCost','aLibraryWoodCost', 'aLibraryIronCost','none','none','none','aLibraryTomeCost','btnbuyALibrary',1000000,725000,250000,0,0,0,250,1.5,aLibraryDesc,0,false,0);
+var ArcaneLibrary = new MultBuilding('Arcane Library','ArcaneLibrary','aLibraryCost','aLibraryWoodCost', 'aLibraryIronCost','none','none','none','aLibraryTomeCost','btnbuyALibrary',5000000,3000000,2000000,0,0,0,100,1.5,aLibraryDesc,0,false,0);
 
 
 function checkBuildingButtons(){

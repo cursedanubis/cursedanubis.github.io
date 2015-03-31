@@ -253,7 +253,7 @@ function clickThing(number, type)
 			mana += number;
 			statManaGained += number;
 			statTotalManaGained += number;
-			document.getElementById("mana").innerHTML = fnum(mana);
+			document.getElementById("mana").innerHTML = fnum((Math.round( mana * 10) / 10).toFixedDown(1));
 			document.getElementById("statManaGained").innerHTML = fnum(statManaGained);		
 			document.getElementById("statTotalManaGained").innerHTML = fnum(statTotalManaGained);		
 		default:
@@ -755,7 +755,7 @@ window.setInterval(function(){                                 //Update per seco
 		document.getElementById("respaperimage").title = "Paper per 10 seconds: " + fnum(paperpersec * 10) ; 
 	}
 	
-	manapersec = 1;
+	manapersec = 1 + 0.1*Sprite.number;
 	document.getElementById("resmanaimage").title = "Mana per second: " + fnum(manapersec) ; 	
 	
 	document.getElementById("peasants").innerHTML = Peasant.number ;	//For testing
@@ -820,7 +820,7 @@ window.setInterval(function(){
 	//Mana generation per second
 	if(towerBuilt == true){
 		if(mana < manaCap){
-			clickThing(1,"mana");
+			clickThing(1 + 0.1*Sprite.number,"mana");
 		}
 	}
 	

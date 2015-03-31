@@ -705,7 +705,25 @@
 				<br />	<img src = "images/manasmall.png" Title="Mana">1,000
 			</div>				
 			<br />
+			<hr>
 		</div>
+
+		<div id ="ArcaneSpritesTab" class = "container" style="display: none;">
+		<a id = 'BtnSpritesDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Arcane Sprites"
+    		data-content="">Arcane Sprites (<span id="sprites">0</span>)</a>
+			<br /><br />
+			<button id=btnBuySprite onclick="Sprite.buyOne()"	type="button" class="btn btn-default">Summon Arcane Sprite</button>
+			<button id=btnSpritesUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#SpritesUpgradeTab" aria-expanded="false" aria-controls="AngelUpgradeTab">Upgrades</button>
+			<br />
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="SpriteCost">750,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="spriteSilverCost">500,000</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="spriteFaithCost">50000</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="spriteSoulCost">2000</span> | <img src = "images/bookssmall.png" Title="Tomes"> <span id="spriteTomeCost">25</span> | <img src = "images/manasmall.png" Title="Mana"><span id ="spriteManaCost">2,000</span>
+			<div id ="SpritesUpgradeTab" class = "upgrade collapse">
+				<div class = "well">
+					 No Upgrades implemented for Sprites yet.
+					<br />
+				</div>
+			</div>
+			<hr>
+		</div>			
 		
 		<div id = "ArcaneLibraryTab" class = "container">
 				<br />
@@ -715,7 +733,7 @@
 				<button id=btnbuyALibrary title="Arcane libraries increase the amount of mana your archmage is able to store." onclick="ArcaneLibrary.buyOne()"	type="button" class="btn btn-default">Build Arcane Library</button>	
 				<button id=btnALibraryUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#ALibraryUpgradeCollapse" aria-expanded="false" aria-controls="ALibraryUpgradeCollapse">Upgrades</button>
 				<br />
-				<img src = "images/money_goldsmall.png" title ="Gold"> <span id="aLibraryCost">1,000,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id="aLibraryWoodCost">725,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="aLibraryIronCost">250,000</span> | <img src = "images/bookssmall.png" Title="Tomes"><span id="aLibraryTomeCost">250</span>
+				<img src = "images/money_goldsmall.png" title ="Gold"> <span id="aLibraryCost">5,000,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id="aLibraryWoodCost">3,000,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="aLibraryIronCost">2,000,000</span> | <img src = "images/bookssmall.png" Title="Tomes"><span id="aLibraryTomeCost">100</span>
 				<br />
 				Maximum mana increased by: <span id="manaIncreasedBy">0</span>
 				<div id = "ALibraryUpgradeCollapse" class = "upgrade collapse" >
@@ -1713,7 +1731,11 @@
 
 			<h4>Angels</h4>
 			Angels summoned this game: <span id= "statAngelsSummoned">0</span><br />
-			Lifetime Angels summoned: <span id = "statTotalAngelsSummoned">0</span><br /><br />			
+			Lifetime Angels summoned: <span id = "statTotalAngelsSummoned">0</span><br /><br />
+
+			<h4>Sprites</h4>
+			Sprites summoned this game: <span id= "statSpritesSummoned">0</span><br />
+			Lifetime Sprites summoned: <span id = "statTotalSpritesSummoned">0</span><br /><br />					
 			
 			<h3>Structures</h3>
 			<h4>Taverns</h4>

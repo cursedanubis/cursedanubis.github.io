@@ -83,6 +83,9 @@ var statTotalAspectsTrained = 0;
 var statAngelsSummoned = 0;
 var statTotalAngelsSummoned = 0;
 
+var statSpritesSummoned = 0;
+var statTotalSpritesSummoned = 0;
+
 var statTavernsBuilt = 0;
 var statPaperMillsBuilt = 0;
 

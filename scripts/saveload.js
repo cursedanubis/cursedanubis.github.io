@@ -37,6 +37,7 @@
 		save("shades", Shade.number);
 		save("aspects", Aspect.number);
 		save("angels", Angel.number);
+		save("sprites", Sprite.number);
 		
 		//Building Variables
 		save("taverns", Tavern.number);
@@ -468,7 +469,12 @@
 		if(localStorage.angels != null){
 			Angel.number = parseInt(localStorage.angels);
 			document.getElementById("angels").innerHTML = Angel.number;
-		}			
+		}
+
+		if(localStorage.sprites != null){
+			Sprite.number = parseInt(localStorage.sprites);
+			document.getElementById("sprites").innerHTML = Sprite.number;
+		}		
 		
 		if(localStorage.pGoldUpgrade != null){
 			var myBool = (localStorage.pGoldUpgrade == "true")
@@ -714,7 +720,8 @@
 		if(localStorage.defeatedPixie != null){
 			var myBool = (localStorage.defeatedPixie == "true")
 				if(myBool == true){
-					document.getElementById('pixieh4').classList.add('defeatedtitle');	
+					document.getElementById('pixieh4').classList.add('defeatedtitle');
+					document.getElementById('ArcaneSpritesTab').style.display = "block";
 					defeatedPixie = true;
 				}
 		};
