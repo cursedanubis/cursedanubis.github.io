@@ -7,6 +7,7 @@ var NumUnitOnQuest = 0;
 var questPercent = 0;
 var spellBoostPercent;
 var QuestDuration = 0;
+var loadedQuest = false;
 
 $('#unitSelectPicker').selectpicker({
 	 style: 'btn-info'
@@ -438,8 +439,10 @@ RelicHunt.startQuest = function(){
 		$qbar = $(document.getElementById(this.htmlBarRef));
 		
 		UnitOnQuest = $('#unitSelectPicker').selectpicker('val');
-		NumUnitOnQuest = $('#QuestUnitNumSelect').val();		
-		holdUnitforQuest();
+		NumUnitOnQuest = $('#QuestUnitNumSelect').val();
+		if(loadedQuest == false){
+			holdUnitforQuest();			
+		}
 		
 		var questprogress = setInterval(function() {
 		currWidth = parseInt(this.$qbar.attr('aria-valuenow'));
