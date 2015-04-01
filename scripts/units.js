@@ -540,6 +540,7 @@ function updateUnitPopover(){
 	//Paladin
 	if(paladinWepUpgrade == true){
 		Paladin.soulsClickVal = 2;
+		Paladin.spiritPower = 10;
 	}
 	Paladin.description = paladinDesc + "<br> Provides <img src = 'images/armsmall.png'> " + Paladin.armyPower + " army strength. <br>Provides <img src = 'images/armsmall.png'> " + Paladin.spiritPower + " spiritual strength. <br>Generates " + Paladin.soulsClickVal + " <img src = 'images/soulssmall.png'> per second."
 	setDescription(Paladin, 'BtnPaladinDesc')
