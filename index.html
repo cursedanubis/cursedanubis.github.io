@@ -482,7 +482,7 @@
 			<br />
 		</div>
 		<div id = "PaladinUpgradeTab" class = "upgrade collapse" >
-			<div class = "well">
+			<div class = "well">      
 			<button id=paladinUpgrade1 onclick="paladinUpgradeWeapon()" title= "Your paladins imbue their weapons with their faith, doubling their battle power, spirit power, and soul collection rate."	type="button" class="btn btn-default">Imbue Weapon</button>		
 			<br />
 			<img src = "images/money_goldsmall.png" title ="Gold" > 20,000 | 5,000 <img src = "images/ironsmall.png" title="Iron"> | <img src = "images/faithsmall.png" title="Faith"> 2,500
@@ -752,7 +752,6 @@
 		</div>
 		
 		<div>
-			<br />
 			<div id = "questContainer" class = 'well'>
 				<div class = 'well' id = 'QuestDescBox'>
 					<span id = 'questDescString'></span>
@@ -762,11 +761,11 @@
 						0%
 					  </div>
 					</div>
-				<div class = "row">
-					<div class = "col-xs-2">
+				
+					<div id ="questNumSpinner" class = "questComponent">
 						<input id="QuestUnitNumSelect" type="text" value="1" name="QuestUnitNumSelect"> 
 					</div>
-					<div class = "col-xs-3">
+					<div class = "questComponent">
 						 <select class="selectpicker" id = "unitSelectPicker" title = "Pick a unit">
 							<option id = "nullOption2" ></option>
 							<option id = "SquireOption">Squire</option>
@@ -774,7 +773,7 @@
 							<option id = "PaladinOption">Paladin</option>
 						  </select>
 					</div>					
-					<div class = "col-xs-3">
+					<div class = "questComponent">
 						 <select class="selectpicker" id = "questSelectPicker" title = "Pick a quest">
 							<option id = "nullOption"></option>
 							<option id = "PeopleChoice">Help the People</option>
@@ -784,13 +783,10 @@
 							<option id = "DemonChoice">Hunt lesser demons</option>							
 							<option id = "RelicChoice">Relic Hunt</option>
 						  </select>
-					</div>					
-
-					
-				</div>
-				<br />
-					<button id=btnQuestGo onclick="btnSendQuest();"	type="button" class="btn btn-default">Send!</button>
-		
+					</div>		
+					<div class = "questComponent">
+						<button id=btnQuestGo onclick="btnSendQuest();"	type="button" class="btn btn-default">Send!</button>
+					</div>
 			</div>
 		</div>
 	   <hr>

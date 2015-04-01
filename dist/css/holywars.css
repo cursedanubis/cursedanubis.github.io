@@ -114,6 +114,18 @@ display: inline-block;
 
 #questContainer {
 display: inline-block;
+width: 95%;
+margin: 2.5%;
+}
+
+#questNumSpinner{
+
+}
+
+.questComponent{
+width: 200px;
+float: left;
+margin: 20px;
 }
 
 .defeatedtitle{

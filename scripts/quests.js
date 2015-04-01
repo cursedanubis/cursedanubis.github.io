@@ -615,8 +615,7 @@ $(function() {
 		document.getElementById('QuestUnitNumSelect').value = newMax;
 	}
 	$("input").trigger("touchspin.updatesettings", {max: newMax});
-  });
-  
+  }); 
 });
 
 $(function() {
