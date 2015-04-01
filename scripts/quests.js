@@ -253,7 +253,7 @@ function loadQuest(QuestName, percent, unit, numUnit){
 			UnitOnQuest = unit;
 		break;
 
-		case 'Hunt lesser demons':
+		case 'Hunt Lesser Demons':
 			soulsQuest.startQuest('souls');
 			UnitOnQuest = unit;
 		break;		
@@ -312,8 +312,8 @@ function btnSendQuest(){
 			silverQuest.startQuest('silver');
 		 break;	 
 		 
-		 case 'Hunt lesser demons':
-			console.log('Hunt lesser demons');
+		 case 'Hunt lesser Demons':
+			console.log('Hunt Lesser Demons');
 			soulsQuest.startQuest('souls');
 		 break;		 
 		 
@@ -416,7 +416,7 @@ var silverQuestDesc = "";
 var silverQuest = new Quest('Aid the Sprites', silverQuestDesc, 'QuestProgBarBox', 'QuestProgBar', 'btnQuestGo','silverQuestFinishAlert',0,1,500);
 
 var soulsQuestDesc = "";
-var soulsQuest = new Quest('Hunt lesser demons', soulsQuestDesc, 'QuestProgBarBox', 'QuestProgBar', 'btnQuestGo','soulsQuestFinishAlert',0,1,500);
+var soulsQuest = new Quest('Hunt Lesser Demons ', soulsQuestDesc, 'QuestProgBarBox', 'QuestProgBar', 'btnQuestGo','soulsQuestFinishAlert',0,1,500);
 
 //var Quest = function(name, description, htmlBoxRef, htmlBarRef, htmlAlertRef, percentComplete, percentIncrement,speed){
 var relicHuntDesc = "";
@@ -631,7 +631,7 @@ $(function() {
 			document.getElementById('questDescString').innerHTML = questDescription;
 		break;
 		
-		case 'Hunt lesser demons':
+		case 'Hunt Lesser Demons':
 			$('#PaladinOption').prop("disabled", false);
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
