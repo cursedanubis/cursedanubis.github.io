@@ -271,8 +271,8 @@ function renameKingdom(){
 
 			} else {
 				KingdomName = result;
-				document.getElementById("ProductionMenu").innerHTML = KingdomName;
-				document.getElementById("ProductionTitle").innerHTML = KingdomName;				
+				//document.getElementById("ProductionMenu").innerHTML = KingdomName;
+				document.getElementById("navKingdomName").innerHTML = KingdomName;				
 			}
 		  }
 		});

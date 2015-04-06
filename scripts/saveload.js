@@ -928,8 +928,8 @@
 		
 		if(localStorage.KingdomName != null){
 			KingdomName = localStorage.KingdomName;
-			document.getElementById("ProductionMenu").innerHTML = KingdomName;
-			document.getElementById("ProductionTitle").innerHTML = KingdomName;
+			//document.getElementById("ProductionMenu").innerHTML = KingdomName;
+			document.getElementById("navKingdomName").innerHTML = KingdomName;
 		}		
 		
 		if(localStorage.lastPage != null){
