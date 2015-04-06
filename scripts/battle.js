@@ -19,6 +19,9 @@ var defeatedFireElemental = false;
 var defeatedWindElemental = false;
 var defeatedWaterElemental = false;
 var defeatedThaumaturge = false;
+var defeatedCerberus = false;
+var defeatedOuro = false;
+var defeatedBoros = false;
 
 var goldStolen = 0;		//Bandit statistic
 var justStolen = 0;		//Bandit statistic
@@ -502,7 +505,31 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 				document.getElementById(myButton).disabled = true;	
 				document.getElementById('thaumaturgeh4').classList.add('defeatedtitle');
 			}			
-		break;		
+		break;	
+
+		case 'Cerberus':
+			if(defeatedCerberus == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+				document.getElementById('cerberush4').classList.add('defeatedtitle');
+			}			
+		break;
+
+		case 'Ouro':
+			if(defeatedOuro == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+				document.getElementById('ouroh4').classList.add('defeatedtitle');
+			}			
+		break;	
+
+		case 'Boros':
+			if(defeatedBoros == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;	
+				document.getElementById('borosh4').classList.add('defeatedtitle');
+			}			
+		break;			
 		
 		default:		
 	}
@@ -655,7 +682,19 @@ function setDefeatEvents(name){
 	
 		case 'Thaumaturge':
 			defeatedThaumaturge = true;
-		break;		
+		break;
+
+		case 'Cerberus':
+			defeatedCerberus = true;
+		break;	
+
+		case 'Ouro':
+			defeatedOuro = true;
+		break;			
+		
+		case 'Boros':
+			defeatedBoros = true;
+		break;			
 		
 		default:
 	}	
@@ -759,7 +798,19 @@ function showBattle(name){
 
 		case 'Thaumaturge':
 			$("#ThaumaturgeCollapse").collapse('show');
-		break;				
+		break;
+
+		case 'Cerberus':
+			$("#CerberusCollapse").collapse('show');
+		break;	
+
+		case 'Ouro':
+			$("#OuroCollapse").collapse('show');
+		break;
+
+		case 'Boros':
+			$("#BorosCollapse").collapse('show');
+		break;		
 		
 		default:
 	}	
@@ -853,6 +904,21 @@ function showUndefeatedBattles(){
 	if(defeatedThaumaturge == false){
 		showBattle('Thaumaturge');
 		scroll('BatThaumaturge', 500);
+	}
+
+	if(defeatedCerberus == false){
+		showBattle('Cerberus');
+		scroll('BatCerberus', 500);
+	}	
+
+	if(defeatedOuro == false){
+		showBattle('Ouro');
+		scroll('BatOuro', 500);
+	}	
+
+	if(defeatedBoros == false){
+		showBattle('Boros');
+		scroll('BatBoros', 500);
 	}		
 }
 
@@ -990,7 +1056,19 @@ function loadBattle(name, percent){
 		
 		case 'Thaumaturge':
 			Thaumaturge.fight();
-		break;		
+		break;	
+
+		case 'Cerberus':
+			Cerberus.fight();
+		break;
+
+		case 'Ouro':
+			Ouro.fight();
+		break;	
+
+		case 'Boros':
+			Boros.fight();
+		break;			
 		
 		default:
 	}
@@ -1133,6 +1211,10 @@ function hellhoundCull(){
 		}
 		recalculateCosts();
 };
+
+var cerberusDesc = "Your hunters come across signs of a large pack of canine-like creatures wandering the plains. <br><br> Nightmarish howls can be heard day and night, frightening the livestock and putting your people on edge. <br><br> The most experienced of your hunters finally witnesses a portal rip open one night, sulfurous smoke billowing forth from the dark red maw and spitting out wicked hounds of enormous size that glow like the embers of smoldering lava. <br><br>  The pack will harass your defences and occasionally kill some of your peasants and miners.";
+var Cerberus = new Enemy("Cerberus", cerberusDesc, 'BatCerberusProgBarBox','BatCerberusProgBar','btnBatCerberus','CerberusDefeatAlert',2000,0,0,1,1000);
+setEnemyDescription(Cerberus, 'btnDescCerberus');
 
 
 var pixieDesc = "Research turns up notes about a trickster that delights in playing with mortals. <br><br> One ancient scroll describes the creature as possessing an deceptively innocent appearance, a small and spritely winged form dressed in the earhtly browns and bright greens of the forest designed to lure in unsuspecting humans. <br><br> Written in the margins of the scroll is a warning to the reader to beware of the creature's cunningness.";
@@ -1348,6 +1430,14 @@ var ThaumaturgeDesc = "";
 var Thaumaturge = new Enemy("Thaumaturge", Thaumaturge, 'BatThaumaturgeProgBarBox','BatThaumaturgeProgBar','btnBatThaumaturge','ThaumaturgeDefeatAlert',52500,6000,0,1,4000);
 setEnemyDescription(Thaumaturge, 'btnDescThaumaturge');
 
+var OuroDesc = "";
+var Ouro = new Enemy("Ouro", Ouro, 'BatOuroProgBarBox','BatOuroProgBar','btnBatOuro','OuroDefeatAlert',52500,6000,0,1,4000);
+setEnemyDescription(Ouro, 'btnDescOuro');
+
+var borosDesc = "";
+var Boros = new Enemy("Boros", Boros, 'BatBorosProgBarBox','BatBorosProgBar','btnBatBoros','BorosDefeatAlert',52500,6000,0,1,4000);
+setEnemyDescription(Boros, 'btnDescBoros');
+
 function checkBattleButtons(){
 	//Changes status of Battle Buttons
 	//Goblin Button
@@ -1403,6 +1493,15 @@ function checkBattleButtons(){
 	
 	//Thaumaturge Button
 	Thaumaturge.canFight();	
+	
+	//Cerberus Button
+	Cerberus.canFight();
+	
+	//Ouro Button
+	Ouro.canFight();
+
+	//Cerberus Button
+	Boros.canFight();	
 };
 
 window.setInterval(function(){					//Calculates Battle Power 

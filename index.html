@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title> Holy Wars </title>
+    <title>Holy Wars</title>
 	
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -116,7 +116,7 @@
               </li>		  
             </ul>
 			<ul class="nav navbar-nav" id = "kingdomUL">
-				<li><a id="navKingdomName" href="javascript:CollapseAll(); toggle('navKingdomName'); setLastPage('navKingdomName');"> <span id = "KingdomName"> </span></a></li>
+				<li><a id="navKingdomName" href="#"> <span id = "KingdomName"> </span></a></li>
 			</ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -209,16 +209,16 @@
 	  <div id="Gathering" class="collapse in">
 		<div id = 'GatherListWell' class = "well well-sm">
 			<ul id = "GatherList">
-				<li><input type="image"  id="clickmoney" tabIndex="-1" onclick="clickThing(1,'goldMouse')" src = "images/money_gold.png"/ title = "Click to gather gold yourself."></li>
-				<li><input type="image"  id="clickwood" tabIndex="-1" onclick="clickThing(1,'woodMouse')" src = "images/wood.png"/ title = "Click to gather wood yourself."></li>
+				<li><input type="image"  id="clickmoney" tabIndex="-1" onclick="clickThing(1,'goldMouse')" src = "images/money_gold.png" title = "Click to gather gold yourself."></li>
+				<li><input type="image"  id="clickwood" tabIndex="-1" onclick="clickThing(1,'woodMouse')" src = "images/wood.png" title = "Click to gather wood yourself."></li>
 				<li>
 					<div id ="gatherPaper" style = "display: none;">
-						<input type="image"  id="clickpaper" tabIndex="-1" onclick="clickThing(1,'paperMouse')" src = "images/parchment.png"/ title = "Click to convert 50 wood into paper yourself.">
+						<input type="image"  id="clickpaper" tabIndex="-1" onclick="clickThing(1,'paperMouse')" src = "images/parchment.png" title = "Click to convert 50 wood into paper yourself.">
 					</div>
 				</li>
 				<li>
 					<div id ="createTome" style = "display: none;">
-						<input type="image"  id="clicktome" tabIndex="-1" onclick="clickThing(1,'tomeMouse')" src = "images/books.png"/ title = "Click to convert 2000 pages and 100 faith into a tome yourself.">
+						<input type="image"  id="clicktome" tabIndex="-1" onclick="clickThing(1,'tomeMouse')" src = "images/books.png" title = "Click to convert 2000 pages and 100 faith into a tome yourself.">
 					</div>
 				</li>
 			</ul>
@@ -1282,6 +1282,85 @@
 					Requires spirit power: 6,000 <br />
 						<div id="BatThaumaturgeProgBarBox" class="progress" style="display: none;">
 						  <div id="BatThaumaturgeProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+							0%
+						  </div>
+						</div>
+			   </div>
+			</div>
+		  </div>
+
+
+		  <div class="panel panel-default" id="BatCerberus" style="">
+			<div class="panel-heading" role="tab" id="CerberusTitle">
+			  <h4 id = 'cerberush4' class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#CerberusCollapse" aria-expanded="false" aria-controls="CerberusCollapse">
+				  Cerberus
+				</a>
+			  </h4>
+			</div>
+			<div id="CerberusCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="CerberusTitle">
+			   <div class = "panel-body" >
+				<a id = 'btnDescCerberus' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Cerberus"
+				data-content="">Cerberus</a>
+					<br />
+					<button id=btnBatCerberus onclick="Cerberus.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 52,500 <br />
+					Requires spirit power: 6,000 <br />
+						<div id="BatCerberusProgBarBox" class="progress" style="display: none;">
+						  <div id="BatCerberusProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+							0%
+						  </div>
+						</div>
+			   </div>
+			</div>
+		  </div>
+
+		  <div class="panel panel-default" id="BatOuro" style="">
+			<div class="panel-heading" role="tab" id="OuroTitle">
+			  <h4 id = 'ouroh4' class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#OuroCollapse" aria-expanded="false" aria-controls="OuroCollapse">
+				  Ouro
+				</a>
+			  </h4>
+			</div>
+			<div id="OuroCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="OuroTitle">
+			   <div class = "panel-body" >
+				<a id = 'btnDescOuro' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Ouro"
+				data-content="">Ouro</a>
+					<br />
+					<button id=btnBatOuro onclick="Ouro.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 75,000 <br />
+					Requires spirit power: 0 <br />
+						<div id="BatOuroProgBarBox" class="progress" style="display: none;">
+						  <div id="BatOuroProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+							0%
+						  </div>
+						</div>
+			   </div>
+			</div>
+		  </div>
+
+		  <div class="panel panel-default" id="BatBoros" style="">
+			<div class="panel-heading" role="tab" id="BorosTitle">
+			  <h4 id = 'borosh4' class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#BorosCollapse" aria-expanded="false" aria-controls="BorosCollapse">
+				  Boros
+				</a>
+			  </h4>
+			</div>
+			<div id="BorosCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="BorosTitle">
+			   <div class = "panel-body" >
+				<a id = 'btnDescBoros' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Boros"
+				data-content="">Boros</a>
+					<br />
+					<button id=btnBatBoros onclick="Boros.fight()"	type="button" class="btn btn-danger">Battle!</button>
+					<br />
+					Requires <img src = "images/armsmall.png" title="Army Power"> 0 <br />
+					Requires spirit power: 75,000 <br />
+						<div id="BatBorosProgBarBox" class="progress" style="display: none;">
+						  <div id="BatBorosProgBar" class="progress-bar progress-bar-danger  progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
 							0%
 						  </div>
 						</div>

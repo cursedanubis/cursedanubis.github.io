@@ -267,12 +267,12 @@ function renameKingdom(){
 		  title: "Name your Kingdom",
 		  value: KingdomName,
 		  callback: function(result) {
-			if (result === null) {
-
+			if (result == "") {
+				document.getElementById("KingdomName").innerHTML = "Kingdom";
 			} else {
 				KingdomName = result;
-				//document.getElementById("ProductionMenu").innerHTML = KingdomName;
-				document.getElementById("navKingdomName").innerHTML = KingdomName;				
+				document.getElementById("KingdomName").innerHTML = KingdomName;
+				document.title = "Holy Wars - " + KingdomName;
 			}
 		  }
 		});
@@ -933,9 +933,25 @@ function fnum(x) {
 		}
 		if(x < 1000000000000000000000000) {
 			return (x/1000000000000000000000).toFixed(2) + "Sp";
+		}
+
+		if(x < 1000000000000000000000000000) {
+			return (x/1000000000000000000000000).toFixed(2) + "Oct";
+		}
+
+		if(x < 1000000000000000000000000000000) {
+			return (x/1000000000000000000000000000).toFixed(2) + "Non";
+		}
+
+		if(x < 1000000000000000000000000000000000) {
+			return (x/1000000000000000000000000000000).toFixed(2) + "Dec";
+		}
+
+		if(x < 1000000000000000000000000000000000000) {
+			return (x/1000000000000000000000000000000000).toFixed(2) + "UnDec";
 		}			
 	 
-		return "1Sp+";
+		return "1UnDec+";
 	}
 	else
 	{

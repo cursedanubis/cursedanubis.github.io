@@ -46,14 +46,14 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 	var alert = this.htmlAlertRef;
 	var btn = this.htmlBtnRef;
 	var box = this.htmlBoxRef;
-	var bar = this.htmlBarRef;
+	var qbar = this.htmlBarRef;
 	var QuestName = this.name;
 	var resourceEarned = 0;
 		
 	inQuest = true;
 	curQuestType = this.name
 	document.getElementById(this.htmlBoxRef).style.display = "block";	
-	$bar = $(document.getElementById(this.htmlBarRef));
+	$qbar = $(document.getElementById(this.htmlBarRef));
 	UnitOnQuest = $('#unitSelectPicker').selectpicker('val')
 	NumUnitOnQuest = $('#QuestUnitNumSelect').val();		
 	holdUnitforQuest();
@@ -66,14 +66,14 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 	
 	
 	var progress = setInterval(function() {
-	currWidth = parseInt(this.$bar.attr('aria-valuenow'));
-	maxWidth = parseInt(this.$bar.attr('aria-valuemax'));	
+	qcurrWidth = parseInt(this.$qbar.attr('aria-valuenow'));
+	qmaxWidth = parseInt(this.$qbar.attr('aria-valuemax'));	
 	QuestDuration += 1;
 	
 		//update the progress
-		$bar.width(perComplete +'%');
-		$bar.attr('aria-valuenow',perComplete);
-		$bar.text(perComplete+'%');
+		$qbar.width(perComplete +'%');
+		$qbar.attr('aria-valuenow',perComplete);
+		$qbar.text(perComplete+'%');
 		perComplete = perComplete + perIncrement;
 		this.percentComplete = perComplete;
 		questPercent = perComplete;
@@ -87,9 +87,9 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 			}
 		}		
 		
-	  if (currWidth >= maxWidth){
+	  if (qcurrWidth >= qmaxWidth){
 		clearInterval(progress);
-		$bar.text("Complete!");
+		$qbar.text("Complete!");
 		document.getElementById(box).style.display = "none";			//Hides progress bar box
 		document.getElementById(btn).innerHTML = "Send";                 //Changes button text
 		document.getElementById(btn).disabled = false;					//enables the buttons
@@ -99,9 +99,9 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 
 		returnUnitfromQuest();
 		inQuest = false;
-		$bar.width(0 +'%');
-		$bar.attr('aria-valuenow',0);
-		$bar.text(0+'%');	
+		$qbar.width(0 +'%');
+		$qbar.attr('aria-valuenow',0);
+		$qbar.text(0+'%');	
 		
 		var finishString;
 		resourceEarned = questCalcReward(resource, UnitOnQuest);
@@ -445,8 +445,8 @@ RelicHunt.startQuest = function(){
 		}
 		
 		var questprogress = setInterval(function() {
-		currWidth = parseInt(this.$qbar.attr('aria-valuenow'));
-		maxWidth = parseInt(this.$qbar.attr('aria-valuemax'));	
+		qcurrWidth = parseInt(this.$qbar.attr('aria-valuenow'));
+		qmaxWidth = parseInt(this.$qbar.attr('aria-valuemax'));	
 				
 		//update the progress
 		$qbar.width(perComplete +'%');
@@ -474,7 +474,7 @@ RelicHunt.startQuest = function(){
 			}
 		}		
 		
-		if (currWidth >= maxWidth){
+		if (qcurrWidth >= qmaxWidth){
 			clearInterval(questprogress);
 			$qbar.text("Complete!");
 			document.getElementById(box).style.display = "none";			//Hides progress bar box
@@ -636,7 +636,7 @@ $(function() {
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
 			$('.selectpicker').selectpicker('refresh');
-			questDescription = "Send your units out to slay lesser demons attacking the people in " + KingdomName + ". <br>Reward: Souls"
+			questDescription = "Send your units out to slay lesser demons attacking the people in " + KingdomName + ". <br>Reward: <img src = 'images/soulssmall.png' title='Souls'>Souls"
 			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;
 		
@@ -645,7 +645,7 @@ $(function() {
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
 			$('.selectpicker').selectpicker('refresh');
-			questDescription = "Send your units out to slay treants menacing the lumberjacks in the woods. <br>Reward: Wood"
+			questDescription = "Send your units out to slay treants menacing the lumberjacks in the woods. <br>Reward: <img src = 'images/woodsmall.png' title = 'Wood'> Wood"
 			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;
 		
@@ -654,7 +654,7 @@ $(function() {
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
 			$('.selectpicker').selectpicker('refresh');
-			questDescription = "Send your units out to slay the iron golems summoned by the Evil One in your mines. <br>Reward: Iron"
+			questDescription = "Send your units out to slay the iron golems summoned by the Evil One in your mines. <br>Reward: <img src = 'images/ironsmall.png' title='Iron'>Iron"
 			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;		
 		
@@ -663,7 +663,7 @@ $(function() {
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
 			$('.selectpicker').selectpicker('refresh');	
-			questDescription = "Send your units out to help the people of " + KingdomName + " with generic problems, like little children falling down a well. <br>Reward: Gold"
+			questDescription = "Send your units out to help the people of " + KingdomName + " with generic problems, like little children falling down a well. <br>Reward: <img src = 'images/money_goldsmall.png' title ='Gold'>Gold"
 			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;
 
@@ -672,7 +672,7 @@ $(function() {
 			$('#KnightOption').prop("disabled", false);
 			$('#SquireOption').prop("disabled", false);
 			$('.selectpicker').selectpicker('refresh');	
-			questDescription = "Send your units into your mines to help the sprites residing within. <br>Reward: Silver"
+			questDescription = "Send your units into your mines to help the sprites residing within. <br>Reward: <img src = 'images/silverOresmall.png' title='Silver'>Silver"
 			document.getElementById('questDescString').innerHTML = questDescription;			
 		break;			
 		

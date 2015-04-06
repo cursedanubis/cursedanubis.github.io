@@ -76,6 +76,9 @@
 		save("defeatedWaterElemental",defeatedWaterElemental);
 		save("defeatedWindElemental",defeatedWindElemental);
 		save("defeatedThaumaturge",defeatedThaumaturge);
+		save("defeatedCerberus",defeatedCerberus);
+		save("defeatedOuro",defeatedOuro);
+		save("defeatedBoros",defeatedBoros);
 		save("peasantsKilled",peasantsKilled);
 		save("minersKilled", minersKilled);
 		save("ironAbsorbed",ironAbsorbed);
@@ -856,7 +859,31 @@
 					defeatedThaumaturge = true;
 					document.getElementById('thaumaturgeh4').classList.add('defeatedtitle');	
 				}
-		};		
+		};
+		if(localStorage.defeatedCerberus != null){
+			var myBool = (localStorage.defeatedCerberus == "true")
+				if(myBool == true){
+					defeatedCerberus = true;
+					document.getElementById('cerberush4').classList.add('defeatedtitle');	
+				}
+		};	
+		
+		if(localStorage.defeatedOuro != null){
+			var myBool = (localStorage.defeatedOuro == "true")
+				if(myBool == true){
+					defeatedOuro = true;
+					document.getElementById('ouroh4').classList.add('defeatedtitle');	
+				}
+		};	
+		
+		if(localStorage.defeatedBoros != null){
+			var myBool = (localStorage.defeatedBoros == "true")
+				if(myBool == true){
+					defeatedBoros = true;
+					document.getElementById('borosh4').classList.add('defeatedtitle');	
+				}
+		};	
+		
 		
 		if(localStorage.peasantsKilled != null){
 			peasantsKilled = parseInt(localStorage.peasantsKilled);
@@ -930,6 +957,7 @@
 			KingdomName = localStorage.KingdomName;
 			//document.getElementById("ProductionMenu").innerHTML = KingdomName;
 			document.getElementById("navKingdomName").innerHTML = KingdomName;
+			document.title = "Holy Wars - " + KingdomName;
 		}		
 		
 		if(localStorage.lastPage != null){

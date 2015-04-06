@@ -19,11 +19,11 @@ Enemy:  Horde of cliff Racers
 	Werewolves
 	Bloody Wraith
 	Elder Vampire (L)
-	Gemini Monster (Two monsters requiring deaths within a certain period to kill them both or they revive)
+//	Gemini Monster (Two monsters requiring deaths within a certain period to kill them both or they revive) -> Ouro and Boros : Snake like demons that turn into the other
 //	Succubus (L)
 //	Corrupted Archmage (B)
 //	Corrupted Sylph
-	Cerberus
+	Cerberus - > Mother of the hellhounds defeated earlier
 	Archdemon
 
 	Change battle to a subtractive HP system? ie Bandits start out with 500 hp, -battle power every second?
