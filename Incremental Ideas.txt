@@ -30,16 +30,16 @@ Enemy:  Horde of cliff Racers
 
 Base unit: Peasant
 
-Battle Units: 	Page
-		Squire
-		Knight
+Battle Units: //	Page
+//		Squire
+//		Knight
 		Knight-Captain  (relic unlock?)
-		Paladin (Need Faith)
+//		Paladin (Need Faith)
 		Master Paladin  (relic unlock?)
 
-		Benevolent Shade (Number of souls)
-		Aspect of Justice 
-		Angel
+//		Benevolent Shade (Number of souls)
+//		Aspect of Justice 
+//		Angel
 		Archangel
 		Seraphim
 		
