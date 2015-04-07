@@ -34,6 +34,7 @@ var tavernlumberjacks = 0;      //Tavern generated Lumberjacks
 var pGoldUpgrade = false;		//Peasant - Collection rate upgrade
 var pGoldClickUpgrade = false;	//Peasant - Gold clicking upgrade
 var pGoldClickUpgrade2 = false;	//Peasant - Gold clicking upgrade
+var pGoldClickUpgrade3 = false; 
 var lwoodUpgrade = false;		//Ljack - Collection rate upgrade
 var lwoodClickUpgrade = false;  //LJack - Wood click rate upgrade 
 var mPanningUpgrade = false;	//Miner - Gold Panning upgrade
@@ -86,15 +87,19 @@ function clickThing(number, type)
 			if(pGoldClickUpgrade2 == true){
 				number *= 5
 			}
+			if(pGoldClickUpgrade3 == true){
+				number += goldpersec*0.1
+			}
 			gold += number;
 			statSelfGoldCollected += number;
 			statTotalSelfGoldCollected += number;
 			statTotalGoldCollected += number;
-			
+
 			document.getElementById("gold").innerHTML = fnum(gold);
 			document.getElementById("statselfgoldcollected").innerHTML = fnum(statSelfGoldCollected);
 			document.getElementById("stattotalselfgoldcollected").innerHTML = fnum(statTotalSelfGoldCollected);
 			document.getElementById("stattotalgoldcollected").innerHTML = fnum(statTotalGoldCollected);
+			document.getElementById('clickmoney').setAttribute('title', "Click to gather gold yourself - " + fnum(number) + " gold gained per click.");
 			break;
 
 		case "wood":
@@ -328,6 +333,16 @@ function upgradeClickGoldMultiplier2(){
 		document.getElementById('gold').innerHTML = fnum(gold);
 		document.getElementById("clickGoldUpgrade2").disabled = true;
 		document.getElementById("clickGoldUpgrade2").innerHTML = "Click Upgrade 2 Purchased";
+	}	
+};
+
+function upgradeClickGoldMultiplier3(){
+	if(gold >= 1000000){
+		gold -= 1000000;
+		pGoldClickUpgrade3 = true;	
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById("clickGoldUpgrade3").disabled = true;
+		document.getElementById("clickGoldUpgrade3").innerHTML = "Click Upgrade 3 Purchased";
 	}	
 };
 

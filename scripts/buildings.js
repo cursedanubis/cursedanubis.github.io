@@ -164,6 +164,7 @@ Building.prototype.buy = function(){
 					commandPostOpened = true;
 					document.getElementById('openCommandPostAlert').style.display = "block";
 					document.getElementById('CommandPost').style.display = "block";	
+					document.getElementById('CommandPostDiv').style.display = "block";
 				break;
 				case "cathedralOpened":
 					cathedralOpened = true;

@@ -245,17 +245,7 @@
 					<button id=btnPeasantUpgrade1 onclick="peasantUpgradeCollection()"	type="button" class="btn btn-default" title = "Your peasants become more capable at finding gold. Doubles gold collection rate.">Peasant Power</button>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 2,000
-					<br /><br />				
-				
-					<button id=clickGoldUpgrade onclick="upgradeClickGoldMultiplier()" 	type="button" class="btn btn-default" title = "Your peasants learn to assist your gold collection. Doubles gold collected when clicking.">Click Upgrade</button>
-					<br />
-					<img src = "images/money_goldsmall.png" title ="Gold" > 1,500
-					<br /> <br />
-					
-					<button id=clickGoldUpgrade2 onclick="upgradeClickGoldMultiplier2()" 	type="button" class="btn btn-default" title = "Your peasants learn to better assist your gold collection. Five times the gold collected when clicking.">Click Upgrade 2</button>
-					<br />
-					<img src = "images/money_goldsmall.png" title ="Gold" > 25,000
-					<br />					
+					<br /><br />									
 				</div>
 			</div>
 		<hr>
@@ -1378,8 +1368,34 @@
 		  
 		</div>
 	</div>
-	 
-	 
+
+	 <div id="CommandPost" class = "panel panel-default" style="display: none;">
+		<div class = "panel-heading">
+			<div class="panel-title"><span id='kingdomNameCommandPost'></span>Command Post</div>
+		</div>		
+	
+	   <div id="CommandPostDiv" class = "panel-body"style="display: none;">  
+			<br />
+					<div class = "panel-heading">
+						<div class="panel-title">Upgrades</div>
+					</div>				
+				<button id=clickGoldUpgrade onclick="upgradeClickGoldMultiplier()" 	type="button" class="btn btn-default" title = "Your peasants learn to assist your gold collection. Doubles gold collected when clicking.">Click Upgrade</button>
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" > 1,500
+				<br /> <br />
+				
+				<button id=clickGoldUpgrade2 onclick="upgradeClickGoldMultiplier2()" 	type="button" class="btn btn-default" title = "Your peasants learn to better assist your gold collection. Five times the gold collected when clicking.">Click Upgrade 2</button>
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" > 25,000
+				<br /> <br />
+
+				<button id=clickGoldUpgrade3 onclick="upgradeClickGoldMultiplier3()" 	type="button" class="btn btn-default" title = "10% of your gold per second is added to your clicking.">Click Upgrade 3</button>
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" > 1,000,000
+				<br />				
+	   </div>   
+	 </div>	 
+	 	 
 	 <div id="Achievements" class = "panel panel-default" style="">
 		<div class = "panel-heading">
 			<div class="panel-title">Achievements</div>
@@ -1444,17 +1460,7 @@
 	   </div>   
 	 </div>	
 
-	 <div id="CommandPost" class = "panel panel-default" style="display: none;">
-		<div class = "panel-heading">
-			<div class="panel-title"><span id='kingdomNameCommandPost'></span>Command Post</div>
-		</div>		
-	
-	   <div id="CommandPostDiv">  
-			<br />			
 
-	   </div>   
-	 </div>	 
-	 
 
 	 <!---------------------------------------------- ALERTS SECTION  --------------------------------------------------------------------------->
 	<div id = 'alerts' type = 'container'>

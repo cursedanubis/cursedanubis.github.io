@@ -94,6 +94,7 @@
 		save("pGoldUpgrade",pGoldUpgrade);
 		save("pGoldClickUpgrade",pGoldClickUpgrade);
 		save("pGoldClickUpgrade2",pGoldClickUpgrade2);
+		save("pGoldClickUpgrade3",pGoldClickUpgrade3);
 		save("lwoodUpgrade",lwoodUpgrade);
 		save("lwoodClickUpgrade",lwoodClickUpgrade);
 		save("mPanningUpgrade",mPanningUpgrade);
@@ -417,6 +418,7 @@
 			if(myBool == true){
 				commandPostOpened = true
 				document.getElementById('CommandPost').style.display = "block";
+				document.getElementById('CommandPostDiv').style.display = "block";
 			}
 		}		
 		
@@ -513,7 +515,15 @@
 				document.getElementById("clickGoldUpgrade2").disabled = true;
 				document.getElementById("clickGoldUpgrade2").innerHTML = "Click Upgrade 2 Bought";
 			}
-		}
+		}	
+		if(localStorage.pGoldClickUpgrade3 != null){
+			var myBool = (localStorage.pGoldClickUpgrade3 == "true")
+			if(myBool == true){
+				pGoldClickUpgrade3 = true;
+				document.getElementById("clickGoldUpgrade3").disabled = true;
+				document.getElementById("clickGoldUpgrade3").innerHTML = "Click Upgrade 3 Bought";
+			}
+		}		
 		if(localStorage.lwoodUpgrade != null){
 			var myBool = (localStorage.lwoodUpgrade == "true")
 			if(myBool == true){
