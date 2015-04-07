@@ -116,7 +116,7 @@
               </li>		  
             </ul>
 			<ul class="nav navbar-nav" id = "kingdomUL">
-				<li><a id="navKingdomName" href="#"> <span id = "KingdomName"> </span></a></li>
+				<li class = 'opt'><a id="navKingdomName" href="javascript:CollapseAll(); toggle('CommandPost');"> <span id = "KingdomName"> </span></a></li>
 			</ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -362,7 +362,7 @@
 			<button id=btnbuyPriest onclick="Priest.buyOne()"	type="button" class="btn btn-default">Train Priest</button>
 			<button id=btnPriestUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#PriestUpgradeTab" aria-expanded="false" aria-controls="PriestUpgradeTab">Upgrades</button>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="PriestCost">1000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="PriestSilverCost">10</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="PriestFaithCost">50</span> | 1 acolyte
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="PriestCost">1000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="PriestSilverCost">10</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="PriestFaithCost">50</span> | <span id = 'PriestReqUnit'>1 acolyte<span>
 			<br />
 			<div id ="PriestUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
@@ -392,7 +392,7 @@
 			<button id=btnbuyBishop onclick="Bishop.buyOne()"	type="button" class="btn btn-default">Train Bishop</button>
 			<button id=btnBishopUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#BishopUpgradeTab" aria-expanded="false" aria-controls="BishopUpgradeTab">Upgrades</button>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="BishopCost">75000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="BishopSilverCost">10000</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="BishopFaithCost">5000</span> | <img src = "images/bookssmall.png" Title="Tomes"> <span id="BishopTomeCost">10</span> | 1 Priest
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="BishopCost">75000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="BishopSilverCost">10000</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="BishopFaithCost">5000</span> | <img src = "images/bookssmall.png" Title="Tomes"> <span id="BishopTomeCost">10</span> | <span id = 'BishopReqUnit'>1 Priest</span>
 			<br />
 			<div id ="BishopUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
@@ -441,7 +441,7 @@
 			<button id=btnBuySquire onclick="Squire.buyOne()"	type="button" class="btn btn-default">Promote Squire</button>
 			<button id=btnSquireUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#SquireUpgradeTab" aria-expanded="false" aria-controls="SquireUpgradeTab">Upgrades</button>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="SquireCost">1200</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = "SquireIronCost">250</span> | 1 Page
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="SquireCost">1200</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = "SquireIronCost">250</span> | <span id = 'SquireReqUnit'>1 Page</span>
 			<br />	
 			<div id = "SquireUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
@@ -464,7 +464,7 @@
 			<button id=btnBuyKnight onclick="Knight.buyOne()"	type="button" class="btn btn-default">Promote Knight</button>
 			<button id=btnKnightUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#KnightUpgradeTab" aria-expanded="false" aria-controls="KnightUpgradeTab">Upgrades</button>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="KnightCost">3000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id= "KnightIronCost">350</span> | 1 Squire
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="KnightCost">3000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id= "KnightIronCost">350</span> | <span id = 'KnightReqUnit'>1 Squire</span>
 		
 			<div id = "KnightUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
@@ -481,7 +481,7 @@
 			<button id=btnBuyPaladin onclick="Paladin.buyOne()"	type="button" class="btn btn-default">Train Paladin</button>
 			<button id=btnPageUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#PaladinUpgradeTab" aria-expanded="false" aria-controls="PaladinUpgradeTab">Upgrades</button>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="PaladinCost">10,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="PaladinIronCost">500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="PaladinSilverCost">50</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="PaladinFaithCost">100</span> | 1 Knight
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="PaladinCost">10,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="PaladinIronCost">500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="PaladinSilverCost">50</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="PaladinFaithCost">100</span> | <span id = 'PaladinReqUnit'>1 Knight</span>
 			<br />
 		</div>
 		<div id = "PaladinUpgradeTab" class = "upgrade collapse" >
@@ -571,7 +571,7 @@
 			<div id = "WoodcuttingTab" class = "container">
 				<button id=btnOpenMill title="Constructing a lumber mill allows you to hire lumberjacks and gather wood." onclick="Lumbermill.buy()"	type="button" class="btn btn-default">Construct Lumber Mill</button>
 				<br />
-				<img src = "images/money_goldsmall.png" title ="Gold"> 750 | <img src = "images/woodsmall.png" title = "Wood"> 100
+				<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'millGoldCost'>750</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'millWoodCost'>100</span>
 				<br />
 			</div>
 			<hr>
@@ -579,7 +579,7 @@
 			<div id = "OpenMinesTab" class = "container">
 				<button id=btnOpenMines title="Opening the mines lets you collect minerals" onclick="Mines.buy()"	type="button" class="btn btn-default">Open Mines</button>
 				<br />
-				<img src = "images/money_goldsmall.png" title ="Gold"> 1,250 | <img src = "images/woodsmall.png" title = "Wood"> 200
+				<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'minesGoldCost'>1,250</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'minesWoodCost'>200</span>
 				<br />
 			</div>
 			<hr>
@@ -587,15 +587,23 @@
 			<div id = "OpenBarracksTab" class = "container">
 			<button id=btnOpenBarracks title="Build a structure to train units ready to battle evil" onclick="Barracks.buy()"	type="button" class="btn btn-default">Construct Barracks</button>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > 5,000 | <img src = "images/woodsmall.png" title = "Wood"> 1,000 | <img src = "images/ironsmall.png" title="Iron"> 250
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'barracksGoldCost'>5,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'barracksWoodCost'>1,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'barracksIronCost'>250</span>
 			<br />
 			</div>
 			<hr>
 			
+			<div id = "OpenCommandPostTab" class = "container">
+			<button id=btnOpenCommandPost title="Build your own personal building where you can give orders to your troops, relax, and upgrade your abilities." onclick="CommandPost.buy()"	type="button" class="btn btn-default">Construct Command Post</button>
+			<br />
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'commandPostGoldCost'>5,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'commandPostWoodCost'>1,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'commandPostIronCost'>250</span>
+			<br />
+			</div>
+			<hr>			
+			
 			<div id = 'buildTowerTab' class = container style="display: none;">
 			<button id=btnOpenTower title="Build a glorious tower for your Archmage to channel his energies and cast spells from." onclick="Tower.buy()" type="button" class="btn btn-default">Construct Tower</button>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold"> 1,000,000 | <img src = "images/woodsmall.png" title = "Wood">700,000 | <img src = "images/ironsmall.png" title="Iron"> 10,000 | <img src = "images/silverOresmall.png" title="Silver"> 500 | <img src = "images/faithsmall.png" title="Faith"> 1,000
+			<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'towerGoldCost'>1,000,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'towerWoodCost'>700,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'towerIronCost'>10,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'towerSilverCost'>500</span> | <img src = "images/faithsmall.png" title="Faith"> <span id = 'towerFaithCost'>1,000</span>
 			<br />
 			</div>
 			<hr>
@@ -604,7 +612,7 @@
 			<div id = "FaithStructuresTab" class = "container" style="display: none;">
 				<button id=btnOpenCathedral title="Construct a sturdy stone and iron structure meant for contemplation and worship." onclick="Cathedral.buy()"	type="button" class="btn btn-default">Build Cathedral</button>
 				<br />
-				<img src = "images/money_goldsmall.png" title ="Gold" > 15,000 | <img src = "images/woodsmall.png" title = "Wood"> 2,500 | <img src = "images/ironsmall.png" title="Iron"> 500 | <img src = "images/silverOresmall.png" title="Silver"> 100
+				<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'cathGoldCost'>15,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'cathWoodCost'>2,500</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'cathIronCost'>500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'cathSilverCost'>100</span>
 				<br />
 			</div>
 			<hr>
@@ -640,7 +648,7 @@
 			<button id=btnBuyAspect onclick="Aspect.buyOne()"	type="button" class="btn btn-default">Outfit Shade</button>
 			<button id=btnAspectUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#AspectUpgradeTab" aria-expanded="false" aria-controls="AspectUpgradeTab">Upgrades</button>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="AspectCost">15,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="aspectIronCost">1000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="aspectSilverCost">500</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="aspectSoulCost">500</span> | 1 Shade
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="AspectCost">15,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="aspectIronCost">1000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="aspectSilverCost">500</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="aspectSoulCost">500</span> | <span id = 'AspectReqUnit'>1 Shade</span>
 			<div id ="AspectUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
 					 No Upgrades implemented for Aspect of Justices yet.
@@ -1434,8 +1442,19 @@
 			</div>				
 			
 	   </div>   
-	   
+	 </div>	
+
+	 <div id="CommandPost" class = "panel panel-default" style="display: none">
+		<div class = "panel-heading">
+			<div class="panel-title"><span id='kingdomNameCommandPost'></span>Command Post</div>
+		</div>		
+	
+	   <div id="CommandPostDiv">  
+			<br />			
+
+	   </div>   
 	 </div>	 
+	 
 
 	 <!---------------------------------------------- ALERTS SECTION  --------------------------------------------------------------------------->
 	<div id = 'alerts' type = 'container'>
@@ -1454,6 +1473,11 @@
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<strong>New!</strong> You can now <a href="javascript: toggle('openBarracksAlert');CollapseAll();toggle('Barracks')" class="alert-link">train</a> units to fight against the Evil One and his minions.   
 		</div>  
+		
+		<div id = 'openCommandPostAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>New!</strong> You can now <a href="javascript: toggle('openCommandPostAlert');CollapseAll();toggle('CommandPost')" class="alert-link">upgrade</a> your own abilities and plan in the comfort of your new Command Post! 
+		</div> 		
 
 		<div id = 'goblinDefeatAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -1870,6 +1894,7 @@
 			document.getElementById("Magic").style.display = "none";
 			document.getElementById("Quests").style.display = "none";
 			document.getElementById("Achievements").style.display = "none";
+			document.getElementById("CommandPost").style.display = "none";
 		};
 		function setLastPage(name){
 			lastPage = name;

@@ -54,6 +54,7 @@
 		save("minesOpened",minesOpened);
 		save("cathedralOpened",cathedralOpened);
 		save("barracksOpened",barracksOpened);
+		save("commandPostOpened",commandPostOpened);
 		save("towerUnlocked",towerUnlocked);
 		save("towerBuilt",towerBuilt);
 		
@@ -409,7 +410,15 @@
 				document.getElementById('BarracksMenu').style.display = "block";
 				document.getElementById('armystrdiv').style.display = "block";
 			}
-		}			
+		}		
+
+		if(localStorage.commandPostOpened != null){
+			var myBool = localStorage.commandPostOpened == "true"
+			if(myBool == true){
+				commandPostOpened = true
+				document.getElementById('CommandPost').style.display = "block";
+			}
+		}		
 		
 		if(localStorage.cathedralOpened != null){
 			var myBool = (localStorage.cathedralOpened == "true")

@@ -56,6 +56,7 @@ var PmillEffUpgr = false;		//Paper mill efficiency upgrade cost
 var PmillEffUpgr2 = false;
 var PmillClickUpgr = false;		//Paper mill - Click multiplier
 var barracksOpened = false;
+var commandPostOpened = false;
 var towerUnlocked = false;
 var towerBuilt = false;
 
@@ -263,6 +264,7 @@ function clickThing(number, type)
 function renameKingdom(){
 	
 //	KingdomName = prompt("Name your kingdom", "");
+	
 		bootbox.prompt({
 		  title: "Name your Kingdom",
 		  value: KingdomName,
