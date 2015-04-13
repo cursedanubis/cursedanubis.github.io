@@ -111,3 +111,12 @@ var statTotalCastedFireBall = 0;
 
 var statCastedTimeSkip = 0;
 var statTotalCastedTimeSkip = 0;
+
+var timesClicked = 0;
+
+function incTimesClicked(){
+	timesClicked += 1;
+	document.getElementById('statTimesClicked').innerHTML = timesClicked;
+}
+
+document.body.addEventListener('click', incTimesClicked, true);
