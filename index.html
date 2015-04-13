@@ -679,21 +679,37 @@
 		</div>	
 		<br />		
 		<div id = 'dwarfshop'>
-			<div id = "relic2" class = 'relic well'>
+			<div id = "relicWaterPendant" class = 'relic well'>
 				<br />
-					<a id = 'BtnSpellFBDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Fire Ball</a>
+					<a id = 'BtnRelicWaterPendantDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = 'The dwarf claims that he can reassemble a pendant of consisting of holy and elemental water.'>Water Pendant</a>
 					<br /><br />
-					<button id=btnSpellFB onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
-					<br />	<img src = "images/manasmall.png" Title="Mana">750
+					<button id=btnRelicWaterPendant onclick="WaterPendant.buy()"	type="button" class="btn btn-default">Buy Water Pendant</button>
+					<br />	<span id = 'WaterPendantRelicCost'>10 Fragments</span> | <img src = "images/silverOresmall.png" title="Silver"><span id = 'WaterPendantSilverCost'>10,000</span> | <span id = 'WaterPendantIronCost'><img src = "images/ironsmall.png" title="Iron"> 10,000
 			</div>
 
-			<div id = "relic2" class = 'relic well'>
+			<div id = "relicFirePendant" class = 'relic well'>
 				<br />
-					<a id = 'BtnSpellFBDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Fire Ball</a>
+					<a id = 'BtnRelicFirePendantDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = 'The dwarf claims that he can reassemble a pendant of consisting of holy and elemental Fire.'>Fire Pendant</a>
 					<br /><br />
-					<button id=btnSpellFB onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
-					<br />	<img src = "images/manasmall.png" Title="Mana">750
+					<button id=btnRelicFirePendant onclick="FirePendant.buy()"	type="button" class="btn btn-default">Buy Fire Pendant</button>
+					<br />	<span id = 'FirePendantRelicCost'>10 Fragments</span> | <img src = "images/silverOresmall.png" title="Silver"><span id = 'FirePendantSilverCost'>10,000</span> | <span id = 'FirePendantIronCost'><img src = "images/ironsmall.png" title="Iron"> 10,000
 			</div>
+			
+			<div id = "relicEarthPendant" class = 'relic well'>
+				<br />
+					<a id = 'BtnRelicEarthPendantDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = 'The dwarf claims that he can reassemble a pendant of consisting of holy and elemental Earth.'>Earth Pendant</a>
+					<br /><br />
+					<button id=btnRelicEarthPendant onclick="EarthPendant.buy()"	type="button" class="btn btn-default">Buy Earth Pendant</button>
+					<br />	<span id = 'EarthPendantRelicCost'>10 Fragments</span> | <img src = "images/silverOresmall.png" title="Silver"><span id = 'EarthPendantSilverCost'>10,000</span> | <span id = 'EarthPendantIronCost'><img src = "images/ironsmall.png" title="Iron"> 10,000
+			</div>
+
+			<div id = "relicWindPendant" class = 'relic well'>
+				<br />
+					<a id = 'BtnRelicWindPendantDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = 'The dwarf claims that he can reassemble a pendant of consisting of holy and elemental Wind.'>Wind Pendant</a>
+					<br /><br />
+					<button id=btnRelicWindPendant onclick="WindPendant.buy()"	type="button" class="btn btn-default">Buy Wind Pendant</button>
+					<br />	<span id = 'WindPendantRelicCost'>10 Fragments</span> | <img src = "images/silverOresmall.png" title="Silver"><span id = 'WindPendantSilverCost'>10,000</span> | <span id = 'WindPendantIronCost'><img src = "images/ironsmall.png" title="Iron"> 10,000
+			</div>			
 			<hr>
 		</div>
 	 </div>

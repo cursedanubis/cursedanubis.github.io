@@ -121,6 +121,12 @@
 		save("relicFragment",relicFragment);
 		save("QuestDuration",QuestDuration);
 		
+		//Relic Flags
+		save("boughtEarthPendant",boughtEarthPendant);
+		save("boughtFirePendant",boughtFirePendant);
+		save("boughtWindPendant",boughtWindPendant);
+		save("boughtWaterPendant",boughtWaterPendant);
+		
 		//MiscFlags
 		save("faithDonated", faithDonated);
 		save("lastPage",lastPage);
@@ -963,6 +969,38 @@
 		if(localStorage.relicFragment != null){
 			relicFragment = parseInt(localStorage.relicFragment);
 		}	
+
+		if(localStorage.boughtEarthPendant != null){
+			var myBool = (localStorage.boughtEarthPendant == "true")
+			if(myBool == true){
+				boughtEarthPendant = true;
+				EarthPendant.purchased = true;
+			}
+		}
+
+		if(localStorage.boughtFirePendant != null){
+			var myBool = (localStorage.boughtFirePendant == "true")
+			if(myBool == true){
+				boughtFirePendant = true;
+				FirePendant.purchased = true;
+			}
+		}
+
+		if(localStorage.boughtWindPendant != null){
+			var myBool = (localStorage.boughtWindPendant == "true")
+			if(myBool == true){
+				boughtWindPendant = true;
+				WindPendant.purchased = true;
+			}
+		}		
+		
+		if(localStorage.boughtWaterPendant != null){
+			var myBool = (localStorage.boughtWaterPendant == "true")
+			if(myBool == true){
+				boughtWaterPendant = true;
+				WaterPendant.purchased = true;
+			}
+		}
 		
 		if(localStorage.faithDonated != null){
 			faithDonated = parseInt(localStorage.faithDonated);

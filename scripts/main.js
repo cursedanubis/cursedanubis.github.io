@@ -713,6 +713,9 @@ function UpdateButtons() {
 	checkSpellButtons();
 	
 //	checkQuestGoButton();
+
+	//Check Relic Buttons
+	updateRelicButtons();
 }
 
 window.setInterval(function(){                                 //Update per second counts

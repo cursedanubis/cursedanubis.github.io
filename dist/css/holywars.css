@@ -148,6 +148,14 @@ width: auto;
 float: left;
 }
 
+.relicbought{
+padding-top: 0px;
+margin-left: 10px;
+width: auto;
+float: left;
+background-color: rgb(154, 204, 255);
+}
+
 .spell{
 padding-top: 0px;
 margin-left: 10px;
