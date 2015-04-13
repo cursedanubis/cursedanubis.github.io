@@ -670,10 +670,32 @@
 	 <div id="Relics" class = "panel panel-default" style="display: none;">
 		<div class = "panel-heading">
 			<div class="panel-title">Relics</div>
-			<h3>You have <span id = relicFragments>0</span> relics fragments.</h3>
 		</div>			
-	   <div id="RelicsContainer" class = "container">   
+	   <div id="RelicsContainer" class = "container">
+			<h3>You have <span id = relicFragments>0</span> relics fragments.</h3> <br />
 	   </div>
+		<div class = "panel-heading">
+			<div class="panel-title">Dwarven Identification Service</div>
+		</div>	
+		<br />		
+		<div id = 'dwarfshop'>
+			<div id = "relic2" class = 'relic well'>
+				<br />
+					<a id = 'BtnSpellFBDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Fire Ball</a>
+					<br /><br />
+					<button id=btnSpellFB onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
+					<br />	<img src = "images/manasmall.png" Title="Mana">750
+			</div>
+
+			<div id = "relic2" class = 'relic well'>
+				<br />
+					<a id = 'BtnSpellFBDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Fire Ball</a>
+					<br /><br />
+					<button id=btnSpellFB onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
+					<br />	<img src = "images/manasmall.png" Title="Mana">750
+			</div>
+			<hr>
+		</div>
 	 </div>
 
 	 <div id="Magic" class = "panel panel-default" style="display: none;">
@@ -1979,6 +2001,7 @@
 	<script type="text/javascript" src="scripts/battle.js"></script>       <!--Load Battle script -->
 	<script type="text/javascript" src="scripts/magic.js"></script>       <!--Load Magic script -->
 	<script type="text/javascript" src="scripts/quests.js"></script>       <!--Load Quests script -->
+	<script type="text/javascript" src="scripts/relics.js"></script>       <!--Load Stats script -->
 	<script type="text/javascript" src="scripts/stats.js"></script>       <!--Load Stats script -->
 	<script type="text/javascript" src="scripts/saveload.js"></script>		<!--Load Save/Load Script -->
 	

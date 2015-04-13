@@ -118,6 +118,10 @@ width: 95%;
 margin: 2.5%;
 }
 
+#dwarfshop{
+display: inline-block;
+}
+
 .questComponent{
 width: 200px;
 float: left;
@@ -135,6 +139,13 @@ margin-top:10px;
 .upgrade {
 width: 450px;
 height: auto;
+}
+
+.relic{
+padding-top: 0px;
+margin-left: 10px;
+width: auto;
+float: left;
 }
 
 .spell{

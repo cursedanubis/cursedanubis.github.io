@@ -1,5 +1,4 @@
-var relicFragment = 0;
-
+//HW Quests
 var inQuest = false;
 var curQuestType = "";
 var UnitOnQuest = "";
