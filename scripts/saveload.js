@@ -1405,7 +1405,8 @@
 //		showUndefeatedBattles();
 		
 		if(window.localStorage.length != 0){
-			console.log("Save loaded.")
+			console.log("Save loaded.");
+//			console.log(Math.round((Date.now()-saveTime)/1000) + ' seconds since last save');	
 			document.getElementById('loadAlert').style.display = "block";  //Displays load alert
 			
 			//Dismisses load Alert
