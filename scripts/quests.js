@@ -514,6 +514,7 @@ function rollForFragment(){
 	if(percentFind >= rand){
 		relicFragment += 1;
 		document.getElementById('relicBadge').innerHTML = relicFragment;
+		document.getElementById('relicFragments').innerHTML = relicFragment;
 		alert("Relic fragment found!");		
 	}
 	else{
@@ -530,7 +531,7 @@ function holdUnitforQuest(){
 			document.getElementById('paladins').innerHTML = Paladin.number;
 			calculateBattlePower();
 			calculateSpiritPower();	
-			console.log("taking paladins");			
+//			console.log("taking paladins");			
 		break;
 		
 		case "Knight":
@@ -538,7 +539,7 @@ function holdUnitforQuest(){
 			Knight.totalArmyPower();
 			document.getElementById('knights').innerHTML = Knight.number;	
 			calculateBattlePower();
-			console.log("taking knights");		
+//			console.log("taking knights");		
 		break;
 		
 		case "Squire":
@@ -546,7 +547,7 @@ function holdUnitforQuest(){
 			Squire.totalArmyPower();
 			document.getElementById('squire').innerHTML = Squire.number;	
 			calculateBattlePower();
-			console.log("taking Squires");		
+//			console.log("taking Squires");		
 		break;		
 	}
 };

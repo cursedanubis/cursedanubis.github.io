@@ -968,6 +968,8 @@
 		
 		if(localStorage.relicFragment != null){
 			relicFragment = parseInt(localStorage.relicFragment);
+			document.getElementById('relicBadge').innerHTML = relicFragment;
+			document.getElementById('relicFragments').innerHTML = relicFragment;
 		}	
 
 		if(localStorage.boughtEarthPendant != null){
