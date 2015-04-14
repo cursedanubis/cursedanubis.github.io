@@ -135,6 +135,8 @@
 		//Statistic/Lifetime Variables
 		save("statResetted", statResetted);
 		
+		save("timesClicked",timesClicked);
+		
 		save("statGoldCollected", statGoldCollected);
 		save("statTotalGoldCollected", statTotalGoldCollected);
 		save("statSelfGoldCollected", statSelfGoldCollected);
@@ -1047,7 +1049,12 @@
 		}
 
 		//Statistic Page variables 
-		
+			//Clicking Stats
+			
+		if(localStorage.timesClicked != null){
+			timesClicked = parseInt(localStorage.timesClicked);
+			document.getElementById('statTimesClicked').innerHTML = fnum(timesClicked);
+		}		
 			//Gold Stats
 		if(localStorage.statGoldCollected != null){
 			statGoldCollected = parseInt(localStorage.statGoldCollected);
