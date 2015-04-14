@@ -268,15 +268,21 @@ function loadQuest(QuestName, percent, unit, numUnit){
 function btnSendQuest(){			
 
 	 if (checkQuestSelection() == true && $('#unitSelectPicker').selectpicker('val') != "" && $('#questSelectPicker').selectpicker('val') != ""){
-		 var string = "You send " + $('#QuestUnitNumSelect').val() + " " + $('#unitSelectPicker').selectpicker('val');
+		 var string = "<br/>You send " + $('#QuestUnitNumSelect').val() + " " + $('#unitSelectPicker').selectpicker('val');
 		 if($('#QuestUnitNumSelect').val() > 1){
 			 string = string + "s";
 		 }
 		 string = string + " out on the quest '" + $('#questSelectPicker').selectpicker('val') + "'";
-	  document.getElementById('questAlertString').innerHTML = string;
-	  document.getElementById('sendQuestAlert').style.display = "block";
+//	  document.getElementById('questAlertString').innerHTML = string;
+//	  document.getElementById('sendQuestAlert').style.display = "block";
 	  
-		//Dismisses Alert
+		$.notify({
+			title: "<strong>Questing! </strong>",
+			message: string,
+			delay: 25000
+		});		  
+	  
+/* 		//Dismisses Alert
 		var ticker = 0 ;
 		var clearAlert = setInterval(function() {
 			ticker = ticker + 1;   
@@ -287,7 +293,7 @@ function btnSendQuest(){
 			}	
 		  }
 		}, 1000);	
-	    //End Dismisses Alert	  
+	    //End Dismisses Alert	  */ 
 	  
 	  switch($('#questSelectPicker').selectpicker('val'))
 	  {
@@ -515,7 +521,13 @@ function rollForFragment(){
 		relicFragment += 1;
 		document.getElementById('relicBadge').innerHTML = relicFragment;
 		document.getElementById('relicFragments').innerHTML = relicFragment;
-		alert("Relic fragment found!");		
+		
+		$.notify({
+			title: "Found! ",
+			message: "Your units found a relic fragment in their search!",
+			delay: 25000},{
+		type: 'success'
+		});	
 	}
 	else{
 		console.log("No Relic found");

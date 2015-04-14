@@ -167,7 +167,7 @@ setSpellDescription(FireBall, 'BtnSpellFBDesc');
 
 FireBall.cast = function(){
 	if(inbattle == false){
-		document.getElementById('FireBallFailAlert').style.display = "block";
+//		document.getElementById('FireBallFailAlert').style.display = "block";
 		$.notify({
 			title: "<img src='images/fireball.png'>Fire Ball Fizzles! ",
 			message: "<br/>You are not in a battle! Your archmage declines to cast fireballs at nothing.",
