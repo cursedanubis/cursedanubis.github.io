@@ -146,31 +146,56 @@ Building.prototype.buy = function(){
 				case "lumbermillOpened":
 					lumbermillOpened = true;
 					document.getElementById('WoodcuttingTab').style.display = "block";
-					document.getElementById('openMillAlert').style.display = "block";					
+//					document.getElementById('openMillAlert').style.display = "block";				
+					$.notify({
+						title: "<strong>New!</strong> ",
+						message: "You can now <a href='javascript: alertOpenProductionPage()' class='alert-link'>hire lumberjacks</a> to cut down trees for you!"
+					});
+ 					
 				break;				
 				case "minesOpened":
 					minesOpened = true;
 					document.getElementById('irondiv').style.display = "block";
 					document.getElementById('Mining').style.display = "block";
-					document.getElementById('openMineAlert').style.display = "block";					
+					document.getElementById('openMineAlert').style.display = "block";	
+					$.notify({
+						title: "<strong>New!</strong> ",
+						message: "You can now <a href='javascript: alertOpenProductionPage()' class='alert-link'>hire miners</a> to mine minerals for you!"
+					});		  
+				
 				break; 
 				case "barracksOpened":
 					barracksOpened = true;
 					document.getElementById('BarracksMenu').style.display = "block";
-					document.getElementById('openBarracksAlert').style.display = "block";
+//					document.getElementById('openBarracksAlert').style.display = "block";
 					document.getElementById('armystrdiv').style.display = "block";
+					$.notify({
+						title: "<strong>New!</strong> ",
+						message: "You can now <a href='javascript: alertOpenBarracksPage()' class='alert-link'>train</a> units to fight against the Evil One and his minions."
+					});		
+
 				break;
+				
 				case "commandPostOpened":
 					commandPostOpened = true;
-					document.getElementById('openCommandPostAlert').style.display = "block";
+//					document.getElementById('openCommandPostAlert').style.display = "block";
 					document.getElementById('CommandPost').style.display = "block";	
 					document.getElementById('CommandPostDiv').style.display = "block";
+					$.notify({
+						title: "<strong>New!</strong> ",
+						message: "You can now <a href='javascript: alertOpenCommandPostPage()' class='alert-link'>upgrade</a> your own abilities and plan in the comfort of your new Command Post!"
+					});						
 				break;
+			
 				case "cathedralOpened":
 					cathedralOpened = true;
 					document.getElementById('faithdiv').style.display = "block";
 					document.getElementById('FaithMenu').style.display = "block";
-					document.getElementById('openCathAlert').style.display = "block";
+//					document.getElementById('openCathAlert').style.display = "block";
+					$.notify({
+						title: "<strong>New!</strong> ",
+						message: "The faithful flock to your beautiful <a href='javascript: alertOpenCathedralPage()' class='alert-link'>cathedral</a>.  "
+					});	
 				break;
 				case "towerBuilt":
 					towerBuilt = true;
@@ -178,7 +203,11 @@ Building.prototype.buy = function(){
 					document.getElementById('Magic').style.display = "block";
 					document.getElementById('manadiv').style.display = "block";
 					document.getElementById('TowerMenu').style.display = "block";
-					document.getElementById('builtTowerAlert').style.display = "block";
+//					document.getElementById('builtTowerAlert').style.display = "block";
+					$.notify({
+						title: "<strong>New!</strong> ",
+						message: "Using massive amounts of resources, you build the Archmage the <a href='javascript: alertOpenTowerPage()' class='alert-link'>tower</a> where he can cast magic to help your forces."
+					});	
 				default:
 			}
 		}
@@ -372,8 +401,34 @@ MultBuilding.prototype.buyOne = function(){
 	}
 };
 
+function alertOpenProductionPage(){
+	CollapseAll();
+	toggle('Production');
+}
+
+function alertOpenCommandPostPage(){
+	CollapseAll();
+	toggle('CommandPost');
+}
+
+function alertOpenBarracksPage(){
+	CollapseAll();
+	toggle('Barracks');
+}
+
+function alertOpenCathedralPage(){
+	CollapseAll();
+	toggle('Cathedral');
+}
+
+function alertOpenTowerPage(){
+	CollapseAll();
+	toggle('Magic');
+}
+
 var lumermillDesc = "Constructing a lumber mill allows you to hire lumberjacks and gather wood.";
 var Lumbermill = new Building('Lumbermill','btnOpenMill','millGoldCost','millWoodCost','none','none','none','none',750,100,0,0,0,0,lumermillDesc,"none",'lumbermillOpened');
+
 
 var papermillDesc = "Constructing a paper mill allows you to automatically convert wood into paper. Converts 50 <img src = 'images/woodsmall.png'> to 1 <img src = 'images/parchmentsmall.png'> every 10 seconds";
 var PaperMill = new MultBuilding('Papermill','papermills', 'pMillCost', 'pMillWoodCost','pMillIronCost','none','none','none','none','btnbuyPMill',4500,2000,1500,0,0,0,0,1.5,papermillDesc,0,false,0);

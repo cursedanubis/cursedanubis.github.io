@@ -715,7 +715,10 @@ function UpdateButtons() {
 //	checkQuestGoButton();
 
 	//Check Relic Buttons
-	updateRelicButtons();
+	if(defeatedDwarf == true){
+		updateRelicButtons();		
+	}
+
 }
 
 window.setInterval(function(){                                 //Update per second counts

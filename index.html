@@ -16,19 +16,22 @@
 	<!--Touchspin CSS-->
 	<link href="dist/css/jquery.bootstrap-touchspin.css" rel="stylesheet">
 	
-
 	<!--BootstrapSelect CSS-->
-	<link href="dist/css/bootstrap-select.css" rel="stylesheet">	
+	<link href="dist/css/bootstrap-select.css" rel="stylesheet">
 	
+	<!--Animate CSS -->
+	<link href="dist/css/animate.css" rel="stylesheet">
 	
 	<!-- Custom styles for this template -->
     <link href="dist/css/navbar.css" rel="stylesheet">
 	<link href="dist/css/holywars.css" rel="stylesheet">
 	
+	<!-- Other Imported scripts -->
     <script src="dist/assets/js/ie-emulation-modes-warning.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="dist/js/jquery.bootstrap-touchspin.js"></script>
 	<script src="dist/js/bootstrap-select.js"></script>
+	<script src="dist/js/bootstrap-notify.js"></script>
 	<script src="dist/js/bootbox.min.js"></script>
 
 	
@@ -57,6 +60,15 @@
         });
     });
 
+	$.notifyDefaults({
+		element: 'body',
+		newest_on_top: false,
+		placement: {
+			from: "bottom",
+			align: "center"
+		}
+	});
+
 	</script>
 
   </head>
@@ -75,11 +87,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Holy Wars</a>
+            <a class="navbar-brand animated fadeInLeft" href="#">Holy Wars</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-			  <li id = "GatherLi"><a id="displayGatherOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Gather</a></li>	
+            <ul class="nav navbar-nav  animated slideInDown">
+			  <li id = "GatherLi "><a id="displayGatherOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Gather</a></li>	
 			  <li class = 'active'><a id="ProductionMenu" href="javascript:CollapseAll(); toggle('Production'); setLastPage('Production');">Village</a></li>
 			  <li><a id="StructureMenu" href="javascript:CollapseAll(); toggle('Structures'); setLastPage('Structures');">Structures</a></li>
               <li><a id="FaithMenu" href="javascript:CollapseAll(); toggle('Cathedral'); setLastPage('Cathedral');" style="display: none;">Cathedral</a></li>
