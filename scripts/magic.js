@@ -138,7 +138,7 @@ FastForward.cast = function(){
 	document.getElementById('statCastedTimeSkip').innerHTML = statCastedTimeSkip;
 	document.getElementById('statTotalCastedTimeSkip').innerHTML = statTotalCastedTimeSkip;
 	
-	var alertString = "The archmage releases a burst of magic causing the world to blur before your eyes! ";
+	var alertString = "<br/>The archmage releases a burst of magic causing the world to blur before your eyes! ";
 		if(goldGained > 0){alertString = alertString + "<br>You gain " + fnum(goldGained)+ " gold."}
 		if(woodGained > 0){alertString = alertString + "<br>You gain " + fnum(woodGained) + " wood. "}
 		if(ironGained > 0){alertString = alertString + "<br>You gain " + fnum(ironGained) + " iron."}
@@ -147,9 +147,17 @@ FastForward.cast = function(){
 		if(soulsGained > 0){alertString = alertString + "<br>You gain " + fnum(soulsGained) + " souls."}
 		if(paperGained > 0){alertString = alertString + "<br>You gain " + fnum(paperGained) + " paper."}
 					 
-	document.getElementById('TimeWarpAlert').style.display = "block";
-	document.getElementById('timeWarpAlertString').innerHTML = alertString;
-	scroll('TimeWarpAlert',1000);
+//	document.getElementById('TimeWarpAlert').style.display = "block";
+//	document.getElementById('timeWarpAlertString').innerHTML = alertString;
+//	scroll('TimeWarpAlert',1000);
+
+	$.notify({
+		title: "<img src='images/stopwatch.png'>Time Warp! ",
+		message: alertString,
+		delay: 50000},{
+	type: 'success'
+	});	
+
 	}
 }
 
@@ -160,6 +168,12 @@ setSpellDescription(FireBall, 'BtnSpellFBDesc');
 FireBall.cast = function(){
 	if(inbattle == false){
 		document.getElementById('FireBallFailAlert').style.display = "block";
+		$.notify({
+			title: "<img src='images/fireball.png'>Fire Ball Fizzles! ",
+			message: "<br/>You are not in a battle! Your archmage declines to cast fireballs at nothing.",
+			delay: 50000},{
+		type: 'danger'
+		});	
 	}
 	else{
 		spellBoost(15);
@@ -176,9 +190,16 @@ FireBall.cast = function(){
 		CollapseAll(); 
 		toggle('Battle');
 		var AlertString = "With a large 'woosh!' and a burst of intense light and heat, the archmage sends a fireball flying from his tower straight at " + curBattling + "!";
-		document.getElementById('fireBallAlertString').innerHTML = AlertString;
-		document.getElementById('FireBallAlert').style.display = "block";
-		scroll('FireBallAlert',1000);
+//		document.getElementById('fireBallAlertString').innerHTML = AlertString;
+//		document.getElementById('FireBallAlert').style.display = "block";
+//		scroll('FireBallAlert',1000);
+
+		$.notify({
+			title: "<img src='images/fireball.png'>Fire Ball! ",
+			message: AlertString,
+			delay: 50000},{
+		type: 'success'
+		});	
 	}
 
 }
