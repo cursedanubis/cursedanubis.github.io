@@ -278,7 +278,7 @@ function renameKingdom(){
 				document.getElementById("KingdomName").innerHTML = "Kingdom";
 			} else {
 				KingdomName = result;
-				document.getElementById("KingdomName").innerHTML = KingdomName;
+				document.getElementById("navKingdomName").innerHTML = KingdomName;
 				document.title = "Holy Wars - " + KingdomName;
 			}
 		  }
