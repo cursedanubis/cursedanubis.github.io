@@ -171,7 +171,7 @@ FireBall.cast = function(){
 		$.notify({
 			title: "<img src='images/fireball.png'>Fire Ball Fizzles! ",
 			message: "<br/>You are not in a battle! Your archmage declines to cast fireballs at nothing.",
-			delay: 50000},{
+			delay: 5000},{
 		type: 'danger'
 		});	
 	}
@@ -197,7 +197,7 @@ FireBall.cast = function(){
 		$.notify({
 			title: "<img src='images/fireball.png'>Fire Ball! ",
 			message: AlertString,
-			delay: 50000},{
+			delay: 10000},{
 		type: 'success'
 		});	
 	}
