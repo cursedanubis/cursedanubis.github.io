@@ -63,6 +63,7 @@
 	$.notifyDefaults({
 		element: 'body',
 		newest_on_top: false,
+		delay: 60000,
 		placement: {
 			from: "bottom",
 			align: "center"
@@ -326,9 +327,9 @@
 		<div id = "RelicPedestalTab" class = "container" style="display: none;">
 			<br />
 			<a id = 'BtnRelicDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Relic on a Pedestal"
-				data-content="The relic from the succubus/angel sits quietly on a black marble pedestal. There must be something more to it.">Relic on a Pedestal</a> <br />
-				Faith empowering relic: <span id = 'faithDonated'>0</span> <img src = "images/faithsmall.png" title="Faith"> <br />
-				Sacrifice:<br/>
+				data-content="The relic from the succubus/angel sits quietly on a black marble pedestal. There must be something more to it.">Necklace on a Pedestal</a> <br />
+				Faith empowering the necklace: <span id = 'faithDonated'>0</span> <img src = "images/faithsmall.png" title="Faith"> <br />
+				Sacrifice faith:<br/>
 				<div class="btn-group" role="group" aria-label="...">
 				  <button type="button" onclick = "addFaithToRelic(100)" class="btn btn-default"> 100</button>
 				  <button type="button" onclick = "addFaithToRelic(1000)" class="btn btn-default"> 1000</button>
@@ -1594,9 +1595,7 @@
 
 		<div id = 'PixieDefeatAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong> The pixie dissolves into a pile of glittering dust. Your priests decide to scoop her remains into a bottle for further study.
-			<!--<a href="javascript: toggle('unlockAspectofJustice')" class="alert-link">tower</a>-->
-				
+			<strong>New!</strong> The pixie dissolves into a pile of glittering dust. Your priests decide to scoop her remains into a bottle for further study.				
 		</div>			
 		
 		<div id = 'unlockAspectofJustice' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">

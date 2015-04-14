@@ -401,25 +401,6 @@ MultBuilding.prototype.buyOne = function(){
 	}
 };
 
-function alertOpenProductionPage(){
-	document.getElementById("ProductionMenu").click();
-}
-
-function alertOpenCommandPostPage(){
-	toggle('CommandPost');
-}
-
-function alertOpenBarracksPage(){
-	document.getElementById("BarracksMenu").click();
-}
-
-function alertOpenCathedralPage(){
-	document.getElementById("FaithMenu").click();
-}
-
-function alertOpenTowerPage(){
-	document.getElementById("TowerMenu").click();
-}
 
 var lumermillDesc = "Constructing a lumber mill allows you to hire lumberjacks and gather wood.";
 var Lumbermill = new Building('Lumbermill','btnOpenMill','millGoldCost','millWoodCost','none','none','none','none',750,100,0,0,0,0,lumermillDesc,"none",'lumbermillOpened');

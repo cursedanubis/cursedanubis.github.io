@@ -540,15 +540,15 @@ function addFaithToRelic(number){
 		var description;
 		
 		if(faithDonated < 250000){
-			description = "The relic from the succubus/angel sits quietly on a black marble pedestal. There must be something more to it."
+			description = "The necklace from the succubus/angel sits quietly on a black marble pedestal. There must be something more to it."
 		}
 		else if(faithDonated > 250000){
-			description = "The relic begins to glow slightly, and you swear you can hear a humming noise emanating from deep within."
+			description = "The necklace begins to glow slightly, and you swear you can hear a humming noise emanating from deep within."
 			document.getElementById('RelicHalfAlert').style.display = "block";
 			scroll(RelicHalfAlert, 1000);
 		}
 		else if(faithDonate > 400000){
-			description = "The glowing from the relic intensifies, and now there is a slight shimmering around the surface! Just a little more, something is about to happen!"
+			description = "The glowing from the necklace intensifies, and now there is a slight shimmering around the surface! Just a little more, something is about to happen!"
 			document.getElementById('RelicAlmostAlert').style.display = "block";
 		}
 		var popover = document.getElementById('BtnRelicDesc');
@@ -996,4 +996,41 @@ function scroll(name, timeout){
 	element_to_scroll_to = document.getElementById(name);
 	element_to_scroll_to.scrollIntoView();
 	 }, timeout);
+}
+
+
+function alertOpenProductionPage(){
+	document.getElementById("ProductionMenu").click();
+}
+
+function alertOpenCommandPostPage(){
+	toggle('CommandPost');
+}
+
+function alertOpenBarracksPage(){
+	document.getElementById("BarracksMenu").click();
+}
+
+function alertOpenCathedralPage(){
+	document.getElementById("FaithMenu").click();
+}
+
+function alertOpenTowerPage(){
+	document.getElementById("TowerMenu").click();
+}
+
+function alertOpenStructuresPage(){
+	document.getElementById("StructureMenu").click();
+}
+
+function alertOpenEtherealPage(){
+	document.getElementById("EtherealMenu").click();
+}
+
+function alertOpenRelicPage(){
+	document.getElementById("RelicsMenu").click();
+}
+
+function alertOpenBattlePage(){
+	document.getElementById("BattleMenu").click();
 }
