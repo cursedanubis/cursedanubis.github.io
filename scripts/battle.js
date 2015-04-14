@@ -1339,7 +1339,8 @@ function hellHoundRaid(){
 			if(defeatedHhounds == false && raidBattleCheck('Hellhounds') == false){	
 				hellhoundCull();
 				hellHoundRaid();
-				//Dismisses Raid Alert
+				
+/* 				//Dismisses Raid Alert
 				var ticker2 = 0 ;
 				var clearAttackAlert = setInterval(function() {
 					ticker2 = ticker2 + 1;   
@@ -1350,7 +1351,8 @@ function hellHoundRaid(){
 						}	
 					}
 				}, 1000);	
-				//End Dismisses Raid Alert
+				//End Dismisses Raid Alert */
+				
 			}
 		  }
 		}, 1000);				
@@ -1360,34 +1362,46 @@ function hellHoundRaid(){
 //Hellhounds killing peasants or Miners
 function hellhoundCull(){
 	var flipCoin = Math.floor(Math.random()*10+1);    //Determining which unit gets killed
+	var loststring
+	
 		if(flipCoin%2 == 0){
-			typeKilled = "peasants";
-			document.getElementById("typeKilled").innerHTML = typeKilled;
+//			typeKilled = "peasants";
+//			document.getElementById("typeKilled").innerHTML = typeKilled;
 			justKilled = Math.floor(Peasant.number / 10);
 			Peasant.number -= justKilled;
 			document.getElementById("justKilled").innerHTML = justKilled;
 			peasantsKilled += justKilled;
 			statTotalPeasantsKilled += justKilled;
 			document.getElementById("peasants").innerHTML = Peasant.number;
-			document.getElementById('hellHoundAttackAlert').style.display = "block"
+//			document.getElementById('hellHoundAttackAlert').style.display = "block"
 			document.getElementById("peasantsKilled").innerHTML = peasantsKilled;
 			document.getElementById("peasantsKilled2").innerHTML = peasantsKilled;
 			document.getElementById("statTotalPeasantsKilled").innerHTML = statTotalPeasantsKilled;
+			loststring = "The Evil One's hellhounds break through your defenses and kill " + justKilled + " of your "  + typeKilled + ". Build up your strength and <a href='javascript: alertOpenBattlePage();' class='alert-link'>fight</a> them off!"
 		}
 		else{
-			typeKilled = "miners";
-			document.getElementById("typeKilled").innerHTML = typeKilled;
+//			typeKilled = "miners";
+//			document.getElementById("typeKilled").innerHTML = typeKilled;
 			justKilled = Math.floor(Miner.number / 10);
 			Miner.number -= justKilled;
 			document.getElementById("justKilled").innerHTML = justKilled;
 			minersKilled += justKilled;
 			statTotalMinersKilled += justKilled;
 			document.getElementById("miners").innerHTML = Miner.number;
-			document.getElementById('hellHoundAttackAlert').style.display = "block"
+//			document.getElementById('hellHoundAttackAlert').style.display = "block"
 			document.getElementById("minersKilled").innerHTML = minersKilled;
 			document.getElementById("minersKilled2").innerHTML = minersKilled;
 			document.getElementById("statTotalMinersKilled").innerHTML = statTotalMinersKilled;
+			loststring = "The Evil One's hellhounds break through your defenses and kill " + justKilled + " of your "  + typeKilled + ". Build up your strength and <a href='javascript: alertOpenBattlePage();' class='alert-link'>fight</a> them off!"
 		}
+		
+		$.notify({
+			title: "<strong>Oh No! </strong>",
+			message: loststring,
+			delay: 60000},{
+		type: 'danger'
+		});			
+		
 		recalculateCosts();
 };
 
@@ -1456,13 +1470,20 @@ function oozeAbsorb(){
 		document.getElementById('silverAbsorbed2').innerHTML = fnum(silverAbsorbed);
 		document.getElementById('statTotalSilverStolen').innerHTML = fnum(statTotalSilverStolen);
 	}
-	document.getElementById('absorbedAmount').innerHTML = fnum(absorbedAmount);
-	document.getElementById('absorbedType').innerHTML = absorbedType;
-	document.getElementById('OozeAttackAlert').style.display = "block"
+//	document.getElementById('absorbedAmount').innerHTML = fnum(absorbedAmount);
+//	document.getElementById('absorbedType').innerHTML = absorbedType;
+//	document.getElementById('OozeAttackAlert').style.display = "block"
 	document.getElementById('BatOoze').style.display = "block";
+
+	var loststring = "A nasty ooze burbles up from inside of your mine and engulfs " + absorbedAmount + " of your " + absorbedType + "! It's going to be a <a href='javascript: alertOpenBattlePage();' class='alert-link'>sticky fight</a>, but if you don't get rid of it it will absorb all of your minerals."
+	$.notify({
+		title: "<strong>Oh No! </strong>",
+		message: loststring,
+		delay: 60000},{
+	type: 'danger'
+	});			
 	
-	
-	//Dismisses Raid Alert
+/* 	//Dismisses Raid Alert
 	var ticker2 = 0 ;
 	var clearAttackAlert = setInterval(function() {
 		ticker2 = ticker2 + 1;   
@@ -1473,7 +1494,7 @@ function oozeAbsorb(){
 			}	
 		}
 	}, 1000);	
-	//End Dismisses Raid Alert	
+	//End Dismisses Raid Alert	 */
 };
 
 var dwarfDesc = "In one of the side channels of your mine that was previously blocked off by the gooey ooze you discover an ancient looking abode. <br><br> Inside the carved dwelling is a malevolent looking dwarf that cusses and spits at you and your troops when you get close to him. <br><br> From what you can see of his dwelling, you spy many delicate looking instruments which you presume are used for identification and categorizing. ";
@@ -1544,14 +1565,23 @@ function succubusSeduce(){
 	
 	document.getElementById(highestTier.htmlNumRef).innerHTML = highestTier.number;
 	document.getElementById(previousTier.htmlNumRef).innerHTML = previousTier.number;		
-	document.getElementById('seducedUnitType').innerHTML = highestTier.name;
-	document.getElementById('previousUnitType').innerHTML = previousTier.name;
+//	document.getElementById('seducedUnitType').innerHTML = highestTier.name;
+//	document.getElementById('previousUnitType').innerHTML = previousTier.name;
 	document.getElementById('unitsSeduced').innerHTML = unitsSeduced;
 	document.getElementById('unitsSeduced2').innerHTML = unitsSeduced;
 	document.getElementById('statTotalUnitsSeduced').innerHTML = statTotalUnitsSeduced;
-	document.getElementById('SuccubusAttackAlert').style.display = "block"
+//	document.getElementById('SuccubusAttackAlert').style.display = "block"
 	
-	//Dismisses Raid Alert
+	var loststring = "The Evil One's paramour, the Succubus magically appears in the cover of the night... she seduces one of your " + highestTier.name + "s! They are returned the next day but cannot function as their previous role and have to be retrained from a " + previousTier.name + ". You better get <a href='javascript: alertOpenBattlePage();' class='alert-link'>get rid</a> of her before she decimates your entire army."
+
+	$.notify({
+		title: "<strong>Oh No! </strong>",
+		message: loststring,
+		delay: 60000},{
+	type: 'danger'
+	});		
+	
+/* 	//Dismisses Raid Alert
 	var ticker2 = 0 ;
 	var clearAttackAlert = setInterval(function() {
 		ticker2 = ticker2 + 1;   
@@ -1562,7 +1592,7 @@ function succubusSeduce(){
 			}	
 		}
 	}, 1000);	
-	//End Dismisses Raid Alert
+	//End Dismisses Raid Alert */
 }
 
 var undeadArmyDesc = "Your patrols are returning with reports of unearthly moaning and groaning beyond the borders of your kingdom. <br><br> The sound are accompanied by the echo of footsteps in the distance as well as the stench of decaying flesh. <br> As if the ragged decomposed beings weren't frightening enough, a majority of the walking dead bear weapons and armor in relatively good shape. <br><br> You may need to bring spiritual forces to combat this unnatural army. ";
