@@ -157,7 +157,7 @@ Building.prototype.buy = function(){
 					minesOpened = true;
 					document.getElementById('irondiv').style.display = "block";
 					document.getElementById('Mining').style.display = "block";
-					document.getElementById('openMineAlert').style.display = "block";	
+//					document.getElementById('openMineAlert').style.display = "block";	
 					$.notify({
 						title: "<strong>New!</strong> ",
 						message: "You can now <a href='javascript: alertOpenProductionPage()' class='alert-link'>hire miners</a> to mine minerals for you!"
@@ -402,28 +402,23 @@ MultBuilding.prototype.buyOne = function(){
 };
 
 function alertOpenProductionPage(){
-	CollapseAll();
-	toggle('Production');
+	document.getElementById("ProductionMenu").click();
 }
 
 function alertOpenCommandPostPage(){
-	CollapseAll();
 	toggle('CommandPost');
 }
 
 function alertOpenBarracksPage(){
-	CollapseAll();
-	toggle('Barracks');
+	document.getElementById("BarracksMenu").click();
 }
 
 function alertOpenCathedralPage(){
-	CollapseAll();
-	toggle('Cathedral');
+	document.getElementById("FaithMenu").click();
 }
 
 function alertOpenTowerPage(){
-	CollapseAll();
-	toggle('Magic');
+	document.getElementById("TowerMenu").click();
 }
 
 var lumermillDesc = "Constructing a lumber mill allows you to hire lumberjacks and gather wood.";
@@ -630,9 +625,7 @@ var run = setInterval(request , interval); // start setInterval as "run"
         }
 
         run = setInterval(request, interval); // start the setInterval()
-
     }
-
 
 var PMillTime = 10000;
 var Pmillticker = setInterval(request, PMillTime);
