@@ -263,12 +263,15 @@
 		  }
 		}, 1000);	
 	    //End Dismisses Save Alert */
+	
 		
-		var notify = $.notify('<strong>Saving</strong> Do not close this page...', {
+		var notify = $.notify({
+			icon: 'glyphicon glyphicon-floppy-disk',
+			message: '<strong>Saving</strong> Do not close this page...'},{
 			type: 'success',
 			allow_dismiss: false,
 			showProgressbar: true,
-			delay: 500
+			delay: 1500
 		});
 
 		setTimeout(function() {
@@ -1437,12 +1440,14 @@
 			}, 1000);	
 			//End Dismisses load Alert	 */	
 
-		var notify = $.notify('<strong>Load</strong> Your game save has been loaded.', {
-			type: 'info',
-			allow_dismiss: false,
-			delay: 2000
-		});			
-			
+			$.notify({
+				icon: 'glyphicon glyphicon-download-alt',
+				message: "<strong>Load</strong> Your game save has been loaded.", 
+				},{
+				type: 'info',
+				allow_dismiss: false,
+				delay: 2000
+			});
 		}
 	};
 	
