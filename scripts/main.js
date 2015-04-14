@@ -126,7 +126,8 @@ function clickThing(number, type)
 			document.getElementById("statWoodCollected").innerHTML = fnum(statWoodCollected);		
 			document.getElementById("statSelfWoodCollected").innerHTML = fnum(statSelfWoodCollected);		
 			document.getElementById("statTotalWoodCollected").innerHTML = fnum(statTotalWoodCollected);		
-			document.getElementById("statTotalSelfWoodCollected").innerHTML = fnum(statTotalSelfWoodCollected);		
+			document.getElementById("statTotalSelfWoodCollected").innerHTML = fnum(statTotalSelfWoodCollected);	
+			document.getElementById('clickwood').setAttribute('title', "Click to gather wood yourself - " + fnum(number) + " wood gained per click.");			
 			break;
 
 		case "paper":
