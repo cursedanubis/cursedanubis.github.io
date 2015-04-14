@@ -1440,7 +1440,7 @@
 		var notify = $.notify('<strong>Load</strong> Your game save has been loaded.', {
 			type: 'info',
 			allow_dismiss: false,
-			delay: 1500
+			delay: 2000
 		});			
 			
 		}

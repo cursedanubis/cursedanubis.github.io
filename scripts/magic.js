@@ -154,7 +154,7 @@ FastForward.cast = function(){
 	$.notify({
 		title: "<img src='images/stopwatch.png'>Time Warp! ",
 		message: alertString,
-		delay: 50000},{
+		},{delay: 50000},{
 	type: 'success'
 	});	
 
@@ -171,7 +171,7 @@ FireBall.cast = function(){
 		$.notify({
 			title: "<img src='images/fireball.png'>Fire Ball Fizzles! ",
 			message: "<br/>You are not in a battle! Your archmage declines to cast fireballs at nothing.",
-			delay: 5000},{
+			},{delay: 10000},{
 		type: 'danger'
 		});	
 	}
