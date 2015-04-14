@@ -1479,7 +1479,7 @@ function oozeAbsorb(){
 	$.notify({
 		title: "<strong>Oh No! </strong>",
 		message: loststring,
-		delay: 60000},{
+		},{delay: 60000},{
 	type: 'danger'
 	});			
 	
@@ -1577,7 +1577,7 @@ function succubusSeduce(){
 	$.notify({
 		title: "<strong>Oh No! </strong>",
 		message: loststring,
-		delay: 60000},{
+		},{delay: 60000},{
 	type: 'danger'
 	});		
 	
@@ -1614,8 +1614,16 @@ function necroReviveUA(){
 		$bar.text(0+'%');	
 		document.getElementById(UndeadArmy.htmlBoxRef).style.display = "none";
 		showBattle("UndeadArmy");
-		document.getElementById('UArmyReviveAlert').style.display = "block";
-		scroll('UArmyReviveAlert',500);
+//		document.getElementById('UArmyReviveAlert').style.display = "block";
+//		scroll('UArmyReviveAlert',500);
+
+	$.notify({
+		title: "<strong>Huh?! </strong>",
+		message: "The moaning returns! While you are in the middle of ordering a scout to check the location you buried the undead army, a lookout comes running into your quarters tells you that the undead army has risen and is marching on your kingdom <a href='javascript: alertOpenBattlePage(); class='alert-link'>again!</a>",
+		},{delay: 60000},{
+	type: 'danger'
+	});	
+
 	}
 }
 
