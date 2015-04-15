@@ -126,7 +126,8 @@ function clickThing(number, type)
 			document.getElementById("statWoodCollected").innerHTML = fnum(statWoodCollected);		
 			document.getElementById("statSelfWoodCollected").innerHTML = fnum(statSelfWoodCollected);		
 			document.getElementById("statTotalWoodCollected").innerHTML = fnum(statTotalWoodCollected);		
-			document.getElementById("statTotalSelfWoodCollected").innerHTML = fnum(statTotalSelfWoodCollected);		
+			document.getElementById("statTotalSelfWoodCollected").innerHTML = fnum(statTotalSelfWoodCollected);	
+			document.getElementById('clickwood').setAttribute('title', "Click to gather wood yourself - " + fnum(number) + " wood gained per click.");			
 			break;
 
 		case "paper":
@@ -278,7 +279,7 @@ function renameKingdom(){
 				document.getElementById("KingdomName").innerHTML = "Kingdom";
 			} else {
 				KingdomName = result;
-				document.getElementById("KingdomName").innerHTML = KingdomName;
+				document.getElementById("navKingdomName").innerHTML = KingdomName;
 				document.title = "Holy Wars - " + KingdomName;
 			}
 		  }
@@ -540,15 +541,21 @@ function addFaithToRelic(number){
 		var description;
 		
 		if(faithDonated < 250000){
-			description = "The relic from the succubus/angel sits quietly on a black marble pedestal. There must be something more to it."
+			description = "The necklace from the succubus/angel sits quietly on a black marble pedestal. There must be something more to it."
 		}
 		else if(faithDonated > 250000){
-			description = "The relic begins to glow slightly, and you swear you can hear a humming noise emanating from deep within."
-			document.getElementById('RelicHalfAlert').style.display = "block";
-			scroll(RelicHalfAlert, 1000);
+			description = "The necklace begins to glow slightly, and you swear you can hear a humming noise emanating from deep within."
+//			document.getElementById('RelicHalfAlert').style.display = "block";		
+//			scroll(RelicHalfAlert, 1000);
+			$.notify({
+				title: "<strong>New!</strong>",
+				message: description
+				},{
+			delay: 900000
+			});	
 		}
 		else if(faithDonate > 400000){
-			description = "The glowing from the relic intensifies, and now there is a slight shimmering around the surface! Just a little more, something is about to happen!"
+			description = "The glowing from the necklace intensifies, and now there is a slight shimmering around the surface! Just a little more, something is about to happen!"
 			document.getElementById('RelicAlmostAlert').style.display = "block";
 		}
 		var popover = document.getElementById('BtnRelicDesc');
@@ -559,11 +566,16 @@ function addFaithToRelic(number){
 	if(faithDonated >= 500000){
 		document.getElementById("Etherealtitle").innerHTML = "Ethereal Rip & Angelic Gates";
 		document.getElementById('RelicPedestalTab').style.display = "none";
-		document.getElementById('AngelUnlockAlert').style.display = "block";
+//		document.getElementById('AngelUnlockAlert').style.display = "block";
 		document.getElementById('AngelTab').style.display = "block";
 		angelsUnlocked = true;
-		element_to_scroll_to = document.getElementById('AngelUnlockAlert');
-		element_to_scroll_to.scrollIntoView();	
+		var AngelUnlockAlert = $.notify({
+			title: "<strong>New!</strong>",
+			message: "The necklace is overflowing with the faith! It starts to vibrate violently, and you decide the most prudent thing to do is to take it outside. Just as you step foot outside the cathedral doors, flies out of your hands and hovers before you. You can literally feel the hum of power as the necklace emits a brilliant beam of light that shoots into the heavens. You watch as the skies are turned a vibrant gold.. all of the faith that was used to empower the necklace opens up a <a href='javascript: alertOpenEtherealPage(); AngelUnlockAlert.close();' class='alert-link'>divine gate</a>. The gate is directly above your cathedral, but you swear you can see winged beings flapping just beyond the shimmering portal."	
+			},{
+		delay: 900000,
+		type: 'success'
+		});			
 	}
 }
 
@@ -715,7 +727,10 @@ function UpdateButtons() {
 //	checkQuestGoButton();
 
 	//Check Relic Buttons
-	updateRelicButtons();
+	if(defeatedDwarf == true){
+		updateRelicButtons();		
+	}
+
 }
 
 window.setInterval(function(){                                 //Update per second counts
@@ -994,3 +1009,60 @@ function scroll(name, timeout){
 	element_to_scroll_to.scrollIntoView();
 	 }, timeout);
 }
+
+
+function alertOpenProductionPage(){
+	document.getElementById("ProductionMenu").click();
+}
+
+function alertOpenCommandPostPage(){
+	document.getElementById("CommandPost").click();
+}
+
+function alertOpenBarracksPage(){
+	document.getElementById("BarracksMenu").click();
+}
+
+function alertOpenCathedralPage(){
+	document.getElementById("FaithMenu").click();
+}
+
+function alertOpenTowerPage(){
+	document.getElementById("TowerMenu").click();
+}
+
+function alertOpenStructuresPage(){
+	document.getElementById("StructureMenu").click();
+}
+
+function alertOpenEtherealPage(){
+	document.getElementById("EtherealMenu").click();
+}
+
+function alertOpenRelicPage(){
+	document.getElementById("RelicsMenu").click();
+}
+
+function alertOpenBattlePage(){
+	document.getElementById("BattleMenu").click();
+}
+
+//Hover gatherables effects//
+$('#clickmoney').hover(
+	   function(){ $(this).addClass('animated infinite pulse') },
+	   function(){ $(this).removeClass('animated infinite pulse') }
+)
+$('#clickwood').hover(
+	   function(){ $(this).addClass('animated infinite pulse') },
+	   function(){ $(this).removeClass('animated infinite pulse') }
+)
+$('#clickpaper').hover(
+	   function(){ $(this).addClass('animated infinite pulse') },
+	   function(){ $(this).removeClass('animated infinite pulse') }
+)
+
+$('#clicktome').hover(
+	   function(){ $(this).addClass('animated infinite pulse') },
+	   function(){ $(this).removeClass('animated infinite pulse') }
+)
+//=================================//

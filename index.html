@@ -16,19 +16,22 @@
 	<!--Touchspin CSS-->
 	<link href="dist/css/jquery.bootstrap-touchspin.css" rel="stylesheet">
 	
-
 	<!--BootstrapSelect CSS-->
-	<link href="dist/css/bootstrap-select.css" rel="stylesheet">	
+	<link href="dist/css/bootstrap-select.css" rel="stylesheet">
 	
+	<!--Animate CSS -->
+	<link href="dist/css/animate.css" rel="stylesheet">
 	
 	<!-- Custom styles for this template -->
     <link href="dist/css/navbar.css" rel="stylesheet">
 	<link href="dist/css/holywars.css" rel="stylesheet">
 	
+	<!-- Other Imported scripts -->
     <script src="dist/assets/js/ie-emulation-modes-warning.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="dist/js/jquery.bootstrap-touchspin.js"></script>
 	<script src="dist/js/bootstrap-select.js"></script>
+	<script src="dist/js/bootstrap-notify.js"></script>
 	<script src="dist/js/bootbox.min.js"></script>
 
 	
@@ -57,6 +60,19 @@
         });
     });
 
+	$.notifyDefaults({
+		element: 'body',
+		newest_on_top: false,
+		delay: 60000,
+		placement: {
+			from: "bottom",
+			align: "right"
+		},
+	animate: {
+		enter: 'animated zoomInUp',
+		exit: 'animated zoomOut'
+	}		
+	});
 	</script>
 
   </head>
@@ -75,11 +91,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Holy Wars</a>
+            <a class="navbar-brand animated fadeInLeft" href="#">Holy Wars</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-			  <li id = "GatherLi"><a id="displayGatherOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Gather</a></li>	
+            <ul class="nav navbar-nav  animated slideInDown">
+			  <li id = "GatherLi "><a id="displayGatherOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Gather</a></li>	
 			  <li class = 'active'><a id="ProductionMenu" href="javascript:CollapseAll(); toggle('Production'); setLastPage('Production');">Village</a></li>
 			  <li><a id="StructureMenu" href="javascript:CollapseAll(); toggle('Structures'); setLastPage('Structures');">Structures</a></li>
               <li><a id="FaithMenu" href="javascript:CollapseAll(); toggle('Cathedral'); setLastPage('Cathedral');" style="display: none;">Cathedral</a></li>
@@ -97,8 +113,11 @@
                   <li class = 'opt'><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Resources</a></li>
 				  <li class = 'opt'><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Secondary Resources</a></li>
                   <li class = 'opt'><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Gathering</a></li>
+				  <li class = 'opt'><a id="closeNotificationOpt" href="javascript: $.notifyClose();" aria-expanded="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Close All Notifications</a></li>
 				  <li class = 'opt'><a id="ToggleTrunc" href="javascript:toggleTrunc();"><span class="glyphicon glyphicon-superscript" aria-hidden="true"></span> Toggle Number Truncation</a></li>
 				  <li class = 'opt'><a id="RenameKingdom" href="javascript:renameKingdom();"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Rename Kingdom</a></li>
+				
+				  
 				  <!--				  <li><a id="UndefeatedOpt" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle'); showUndefeatedBattles();">Show Undefeated Enemies</a></li> -->
 				  <li class="divider"></li>
 				  <li class = 'opt'><a id="save" href="javascript:saveCookie();"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</a></li>
@@ -310,9 +329,9 @@
 		<div id = "RelicPedestalTab" class = "container" style="display: none;">
 			<br />
 			<a id = 'BtnRelicDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Relic on a Pedestal"
-				data-content="The relic from the succubus/angel sits quietly on a black marble pedestal. There must be something more to it.">Relic on a Pedestal</a> <br />
-				Faith empowering relic: <span id = 'faithDonated'>0</span> <img src = "images/faithsmall.png" title="Faith"> <br />
-				Sacrifice:<br/>
+				data-content="The relic from the succubus/angel sits quietly on a black marble pedestal. There must be something more to it.">Necklace on a Pedestal</a> <br />
+				Faith empowering the necklace: <span id = 'faithDonated'>0</span> <img src = "images/faithsmall.png" title="Faith"> <br />
+				Sacrifice faith:<br/>
 				<div class="btn-group" role="group" aria-label="...">
 				  <button type="button" onclick = "addFaithToRelic(100)" class="btn btn-default"> 100</button>
 				  <button type="button" onclick = "addFaithToRelic(1000)" class="btn btn-default"> 1000</button>
@@ -545,6 +564,7 @@
 							<button id=btnPmillEffUpgrade2 onclick="PmillEffUpgrade2()"	type="button" class="btn btn-default" title = "A total overhaul of the paper creation process halves the time needed for paper mills to produce paper.">Mass Overhaul</button>
 							<br />	
 							<img src = "images/money_goldsmall.png" title ="Gold" > 1M | <img src = "images/woodsmall.png" title = "Wood"> 1M | <img src = "images/ironsmall.png" title="Iron"> 1M | <img src = "images/soulssmall.png" title="Souls"> 50,000
+							<br />
 						</div>
 
 						<div id = 'PMillUClickUpgrade' class = 'container'> 
@@ -598,7 +618,6 @@
 			</div>
 			<hr>
 
-		
 			<div id = "FaithStructuresTab" class = "container" style="display: none;">
 				<button id=btnOpenCathedral title="Construct a sturdy stone and iron structure meant for contemplation and worship." onclick="Cathedral.buy()"	type="button" class="btn btn-default">Build Cathedral</button>
 				<br />
@@ -710,7 +729,7 @@
 					<button id=btnRelicWindPendant onclick="WindPendant.buy()"	type="button" class="btn btn-default">Buy Wind Pendant</button>
 					<br />	<span id = 'WindPendantRelicCost'>10 Fragments</span> | <img src = "images/silverOresmall.png" title="Silver"><span id = 'WindPendantSilverCost'>10,000</span> | <span id = 'WindPendantIronCost'><img src = "images/ironsmall.png" title="Iron"> 10,000
 			</div>			
-			<hr>
+
 		</div>
 	 </div>
 
@@ -855,7 +874,7 @@
 		
 		  <div class="panel panel-default">
 			<div class="panel-heading" role="tab" id="GoblinTitle">
-			  <h4 id = 'goblinh4' class="panel-title">
+			  <h4 id = 'goblinh4' class="panel-title battle">
 				<a data-toggle="collapse" data-parent="#accordion" href="#GoblinCollapse" aria-expanded="true" aria-controls="GoblinCollapse">
 				  A Horde of Goblins
 				</a>
@@ -879,7 +898,7 @@
 		  
 		  <div class="panel panel-default">
 			<div class="panel-heading" role="tab" id="BanditTitle">
-			  <h4 id = 'bandith4' class="panel-title">
+			  <h4 id = 'bandith4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#BanditCollapse" aria-expanded="false" aria-controls="BanditCollapse">
 				  Bunch of Bandits
 				</a>
@@ -905,7 +924,7 @@
 		  
 		  <div class="panel panel-default">
 			<div class="panel-heading" role="tab" id="HermitTitle">
-			  <h4 id = 'hermith4' class="panel-title">
+			  <h4 id = 'hermith4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#HermitCollapse" aria-expanded="false" aria-controls="HermitCollapse">
 				  A Reclusive Hermit
 				</a>
@@ -930,7 +949,7 @@
 		  
 		  <div class="panel panel-default">
 			<div class="panel-heading" role="tab" id="OgreTitle">
-			  <h4 id = 'ogreh4' class="panel-title">
+			  <h4 id = 'ogreh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#OgreCollapse" aria-expanded="false" aria-controls="OgreCollapse">
 				  A Smelly Ogre
 				</a>
@@ -955,7 +974,7 @@
 
 		  <div class="panel panel-default" id="BatHellhound" style="display: none;">
 			<div class="panel-heading" role="tab" id="HellhoundTitle">
-			  <h4 id = 'hellhoundsh4' class="panel-title">
+			  <h4 id = 'hellhoundsh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#HellhoundsCollapse" aria-expanded="false" aria-controls="HellhoundsCollapse">
 				  Pack of Hellhounds
 				</a>
@@ -982,7 +1001,7 @@
 
 		  <div class="panel panel-default" id = "BatPixie" style="display: none;">
 			<div class="panel-heading" role="tab" id="PixieTitle">
-			  <h4 id = 'pixieh4' class="panel-title">
+			  <h4 id = 'pixieh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#pixieCollapse" aria-expanded="false" aria-controls="pixieCollapse">
 				  An Evil Pixie
 				</a>
@@ -1009,7 +1028,7 @@
 		  
 		  <div class="panel panel-default" id="BatArmor" style="display: none;">
 			<div class="panel-heading" role="tab" id="ArmorTitle">
-			  <h4 id = 'armorh4' class="panel-title">
+			  <h4 id = 'armorh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#ArmorCollapse" aria-expanded="false" aria-controls="ArmorCollapse">
 				  Haunted Armor
 				</a>
@@ -1035,7 +1054,7 @@
 
 		  <div class="panel panel-default" id="BatOoze" style="display: none;">
 			<div class="panel-heading" role="tab" id="OozeTitle">
-			  <h4 id = 'oozeh4' class="panel-title">
+			  <h4 id = 'oozeh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#OozeCollapse" aria-expanded="false" aria-controls="OozeCollapse">
 				  Gelatinous Ooze
 				</a>
@@ -1089,7 +1108,7 @@
 		  
 		  <div class="panel panel-default" id="BatArchMage">
 			<div class="panel-heading" role="tab" id="ArchMageTitle">
-			  <h4 id = 'archmageh4' class="panel-title">
+			  <h4 id = 'archmageh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#ArchmageCollapse" aria-expanded="false" aria-controls="ArchmageCollapse">
 				  Corrupted Archmage
 				</a>
@@ -1116,7 +1135,7 @@
 
 		  <div class="panel panel-default" id="BatSuccubus" style="display: none;">
 			<div class="panel-heading" role="tab" id="SuccubusTitle">
-			  <h4 id = 'succubush4' class="panel-title">
+			  <h4 id = 'succubush4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#SuccubusCollapse" aria-expanded="false" aria-controls="SuccubusCollapse">
 				  Seductive Succubus
 				</a>
@@ -1144,7 +1163,7 @@
 
 		  <div class="panel panel-default" id="BatUndeadArmy" style="display: none;">
 			<div class="panel-heading" role="tab" id="UndeadArmyTitle">
-			  <h4 id = 'uarmyh4' class="panel-title">
+			  <h4 id = 'uarmyh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#UndeadArmyCollapse" aria-expanded="false" aria-controls="UndeadArmyCollapse">
 				  Undead Army
 				</a>
@@ -1170,7 +1189,7 @@
 		  
 		  <div class="panel panel-default" id="BatNecromancer" style="display: none;">
 			<div class="panel-heading" role="tab" id="NecromancerTitle">
-			  <h4 id = 'necromancerh4' class="panel-title">
+			  <h4 id = 'necromancerh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#NecromancerCollapse" aria-expanded="false" aria-controls="NecromancerCollapse">
 				  Necromancer
 				</a>
@@ -1196,7 +1215,7 @@
 
 		  <div class="panel panel-default" id="BatEarthElemental" style="display: none;">
 			<div class="panel-heading" role="tab" id="EarthElementalTitle">
-			  <h4 id = 'earthelementalh4' class="panel-title">
+			  <h4 id = 'earthelementalh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#EarthElementalCollapse" aria-expanded="false" aria-controls="EarthElementalCollapse">
 				  Earth Elemental
 				</a>
@@ -1222,7 +1241,7 @@
 		  
 		  <div class="panel panel-default" id="BatFireElemental" style="display: none;">
 			<div class="panel-heading" role="tab" id="FireElementalTitle">
-			  <h4 id = 'fireelementalh4' class="panel-title">
+			  <h4 id = 'fireelementalh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#FireElementalCollapse" aria-expanded="false" aria-controls="FireElementalCollapse">
 				  Fire Elemental
 				</a>
@@ -1248,7 +1267,7 @@
 
 		  <div class="panel panel-default" id="BatWindElemental" style="display: none;">
 			<div class="panel-heading" role="tab" id="WindElementalTitle">
-			  <h4 id = 'windelementalh4' class="panel-title">
+			  <h4 id = 'windelementalh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#WindElementalCollapse" aria-expanded="false" aria-controls="WindElementalCollapse">
 				  Wind Elemental
 				</a>
@@ -1275,7 +1294,7 @@
 
 		  <div class="panel panel-default" id="BatWaterElemental" style="display: none;">
 			<div class="panel-heading" role="tab" id="WaterElementalTitle">
-			  <h4 id = 'waterelementalh4' class="panel-title">
+			  <h4 id = 'waterelementalh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#WaterElementalCollapse" aria-expanded="false" aria-controls="WaterElementalCollapse">
 				  Water Elemental
 				</a>
@@ -1301,7 +1320,7 @@
 		  
 		  <div class="panel panel-default" id="BatThaumaturge" style="display: none;">
 			<div class="panel-heading" role="tab" id="ThaumaturgeTitle">
-			  <h4 id = 'thamaturgeh4' class="panel-title">
+			  <h4 id = 'thamaturgeh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#ThaumaturgeCollapse" aria-expanded="false" aria-controls="ThaumaturgeCollapse">
 				  Thaumaturge
 				</a>
@@ -1328,7 +1347,7 @@
 
 		  <div class="panel panel-default" id="BatCerberus" style="">
 			<div class="panel-heading" role="tab" id="CerberusTitle">
-			  <h4 id = 'cerberush4' class="panel-title">
+			  <h4 id = 'cerberush4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#CerberusCollapse" aria-expanded="false" aria-controls="CerberusCollapse">
 				  Cerberus
 				</a>
@@ -1354,7 +1373,7 @@
 
 		  <div class="panel panel-default" id="BatOuro" style="">
 			<div class="panel-heading" role="tab" id="OuroTitle">
-			  <h4 id = 'ouroh4' class="panel-title">
+			  <h4 id = 'ouroh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#OuroCollapse" aria-expanded="false" aria-controls="OuroCollapse">
 				  Ouro
 				</a>
@@ -1380,7 +1399,7 @@
 
 		  <div class="panel panel-default" id="BatBoros" style="">
 			<div class="panel-heading" role="tab" id="BorosTitle">
-			  <h4 id = 'borosh4' class="panel-title">
+			  <h4 id = 'borosh4' class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#BorosCollapse" aria-expanded="false" aria-controls="BorosCollapse">
 				  Boros
 				</a>
@@ -1578,9 +1597,7 @@
 
 		<div id = 'PixieDefeatAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong> The pixie dissolves into a pile of glittering dust. Your priests decide to scoop her remains into a bottle for further study.
-			<!--<a href="javascript: toggle('unlockAspectofJustice')" class="alert-link">tower</a>-->
-				
+			<strong>New!</strong> The pixie dissolves into a pile of glittering dust. Your priests decide to scoop her remains into a bottle for further study.				
 		</div>			
 		
 		<div id = 'unlockAspectofJustice' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
@@ -1754,7 +1771,6 @@
 			Please note that this game is still in development and is constantly rebalanced. Feedback is appreciated!<br /><br />
 
 			Things to be added:<br />
-			Relics<br />
 			More Battles<br />
 			Prestige System<br /> <br />
 			
@@ -1774,7 +1790,7 @@
 		<div class="modal-content">
 		  <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title" id="myModalLabel">Your Game Statistics</h4>
+			<h4 class="modal-title" id="statsModalLabel">Your Game Statistics</h4>
 		  </div>
 		  <div class="modal-body">
 						
@@ -1987,7 +2003,11 @@
 
 				case 'Achievements':
 					document.getElementById("AchievmentsMenu").click();
-				break;				
+				break;	
+
+				case 'CommandPost':
+					document.getElementById("navKingdomName").click();
+				break;					
 				
 			}
 		}

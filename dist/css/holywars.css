@@ -100,6 +100,22 @@ margin-bottom: 0px;
 padding: 0px;
 }
 
+#clickmoney{
+outline: 0;
+}
+
+#clickwood{
+outline: 0;
+}
+
+#clickpaper{
+outline: 0;
+}
+
+#clicktome{
+outline: 0;
+}
+
 #relicInputGroup input-group{
 padding: 0px;
 }
@@ -122,13 +138,27 @@ margin: 2.5%;
 display: inline-block;
 }
 
+[data-notify="progressbar"] {
+	margin-bottom: 0px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 5px;
+}
+
 .questComponent{
 width: 200px;
 float: left;
 margin: 20px;
 }
 
+.battle{
+color: darkred;
+}
+
 .defeatedtitle{
+color: grey;
 text-decoration: line-through;
 }
 
@@ -153,7 +183,7 @@ padding-top: 0px;
 margin-left: 10px;
 width: auto;
 float: left;
-background-color: rgb(154, 204, 255);
+background-color: rgb(178, 178, 178);
 }
 
 .spell{

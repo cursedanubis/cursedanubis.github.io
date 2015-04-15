@@ -115,8 +115,8 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('gold').innerHTML = fnum(gold);
 				 document.getElementById('stattotalgoldcollected').innerHTML = fnum(statTotalGoldCollected);
 				 document.getElementById('statgoldcollected').innerHTML = fnum(statGoldCollected);
-				 finishString = "Your units return from helping out the people in your kingdom! They bring back " + fnum(resourceEarned) + " gold to add to your coffers.";
-				 document.getElementById('questFinishAlertString').innerHTML = finishString;
+				 finishString = "<br/>Your units return from helping out the people in your kingdom! They bring back " + fnum(resourceEarned) + " gold to add to your coffers.";
+//				 document.getElementById('questFinishAlertString').innerHTML = finishString;
 			break;
 			
 			case 'wood':
@@ -128,8 +128,8 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('wood').innerHTML = fnum(wood);
 				 document.getElementById('statWoodCollected').innerHTML = fnum(statWoodCollected);
 				 document.getElementById('statTotalWoodCollected').innerHTML = fnum(statTotalWoodCollected);
-				 finishString = "Your units return from vanquishing a bunch of angry treants! They bring back " + fnum(resourceEarned) + " wood to add to your collection.";
-				 document.getElementById('questWoodFinishAlertString').innerHTML = finishString;			
+				 finishString = "<br/>Your units return from vanquishing a bunch of angry treants! They bring back " + fnum(resourceEarned) + " wood to add to your collection.";
+//				 document.getElementById('questWoodFinishAlertString').innerHTML = finishString;				 
 			break;
 			
 			case 'iron':
@@ -141,8 +141,8 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('iron').innerHTML = fnum(iron);
 				 document.getElementById('statIronCollected').innerHTML = fnum(statIronCollected);
 				 document.getElementById('statTotalIronCollected').innerHTML = fnum(statTotalIronCollected);				 
-				 finishString = "Your units return from vanquishing a bunch of sturdy animated iron golems! It wasn't easy, but they bring back " + fnum(resourceEarned) + " iron to add to your collection.";
-				 document.getElementById('questIronFinishAlertString').innerHTML = finishString;			
+				 finishString = "<br />Your units return from vanquishing a bunch of sturdy animated iron golems! It wasn't easy, but they bring back " + fnum(resourceEarned) + " iron to add to your collection.";
+//				 document.getElementById('questIronFinishAlertString').innerHTML = finishString;			 
 			break;
 
 			case 'silver':
@@ -154,8 +154,8 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('silver').innerHTML = fnum(silver);
 				 document.getElementById('statSilverCollected').innerHTML = fnum(statSilverCollected);
 				 document.getElementById('statTotalSilverCollected').innerHTML = fnum(statTotalSilverCollected);					 
-				 finishString = "Your units successfully help the the friendly sprites living in your mines. As a token of their gratitude, they send you " + fnum(resourceEarned) + " silver to add to your collection.";
-				 document.getElementById('questSilverFinishAlertString').innerHTML = finishString;			
+				 finishString = "<br />Your units successfully help the the friendly sprites living in your mines. As a token of their gratitude, they send you " + fnum(resourceEarned) + " silver to add to your collection.";
+//				 document.getElementById('questSilverFinishAlertString').innerHTML = finishString;						 
 			break;
 
 			case 'souls':
@@ -167,14 +167,19 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('souls').innerHTML = fnum(souls);
 				 document.getElementById('statSoulsCollected').innerHTML = fnum(statSoulsCollected);
 				 document.getElementById('statTotalSoulsCollected').innerHTML = fnum(statTotalSoulsCollected);				 
-				 finishString = "Your units successfully help the the defeat some lesser demons plaguing the countryside. When they die, your troops are able to collect " + fnum(resourceEarned) + " souls.";
-				 document.getElementById('questSoulsFinishAlertString').innerHTML = finishString;			
-			break;				
-			
+				 finishString = "<br />Your units successfully help the the defeat some lesser demons plaguing the countryside. When they die, your troops are able to collect " + fnum(resourceEarned) + " souls.";
+//				 document.getElementById('questSoulsFinishAlertString').innerHTML = finishString;			
+			break;					
 		}
 		
-		document.getElementById(alert).style.display = "block";			//Displays alert related to this quest	
-		scroll(alert,500);		
+		$.notify({
+			title: "<strong>Success! </strong>",
+			message: finishString,
+			delay: 25000},{
+		type: 'success'
+		});
+//		document.getElementById(alert).style.display = "block";			//Displays alert related to this quest	
+//		scroll(alert,500);		
 	  } 
 	}, this.speed);
 	return true;
@@ -268,15 +273,21 @@ function loadQuest(QuestName, percent, unit, numUnit){
 function btnSendQuest(){			
 
 	 if (checkQuestSelection() == true && $('#unitSelectPicker').selectpicker('val') != "" && $('#questSelectPicker').selectpicker('val') != ""){
-		 var string = "You send " + $('#QuestUnitNumSelect').val() + " " + $('#unitSelectPicker').selectpicker('val');
+		 var string = "<br/>You send " + $('#QuestUnitNumSelect').val() + " " + $('#unitSelectPicker').selectpicker('val');
 		 if($('#QuestUnitNumSelect').val() > 1){
 			 string = string + "s";
 		 }
 		 string = string + " out on the quest '" + $('#questSelectPicker').selectpicker('val') + "'";
-	  document.getElementById('questAlertString').innerHTML = string;
-	  document.getElementById('sendQuestAlert').style.display = "block";
+//	  document.getElementById('questAlertString').innerHTML = string;
+//	  document.getElementById('sendQuestAlert').style.display = "block";
 	  
-		//Dismisses Alert
+		$.notify({
+			title: "<strong>Questing! </strong>",
+			message: string,
+			delay: 25000
+		});		  
+	  
+/* 		//Dismisses Alert
 		var ticker = 0 ;
 		var clearAlert = setInterval(function() {
 			ticker = ticker + 1;   
@@ -287,7 +298,7 @@ function btnSendQuest(){
 			}	
 		  }
 		}, 1000);	
-	    //End Dismisses Alert	  
+	    //End Dismisses Alert	  */ 
 	  
 	  switch($('#questSelectPicker').selectpicker('val'))
 	  {
@@ -515,7 +526,13 @@ function rollForFragment(){
 		relicFragment += 1;
 		document.getElementById('relicBadge').innerHTML = relicFragment;
 		document.getElementById('relicFragments').innerHTML = relicFragment;
-		alert("Relic fragment found!");		
+		
+		$.notify({
+			title: "Found! ",
+			message: "Your units found a relic fragment in their search!",
+			delay: 25000},{
+		type: 'success'
+		});	
 	}
 	else{
 		console.log("No Relic found");

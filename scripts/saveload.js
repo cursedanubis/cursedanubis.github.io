@@ -135,6 +135,8 @@
 		//Statistic/Lifetime Variables
 		save("statResetted", statResetted);
 		
+		save("timesClicked",timesClicked);
+		
 		save("statGoldCollected", statGoldCollected);
 		save("statTotalGoldCollected", statTotalGoldCollected);
 		save("statSelfGoldCollected", statSelfGoldCollected);
@@ -249,7 +251,7 @@
 		
 		
 		
-		document.getElementById('saveAlert').style.display = "block";  //Displays saved alert
+/* 		document.getElementById('saveAlert').style.display = "block";  //Displays saved alert
 		
 		//Dismisses Save Alert
 		var ticker = 0 ;
@@ -262,7 +264,23 @@
 			}	
 		  }
 		}, 1000);	
-	    //End Dismisses Save Alert
+	    //End Dismisses Save Alert */
+	
+		
+		var notify = $.notify({
+			icon: 'glyphicon glyphicon-floppy-disk',
+			message: '<strong>Saving</strong> Do not close this page...'},{
+			type: 'success',
+			allow_dismiss: false,
+			showProgressbar: true,
+			delay: 1500
+		});
+
+		setTimeout(function() {
+			notify.update('message', '<strong>Saving</strong>  Saving your progress.');
+		}, 1000);
+
+		
 	}
 	else{
 		alert("Sorry! Your web browser does not support local saving. Please try a newer version of your browser.")
@@ -1031,7 +1049,12 @@
 		}
 
 		//Statistic Page variables 
-		
+			//Clicking Stats
+			
+		if(localStorage.timesClicked != null){
+			timesClicked = parseInt(localStorage.timesClicked);
+			document.getElementById('statTimesClicked').innerHTML = fnum(timesClicked);
+		}		
 			//Gold Stats
 		if(localStorage.statGoldCollected != null){
 			statGoldCollected = parseInt(localStorage.statGoldCollected);
@@ -1407,11 +1430,11 @@
 //		showUndefeatedBattles();
 		
 		if(window.localStorage.length != 0){
-			console.log("Save loaded.");
+//			console.log("Save loaded.");
 //			console.log(Math.round((Date.now()-saveTime)/1000) + ' seconds since last save');	
-			document.getElementById('loadAlert').style.display = "block";  //Displays load alert
+//			document.getElementById('loadAlert').style.display = "block";  //Displays load alert
 			
-			//Dismisses load Alert
+/* 			//Dismisses load Alert
 			var ticker = 0 ;
 			var clearSave = setInterval(function() {
 				ticker = ticker + 1;   
@@ -1422,7 +1445,16 @@
 				}	
 			  }
 			}, 1000);	
-			//End Dismisses load Alert			
+			//End Dismisses load Alert	 */	
+
+			$.notify({
+				icon: 'glyphicon glyphicon-download-alt',
+				message: "<strong>Load</strong> Your game save has been loaded.", 
+				},{
+				type: 'info',
+				allow_dismiss: false,
+				delay: 2000
+			});
 		}
 	};
 	

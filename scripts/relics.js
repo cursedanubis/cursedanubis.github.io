@@ -46,27 +46,26 @@ Relic.prototype.buy = function(){
 		this.purchased = true;
 		document.getElementById(this.htmlBuyBtn).innerHTML = this.name + " created";
 	
-	switch(this.name){
-		case 'Earth Pendant':
-			boughtEarthPendant = true;
-		break;
-		
-		case 'Fire Pendant':
-			boughtFirePendant = true;
-		break;
-		
-		case 'Wind Pendant':
-			boughtWindPendant = true;
-		break;
-		
-		case 'Water Pendant':
-			boughtWaterPendant = true;
-		break;		
-		
-		default:
-		break;
-	}
-	
+		switch(this.name){
+			case 'Earth Pendant':
+				boughtEarthPendant = true;
+			break;
+			
+			case 'Fire Pendant':
+				boughtFirePendant = true;
+			break;
+			
+			case 'Wind Pendant':
+				boughtWindPendant = true;
+			break;
+			
+			case 'Water Pendant':
+				boughtWaterPendant = true;
+			break;		
+			
+			default:
+			break;
+		}
 	}
 	else{
 		
@@ -91,7 +90,6 @@ Relic.prototype.canBuy = function(){
 		document.getElementById(this.htmlBuyBtn).innerHTML = this.name + " created";
 		
 		switch(this.name){
-			
 			case 'Earth Pendant':
 				document.getElementById('relicEarthPendant').classList.remove('relic');
 				document.getElementById('relicEarthPendant').classList.add('relicbought');		
