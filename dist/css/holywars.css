@@ -137,7 +137,12 @@ float: left;
 margin: 20px;
 }
 
+.battle{
+color: darkred;
+}
+
 .defeatedtitle{
+color: grey;
 text-decoration: line-through;
 }
 
