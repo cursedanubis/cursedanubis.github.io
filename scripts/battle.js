@@ -373,7 +373,7 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 			if(defeatedGoblins == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;
-				document.getElementById('goblinh4').classList.add('defeatedtitle');			
+				document.getElementById('goblinh4').classList.add('defeatedtitle');
 			}
 						
 		break;	
@@ -1733,9 +1733,6 @@ function checkBattleButtons(){
 	//Cerberus Button
 	Boros.canFight();	
 };
-
-
-
 
 window.setInterval(function(){					//Calculates Battle Power 
 	calculateBattlePower();
