@@ -237,6 +237,7 @@ function clickThing(number, type)
 			
 		case "faith":
 			faith += number;
+			faith = Math.round(faith*100)/100;
 			statFaithCollected += number;
 			statTotalFaithCollected += number;
 			faith = faith.toFixedDown(2);
