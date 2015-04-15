@@ -299,8 +299,14 @@ function updateStatistic(name, value){
 			document.getElementById('statSelfMinersHired').innerHTML = statSelfMinersHired;
 			document.getElementById('statTotalSelfMinersHired').innerHTML = statTotalSelfMinersHired;
 			document.getElementById('statTotalMinersHired').innerHTML = statTotalMinersHired;
-			console.log('Lumberjack');
 		break;
+		
+		case 'Coal Miner':
+			statCoalMinersHired += value;
+			statTotalCoalMinersHired += value;
+			document.getElementById('statCoalMinersHired').innerHTML = statCoalMinersHired;
+			document.getElementById('statTotalCoalMinersHired').innerHTML = statTotalCoalMinersHired;
+		break;		
 		
 		case 'Lumberjack':
 			statLumberjacksHired += value;
@@ -410,6 +416,11 @@ var Miner = new Unit("Miner",'miners','MinerCost','none','none','none','none','n
 setDescription(Miner, 'BtnMinerDesc');
 setClickVal(Miner, 'iron', 1);
 
+var coalMinerDesc = "These miners have specialized in dredging dirty, black fuel from the mines."
+var CoalMiner = new Unit("Coal Miner",'coalminers','CoalMinerCost','CoalMinerIronCost','CoalMinerSilverCost','none','none','none','none','btnbuyCoalMiner',40000,20000,15000,0,0,0,0,1.25, coalMinerDesc, 0, true, Miner, "coalMinerReqUnit")
+setDescription(CoalMiner, 'BtnCoalMinerDesc');
+//setClickVal(CoalMiner, 'iron', 1);
+
 var pageDesc = "Young men in training to become knights. Not too great with weapons yet, but they're learning.  <br> Provides  <img src = 'images/armsmall.png'>10 army strength"
 var Page = new Unit("Page",'personPage','PageCost','PageIronCost','none','none','none','none','none','btnBuyPage',500,100,0,0,0,0,0,1.1, pageDesc, 0, false, "none", "none");
 setDescription(Page, 'BtnPageDesc');
@@ -500,6 +511,9 @@ function checkUnitButtons(){
 	
 	//Enable/disables buy miner button depending on if there is enough currency
 	Miner.canBuy();
+	
+	//Enable/disables buy coal miner button depending on if there is enough currency
+	CoalMiner.canBuy();	
 
 	//Enable/disables buy priest button depending on if there is enough currency
 	Acolyte.canBuy();	

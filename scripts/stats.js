@@ -14,6 +14,9 @@ var statTotalSelfWoodCollected = 0;
 var statIronCollected = 0;
 var statTotalIronCollected = 0;
 
+var statCoalCollected = 0;
+var statTotalCoalCollected = 0;
+
 var statSilverCollected = 0;
 var statTotalSilverCollected = 0;
 

@@ -194,7 +194,13 @@
 						<img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> 
 						Silver: <span id="silver">0</span>     
 					</div>
-				</li>		
+				</li>
+				<li>
+					<div id = "coaldiv" style="">
+						<img src = "images/coalsmall.png" Title="Coal" id="rescoalimage"> 
+						Coal: <span id="coal">0</span>     
+					</div>
+				</li>				
 				<li>			
 					<div id = "paperdiv" style="display: none;">
 						<img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage">
@@ -319,6 +325,26 @@
 			</div>
 			<br />
 		</div>
+		
+		<hr>
+		
+		<div id="CoalMining" class = "container" style="">
+		<a id = 'BtnCoalMinerDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Coal Miners"
+    		data-content="">Coal Miners (<span id="coalminers">0</span>)</a>	
+			<br /><br />
+			<button id=btnbuyCoalMiner onclick="CoalMiner.buyOne()"	type="button" class="btn btn-default">Specialize Miner</button>
+			<button id=btnCoalMinerUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#CoalMinerUpgradeTab" aria-expanded="false" aria-controls="CoalMinerUpgradeTab">Upgrades</button>
+			<br />
+			 <img src = "images/money_goldsmall.png" title ="Gold" > <span id="CoalMinerCost">40,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="CoalMinerIronCost">20,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="CoalMinerSilverCost">15,000</span> | <span id = "coalMinerReqUnit">1 miner</span>
+			<br />
+			<div id ="CoalMinerUpgradeTab" class = "upgrade collapse">
+				<div class = "well">
+					No Upgrades for Coal Miners yet
+				</div>
+			</div>
+			<br />
+		</div>		
+		
 	  </div>
 	  
 	 <div id="Cathedral" class= "panel panel-default" style="display: none;">
@@ -1815,6 +1841,10 @@
 			Lifetime Iron Collected: <img src = "images/ironsmall.png" title="Iron"><span id= "statTotalIronCollected">0</span><br />
 			Iron Collected this game: <img src = "images/ironsmall.png" title="Iron"><span id= "statIronCollected">0</span><br /> <br />
 
+			<h4>Coal</h4>
+			Lifetime Coal Collected: <img src = "images/coalsmall.png" title="Iron"><span id= "statTotalCoalCollected">0</span><br />
+			Coal Collected this game: <img src = "images/coalsmall.png" title="Iron"><span id= "statCoalCollected">0</span><br /> <br />			
+			
 			<h4>Silver</h4>
 			Lifetime Silver Collected: <img src = "images/silverOresmall.png" title="Silver"><span id= "statTotalSilverCollected">0</span><br />
 			Silver Collected this game: <img src = "images/silverOresmall.png" title="Silver"><span id= "statSilverCollected">0</span><br /> <br />			
@@ -1849,6 +1879,10 @@
 			Lifetime Miners hired by clicking: <span id= "statTotalSelfMinersHired">0</span><br />			
 			Lifetime Miners hired by Taverns: <span id= "statTotalTavernMinersHired">0</span><br />
 			Lifetime Miners hired: <span id= "statTotalMinersHired">0</span><br /><br />
+			
+			<h4>Coal Miners</h4>
+			Coal Miners hired this game: <span id= "statCoalMinersHired">0</span><br />
+			Lifetime Coal Miners hired: <span id= "statTotalCoalMinersHired">0</span><br /><br />
 
 			<h4>Lumberjacks</h4>
 			Lumberjacks hired this game: <span id= "statLumberjacksHired">0</span><br />

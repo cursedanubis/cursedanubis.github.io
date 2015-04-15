@@ -27,6 +27,7 @@
  		save("peasants",Peasant.number - tavernpeasants);
 		save("lumberjacks", Lumberjack.number - tavernlumberjacks);
 		save("miners",Miner.number - tavernminers);
+		save("coalminers", CoalMiner.number);
 		save("personPage",Page.number);
 		save("squires",Squire.number);
 		save("knights",Knight.number);
@@ -181,6 +182,9 @@
 		save("statTavernMinersHired", statTavernMinersHired);
 		save("statTotalTavernMinersHired", statTotalTavernMinersHired);
 		save("statTotalMinersHired", statTotalMinersHired);
+		
+		save("statCoalMinersHired", statCoalMinersHired);
+		save("statTotalCoalMinersHired", statTotalCoalMinersHired);		
 		
 		save("statLumberjacksHired", statLumberjacksHired);
 		save("statSelfLumberjacksHired", statSelfLumberjacksHired);
@@ -360,6 +364,12 @@
 			Miner.number = parseInt(localStorage.miners);
 			document.getElementById("miners").innerHTML = Miner.number;
 		}
+		
+		if(localStorage.coalminers != null){
+			CoalMiner.number = parseInt(localStorage.coalminers);
+			document.getElementById("coalminers").innerHTML = CoalMiner.number;
+		}		
+		
 		if(localStorage.personPage != null){
 			Page.number = parseInt(localStorage.personPage);
 			document.getElementById("personPage").innerHTML = Page.number;
@@ -1214,6 +1224,16 @@
 			statTotalMinersHired = parseInt(localStorage.statTotalMinersHired);
 			document.getElementById('statTotalMinersHired').innerHTML = fnum(statTotalMinersHired);
 		}
+			//Coal Miners
+			
+		if(localStorage.statCoalMinersHired != null){
+			statCoalMinersHired = parseInt(localStorage.statCoalMinersHired);
+			document.getElementById('statCoalMinersHired').innerHTML = fnum(statCoalMinersHired);
+		}
+		if(localStorage.statTotalCoalMinersHired != null){
+			statTotalCoalMinersHired = parseInt(localStorage.statTotalCoalMinersHired);
+			document.getElementById('statTotalCoalMinersHired').innerHTML = fnum(statTotalCoalMinersHired);
+		}		
 		
 			//Lumberjacks
 		if(localStorage.statLumberjacksHired != null){

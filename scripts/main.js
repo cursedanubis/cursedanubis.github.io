@@ -4,6 +4,7 @@
 var gold = 0;
 var wood = 0;
 var iron = 0;
+var coal = 0;
 var silver = 0;
 var faith = 0;
 var souls = 0;
@@ -16,6 +17,7 @@ var goldpersec = 0;
 var woodpersec = 0;
 var faithpersec = 0;
 var ironpersec = 0;
+var coalpersec = 0;
 var silverpersec = 0;
 var soulspersec = 0;
 var manapersec = 0;
@@ -213,8 +215,19 @@ function clickThing(number, type)
 			document.getElementById("statTotalIronCollected").innerHTML = fnum(statTotalIronCollected);
 			break;
 		
+		case "coal":
+			coal += number;
+			coal = Math.round(coal*100)/100;
+			statCoalCollected += number;
+			statTotalCoalCollected += number;
+			document.getElementById("coal").innerHTML = fnum(coal);
+			document.getElementById("statCoalCollected").innerHTML = fnum(statCoalCollected);
+			document.getElementById("statTotalCoalCollected").innerHTML = fnum(statTotalCoalCollected);
+			break;		
+		
 		case "silver":
 			silver += number;
+			silver = Math.round(silver*100)/100;
 			statSilverCollected += number;
 			statTotalSilverCollected += number;
 			document.getElementById("silver").innerHTML = fnum(silver);
@@ -760,6 +773,9 @@ window.setInterval(function(){                                 //Update per seco
 	ironpersec = Miner.number;
 	document.getElementById("resironimage").title = "Iron per second: " + fnum(ironpersec) ; 	 
 	 
+	coalpersec = CoalMiner.number*0.1;
+	document.getElementById('rescoalimage').title = "Coal per second " + fnum(coalpersec.toFixedDown(2)) ;
+	 
 	if(mSilverUpgrade == true)
 	{
 		silverpersec = Miner.number*0.5
@@ -823,6 +839,10 @@ window.setInterval(function(){
 	//Iron Generation via miners etc every second
 	clickThing(Miner.number, "iron")
 
+	//Coal Generation via coal miners etc every second
+	clickThing(CoalMiner.number*0.1, "coal")
+	coal = coal.toFixedDown(2);
+	
 	//Silver Generation via miners etc every second
 	if(mSilverUpgrade == true)
 	{
