@@ -1005,7 +1005,7 @@ function alertOpenProductionPage(){
 }
 
 function alertOpenCommandPostPage(){
-	toggle('CommandPost');
+	document.getElementById("CommandPost").click();
 }
 
 function alertOpenBarracksPage(){

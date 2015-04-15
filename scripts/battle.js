@@ -76,13 +76,13 @@ function calculateSpiritPower(){
 	}
 };
 
-var Enemy = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, BPReq, SPReq, percentComplete, percentIncrement,speed){
+var Enemy = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, AlertRef, BPReq, SPReq, percentComplete, percentIncrement,speed){
 	this.name = name;
 	this.description = description;
 	this.htmlBoxRef = htmlBoxRef;
 	this.htmlBarRef = htmlBarRef;
 	this.htmlBtnRef = htmlBtnRef;
-	this.htmlAlertRef = htmlAlertRef;
+	this.AlertRef = AlertRef;
 	this.BPReq = BPReq;
 	this.SPReq = SPReq;
 	this.percentComplete = percentComplete;
@@ -98,7 +98,7 @@ var Enemy = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, html
 Enemy.prototype.fight = function(){
 	var perComplete = this.percentComplete;
 	var perIncrement = this.percentIncrement;
-	var alert = this.htmlAlertRef;
+	var alert = this.AlertRef;
 	var btn = this.htmlBtnRef;
 	var box = this.htmlBoxRef;
 	var bar = this.htmlBarRef;
@@ -549,28 +549,30 @@ function setEnemyDescription(Enemy, element){
 };
 
 function setDefeatEvents(name){
+	eval("var " + this.AlertRef );
 	switch(name){
 		case 'Goblins':
 			defeatedGoblins = true;
 			gold = gold + 2000;
 			document.getElementById("gold").innerHTML = gold;
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "You chase the defeated horde of goblins back to their mound. They put up a last ditch effort, but your forces make quick work out of them. Inside their mound you find a stash of 2000 gold! ",
-				},{delay: 300000},{
-			type: 'success'
-			});				
+				},{
+				type: 'success',
+				delay: 300000
+			});			
 		break;	
 	
 		case 'Bandits':
 			defeatedBandits = true;
 			document.getElementById('FaithStructuresTab').style.display = "block";
 			gold = gold + Math.floor(goldStolen/2);
-
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "You successfully chase out the bandits raiding your village. While rifling through the leader's belongings, you find plans for an elaborate  <a href='javascript: alertOpenStructuresPage()' class='alert-link'>Cathedral</a>. These bandits sure do have funny taste in loot. In a corner of the camp, you also find a portion of the gold that they have stolen from you.",
-				},{delay: 300000},{
+				message: "You successfully chase out the bandits raiding your village. While rifling through the leader's belongings, you find plans for an elaborate  <a href='javascript: alertOpenStructuresPage(); this.AlertRef.close();' class='alert-link'>Cathedral</a>. These bandits sure do have funny taste in loot. In a corner of the camp, you also find a portion of the gold that they have stolen from you.",
+				},{
+			delay: 300000,
 			type: 'success'
 			});				
 			
@@ -582,10 +584,11 @@ function setDefeatEvents(name){
 			document.getElementById('paperdiv').style.display = "block";
 			document.getElementById('PaperMillTab').style.display = "block";
 
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "As your troops put the hermit out of her misery, you get a chance to take a look inside her hovel. A small stack of paper sits in the tray of an metal mechanism - more paper is scattered on the nearby desk, on which she has been been scrawling things that are completely illegible to you. You study her tools and are able to figure out how to <a href='javascript: alertOpenStructuresPage();' class='alert-link'>make your own paper</a>.",
-				},{delay: 300000},{
+				message: "As your troops put the hermit out of her misery, you get a chance to take a look inside her hovel. A small stack of paper sits in the tray of an metal mechanism - more paper is scattered on the nearby desk, on which she has been been scrawling things that are completely illegible to you. You study her tools and are able to figure out how to <a href='javascript: alertOpenStructuresPage(); this.AlertRef.close();' class='alert-link'>make your own paper</a>.",
+				},{
+			delay: 300000,
 			type: 'success'
 			});					
 			
@@ -597,10 +600,11 @@ function setDefeatEvents(name){
 			document.getElementById('PaladinUpgradeTab').style.display = "block"; //Until a drop unlocks paladin weapon upgrade		
 //			document.getElementById('FaithStructuresTab').style.display = "block";
 			defeatedOgre = true;
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "As the ogre flails around in his death throes, something falls from his loincloth and hits the floor. It's a grimy tome on how to train  <a href='javascript: alertOpenBarracksPage();' class='alert-link'>Paladins!</a> It smells just like the ogre did, but at least it's useful.",	
-				},{delay: 300000},{
+				message: "As the ogre flails around in his death throes, something falls from his loincloth and hits the floor. It's a grimy tome on how to train  <a href='javascript: alertOpenBarracksPage(); this.AlertRef.close();' class='alert-link'>Paladins!</a> It smells just like the ogre did, but at least it's useful.",	
+				},{
+			delay: 300000,
 			type: 'success'
 			});				
 			setTimeout(function() { triggerHellhound(); }, 30000);		
@@ -615,10 +619,11 @@ function setDefeatEvents(name){
 			document.getElementById('BatArmor').style.display = "block";
 			document.getElementById('BatPixie').style.display = "block";
 
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "After the hellhounds explode in a cloud of blood and fire, you sift through their charred remains. You discover a grotesquely carved collar, from which dangles a skull-shaped tag. On back side  When you arrive at the marked destination on the map, you realize there is a almost <a href='javascript: alertOpenEtherealPage();' class='alert-link'>otherworldly tear</a> floating in front of you.",	
-				},{delay: 300000},{
+				message: "After the hellhounds explode in a cloud of blood and fire, you sift through their charred remains. You discover a grotesquely carved collar, from which dangles a skull-shaped tag. On back side  When you arrive at the marked destination on the map, you realize there is a almost <a href='javascript: alertOpenEtherealPage(); this.AlertRef.close();' class='alert-link'>otherworldly tear</a> floating in front of you.",	
+				},{
+			delay: 300000,
 			type: 'success'
 			});					
 			
@@ -632,10 +637,11 @@ function setDefeatEvents(name){
 			document.getElementById('BatDwarf').style.display = "block";
 			defeatedOoze = true;
 
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href='alertOpenCathedralPage();' class='alert-link'>a pious and studious person</a> knows what to do with these...",	
-				},{delay: 300000},{
+				message: "With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href='alertOpenCathedralPage(); this.AlertRef.close();' class='alert-link'>a pious and studious person</a> knows what to do with these...",	
+				},{
+			delay: 300000,
 			type: 'success'
 			});					
 			
@@ -646,10 +652,11 @@ function setDefeatEvents(name){
 			document.getElementById('RelicsMenu').style.display = "block";
 			defeatedDwarf = true;	
 
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "The dwarf coughs and the ire fades from his eyes. After a few moments gathering his composure, the dwarf offers to use his skills and tools to <a href='alertOpenRelicPage();' class='alert-link'>identify relics</a> for you.",			
-				},{delay: 300000},{
+				message: "The dwarf coughs and the ire fades from his eyes. After a few moments gathering his composure, the dwarf offers to use his skills and tools to <a href='alertOpenRelicPage(); this.AlertRef.close();' class='alert-link'>identify relics</a> for you.",			
+				},{
+			delay: 300000,
 			type: 'success'
 			});					
 		break;
@@ -658,11 +665,12 @@ function setDefeatEvents(name){
 			defeatedPixie = true;
 			document.getElementById('ArcaneSpritesTab').style.display = "block";
 			
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				//"The pixie dissolves into a pile of glittering dust. While staring at the pyramid shaped remains of the pixie, you notice a shimmering arcane sprite come out of hiding. She thanks you for freeing them from the tyranny of the malicious pixie, and tells you the secret to <a href='alertOpenTowerPage();' class='alert-link'>summoning arcane sprites</a>.",		
 				message: "The pixie dissolves into a pile of glittering dust. While staring at the pyramid shaped remains of the pixie, you notice a shimmering arcane sprite come out of hiding. She thanks you for freeing them from the tyranny of the malicious pixie, and tells you the secret to summoning arcane sprites.",			
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});				
 		break;	
@@ -671,10 +679,11 @@ function setDefeatEvents(name){
 			document.getElementById('AspectofJustice').style.display = "block";
 			defeatedArmor = true;
 
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "The armor lurches to an abrupt halt, and the glowing eyes fade. Abruptly, the armor drops to the floor with a clatter. One of your more curious shades floats into the armor pieces, levitating them around the room. It gives you a new idea on how to make your shades <a href='javascript: alertOpenEtherealPage();' class='alert-link'>sturdier and battle ready.</a>",			
-				},{delay: 300000},{
+				message: "The armor lurches to an abrupt halt, and the glowing eyes fade. Abruptly, the armor drops to the floor with a clatter. One of your more curious shades floats into the armor pieces, levitating them around the room. It gives you a new idea on how to make your shades <a href='javascript: alertOpenEtherealPage(); this.AlertRef.close();' class='alert-link'>sturdier and battle ready.</a>",			
+				},{
+			delay: 300000,
 			type: 'success'
 			});					
 			
@@ -684,10 +693,11 @@ function setDefeatEvents(name){
 			document.getElementById('buildTowerTab').style.display = "block";
 			defeatedArchmage = true;
 				
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "Your forces corner the Archmage. He has run out of mana but still tries to curse you with what little power he has anyway. A few feeble sparks sputter from his fingertips, but nothing happens. One of your paladins has been studying purification techniques, and performs the ritual on the Archmage. After a few minutes, the Archmage's complexion takes on a healthier glow, and he awakens. He thanks you for removing him from the control of The Evil One, and offers to join your forces. The Archmage suggests you build him a <a href='javascript: alertOpenStructuresPage();' class='alert-link'>tower</a> where he can channel his energies.",			
-				},{delay: 300000},{
+				message: "Your forces corner the Archmage. He has run out of mana but still tries to curse you with what little power he has anyway. A few feeble sparks sputter from his fingertips, but nothing happens. One of your paladins has been studying purification techniques, and performs the ritual on the Archmage. After a few minutes, the Archmage's complexion takes on a healthier glow, and he awakens. He thanks you for removing him from the control of The Evil One, and offers to join your forces. The Archmage suggests you build him a <a href='javascript: alertOpenStructuresPage(); this.AlertRef.close();' class='alert-link'>tower</a> where he can channel his energies.",			
+				},{
+			delay: 300000,
 			type: 'success'
 			});					
 			
@@ -697,10 +707,11 @@ function setDefeatEvents(name){
 		case 'Succubus':
 			defeatedSuccubus = true;
 			document.getElementById('RelicPedestalTab').style.display = "block";
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "Even in death, the succubus jiggles in a most appealing manner, but that doesn't stop you from ending her reign of seductive terror. Your paladins attempt to purify her as they did with the Archmage, causing her to writhe around in pain. Her wings transition from leathery to feathery, and her horns recede into her head. It turns out the succubus was actually an angel! The injuries she has sustained in her battle with you are fatal, and none of your people are able to close the angel grievous wounds. She feebly beckons for you to come closer, and when you do, she presses an ancient necklace into your hand. '... please defeat Him...', she whispers. Her body fades and dissolves into a million tiny glittering lights that float gently up into the sky. Her demise only deepens your resolve to defeat The Evil One. Your priests take the necklace and place it <a href='alertOpenCathedralPage' class='alert-link'>on a pedestal</a> in the cathedral.",						
-				},{delay: 300000},{
+				message: "Even in death, the succubus jiggles in a most appealing manner, but that doesn't stop you from ending her reign of seductive terror. Your paladins attempt to purify her as they did with the Archmage, causing her to writhe around in pain. Her wings transition from leathery to feathery, and her horns recede into her head. It turns out the succubus was actually an angel! The injuries she has sustained in her battle with you are fatal, and none of your people are able to close the angel grievous wounds. She feebly beckons for you to come closer, and when you do, she presses an ancient necklace into your hand. '... please defeat Him...', she whispers. Her body fades and dissolves into a million tiny glittering lights that float gently up into the sky. Her demise only deepens your resolve to defeat The Evil One. Your priests take the necklace and place it <a href='alertOpenCathedralPage(); this.AlertRef.close();' class='alert-link'>on a pedestal</a> in the cathedral.",						
+				},{
+			delay: 300000,
 			type: 'success'
 			});	
 			
@@ -745,10 +756,11 @@ function setDefeatEvents(name){
 						showBattle('Necromancer');					
 				}
 				
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: defeatMessage,
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});					
 		break;
@@ -761,10 +773,11 @@ function setDefeatEvents(name){
 			document.getElementById('BatWaterElemental').style.display = "block";	
 			document.getElementById('BatThaumaturge').style.display = "block";
 			
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "Blah blah blah necromancer dies! You notice strange fluxuations in the surroundings.... The earth shakes, wind howls, water boils, fire blazes almost out of control. You can feel there is something terribly wrong.	",
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});						
 			
@@ -772,11 +785,11 @@ function setDefeatEvents(name){
 
 		case 'Earth Elemental':
 			defeatedEarthElemental = true;
-
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "Earth Elemental Defeat Message",
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});	
 			
@@ -784,11 +797,11 @@ function setDefeatEvents(name){
 
 		case 'Fire Elemental':
 			defeatedFireElemental = true;
-			
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "Fire Elemental Defeat Message",
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});				
 			
@@ -796,11 +809,11 @@ function setDefeatEvents(name){
 
 		case 'Wind Elemental':
 			defeatedWindElemental = true;
-
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "Wind Elemental Defeat Message",
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});				
 			
@@ -808,11 +821,11 @@ function setDefeatEvents(name){
 
 		case 'Water Elemental':
 			defeatedWaterElemental = true;
-
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "Water Elemental Defeat Message",
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});				
 			
@@ -820,11 +833,11 @@ function setDefeatEvents(name){
 	
 		case 'Thaumaturge':
 			defeatedThaumaturge = true;
-
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "Thaumaturge Defeat Message",
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});				
 			
@@ -832,11 +845,11 @@ function setDefeatEvents(name){
 
 		case 'Cerberus':
 			defeatedCerberus = true;
-
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "Cerberus Defeat Message",
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});				
 			
@@ -844,11 +857,11 @@ function setDefeatEvents(name){
 
 		case 'Ouro':
 			defeatedOuro = true;
-			
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "Ouro Defeat Message",
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});					
 			
@@ -856,11 +869,11 @@ function setDefeatEvents(name){
 		
 		case 'Boros':
 			defeatedBoros = true;
-			
-			$.notify({
+			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
 				message: "Boros Defeat Message",
-				},{delay: 300000},{
+				},{
+			delay: 300000,
 			type: 'success'
 			});					
 			
@@ -1245,7 +1258,7 @@ function loadBattle(name, percent){
 };
 
 
-//function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, BPReq, SPReq, percentComplete, percentIncrement,speed)
+//function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, AlertRef, BPReq, SPReq, percentComplete, percentIncrement,speed)
 var goblinsDesc = "Concerned with the security of your land, your spymaster has made a list of enemies spotted by your scouts. <br><br> The list begins with a den of greedy goblins in the nearby oak grove.<br><br>Though they have not made any aggressive moves toward your people and your holdings, these capricious hoarders of all things shiny remain a threat.";
 var Goblins = new Enemy('Goblins', goblinsDesc, 'BatGoblinsProgBarBox', 'BatGoblinsProgBar', 'btnBatGoblins','goblinDefeatAlert',75,0,0,10,500);
 setEnemyDescription(Goblins, 'btnDescGoblins');
