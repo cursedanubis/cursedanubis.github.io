@@ -1046,3 +1046,23 @@ function alertOpenRelicPage(){
 function alertOpenBattlePage(){
 	document.getElementById("BattleMenu").click();
 }
+
+//Hover gatherables effects//
+$('#clickmoney').hover(
+	   function(){ $(this).addClass('animated infinite pulse') },
+	   function(){ $(this).removeClass('animated infinite pulse') }
+)
+$('#clickwood').hover(
+	   function(){ $(this).addClass('animated infinite pulse') },
+	   function(){ $(this).removeClass('animated infinite pulse') }
+)
+$('#clickpaper').hover(
+	   function(){ $(this).addClass('animated infinite pulse') },
+	   function(){ $(this).removeClass('animated infinite pulse') }
+)
+
+$('#clicktome').hover(
+	   function(){ $(this).addClass('animated infinite pulse') },
+	   function(){ $(this).removeClass('animated infinite pulse') }
+)
+//=================================//
