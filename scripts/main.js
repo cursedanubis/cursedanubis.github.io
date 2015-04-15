@@ -545,8 +545,14 @@ function addFaithToRelic(number){
 		}
 		else if(faithDonated > 250000){
 			description = "The necklace begins to glow slightly, and you swear you can hear a humming noise emanating from deep within."
-			document.getElementById('RelicHalfAlert').style.display = "block";
-			scroll(RelicHalfAlert, 1000);
+//			document.getElementById('RelicHalfAlert').style.display = "block";		
+//			scroll(RelicHalfAlert, 1000);
+			$.notify({
+				title: "<strong>New!</strong>",
+				message: description
+				},{
+			delay: 900000
+			});	
 		}
 		else if(faithDonate > 400000){
 			description = "The glowing from the necklace intensifies, and now there is a slight shimmering around the surface! Just a little more, something is about to happen!"
@@ -560,11 +566,16 @@ function addFaithToRelic(number){
 	if(faithDonated >= 500000){
 		document.getElementById("Etherealtitle").innerHTML = "Ethereal Rip & Angelic Gates";
 		document.getElementById('RelicPedestalTab').style.display = "none";
-		document.getElementById('AngelUnlockAlert').style.display = "block";
+//		document.getElementById('AngelUnlockAlert').style.display = "block";
 		document.getElementById('AngelTab').style.display = "block";
 		angelsUnlocked = true;
-		element_to_scroll_to = document.getElementById('AngelUnlockAlert');
-		element_to_scroll_to.scrollIntoView();	
+		var AngelUnlockAlert = $.notify({
+			title: "<strong>New!</strong>",
+			message: "The necklace is overflowing with the faith! It starts to vibrate violently, and you decide the most prudent thing to do is to take it outside. Just as you step foot outside the cathedral doors, flies out of your hands and hovers before you. You can literally feel the hum of power as the necklace emits a brilliant beam of light that shoots into the heavens. You watch as the skies are turned a vibrant gold.. all of the faith that was used to empower the necklace opens up a <a href='javascript: alertOpenEtherealPage(); AngelUnlockAlert.close();' class='alert-link'>divine gate</a>. The gate is directly above your cathedral, but you swear you can see winged beings flapping just beyond the shimmering portal."	
+			},{
+		delay: 900000,
+		type: 'success'
+		});			
 	}
 }
 
