@@ -15,6 +15,7 @@
 		save("wood", wood);
 		save("paper",paper);
 		save("iron",iron);
+		save("coal",coal);
 		save("silver",silver);			
 		save("faith",faith);
 		save("souls",souls);
@@ -336,6 +337,11 @@
 			iron = parseInt(localStorage.iron);
 			document.getElementById("iron").innerHTML = fnum(iron);
 		}
+		
+		if(localStorage.coal != null){
+			coal = parseInt(localStorage.coal);
+			document.getElementById("coal").innerHTML = fnum(coal);
+		}		
 
 		if(localStorage.silver != null){
 			silver = parseInt(localStorage.silver);

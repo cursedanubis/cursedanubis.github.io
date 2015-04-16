@@ -764,7 +764,7 @@ window.setInterval(function(){                                 //Update per seco
 		goldpersec = goldpersec + Miner.number;
 	}
 
-	 document.getElementById("resgoldimage").title = "Gold per second: " + fnum(goldpersec) ; 
+	 document.getElementById("golddiv").title = "Gold per second: " + fnum(goldpersec) ; 
 
 	if(lwoodClickUpgrade == true){
 		woodpersec = Lumberjack.number*2;		
@@ -772,19 +772,19 @@ window.setInterval(function(){                                 //Update per seco
 	else{
 		woodpersec = Lumberjack.number;	
 	}
-	document.getElementById("reswoodimage").title = "Wood per second: " + fnum(woodpersec) ; 	 
+	document.getElementById("wooddiv").title = "Wood per second: " + fnum(woodpersec) ; 	 
 	 
 	ironpersec = Miner.number;
-	document.getElementById("resironimage").title = "Iron per second: " + fnum(ironpersec) ; 	 
+	document.getElementById("irondiv").title = "Iron per second: " + fnum(ironpersec) ; 	 
 	 
 	coalpersec = CoalMiner.number*0.1;
-	document.getElementById('rescoalimage').title = "Coal per second " + fnum(coalpersec.toFixedDown(2)) ;
+	document.getElementById('coaldiv').title = "Coal per second " + fnum(coalpersec.toFixedDown(2)) ;
 	 
 	if(mSilverUpgrade == true)
 	{
 		silverpersec = Miner.number*0.5
 	}
-	document.getElementById("ressilverimage").title = "Silver per second: " + fnum(silverpersec) ; 	 	
+	document.getElementById("silverdiv").title = "Silver per second: " + fnum(silverpersec) ; 	 	
  
 	if(prFaithUpgrade == true){
 		faithpersec = Bishop.number * 10 + Priest.number*0.5*2 + Acolyte.number*0.1;		
@@ -793,25 +793,25 @@ window.setInterval(function(){                                 //Update per seco
 		faithpersec = Bishop.number * 10 + Priest.number*0.5 + Acolyte.number*0.1;		
 	}
 	faithpersec = faithpersec.toFixedDown(2)
-    document.getElementById("resfaithimage").title = "Faith per second: " + fnum(faithpersec) ; 
+    document.getElementById("faithdiv").title = "Faith per second: " + fnum(faithpersec) ; 
 	
     soulspersec = Paladin.number +  Aspect.number * 2  + Angel.number * 5;
 	if(paladinWepUpgrade == true){
 		soulspersec = Paladin.number * 2 +  Aspect.number * 2 + Angel.number * 5;
 	}
-	document.getElementById("ressoulsimage").title = "Souls per second: " + fnum(soulspersec) ; 
+	document.getElementById("soulsdiv").title = "Souls per second: " + fnum(soulspersec) ; 
 	
 	if(PmillEffUpgr2 == true){
 		paperpersec = PaperMill.number / 5;
-		document.getElementById("respaperimage").title = "Paper per 5 seconds: " + fnum(paperpersec * 5) ; 
+		document.getElementById("paperdiv").title = "Paper per 5 seconds: " + fnum(paperpersec * 5) ; 
 	}
 	else{
 		paperpersec = PaperMill.number / 10;
-		document.getElementById("respaperimage").title = "Paper per 10 seconds: " + fnum(paperpersec * 10) ; 
+		document.getElementById("paperdiv").title = "Paper per 10 seconds: " + fnum(paperpersec * 10) ; 
 	}
 	
 	manapersec = 1 + 0.1*Sprite.number;
-	document.getElementById("resmanaimage").title = "Mana per second: " + fnum(manapersec) ; 	
+	document.getElementById("manadiv").title = "Mana per second: " + fnum(manapersec) ; 	
 	
 	document.getElementById("peasants").innerHTML = Peasant.number ;	//For testing
 	document.getElementById("miners").innerHTML = Miner.number;			//For Testing
@@ -1080,7 +1080,7 @@ function alertOpenBattlePage(){
 	document.getElementById("BattleMenu").click();
 }
 
-//Hover gatherables effects//
+//Hover effects//
 $('#clickmoney').hover(
 	   function(){ $(this).addClass('animated infinite pulse') },
 	   function(){ $(this).removeClass('animated infinite pulse') }
