@@ -6,9 +6,15 @@ padding-top: 50px;
 {
 margin-top: 5px;
 margin-bottom: 0px;
+display: inline-block;
+}
+#ResourcesWell div {
+float: left;
+padding-right: 30px;
+padding-left: 60px;
 }
 
-#ResourceList ul
+/* #ResourceList ul
 {
 margin: 0px;
 padding: 0px;
@@ -28,7 +34,7 @@ padding-right: 60px;
 
 -webkit-box-flex:1;
 }
-
+ */
 
 #ResourceList div
 {
@@ -39,15 +45,23 @@ padding: 0px;
 
 #SecondaryResources
 {
-padding-top: 5px
+padding-top: 5px;
 }
 
 #SecondaryResourceWell
 {
+display: inline-block;
 margin-bottom: 5px;
 }
 
-#SecondaryResourceList ul
+
+#SecondaryResourceWell div{
+float: left;
+padding-right: 30px;
+padding-left: 60px;
+}
+
+/* #SecondaryResourceList ul
 {
 margin: 0px;
 padding: 0px;
@@ -74,7 +88,7 @@ padding-right: 60px;
 display: inline;
 margin: 9px 0px 0px;
 padding: 0px;
-}
+} */
 
 #Gathering
 {
@@ -88,6 +102,10 @@ margin: -4px;
 padding-right: 20px;
 }
 
+#GatherList input{
+outline: 0;
+}
+
 #GatherListWell{
 margin-bottom: 10px;
 }
@@ -98,22 +116,6 @@ display: inline;
 margin-top: 20px;
 margin-bottom: 0px;
 padding: 0px;
-}
-
-#clickmoney{
-outline: 0;
-}
-
-#clickwood{
-outline: 0;
-}
-
-#clickpaper{
-outline: 0;
-}
-
-#clicktome{
-outline: 0;
 }
 
 #relicInputGroup input-group{

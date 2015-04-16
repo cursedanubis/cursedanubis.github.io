@@ -65,7 +65,7 @@ var towerBuilt = false;
 
 //Etc Variables//
 var lastPage;
-var TruncateNumber = true;
+var TruncateNumber = 'standard';
 var KingdomName = "";
 
 function clickThing(number, type)
@@ -93,6 +93,7 @@ function clickThing(number, type)
 				number += goldpersec*0.1
 			}
 			gold += number;
+			gold = Math.round(gold*100)/100;
 			statSelfGoldCollected += number;
 			statTotalSelfGoldCollected += number;
 			statTotalGoldCollected += number;
@@ -957,7 +958,7 @@ function dhms(s, f) { // seconds, format
 function fnum(x) {
 	if(isNaN(x)) return x;
  
-	if(TruncateNumber == true){
+	if(TruncateNumber == 'standard'){
 		if(x < 9999) {
 			return x;
 		}
@@ -1009,6 +1010,9 @@ function fnum(x) {
 	 
 		return "1UnDec+";
 	}
+	else if(TruncateNumber == 'scientific'){
+		return x.toExponential(2);
+	}
 	else
 	{
 		return x;
@@ -1016,11 +1020,17 @@ function fnum(x) {
 };
 
 function toggleTrunc(){
-	if(TruncateNumber == true){
-		TruncateNumber = false;
+	if(TruncateNumber == 'standard'){
+		TruncateNumber = 'scientific';
+		document.getElementById('ToggleTrunc').innerHTML = '<span class="glyphicon glyphicon-superscript" aria-hidden="true"></span>Number Format: Scientific';
+	}
+	else if (TruncateNumber == 'scientific'){
+		TruncateNumber = 'off';
+		document.getElementById('ToggleTrunc').innerHTML = '<span class="glyphicon glyphicon-superscript" aria-hidden="true"></span>Number Format: Off';
 	}
 	else{
-		TruncateNumber = true;
+		TruncateNumber = 'standard';
+		document.getElementById('ToggleTrunc').innerHTML = '<span class="glyphicon glyphicon-superscript" aria-hidden="true"></span>Number Format: Standard';
 	}
 };
 
