@@ -22,6 +22,9 @@
 	<!--Animate CSS -->
 	<link href="dist/css/animate.css" rel="stylesheet">
 	
+	<!--Tooltip CSS-->
+	<link href="dist/css/tooltip.css" rel="stylesheet">
+	
 	<!-- Custom styles for this template -->
     <link href="dist/css/navbar.css" rel="stylesheet">
 	<link href="dist/css/holywars.css" rel="stylesheet">
@@ -33,6 +36,7 @@
 	<script src="dist/js/bootstrap-select.js"></script>
 	<script src="dist/js/bootstrap-notify.js"></script>
 	<script src="dist/js/bootbox.min.js"></script>
+	<script src="dist/js/tooltip.js"></script>
 
 	
 	<script language="javascript"> 
@@ -144,32 +148,32 @@
 	
 	  <div id="Resources" class="collapse in">
 		<div class = "well well-sm" id = "ResourcesWell">
-			<div id = "golddiv" >
-				<img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage">
+			<div id = "golddiv" rel="tooltip">
+				<img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage" >
 				Gold: <span id="gold">0</span>  <!--( <span id="goldpersec">0</span> gps)-->
 			</div>		
 
-			<div id = "wooddiv" >
+			<div id = "wooddiv" rel="tooltip">
 				<img src = "images/woodsmall.png" Title="Wood" id="reswoodimage">
 				Wood: <span id="wood">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
 			</div>
 
-			<div id = "irondiv" style="display: none;">
+			<div id = "irondiv" style="display: none;" rel="tooltip">
 				<img src = "images/ironsmall.png" Title="Iron" id="resironimage">
 				Iron: <span id="iron">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
 			</div>
 	
-			<div id = "faithdiv" style="display: none;">
+			<div id = "faithdiv" style="display: none;" rel="tooltip">
 				<img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage">
 				Faith: <span id="faith">0</span>   <!-- ( <span id="faithpersec">0</span> fps)-->
 			</div>
 	
-			<div id = "soulsdiv" style="display: none;">
+			<div id = "soulsdiv" style="display: none;" rel="tooltip">
 				<img src = "images/soulssmall.png" Title="Souls"  id="ressoulsimage">
 				Souls: <span id="souls">0</span>  <!-- ( <span id="soulspersec">0</span> sps)	-->	
 			</div>
 		
-			<div id = "manadiv" style="display: none;">
+			<div id = "manadiv" style="display: none;" rel="tooltip">
 				<img src = "images/manasmall.png" Title="Mana" id="resmanaimage">
 				Mana: <span id="mana">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
 			</div>
@@ -179,33 +183,33 @@
 	  
 	  <div id="SecondaryResources" class="collapse">
 		<div class = "well well-sm" id = "SecondaryResourceWell">
-			<div id = "silverdiv" style="display: none;">
+			<div id = "silverdiv" style="display: none;" rel="tooltip">
 				<img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> 
 				Silver: <span id="silver">0</span>     
 			</div>
 
-			<div id = "coaldiv" style="">
+			<div id = "coaldiv" style="" rel="tooltip">
 				<img src = "images/coalsmall.png" Title="Coal" id="rescoalimage"> 
 				Coal: <span id="coal">0</span>     
 			</div>
 			
-			<div id = "paperdiv" style="display: none;">
+			<div id = "paperdiv" style="display: none;" rel="tooltip">
 				<img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage">
 				Paper: <span id="paper">0</span>    
 			</div>
 			
-			<div id = "tomediv" style="display: none;">
+			<div id = "tomediv" style="display: none;" rel="tooltip">
 				<img src = "images/bookssmall.png" Title="Holy Tomes" id="restomeimage">
 				Tomes: <span id="tomes">0</span>    
 			</div>
 				
-			<div id = "armystrdiv" style="display: none;">
+			<div id = "armystrdiv" style="display: none;" rel="tooltip">
 			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
 				<img src = "images/armsmall.png" Title="Army Power">
 				Army: <span id="BattlePower">0</span> 
 			</div>
 	
-			<div id = "spiritarmystrdiv" style="display: none;">
+			<div id = "spiritarmystrdiv" style="display: none;" rel="tooltip">
 			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
 				<img src = "images/armsmall.png" Title="Army Power">
 				Spirit: <span id="SpiritPower">0</span> 
@@ -574,6 +578,7 @@
 							<img src = "images/money_goldsmall.png" title ="Gold" > 1M | <img src = "images/woodsmall.png" title = "Wood"> 1M | <img src = "images/ironsmall.png" title="Iron"> 1M | <img src = "images/soulssmall.png" title="Souls"> 50,000
 							<br />
 						</div>
+						<br / >
 
 						<div id = 'PMillUClickUpgrade' class = 'container'> 
 							<button id=btnPmillClickUpgrade onclick="PmillClickUpgrade()"	type="button" class="btn btn-default" title = "Allows you to craft 10 paper at once. You will still need the required materials.">Production Oversight</button>
