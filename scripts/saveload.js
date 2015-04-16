@@ -13,16 +13,17 @@
 		//Currency variables
 		save("gold",gold);
 		save("wood", wood);
-		save("paper",paper);
-		save("iron",iron);
-		save("coal",coal);
-		save("silver",silver);			
-		save("faith",faith);
-		save("souls",souls);
-		save("tomes",tomes);
-		save("mana",mana);
-		save("goldStolen",goldStolen);
-		save("totalTimePlayed",totalTimePlayed);
+		save("paper", paper);
+		save("iron", iron);
+		save("coal", coal);
+		save("steel", steel);
+		save("silver", silver);			
+		save("faith", faith);
+		save("souls", souls);
+		save("tomes", tomes);
+		save("mana", mana);
+		save("goldStolen", goldStolen);
+		save("totalTimePlayed", totalTimePlayed);
 		
 		//Unit variables
  		save("peasants",Peasant.number - tavernpeasants);
@@ -60,6 +61,7 @@
 		save("unlockedQuesting",unlockedQuesting);
 		save("towerUnlocked",towerUnlocked);
 		save("towerBuilt",towerBuilt);
+		save("forgeOpened",forgeOpened);
 		
 		//Battle flags
 		save("defeatedGoblins",defeatedGoblins);
@@ -152,7 +154,13 @@
 		
 		save("statIronCollected", statIronCollected);
 		save("statTotalIronCollected", statTotalIronCollected);
+		
+		save("statCoalCollected", statCoalCollected);
+		save("statTotalCoalCollected", statTotalCoalCollected);		
 
+		save("statSteelCollected", statSteelCollected);
+		save("statTotalSteelCollected", statTotalSteelCollected);				
+		
 		save("statSilverCollected", statSilverCollected);
 		save("statTotalSilverCollected", statTotalSilverCollected);
 
@@ -186,7 +194,7 @@
 		save("statTotalMinersHired", statTotalMinersHired);
 		
 		save("statCoalMinersHired", statCoalMinersHired);
-		save("statTotalCoalMinersHired", statTotalCoalMinersHired);		
+		save("statTotalCoalMinersHired", statTotalCoalMinersHired);	
 		
 		save("statLumberjacksHired", statLumberjacksHired);
 		save("statSelfLumberjacksHired", statSelfLumberjacksHired);
@@ -342,7 +350,12 @@
 		if(localStorage.coal != null){
 			coal = parseInt(localStorage.coal);
 			document.getElementById("coal").innerHTML = fnum(coal);
-		}		
+		}	
+
+		if(localStorage.steel != null){
+			steel = parseInt(localStorage.steel);
+			document.getElementById("steel").innerHTML = fnum(steel);
+		}				
 
 		if(localStorage.silver != null){
 			silver = parseInt(localStorage.silver);

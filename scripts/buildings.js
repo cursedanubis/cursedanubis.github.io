@@ -106,6 +106,13 @@ Building.prototype.checkBtnFlag = function(){
 						document.getElementById(myButton).innerHTML = "Command Post Built";	
 						document.getElementById(myButton).disabled = true;	
 					}
+				break;
+
+				case "forgeOpened":
+					if(forgeOpened == true){
+						document.getElementById(myButton).innerHTML = "Forge Built";	
+						document.getElementById(myButton).disabled = true;	
+					}
 				break;				
 				
 				case "cathedralOpened":
@@ -188,6 +195,17 @@ Building.prototype.buy = function(){
 					commandPostOpenedAlert = $.notify({
 						title: "<strong>New!</strong> ",
 						message: "You can now <a href='javascript: alertOpenCommandPostPage();' class='alert-link'>upgrade</a> your own abilities and plan in the comfort of your new Command Post!"
+					});						
+				break;
+				
+				case "forgeOpened":
+					forgeOpened = true;
+					document.getElementById('gathersteel').style.display = "block";
+					document.getElementById('steeldiv').style.display = "block";
+					var forgeOpenedAlert;
+					forgeOpenedAlert = $.notify({
+						title: "<strong>New!</strong> ",
+						message: "You can now create steel by combining iron and coal!"
 					});						
 				break;
 			
@@ -483,7 +501,8 @@ var Barracks = new Building('Barracks','btnOpenBarracks','barracksGoldCost', 'ba
 var commandPostDesc = ""
 var CommandPost = new Building('Command Post','btnOpenCommandPost','commandPostGoldCost', 'commandPostWoodCost', 'commandPostIronCost','none','none','none',5000,1000,250,0,0,0,commandPostDesc,"none",'commandPostOpened');
 
-
+var forgeDesc = ""
+var Forge = new Building('Forge','btnOpenForge','forgeGoldCost','forgeWoodCost','forgeIronCost','forgeSilverCost','none','none',750000,400000,750000,500,100000,0,forgeDesc,"none",'forgeOpened');
 
 var cathDesc = ""
 var Cathedral = new Building('Cathedral','btnOpenCathedral','cathGoldCost','cathWoodCost','cathIronCost','cathSilverCost','none','none',15000,2500,500,100,0,0,cathDesc,"none",'cathedralOpened');
@@ -532,6 +551,9 @@ function checkBuildingButtons(){
 	
 	//Changes status of the building command post button
 	CommandPost.canBuy();	
+	
+	//Changes status of the building forge button
+	Forge.canBuy();		
 	
 	//Changes status of the building cathedral button
 	Cathedral.canBuy();

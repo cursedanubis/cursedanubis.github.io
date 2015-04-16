@@ -5,6 +5,7 @@ var gold = 0;
 var wood = 0;
 var iron = 0;
 var coal = 0;
+var steel = 0;
 var silver = 0;
 var faith = 0;
 var souls = 0;
@@ -60,6 +61,7 @@ var PmillEffUpgr2 = false;
 var PmillClickUpgr = false;		//Paper mill - Click multiplier
 var barracksOpened = false;
 var commandPostOpened = false;
+var forgeOpened = false;
 var unlockedQuesting = false;
 var towerUnlocked = false;
 var towerBuilt = false;
@@ -227,7 +229,31 @@ function clickThing(number, type)
 			document.getElementById("coal").innerHTML = fnum(coal);
 			document.getElementById("statCoalCollected").innerHTML = fnum(statCoalCollected);
 			document.getElementById("statTotalCoalCollected").innerHTML = fnum(statTotalCoalCollected);
-			break;		
+			break;
+
+		case "steel":
+			steel += number;
+			steel = Math.round(steel*100)/100;
+//			statCoalCollected += number;
+//			statTotalCoalCollected += number;
+			document.getElementById("steel").innerHTML = fnum(steel);
+//			document.getElementById("statCoalCollected").innerHTML = fnum(statCoalCollected);
+//			document.getElementById("statTotalCoalCollected").innerHTML = fnum(statTotalCoalCollected);
+			break;	
+
+		case "steelMouse":
+			if(iron >= number*100 && coal >= number*10){
+				steel += number;
+				steel = Math.round(steel*100)/100;
+				document.getElementById("iron").innerHTML = fnum(iron);
+				document.getElementById("coal").innerHTML = fnum(iron);
+				document.getElementById("steel").innerHTML = fnum(steel);
+				document.getElementById("statSteelCollected").innerHTML = fnum(statSteelCollected);
+				document.getElementById("statTotalSteelCollected").innerHTML = fnum(statTotalSteelCollected);				
+			}
+
+
+			break;			
 		
 		case "silver":
 			silver += number;
@@ -276,6 +302,7 @@ function clickThing(number, type)
 			
 		case "mana":
 			mana += number;
+			mana = Math.round(mana*100)/100;
 			statManaGained += number;
 			statTotalManaGained += number;
 			document.getElementById("mana").innerHTML = fnum((Math.round( mana * 10) / 10).toFixedDown(1));
@@ -1122,4 +1149,9 @@ $('#clicktome').hover(
 	   function(){ $(this).addClass('animated infinite pulse') },
 	   function(){ $(this).removeClass('animated infinite pulse') }
 )
+$('#clicksteel').hover(
+	   function(){ $(this).addClass('animated infinite pulse') },
+	   function(){ $(this).removeClass('animated infinite pulse') }
+)
+
 //=================================//

@@ -194,6 +194,11 @@
 				Silver: <span id="silver">0</span>     
 			</div>
 			
+			<div id = "steeldiv" style="display: none;" rel="tooltip">
+			<img src = "images/steelsmall.png" Title="Silver" id="ressilverimage"> 
+				Steel: <span id="steel">0</span>     
+			</div>			
+			
 			<div id = "paperdiv" style="display: none;" rel="tooltip">
 				<img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage">
 				Paper: <span id="paper">0</span>    
@@ -228,6 +233,10 @@
 			<div id = 'gatherwood'>
 				<input type="image"  id="clickwood" tabIndex="-1" onclick="clickThing(1,'woodMouse')" src = "images/wood.png" title = "Click to gather wood yourself."></li>
 			</div>
+			
+			<div id = 'gathersteel' style = "display: none;">
+				<input type="image"  id="clicksteel" tabIndex="-1" onclick="clickThing(1,'steelMouse')" src = "images/steel.png" title = "Click to convert coal and iron into steel yourself."></li>
+			</div>			
 			
 			<div id ="gatherPaper" style = "display: none;">
 				<input type="image"  id="clickpaper" tabIndex="-1" onclick="clickThing(1,'paperMouse')" src = "images/parchment.png" title = "Click to convert 50 wood into paper yourself.">
@@ -645,8 +654,17 @@
 				<br />
 			</div>
 			<hr>			
+
+			<div id = 'buildForgeTab' class = 'container'>
+				<button id=btnOpenForge title="Build a forge to create weapons, armor, and to create stronger metals." onclick="Forge.buy()" type="button" class="btn btn-default">Build Forge</button>
+				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Build a forge to create weapons, armor, and to create stronger metals." rel="tooltip"></span>
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'forgeGoldCost'>750,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'forgeWoodCost'>400,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'forgeIronCost'>750,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'forgeSilverCost'>100,000</span>
+				<br />
+			</div>
+			<hr>			
 			
-			<div id = 'buildTowerTab' class = container style="display: none;">
+			<div id = 'buildTowerTab' class = 'container' style="display: none;">
 				<button id=btnOpenTower title="Build a glorious tower for your Archmage to channel his energies and cast spells from." onclick="Tower.buy()" type="button" class="btn btn-default">Construct Tower</button>
 				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Build a glorious tower for your Archmage to channel his energies and cast spells from." rel="tooltip"></span>
 				<br />
@@ -1884,7 +1902,11 @@
 
 			<h4>Coal</h4>
 			Lifetime Coal Collected: <img src = "images/coalsmall.png" title="Iron"><span id= "statTotalCoalCollected">0</span><br />
-			Coal Collected this game: <img src = "images/coalsmall.png" title="Iron"><span id= "statCoalCollected">0</span><br /> <br />			
+			Coal Collected this game: <img src = "images/coalsmall.png" title="Iron"><span id= "statCoalCollected">0</span><br /> <br />		
+
+			<h4>Steel</h4>
+			Lifetime Steel Collected: <img src = "images/steelsmall.png" title="Steel"><span id= "statTotalSteelCollected">0</span><br />
+			Steel Collected this game: <img src = "images/steelsmall.png" title="Steel"><span id= "statSteelCollected">0</span><br /> <br />				
 			
 			<h4>Silver</h4>
 			Lifetime Silver Collected: <img src = "images/silverOresmall.png" title="Silver"><span id= "statTotalSilverCollected">0</span><br />
