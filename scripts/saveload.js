@@ -253,7 +253,17 @@
 		save("statCastedTimeSkip", statCastedTimeSkip);
 		save("statTotalCastedTimeSkip", statTotalCastedTimeSkip);		
 		
-		
+		//Achievements
+		save("ach1kClicks",ach1kClicks);
+		save("ach10kClicks",ach10kClicks);
+		save("ach100kClicks",ach100kClicks);
+		save("ach1MClicks",ach1MClicks);
+		save("ach1BClicks",ach1BClicks);
+		save("ach1kGold",ach1kGold);
+		save("ach100kGold",ach100kGold);
+		save("ach1MGold",ach1MGold);
+		save("ach1BGold",ach1BGold);
+		save("ach1TGold",ach1TGold);	
 		
 /* 		document.getElementById('saveAlert').style.display = "block";  //Displays saved alert
 		
@@ -1440,7 +1450,98 @@
 		if(localStorage.statTotalCastedTimeSkip != null){
 			statTotalCastedTimeSkip = parseInt(localStorage.statTotalCastedTimeSkip);
 			document.getElementById('statTotalCastedTimeSkip').innerHTML = fnum(statTotalCastedTimeSkip);
+		}
+
+		//Load Achievements
+		if(localStorage.ach1kClicks != null){
+			var myBool = (localStorage.ach1kClicks == "true")
+			if(myBool == true){
+				ach1kClicks = true;
+				document.getElementById('Clicked1KTimes').classList.add('achievementearned');
+				document.getElementById('Clicked1KTimes').classList.add('achievement');
+			}
 		}		
+		
+		if(localStorage.ach10kClicks != null){
+			var myBool = (localStorage.ach10kClicks == "true")
+			if(myBool == true){
+				ach10kClicks = true;
+				document.getElementById('Clicked10KTimes').classList.add('achievementearned');
+				document.getElementById('Clicked10KTimes').classList.add('achievement');
+			}
+		}	
+
+		if(localStorage.ach100kClicks != null){
+			var myBool = (localStorage.ach100kClicks == "true")
+			if(myBool == true){
+				ach1kClicks = true;
+				document.getElementById('Clicked100KTimes').classList.add('achievementearned');
+				document.getElementById('Clicked100KTimes').classList.add('achievement');
+			}
+		}
+
+		if(localStorage.ach1MClicks != null){
+			var myBool = (localStorage.ach1MClicks == "true")
+			if(myBool == true){
+				ach1MClicks = true;
+				document.getElementById('Clicked1MTimes').classList.add('achievementearned');
+				document.getElementById('Clicked1MTimes').classList.add('achievement');
+			}
+		}
+
+		if(localStorage.ach1BClicks != null){
+			var myBool = (localStorage.ach1BClicks == "true")
+			if(myBool == true){
+				ach1BClicks = true;
+				document.getElementById('Clicked1BTimes').classList.add('achievementearned');
+				document.getElementById('Clicked1BTimes').classList.add('achievement');
+			}
+		}	
+
+		if(localStorage.ach1kGold != null){
+			var myBool = (localStorage.ach1kGold == "true")
+			if(myBool == true){
+				ach1kGold = true;
+				document.getElementById('Collected1KGold').classList.add('achievementearned');
+				document.getElementById('Collected1KGold').classList.add('achievement');
+			}
+		}
+
+		if(localStorage.ach100kGold != null){
+			var myBool = (localStorage.ach100kGold == "true")
+			if(myBool == true){
+				ach100kGold = true;
+				document.getElementById('Collected100KGold').classList.add('achievementearned');
+				document.getElementById('Collected100KGold').classList.add('achievement');
+			}
+		}
+
+		if(localStorage.ach1MGold != null){
+			var myBool = (localStorage.ach1MGold == "true")
+			if(myBool == true){
+				ach1MGold = true;
+				document.getElementById('Collected1MGold').classList.add('achievementearned');
+				document.getElementById('Collected1MGold').classList.add('achievement');
+			}
+		}
+
+		if(localStorage.ach1BGold != null){
+			var myBool = (localStorage.ach1BGold == "true")
+			if(myBool == true){
+				ach1BGold = true;
+				document.getElementById('Collected1BGold').classList.add('achievementearned');
+				document.getElementById('Collected1BGold').classList.add('achievement');
+			}
+		}
+
+		if(localStorage.ach1TGold != null){
+			var myBool = (localStorage.ach1TGold == "true")
+			if(myBool == true){
+				ach1TGold = true;
+				document.getElementById('Collected1TGold').classList.add('achievementearned');
+				document.getElementById('Collected1TGold').classList.add('achievement');
+			}
+		}			
 		//End Statistics Page variables loaded
 		
 		recalculateCosts();

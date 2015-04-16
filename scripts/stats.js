@@ -117,9 +117,147 @@ var statTotalCastedTimeSkip = 0;
 
 var timesClicked = 0;
 
+
+//Achievement//
+	//Clicks
+var ach1kClicks = false;
+var ach10kClicks = false;
+var ach100kClicks = false;
+var ach1MClicks = false;
+var ach1BClicks = false;
+
+	//Gold
+var ach1kGold = false;
+var ach100kGold = false;
+var ach1MGold = false;
+var ach1BGold = false;
+var ach1TGold = false;
+
 function incTimesClicked(){
 	timesClicked += 1;
 	document.getElementById('statTimesClicked').innerHTML = timesClicked;
+	
+	if(timesClicked >= 1000 && ach1kClicks == false){
+		ach1kClicks = true;
+		document.getElementById('Clicked1KTimes').classList.add('achievementearned');
+		document.getElementById('Clicked1KTimes').classList.add('achievement');
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have clicked 1,000 times!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}
+	
+	if(timesClicked >= 10000 && ach10kClicks == false){
+		ach10kClicks = true;
+		document.getElementById('Clicked10KTimes').classList.add('achievementearned');
+		document.getElementById('Clicked10KTimes').classList.add('achievement');
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have clicked 10,000 times!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}	
+	
+	if(timesClicked >= 100000 && ach100kClicks == false){
+		ach100kClicks = true;
+		document.getElementById('Clicked100KTimes').classList.add('achievementearned');
+		document.getElementById('Clicked100KTimes').classList.add('achievement');
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have clicked 100,000 times!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}
+	
+	if(timesClicked >= 1000000 && ach1MClicks == false){
+		ach1MClicks = true;
+		document.getElementById('Clicked1MTimes').classList.add('achievementearned');
+		document.getElementById('Clicked1MTimes').classList.add('achievement');
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have clicked 1,000,000 times!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}	
+
+	if(timesClicked >= 1000000 && ach1BClicks == false){
+		ach1BClicks = true;
+		document.getElementById('Clicked1BTimes').classList.add('achievementearned');
+		document.getElementById('Clicked1BTimes').classList.add('achievement');
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have clicked 1,000,000,000 times!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}
 }
 
 document.body.addEventListener('click', incTimesClicked, true);
+
+function achieveCheckGold(){
+	if(gold >= 1000 && ach1kGold == false){
+		ach1kGold = true;
+		document.getElementById('Collected1KGold').classList.add('achievementearned');
+		document.getElementById('Collected1KGold').classList.add('achievement');
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have gained 1,000 gold!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}
+	if(gold >= 100000 && ach100kGold == false){
+		ach100kGold = true;
+		document.getElementById('Collected100KGold').classList.add('achievementearned');
+		document.getElementById('Collected100KGold').classList.add('achievement');
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have gained 100,000 gold!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}
+	if(gold >= 1000000 && ach1MGold == false){
+		ach1MGold = true;
+		document.getElementById('Collected1MGold').classList.add('achievementearned');
+		document.getElementById('Collected1MGold').classList.add('achievement');
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have gained 1,000,000 gold!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}
+	
+	if(gold >= 100000000 && ach1BGold == false){
+		ach1MGold = true;
+
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have gained 1,000,000,000 gold!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}
+	
+	if(gold >= 100000000000 && ach1TGold == false){
+		ach1TGold = true;
+
+		$.notify({
+			title: "<strong>Achievement! </strong>",
+			message: "You have gained 1,000,000,000,000 gold!",
+			delay: 30000},{
+		type: 'warning'
+		});			
+	}		
+};
+
+
+
+

@@ -75,6 +75,7 @@ function clickThing(number, type)
 			gold += number;
 			statGoldCollected += number;
 			statTotalGoldCollected += number;
+			achieveCheckGold();
 			
 			document.getElementById("gold").innerHTML = fnum(gold);	
 			document.getElementById("statgoldcollected").innerHTML = fnum(statGoldCollected);
@@ -97,6 +98,7 @@ function clickThing(number, type)
 			statSelfGoldCollected += number;
 			statTotalSelfGoldCollected += number;
 			statTotalGoldCollected += number;
+			achieveCheckGold();
 
 			document.getElementById("gold").innerHTML = fnum(gold);
 			document.getElementById("statselfgoldcollected").innerHTML = fnum(statSelfGoldCollected);

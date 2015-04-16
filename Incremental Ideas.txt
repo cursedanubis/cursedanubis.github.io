@@ -113,10 +113,10 @@ Everytime Evil One is defeated - you get one purified essence and unlocks presti
 
 Prestige Shop - uses boss currency
 
-Change alerts into growls
+//Change alerts into growls
 http://bootstrap-growl.remabledesigns.com/
 
-Animate
+//Animate
 http://daneden.github.io/animate.css/
 
 

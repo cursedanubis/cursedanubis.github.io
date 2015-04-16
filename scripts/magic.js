@@ -34,7 +34,7 @@ Spell.prototype.cast = function(){
 		document.getElementById('souls').innerHTML = souls;  										      //updates the number of souls for the user
 		document.getElementById('mana').innerHTML = mana;  										      //updates the number of souls for the user
 	
-	alert(this.name + " spell cast!");
+//	alert(this.name + " spell cast!");
 }
 
 Spell.prototype.canCast = function(){
@@ -152,9 +152,10 @@ FastForward.cast = function(){
 //	scroll('TimeWarpAlert',1000);
 
 	$.notify({
-		title: "<img src='images/stopwatch.png'>Time Warp! ",
+		title: "<img src='images/stopwatch.png'><strong>Time Warp! </strong>",
 		message: alertString,
-		},{delay: 50000},{
+		},{
+	delay: 50000,
 	type: 'success'
 	});	
 
@@ -169,9 +170,10 @@ FireBall.cast = function(){
 	if(inbattle == false){
 //		document.getElementById('FireBallFailAlert').style.display = "block";
 		$.notify({
-			title: "<img src='images/fireball.png'>Fire Ball Fizzles! ",
+			title: "<img src='images/fireball.png'><strong>Fire Ball Fizzles! </strong>",
 			message: "<br/>You are not in a battle! Your archmage declines to cast fireballs at nothing.",
-			},{delay: 10000},{
+			},{
+		delay: 10000,
 		type: 'danger'
 		});	
 	}
@@ -195,7 +197,7 @@ FireBall.cast = function(){
 //		scroll('FireBallAlert',1000);
 
 		$.notify({
-			title: "<img src='images/fireball.png'>Fire Ball! ",
+			title: "<img src='images/fireball.png'><strong>Fire Ball! </strong>",
 			message: AlertString,
 			delay: 10000},{
 		type: 'success'
