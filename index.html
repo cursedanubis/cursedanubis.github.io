@@ -99,14 +99,14 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav  animated slideInDown">
-			  <li id = "GatherLi "><a id="displayGatherOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Gather</a></li>	
+<!--			  <li id = "GatherLi "><a id="displayGatherOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Gather</a></li>	-->
 			  <li class = 'active'><a id="ProductionMenu" href="javascript:CollapseAll(); toggle('Production'); setLastPage('Production');">Village</a></li>
 			  <li><a id="StructureMenu" href="javascript:CollapseAll(); toggle('Structures'); setLastPage('Structures');">Structures</a></li>
               <li><a id="FaithMenu" href="javascript:CollapseAll(); toggle('Cathedral'); setLastPage('Cathedral');" style="display: none;">Cathedral</a></li>
 			  <li><a id="BarracksMenu" href="javascript:CollapseAll(); toggle('Barracks'); setLastPage('Barracks');" style="display: none; ">Barracks</a></li>
 			  <li><a id="EtherealMenu" href="javascript:CollapseAll(); toggle('Ethereal'); setLastPage('Ethereal');" style="display: none;">Ethereal</a></li>
 			  <li><a id="TowerMenu" href="javascript:CollapseAll(); toggle('Magic'); setLastPage('Magic');" style="display: none;">Tower</a></li>
-			  <li><a id="QuestMenu" href="javascript:CollapseAll(); toggle('Quests'); setLastPage('Quests');" >Quests</a></li>
+			  <li><a id="QuestMenu" href="javascript:CollapseAll(); toggle('Quests'); setLastPage('Quests');" style = "display: none;" >Quests</a></li>
     		  <li><a id="BattleMenu" href="javascript:CollapseAll(); toggle('Battle'); setLastPage('Battle');">Battle</a></li>
 			  <li><a id="RelicsMenu" href="javascript:CollapseAll(); toggle('Relics'); setLastPage('Relics');" style="display: none;">Relics <span class="badge" id = "relicBadge">0</span></a></li>
 <!--		  <li><a id="AchievmentsMenu" href="javascript:CollapseAll(); toggle('Achievements'); setLastPage('Achievements');">Achievements</a></li> -->
@@ -116,9 +116,10 @@
                 <ul class="dropdown-menu" role="menu">
                   <li class = 'opt'><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Resources</a></li>
 				  <li class = 'opt'><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Secondary Resources</a></li>
-                  <li class = 'opt'><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Gathering</a></li>
+                  <li class = 'opt'><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Clickables</a></li>
 				  <li class = 'opt'><a id="closeNotificationOpt" href="javascript: $.notifyClose();" aria-expanded="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Close All Notifications</a></li>
 				  <li class = 'opt'><a id="ToggleTrunc" href="javascript:toggleTrunc();"><span class="glyphicon glyphicon-superscript" aria-hidden="true"></span> Number Format: Standard</a></li>
+				  <li class = 'opt'><a id="MobileTooltip" href="javascript:$( '.mobiletooltip' ).toggle();"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Toggle Mobile Tooltip </a></li>
 				  <li class = 'opt'><a id="RenameKingdom" href="javascript:renameKingdom();"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Rename Kingdom</a></li>
 				
 				  
@@ -162,6 +163,11 @@
 				<img src = "images/ironsmall.png" Title="Iron" id="resironimage">
 				Iron: <span id="iron">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
 			</div>
+			
+			<div id = "coaldiv" style="" rel="tooltip">
+				<img src = "images/coalsmall.png" Title="Coal" id="rescoalimage"> 
+				Coal: <span id="coal">0</span>     
+			</div>			
 	
 			<div id = "faithdiv" style="display: none;" rel="tooltip">
 				<img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage">
@@ -186,11 +192,6 @@
 			<div id = "silverdiv" style="display: none;" rel="tooltip">
 				<img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> 
 				Silver: <span id="silver">0</span>     
-			</div>
-
-			<div id = "coaldiv" style="" rel="tooltip">
-				<img src = "images/coalsmall.png" Title="Coal" id="rescoalimage"> 
-				Coal: <span id="coal">0</span>     
 			</div>
 			
 			<div id = "paperdiv" style="display: none;" rel="tooltip">
@@ -219,20 +220,23 @@
 	  
 	  <div id="Gathering" class="collapse in">
 		<div id = 'GatherListWell' class = "well well-sm">
-			<ul id = "GatherList">
-				<li><input type="image"  id="clickmoney" tabIndex="-1" onclick="clickThing(1,'goldMouse')" src = "images/money_gold.png" title = "Click to gather gold yourself."></li>
-				<li><input type="image"  id="clickwood" tabIndex="-1" onclick="clickThing(1,'woodMouse')" src = "images/wood.png" title = "Click to gather wood yourself."></li>
-				<li>
-					<div id ="gatherPaper" style = "display: none;">
-						<input type="image"  id="clickpaper" tabIndex="-1" onclick="clickThing(1,'paperMouse')" src = "images/parchment.png" title = "Click to convert 50 wood into paper yourself.">
-					</div>
-				</li>
-				<li>
-					<div id ="createTome" style = "display: none;">
-						<input type="image"  id="clicktome" tabIndex="-1" onclick="clickThing(1,'tomeMouse')" src = "images/books.png" title = "Click to convert 2000 pages and 100 faith into a tome yourself.">
-					</div>
-				</li>
-			</ul>
+	
+			<div id = 'gathergold'>
+				<input type="image"  id="clickmoney" tabIndex="-1" onclick="clickThing(1,'goldMouse')" src = "images/money_gold.png" title = "Click to gather gold yourself."></li>
+			</div>
+			
+			<div id = 'gatherwood'>
+				<input type="image"  id="clickwood" tabIndex="-1" onclick="clickThing(1,'woodMouse')" src = "images/wood.png" title = "Click to gather wood yourself."></li>
+			</div>
+			
+			<div id ="gatherPaper" style = "display: none;">
+				<input type="image"  id="clickpaper" tabIndex="-1" onclick="clickThing(1,'paperMouse')" src = "images/parchment.png" title = "Click to convert 50 wood into paper yourself.">
+			</div>
+
+			<div id ="createTome" style = "display: none;">
+				<input type="image"  id="clicktome" tabIndex="-1" onclick="clickThing(1,'tomeMouse')" src = "images/books.png" title = "Click to convert 2000 pages and 100 faith into a tome yourself.">
+			</div>
+
 		</div>
 	  </div> 
 	  
@@ -252,8 +256,8 @@
 		 <img src = "images/money_goldsmall.png" title ="Gold" > <span id="PeasantCost">50</span> 
 			<div id ="PeasantUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
-				
 					<button id=btnPeasantUpgrade1 onclick="peasantUpgradeCollection()"	type="button" class="btn btn-default" title = "Your peasants become more capable at finding gold. Doubles gold collection rate.">Peasant Power</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your peasants become more capable at finding gold. Doubles gold collection rate." rel="tooltip"></span>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 2,000
 					<br /><br />									
@@ -273,11 +277,13 @@
 			<div id ="LumberjackUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
 					<button id=btnljackUpgrade1 onclick="lumberjackUpgradeCollection()"	type="button" class="btn btn-default" title = "Your lumberjacks are now equipped with reinforced axes that allow them to chop longer before the axes get dull. Lumberjacks are twice as effective at gathering wood.">Reinforced Axes</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your lumberjacks are now equipped with reinforced axes that allow them to chop longer before the axes get dull. Lumberjacks are twice as effective at gathering wood." rel="tooltip"></span>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 2,500 | <img src = "images/ironsmall.png" title="Iron"> 1,500
 					<br /> <br />
 
 					<button id=btnljackUpgrade2 onclick="upgradeClickWoodMultiplier()"	type="button" class="btn btn-default" title = "Shades take possession of magical axes and aid you in wood collection. Five times the wood collected when clicking.">Phantom Axes</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Shades take possession of magical axes and aid you in wood collection. Five times the wood collected when clicking." rel="tooltip"></span>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 25,000 | <img src = "images/ironsmall.png" title="Iron"> 20,000 | <img src = "images/silverOresmall.png" title="Silver"> 15,000 | <img src = "images/soulssmall.png" title="Souls"> 5,000 | 5 shades
 					<br />					
@@ -299,11 +305,13 @@
 			<div id ="MinerUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
 					<button id=btnminerUpgrade1 onclick="minerUpgradePanning()"	type="button" class="btn btn-default" title = "Your miners now pan for gold in their spare time. Miners now generate 1 gold per second.">Learn Panning</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your miners now pan for gold in their spare time. Miners now generate 1 gold per second." rel="tooltip"></span>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 3,500 | <img src = "images/ironsmall.png" title="Iron"> 1,000 
 					<br /> <br />
 					
 					<button id=btnminerUpgrade2 onclick="minerUpgradeSilver()"	type="button" class="btn btn-default" title = "Better mining techniques and tools allow your miner to find silver veins. Miners now find 0.5 silver per second.">Silver Studies</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Better mining techniques and tools allow your miner to find silver veins. Miners now find 0.5 silver per second." rel="tooltip"></span>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 7,500 | <img src = "images/ironsmall.png" title="Iron"> 2,500
 					<br />					
@@ -367,6 +375,7 @@
 					<br />
 					<div class = 'container'>
 					<button id=btnAcolyteUpgrade1 onclick="acolyteUpgradeCollection()"	type="button" class="btn btn-default" title = "Your acolytes are outfitted with comfortable flowing robes, allowing them to concentrate better. Doubles Acolyte faith generation rate.">Trainee Vestments</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your acolytes are outfitted with comfortable flowing robes, allowing them to concentrate better. Doubles Acolyte faith generation rate." rel="tooltip"></span>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 5,000 | <img src = "images/woodsmall.png" title = "Wood"> 3,000 | <img src = "images/faithsmall.png" title="Faith"> 250
 					<br /><br />
@@ -391,6 +400,7 @@
 					
 					<div class = 'container'>
 					<button id=btnPriestUpgrade1 onclick="priestUpgradeCollection()"	type="button" class="btn btn-default" title = "Your priests carve rosary beads out of wood. The beads allow them to focus on the divine with more clarity. Doubles priest faith generation rate.">Rosary Beads</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your priests carve rosary beads out of wood. The beads allow them to focus on the divine with more clarity. Doubles priest faith generation rate." rel="tooltip"></span>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 7,000 | <img src = "images/woodsmall.png" title = "Wood"> 5,000 | <img src = "images/faithsmall.png" title="Faith"> 500
 					<br /><br />
@@ -398,6 +408,7 @@
 					
 					<div id = 'tomeUnlock' class = 'container' style="display: none;"> 
 					<button id=btnTomeUnlock onclick="UnlockTomes()"	type="button" class="btn btn-default" title = "Your priests now are able to archive knowledge of the Holy Order into tomes.">Scribing</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your priests now are able to archive knowledge of the Holy Order into tomes." rel="tooltip"></span>
 					<br />	
 					<img src = "images/money_goldsmall.png" title ="Gold" > 12,000 | <img src = "images/parchmentsmall.png" Title="Paper"> 2,000 | <img src = "images/faithsmall.png" title="Faith"> 1,000			
 					</div>
@@ -444,7 +455,8 @@
 
 			<div id ="PageUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
-					<button id=btnPageUpgrade1 onclick="UnlockSquire()"	type="button" class="btn btn-default" title = "Your squires become more knowledgeable and skilled. Unlocks the Squire.">Unlock Squire</button>
+					<button id=btnPageUpgrade1 onclick="UnlockSquire()"	type="button" class="btn btn-default" title = "Your pages become more knowledgeable and skilled. Unlocks the Squire.">Unlock Squire</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your pages become more knowledgeable and skilled. Unlocks the Squire." rel="tooltip"></span>
 					<br />
 					Requires: <img src = "images/armsmall.png" title="Army Power"> 120 <br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 4000
@@ -467,6 +479,7 @@
 			<div id = "SquireUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
 						<button id=btnSquireUpgrade1 onclick="UnlockKnight()"	type="button" class="btn btn-default" title = "Your squires become more knowledgeable and skilled. Unlocks the Knight.">Unlock Knight</button>
+						<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your squires become more knowledgeable and skilled. Unlocks the Knight." rel="tooltip"></span>
 						<br />
 						Requires: <img src = "images/armsmall.png" title="Army Power"> 500 <br />
 						<img src = "images/money_goldsmall.png" title ="Gold" > 8000 
@@ -508,6 +521,7 @@
 		<div id = "PaladinUpgradeTab" class = "upgrade collapse" >
 			<div class = "well">      
 			<button id=paladinUpgrade1 onclick="paladinUpgradeWeapon()" title= "Your paladins imbue their weapons with their faith, doubling their battle power, spirit power, and soul collection rate."	type="button" class="btn btn-default">Imbue Weapon</button>		
+			<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your paladins imbue their weapons with their faith, doubling their battle power, spirit power, and soul collection rate." rel="tooltip"></span>
 			<br />
 			<img src = "images/money_goldsmall.png" title ="Gold" > 20,000 | 5,000 <img src = "images/ironsmall.png" title="Iron"> | <img src = "images/faithsmall.png" title="Faith"> 2,500
 			</div>
@@ -533,12 +547,14 @@
 				<div id = "TavernUpgradeTab" class = "upgrade collapse" >
 					<div class = "well">
 					<button id=btnUpgradeTavern onclick="upgradeTavern()" title="Your tavern is now also recruiting miners using ladies of the night and handing out hip-flasks to new miners."	type="button" class="btn btn-default">Mining Initiative</button>		
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your tavern is now also recruiting miners using ladies of the night and handing out hip-flasks to new miners." rel="tooltip"></span>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" data-html="true" id="resgoldimage"> 10,000 | <img src = "images/ironsmall.png" title="Iron"> 5,000
 					<br />
 					Miners recruited by tavern: <span id="tavernminers">0</span> <br /><br />	
 					
 					<button id=btnUpgradeTavern2 onclick="upgradeTavern2()" title="Your tavern keeper learns how to make flapjacks with maple syrup. Taverns now recruit lumberjacks."	type="button" class="btn btn-default">Flapjacks</button>	
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your tavern keeper learns how to make flapjacks with maple syrup. Taverns now recruit lumberjacks." rel="tooltip"></span>
 					<br / >
 					<img src = "images/money_goldsmall.png" title ="Gold" data-html="true" id="resgoldimage"> 15,000 | <img src = "images/ironsmall.png" title="Iron"> 7,000 | <img src = "images/woodsmall.png" title = "Wood"> 5,000
 					<br />
@@ -568,12 +584,14 @@
 					<div class = "well">
 						<div id = 'PMillUpgradeEffTab' class = 'container'> 
 							<button id=btnPmillEffUpgrade onclick="PmillEffUpgrade()"	type="button" class="btn btn-default" title = "Adjustments to your mills make them much more efficient at converting wood into paper. They require 40% less wood.">Process Control</button>
+							<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Adjustments to your mills make them much more efficient at converting wood into paper. They require 40% less wood." rel="tooltip"></span>
 							<br />	
 							<img src = "images/money_goldsmall.png" title ="Gold" > 50,000 | <img src = "images/woodsmall.png" title = "Wood"> 25,000 | <img src = "images/ironsmall.png" title="Iron"> 35,000		
 						</div>
 						<br />
 						<div id = 'PMillUpgradeEff2Tab' class = 'container'> 
 							<button id=btnPmillEffUpgrade2 onclick="PmillEffUpgrade2()"	type="button" class="btn btn-default" title = "A total overhaul of the paper creation process halves the time needed for paper mills to produce paper.">Mass Overhaul</button>
+							<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "A total overhaul of the paper creation process halves the time needed for paper mills to produce paper." rel="tooltip"></span>
 							<br />	
 							<img src = "images/money_goldsmall.png" title ="Gold" > 1M | <img src = "images/woodsmall.png" title = "Wood"> 1M | <img src = "images/ironsmall.png" title="Iron"> 1M | <img src = "images/soulssmall.png" title="Souls"> 50,000
 							<br />
@@ -582,6 +600,7 @@
 
 						<div id = 'PMillUClickUpgrade' class = 'container'> 
 							<button id=btnPmillClickUpgrade onclick="PmillClickUpgrade()"	type="button" class="btn btn-default" title = "Allows you to craft 10 paper at once. You will still need the required materials.">Production Oversight</button>
+							<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Allows you to craft 10 paper at once. You will still need the required materials." rel="tooltip"></span>
 							<br />	
 							<img src = "images/money_goldsmall.png" title ="Gold" > 1.2M | <img src = "images/woodsmall.png" title = "Wood"> 1.5M | <img src = "images/ironsmall.png" title="Iron"> 1.2M | <img src = "images/soulssmall.png" title="Souls"> 50,000
 						</div>								
@@ -593,6 +612,7 @@
 		
 			<div id = "WoodcuttingTab" class = "container">
 				<button id=btnOpenMill title="Constructing a lumber mill allows you to hire lumberjacks and gather wood." onclick="Lumbermill.buy()"	type="button" class="btn btn-default">Construct Lumber Mill</button>
+				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Constructing a lumber mill allows you to hire lumberjacks and gather wood." rel="tooltip"></span>
 				<br />
 				<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'millGoldCost'>750</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'millWoodCost'>100</span>
 				<br />
@@ -600,7 +620,8 @@
 			<hr>
 			
 			<div id = "OpenMinesTab" class = "container">
-				<button id=btnOpenMines title="Opening the mines lets you collect minerals" onclick="Mines.buy()"	type="button" class="btn btn-default">Open Mines</button>
+				<button id=btnOpenMines title="Opening the mines lets you collect precious minerals" onclick="Mines.buy()"	type="button" class="btn btn-default">Open Mines</button>
+				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Opening the mines lets you collect precious minerals" rel="tooltip"></span>
 				<br />
 				<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'minesGoldCost'>1,250</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'minesWoodCost'>200</span>
 				<br />
@@ -608,31 +629,35 @@
 			<hr>
 			
 			<div id = "OpenBarracksTab" class = "container">
-			<button id=btnOpenBarracks title="Build a structure to train units ready to battle evil" onclick="Barracks.buy()"	type="button" class="btn btn-default">Construct Barracks</button>
-			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'barracksGoldCost'>5,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'barracksWoodCost'>1,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'barracksIronCost'>250</span>
-			<br />
+				<button id=btnOpenBarracks title="Build a structure to train units ready to battle evil" onclick="Barracks.buy()"	type="button" class="btn btn-default">Construct Barracks</button>
+				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Build a structure to train units ready to battle evil" rel="tooltip"></span>
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'barracksGoldCost'>5,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'barracksWoodCost'>1,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'barracksIronCost'>250</span>
+				<br />
 			</div>
 			<hr>
 			
 			<div id = "OpenCommandPostTab" class = "container">
-			<button id=btnOpenCommandPost title="Build your own personal building where you can give orders to your troops, relax, and upgrade your abilities." onclick="CommandPost.buy()"	type="button" class="btn btn-default">Construct Command Post</button>
-			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'commandPostGoldCost'>5,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'commandPostWoodCost'>1,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'commandPostIronCost'>250</span>
-			<br />
+				<button id=btnOpenCommandPost title="Build your own personal building where you can give orders to your troops, relax, and upgrade your abilities." onclick="CommandPost.buy()"	type="button" class="btn btn-default">Construct Command Post</button>
+				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Build your own personal building where you can give orders to your troops, relax, and upgrade your abilities." rel="tooltip"></span>
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'commandPostGoldCost'>5,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'commandPostWoodCost'>1,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'commandPostIronCost'>250</span>
+				<br />
 			</div>
 			<hr>			
 			
 			<div id = 'buildTowerTab' class = container style="display: none;">
-			<button id=btnOpenTower title="Build a glorious tower for your Archmage to channel his energies and cast spells from." onclick="Tower.buy()" type="button" class="btn btn-default">Construct Tower</button>
-			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'towerGoldCost'>1,000,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'towerWoodCost'>700,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'towerIronCost'>10,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'towerSilverCost'>500</span> | <img src = "images/faithsmall.png" title="Faith"> <span id = 'towerFaithCost'>1,000</span>
-			<br />
+				<button id=btnOpenTower title="Build a glorious tower for your Archmage to channel his energies and cast spells from." onclick="Tower.buy()" type="button" class="btn btn-default">Construct Tower</button>
+				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Build a glorious tower for your Archmage to channel his energies and cast spells from." rel="tooltip"></span>
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'towerGoldCost'>1,000,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'towerWoodCost'>700,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'towerIronCost'>10,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'towerSilverCost'>500</span> | <img src = "images/faithsmall.png" title="Faith"> <span id = 'towerFaithCost'>1,000</span>
+				<br />
 			</div>
 			<hr>
 
 			<div id = "FaithStructuresTab" class = "container" style="display: none;">
 				<button id=btnOpenCathedral title="Construct a sturdy stone and iron structure meant for contemplation and worship." onclick="Cathedral.buy()"	type="button" class="btn btn-default">Build Cathedral</button>
+				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Construct a sturdy stone and iron structure meant for contemplation and worship." rel="tooltip"></span>
 				<br />
 				<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'cathGoldCost'>15,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'cathWoodCost'>2,500</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'cathIronCost'>500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'cathSilverCost'>100</span>
 				<br />
@@ -809,7 +834,7 @@
 				Maximum mana increased by: <span id="manaIncreasedBy">0</span>
 				<div id = "ALibraryUpgradeCollapse" class = "upgrade collapse" >
 					<div class = "well">
-						None implemented
+						No Upgrades implemented
 					</div>
 				</div>				
 		</div>
@@ -817,7 +842,7 @@
 	 </div>	 
 	 
 	 
-	 <div id="Quests" class = "panel panel-default">
+	 <div id="Quests" class = "panel panel-default" style = "display: none;">
 		<div class = "panel-heading">
 			<div class="panel-title">Quests</div>
 		</div>
@@ -1446,9 +1471,9 @@
 	
 	   <div id="CommandPostDiv" class = "panel-body"style="display: none;">  
 			<br />
-					<div class = "panel-heading">
-						<div class="panel-title">Upgrades</div>
-					</div>				
+				
+				<H4>Upgrades</h4><br /><br />
+					
 				<button id=clickGoldUpgrade onclick="upgradeClickGoldMultiplier()" 	type="button" class="btn btn-default" title = "Your peasants learn to assist your gold collection. Doubles gold collected when clicking.">Click Upgrade</button>
 				<br />
 				<img src = "images/money_goldsmall.png" title ="Gold" > 1,500
@@ -1462,7 +1487,15 @@
 				<button id=clickGoldUpgrade3 onclick="upgradeClickGoldMultiplier3()" 	type="button" class="btn btn-default" title = "10% of your gold per second is added to your clicking.">Click Upgrade 3</button>
 				<br />
 				<img src = "images/money_goldsmall.png" title ="Gold" > 1,000,000
-				<br />				
+				<br />
+				
+				<hr>
+				
+				<H4>Hire</h4><br /><br />
+				<button id=btnUnlockQuest onclick="unlockQuesting()" 	type="button" class="btn btn-default" title = "Hire a taskmaster to allow you to send your troops on quests.">Hire Taskmaster</button>
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" > 10,000
+				<br /> <br />
 	   </div>   
 	 </div>	 
 	 	 
@@ -2094,6 +2127,6 @@
 
   </body>
   
-  <body onload = "loadCookie(); CollapseAll(); clickLastPage(); checkKingdomName();" >
+  <body onload = "loadCookie(); CollapseAll(); clickLastPage(); checkKingdomName(); document.getElementById('MobileTooltip').click();" >
  
 </html>

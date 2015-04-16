@@ -57,6 +57,7 @@
 		save("cathedralOpened",cathedralOpened);
 		save("barracksOpened",barracksOpened);
 		save("commandPostOpened",commandPostOpened);
+		save("unlockedQuesting",unlockedQuesting);
 		save("towerUnlocked",towerUnlocked);
 		save("towerBuilt",towerBuilt);
 		
@@ -470,7 +471,18 @@
 				document.getElementById('CommandPost').style.display = "block";
 				document.getElementById('CommandPostDiv').style.display = "block";
 			}
-		}		
+		}	
+		
+		if(localStorage.unlockedQuesting != null){
+			var myBool = localStorage.unlockedQuesting == "true"
+			if(myBool == true){
+				unlockedQuesting = true;
+				document.getElementById('QuestMenu').style.display = "block";
+				document.getElementById('Quests').style.display = "block";
+				document.getElementById("btnUnlockQuest").disabled = true;
+				document.getElementById("btnUnlockQuest").innerHTML = "Taskmaster Hired - Questing available";	
+			}
+		}			
 		
 		if(localStorage.cathedralOpened != null){
 			var myBool = (localStorage.cathedralOpened == "true")

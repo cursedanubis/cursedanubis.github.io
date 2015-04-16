@@ -60,6 +60,7 @@ var PmillEffUpgr2 = false;
 var PmillClickUpgr = false;		//Paper mill - Click multiplier
 var barracksOpened = false;
 var commandPostOpened = false;
+var unlockedQuesting = false;
 var towerUnlocked = false;
 var towerBuilt = false;
 
@@ -492,6 +493,25 @@ function PmillClickUpgrade(){
 		document.getElementById("btnPmillClickUpgrade").disabled = true;
 		document.getElementById("btnPmillClickUpgrade").innerHTML = "Production Oversight Purchased";
 	}		
+}
+
+function unlockQuesting(){
+	if(gold >= 10000){
+		gold -= 10000;
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('QuestMenu').style.display = "block";
+		document.getElementById('Quests').style.display = "block";
+		document.getElementById("navKingdomName").click();
+		document.getElementById("btnUnlockQuest").disabled = true;
+		document.getElementById("btnUnlockQuest").innerHTML = "Taskmaster Hired - Questing available";		
+		unlockedQuesting = true;
+		$.notify({
+			title: "<strong>New! </strong>",
+			message: "You are now employing a taskmaster whom helps you coordinate your troops and handle <a href='javascript: alertOpenQuestPage();' class='alert-link'>requests.</a>",
+			},{
+		delay: 900000
+		});			
+	}
 }
 
 function UnlockTomes(){
@@ -1078,6 +1098,10 @@ function alertOpenRelicPage(){
 
 function alertOpenBattlePage(){
 	document.getElementById("BattleMenu").click();
+}
+
+function alertOpenQuestPage(){
+	document.getElementById("QuestMenu").click();
 }
 
 //Hover effects//
