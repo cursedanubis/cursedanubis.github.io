@@ -62,6 +62,7 @@ font-weight: bold;
 {
 display: inline-block;
 margin-bottom: 0px;
+width: 100%;
 }
 
 
@@ -242,6 +243,10 @@ color: black;
 .popover{
 max-width: 100%;
 width: 300px;
+}
+
+.mobiletooltip{
+display: none;
 }
 
 #navKingdomName{   
