@@ -116,7 +116,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('gold').innerHTML = fnum(gold);
 				 document.getElementById('stattotalgoldcollected').innerHTML = fnum(statTotalGoldCollected);
 				 document.getElementById('statgoldcollected').innerHTML = fnum(statGoldCollected);
-				 finishString = "<br/>Your units return from helping out the people in your kingdom! They bring back " + fnum(resourceEarned) + " gold to add to your coffers.";
+				 finishString = "<br/>Your units return from helping out the people in your kingdom! They bring back <img src = 'images/money_goldsmall.png' title ='Gold' >" + fnum(resourceEarned) + " gold to add to your coffers.";
 //				 document.getElementById('questFinishAlertString').innerHTML = finishString;
 			break;
 			
@@ -129,7 +129,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('wood').innerHTML = fnum(wood);
 				 document.getElementById('statWoodCollected').innerHTML = fnum(statWoodCollected);
 				 document.getElementById('statTotalWoodCollected').innerHTML = fnum(statTotalWoodCollected);
-				 finishString = "<br/>Your units return from vanquishing a bunch of angry treants! They bring back " + fnum(resourceEarned) + " wood to add to your collection.";
+				 finishString = "<br/>Your units return from vanquishing a bunch of angry treants! They bring back <img src = 'images/woodsmall.png' title = 'Wood'>" + fnum(resourceEarned) + " wood to add to your collection.";
 //				 document.getElementById('questWoodFinishAlertString').innerHTML = finishString;				 
 			break;
 			
@@ -142,7 +142,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('iron').innerHTML = fnum(iron);
 				 document.getElementById('statIronCollected').innerHTML = fnum(statIronCollected);
 				 document.getElementById('statTotalIronCollected').innerHTML = fnum(statTotalIronCollected);				 
-				 finishString = "<br />Your units return from vanquishing a bunch of sturdy animated iron golems! It wasn't easy, but they bring back " + fnum(resourceEarned) + " iron to add to your collection.";
+				 finishString = "<br />Your units return from vanquishing a bunch of sturdy animated iron golems! It wasn't easy, but they bring back <img src = 'images/ironsmall.png' title='Iron'>" + fnum(resourceEarned) + " iron to add to your collection.";
 //				 document.getElementById('questIronFinishAlertString').innerHTML = finishString;			 
 			break;
 
@@ -155,7 +155,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('silver').innerHTML = fnum(silver);
 				 document.getElementById('statSilverCollected').innerHTML = fnum(statSilverCollected);
 				 document.getElementById('statTotalSilverCollected').innerHTML = fnum(statTotalSilverCollected);					 
-				 finishString = "<br />Your units successfully help the the friendly sprites living in your mines. As a token of their gratitude, they send you " + fnum(resourceEarned) + " silver to add to your collection.";
+				 finishString = "<br />Your units successfully help the the friendly sprites living in your mines. As a token of their gratitude, they send you <img src = 'images/silverOresmall.png' title='Silver'>" + fnum(resourceEarned) + " silver to add to your collection.";
 				 if(coalUnlocked == false){
 					 coalUnlocked = true;
 					 document.getElementById('coaldiv').style.display = "block";
@@ -180,7 +180,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('souls').innerHTML = fnum(souls);
 				 document.getElementById('statSoulsCollected').innerHTML = fnum(statSoulsCollected);
 				 document.getElementById('statTotalSoulsCollected').innerHTML = fnum(statTotalSoulsCollected);				 
-				 finishString = "<br />Your units successfully help the the defeat some lesser demons plaguing the countryside. When they die, your troops are able to collect " + fnum(resourceEarned) + " souls.";
+				 finishString = "<br />Your units successfully help the the defeat some lesser demons plaguing the countryside. When they die, your troops are able to collect <img src = 'images/soulssmall.png' title='Souls'>" + fnum(resourceEarned) + " souls.";
 //				 document.getElementById('questSoulsFinishAlertString').innerHTML = finishString;			
 			break;					
 		}
