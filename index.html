@@ -52,6 +52,7 @@
 	$(function () { 
 		$("[data-toggle='popover']").popover({ trigger: "hover" });
 	});
+
 	
     $(function () {
         $('.navbar-nav li').click(function () {
@@ -235,7 +236,7 @@
 			</div>
 			
 			<div id = 'gathersteel' style = "display: none;">
-				<input type="image"  id="clicksteel" tabIndex="-1" onclick="clickThing(1,'steelMouse')" src = "images/steel.png" title = "Click to convert coal and iron into steel yourself."></li>
+				<input type="image"  id="clicksteel" tabIndex="-1" onclick="clickThing(1,'steelMouse')" src = "images/steel.png" title = "Click to convert 10 coal and 100 iron into steel yourself."></li>
 			</div>			
 			
 			<div id ="gatherPaper" style = "display: none;">
@@ -382,13 +383,11 @@
 			<div id ="AcolyteUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
 					<br />
-					<div class = 'container'>
 					<button id=btnAcolyteUpgrade1 onclick="acolyteUpgradeCollection()"	type="button" class="btn btn-default" title = "Your acolytes are outfitted with comfortable flowing robes, allowing them to concentrate better. Doubles Acolyte faith generation rate.">Trainee Vestments</button>
 					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your acolytes are outfitted with comfortable flowing robes, allowing them to concentrate better. Doubles Acolyte faith generation rate." rel="tooltip"></span>
 					<br />
 					<img src = "images/money_goldsmall.png" title ="Gold" > 5,000 | <img src = "images/woodsmall.png" title = "Wood"> 3,000 | <img src = "images/faithsmall.png" title="Faith"> 250
 					<br /><br />
-					</div>
 				</div>
 			</div>
 			<hr>
@@ -809,14 +808,14 @@
 				<a id = 'BtnSpellFBDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Fire Ball</a>
 				<br /><br />
 				<button id=btnSpellFB onclick="FireBall.cast()"	type="button" class="btn btn-default">Cast Spell</button>
-				<br />	<img src = "images/manasmall.png" Title="Mana">750
+				<br />	<img src = "images/manasmall.png" Title="Mana"><span id = 'FBManaCost'>750</span>
 			</div>			   
 			<div id ="FastForwardTab" class = "spell well">
 				<br />
 				<a id = 'BtnSpellFFDesc' tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Time Skip" data-content = ''>Time Skip</a>
 				<br /><br />
 				<button id=btnSpellFF onclick="FastForward.cast()"	type="button" class="btn btn-default">Cast Spell</button>
-				<br />	<img src = "images/manasmall.png" Title="Mana">1,000
+				<br />	<img src = "images/manasmall.png" Title="Mana"><span id = 'FFManaCost'>1,000</span>
 			</div>				
 			<br />
 			<hr>

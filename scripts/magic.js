@@ -1,7 +1,7 @@
 var defaultManaCap = 2000;
 var manaCap = 2000;
 
-var Spell = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, goldCost, woodCost, ironCost, silverCost, faithCost, soulCost, manaCost){
+var Spell = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, goldCost, woodCost, ironCost, silverCost, faithCost, soulCost, manaCost, htmlManaCost){
 	this.name = name;
 	this.description = description;
 	this.htmlBoxRef = htmlBoxRef;
@@ -15,6 +15,7 @@ var Spell = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, html
 	this.faithCost = faithCost;
 	this.soulCost = soulCost;
 	this.manaCost = manaCost;
+	this.htmlManaCost = htmlManaCost;
 };
 
 
@@ -42,11 +43,19 @@ Spell.prototype.canCast = function(){
 	
 	if(gold >= this.goldCost && iron >= this.ironCost && silver >= this.silverCost && faith >= this.faithCost && souls >= this.soulCost && mana >= this.manaCost){     //checks that the player can afford the spell
 		document.getElementById(btn).disabled = false;					//enables the buy button
+		this.toBlack();
 	}
 	else{
 		document.getElementById(btn).disabled = true;					//disables the buy button
+		if(mana < this.manaCost){
+			document.getElementById(this.htmlManaCost).style.color = "red";
+		}		
 	}
 };
+
+Spell.prototype.toBlack = function(){
+	if(this.htmlManaCost != 'none'){document.getElementById(this.htmlManaCost).style.color = "black";}
+} 
 
 function setSpellDescription(Spell, element){
 	var popover = document.getElementById(element);
@@ -55,7 +64,7 @@ function setSpellDescription(Spell, element){
 
 
 var fastForwardDesc = "<img src='images/stopwatch.png'>The archmage casts a spell that warps your kingdom 15 minutes into the future. Unfortunately, the spell isn't strong enough to keep your taverns working for the duration of the spell.";
-var FastForward = new Spell("Time Warp", fastForwardDesc, 0, 0, 'btnSpellFF', 'Alert', 0, 0, 0, 0, 0, 0, 1000);
+var FastForward = new Spell("Time Warp", fastForwardDesc, 0, 0, 'btnSpellFF', 'Alert', 0, 0, 0, 0, 0, 0, 1000, 'FFManaCost');
 setSpellDescription(FastForward, 'BtnSpellFFDesc');
 
 FastForward.cast = function(){
@@ -163,7 +172,7 @@ FastForward.cast = function(){
 }
 
 var fireBallDesc = "<img src='images/fireball.png'>The archmage conjures a flaming ball of fire and sends it hurtling towards your foe! It will damage the enemy you are currently battling, pushing you 15% closer to victory!";
-var FireBall = new Spell("FireBall", fireBallDesc, 0, 0, 'btnSpellFB', 'Alert', 0, 0, 0, 0, 0, 0, 750);
+var FireBall = new Spell("FireBall", fireBallDesc, 0, 0, 'btnSpellFB', 'Alert', 0, 0, 0, 0, 0, 0, 750, 'FBManaCost');
 setSpellDescription(FireBall, 'BtnSpellFBDesc');
 
 FireBall.cast = function(){

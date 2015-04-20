@@ -557,7 +557,7 @@ function setDefeatEvents(name){
 			document.getElementById("gold").innerHTML = gold;
 			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "You chase the defeated horde of goblins back to their mound. They put up a last ditch effort, but your forces make quick work out of them. Inside their mound you find a stash of 2000 gold! ",
+				message: "You chase the defeated horde of goblins back to their mound. They put up a last ditch effort, but your forces make quick work out of them. Inside their mound you find a stash of <img src = 'images/money_goldsmall.png' Title='Gold'>2000! ",
 				},{
 				type: 'success',
 				delay: 300000

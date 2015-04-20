@@ -2,6 +2,10 @@ body {
 padding-top: 50px;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 #ResourcesWell
 {
 margin-top: 5px;
@@ -16,7 +20,11 @@ padding-left: 60px;
 
 #ResourcesWell div:hover
 {
-font-weight: bold;
+color: darkred;
+/*font-weight: bold;*/
+-webkit-transition: .5s;
+-moz-transition-duration: .5s;
+-o-transition-duration: .5s;
 }
 
 /* #ResourceList ul
@@ -55,7 +63,11 @@ padding-top: 5px;
 
 #SecondaryResourceWell div:hover
 {
-font-weight: bold;
+color: darkred;
+/*font-weight: bold;*/
+-webkit-transition: .5s;
+-moz-transition-duration: .5s;
+-o-transition-duration: .5s;
 }
 
 #SecondaryResourceWell
@@ -168,6 +180,12 @@ display: inline-block;
 	height: 5px;
 }
 
+/* Trying to fix collape jerkiness*/
+ .ui-accordion .ui-accordion-content{
+      box-sizing:content-box;             
+      -moz-box-sizing:content-box;
+}
+
 .questComponent{
 width: 200px;
 float: left;
@@ -181,6 +199,9 @@ color: darkred;
 .defeatedtitle{
 color: grey;
 text-decoration: line-through;
+-webkit-transition:3s;
+-moz-transition-duration: 3s;
+-o-transition-duration: 3s;
 }
 
 .panel{
@@ -190,6 +211,7 @@ margin-top:10px;
 .upgrade {
 width: 450px;
 height: auto;
+padding: 0;
 }
 
 .relic{
@@ -205,6 +227,9 @@ margin-left: 10px;
 width: auto;
 float: left;
 background-color: rgb(178, 178, 178);
+-webkit-transition:2s;
+-moz-transition-duration: 2s;
+-o-transition-duration: 2s;
 }
 
 .spell{
@@ -249,6 +274,8 @@ width: 300px;
 display: none;
 }
 
+.collapsing { transition: height 0.6s; }
+
 #navKingdomName{   
    color: blue;
 }
@@ -271,6 +298,5 @@ display: none;
         float:none;
     }
 }
-
 
 
