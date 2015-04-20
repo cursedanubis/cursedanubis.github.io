@@ -155,6 +155,18 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 				 document.getElementById('statSilverCollected').innerHTML = fnum(statSilverCollected);
 				 document.getElementById('statTotalSilverCollected').innerHTML = fnum(statTotalSilverCollected);					 
 				 finishString = "<br />Your units successfully help the the friendly sprites living in your mines. As a token of their gratitude, they send you " + fnum(resourceEarned) + " silver to add to your collection.";
+				 if(coalUnlocked == false){
+					 coalUnlocked = true;
+					 document.getElementById('coaldiv').style.display = "block";
+					 document.getElementById('CoalMining').style.display = "block";
+					 $.notify({
+						title: "<strong>Success! </strong>",
+						message: "The sprites whom eternally greatful for your assistance show you how to find coal in your mines! You can now <a href='javascript: alertOpenProductionPage();' class='alert-link'>specialize</a> your miners!",
+						delay: 25000},{
+					type: 'success'
+					});
+				 }
+				
 //				 document.getElementById('questSilverFinishAlertString').innerHTML = finishString;						 
 			break;
 
@@ -562,7 +574,7 @@ function holdUnitforQuest(){
 		case "Squire":
 			Squire.number -= parseInt(NumUnitOnQuest);
 			Squire.totalArmyPower();
-			document.getElementById('squire').innerHTML = Squire.number;	
+			document.getElementById('squires').innerHTML = Squire.number;	
 			calculateBattlePower();
 //			console.log("taking Squires");		
 		break;		
@@ -598,7 +610,7 @@ function returnUnitfromQuest(){
 		case "Squire":
 			Squire.number += parseInt(NumUnitOnQuest);
 			Squire.totalArmyPower();
-			document.getElementById('squire').innerHTML = Squire.number;	
+			document.getElementById('squires').innerHTML = Squire.number;	
 			calculateBattlePower();
 			document.getElementById("BattlePower").innerHTML = fnum(BattlePower);
 			document.getElementById("BattlePower2").innerHTML = BattlePower;					

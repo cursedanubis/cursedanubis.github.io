@@ -165,7 +165,7 @@
 				Iron: <span id="iron">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
 			</div>
 			
-			<div id = "coaldiv" style="" rel="tooltip">
+			<div id = "coaldiv" style="display: none;" rel="tooltip">
 				<img src = "images/coalsmall.png" Title="Coal" id="rescoalimage"> 
 				Coal: <span id="coal">0</span>     
 			</div>			
@@ -437,7 +437,12 @@
 			<div id ="BishopUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
 					<br />
-					No Upgrades for Bishops yet
+					<button id=btnBishopUpgrade1 onclick="BishopUpgradeCollection()"	type="button" class="btn btn-default" title = "Construction of steel confessionals allow your archbishops guide their flock better. Doubles bishop faith generation rate.">Rosary Beads</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Construction of steel confessionals allow your archbishops guide their flock better. Doubles bishop faith generation rate." rel="tooltip"></span>
+					<br />
+					<img src = "images/money_goldsmall.png" title ="Gold" > 7,000 | <img src = "images/woodsmall.png" title = "Wood"> 5,000 | <img src = "images/faithsmall.png" title="Faith"> 500
+					<br /><br />
+					</div>
 				</div>
 			</div>
 			<hr>
@@ -698,7 +703,11 @@
 			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="ShadeCost">10,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = "shadeSilverCost">250</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="shadeSoulCost">200</span>
 			<div id ="ShadeUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
-					 No Upgrades implemented for Shades yet.
+					<button id=btnShadeUpgrade1 onclick="shadeUpgrade1()"	type="button" class="btn btn-default" title = "A ritual using holy water and silver runes enhances the presence of your shades in this realm. Doubles battle and spirit power.">Blessed Silver Runes</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "A ritual using holy water and silver runes enhances the presence of your shades in this realm. Doubles battle and spirit power." rel="tooltip"></span>
+					<br />
+					<img src = "images/money_goldsmall.png" title ="Gold" > 75,000 | <img src = "images/silverOresmall.png" title="Silver"> 30,000 | <img src = "images/faithsmall.png" title="Faith"> 30,000 | <img src = "images/bookssmall.png" Title="Tomes"> 20
+					<br />
 					<br />
 				</div>
 			</div>
@@ -732,7 +741,11 @@
 			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="AngelCost">200,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="angelIronCost">500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="angelSilverCost">2500</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="angelFaithCost">25000</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="angelSoulCost">1500</span> | <img src = "images/bookssmall.png" Title="Tomes"> <span id="angelTomeCost">20</span>
 			<div id ="AngelUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
-					 No Upgrades implemented for Angels yet.
+					<button id=btnAngelUpgrade1 onclick="buyAngelUpgrade1()"	type="button" class="btn btn-default" title = "The piety from your paladins now strengthens your Angels. Each Paladin increases your angel's spirit power by 5.">Concentrated Piety</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "The piety from your paladins now strengthens your Angels. Each Paladin increases your angel's spirit power by 5." rel="tooltip"></span>
+					<br />
+					<img src = "images/money_goldsmall.png" title ="Gold" > 3M | <img src = "images/silverOresmall.png" title="Silver"> 1.5M | <img src = "images/faithsmall.png" title="Faith"> 1M | <img src = "images/bookssmall.png" Title="Tomes"> 50
+					<br />
 					<br />
 				</div>
 			</div>

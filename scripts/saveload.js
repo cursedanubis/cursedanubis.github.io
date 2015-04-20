@@ -62,6 +62,7 @@
 		save("towerUnlocked",towerUnlocked);
 		save("towerBuilt",towerBuilt);
 		save("forgeOpened",forgeOpened);
+		save("coalUnlocked",coalUnlocked);
 		
 		//Battle flags
 		save("defeatedGoblins",defeatedGoblins);
@@ -114,6 +115,8 @@
 		save("PmillEffUpgr2",PmillEffUpgr2);
 		save("PmillClickUpgr",PmillClickUpgr);
 		save("paladinWepUpgrade",paladinWepUpgrade);
+		save("shadeUpgr1", shadeUpgr1);
+		save("angelUpgr1", angelUpgr1);
 		save("tavernUpgrade",tavernUpgrade);
 		save("tavernUpgrade2", tavernUpgrade2);
 
@@ -533,7 +536,14 @@
 				document.getElementById('TowerMenu').style.display = "block";
 			}
 		}	
-
+		if(localStorage.coalUnlocked != null){
+			var myBool = (localStorage.coalUnlocked == "true")
+			if(myBool == true){
+				coalUnlocked = true
+				document.getElementById('coaldiv').style.display = "block";
+				document.getElementById('CoalMining').style.display = "block";
+			}
+		}			
 		if(localStorage.acolytes != null){
 			 Acolyte.number = parseInt(localStorage.acolytes);
 			document.getElementById("acolytes").innerHTML = Acolyte.number;
@@ -705,7 +715,24 @@
 				document.getElementById("paladinUpgrade1").disabled = true;
 			}
 		}		
-
+		if(localStorage.shadeUpgr1 != null){
+			var myBool = (localStorage.shadeUpgr1 == "true")
+			if(myBool == true){
+				shadeUpgr1 = true;
+				setArmyPower(Shade,10);
+				setSpiritPower(Shade,20);
+				document.getElementById("btnShadeUpgrade1").disabled = true;
+				document.getElementById("btnShadeUpgrade1").innerHTML = "Blessed Silver Runes Purchased";
+			}
+		}	
+		if(localStorage.angelUpgr1 != null){
+			var myBool = (localStorage.angelUpgr1 == "true")
+			if(myBool == true){
+				angelUpgr1 = true;
+				document.getElementById("btnAngelUpgrade1").disabled = true;
+				document.getElementById("btnAngelUpgrade1").innerHTML = "Concentrated Piety Purchased";
+			}
+		}			
 		if(localStorage.tavernUpgrade != null){
 			var myBool = (localStorage.tavernUpgrade == "true")
 			if(myBool == true){

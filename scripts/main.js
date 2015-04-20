@@ -45,6 +45,8 @@ var mSilverUpgrade = false;		//Miner - Silver Mining upgrade
 var acFaithUpgrade = false; 	//Acolyte - Faith collection rate upgrade
 var prFaithUpgrade = false;     //Priest - Faith collection rate upgrade
 var paladinWepUpgrade = false;  //Paladin - Weapon Upgrade
+var shadeUpgr1 = false;			//Shade - Upgrade
+var angelUpgr1 = false;			//Angel - Upgrade via Paladins
 var tavernUpgrade = false;		//Tavern - Miner Upgrade
 var tavernUpgrade2 = false;		//Tavern - Lumberjack Upgrade
 
@@ -56,6 +58,7 @@ var lumbermillOpened = false;
 var minesOpened = false;
 var cathedralOpened = false;
 var tomesUnlocked = false;
+var coalUnlocked = false;
 var PmillEffUpgr = false;		//Paper mill efficiency upgrade cost
 var PmillEffUpgr2 = false;
 var PmillClickUpgr = false;		//Paper mill - Click multiplier
@@ -588,6 +591,32 @@ function paladinUpgradeWeapon(){
 		document.getElementById("paladinUpgrade1").disabled = true;
 		document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Purchased";
 	}
+}
+
+function shadeUpgrade1(){
+	if(gold >= 75000 && silver >= 30000 && faith >= 30000 && tomes >= 20){
+		gold -= 75000;
+		silver -= 30000;
+		faith -= 30000;
+		tomes -= 20;
+		shadeUpgr1 = true;
+		setArmyPower(Shade,10);
+		setSpiritPower(Shade,20);
+		document.getElementById("btnShadeUpgrade1").disabled = true;
+		document.getElementById("btnShadeUpgrade1").innerHTML = "Blessed Silver Runes Purchased";
+	}
+}
+
+function buyAngelUpgrade1(){
+	if(gold >= 3000000 && silver >= 1500000 && faith >= 1000000 && tomes >= 50){
+		gold -= 75000;
+		silver -= 30000;
+		faith -= 30000;
+		tomes -= 20;
+		angelUpgr1 = true;
+		document.getElementById("btnAngelUpgrade1").disabled = true;
+		document.getElementById("btnAngelUpgrade1").innerHTML = "Concentrated Piety Purchased";
+	}	
 }
 
 function addFaithToRelic(number){

@@ -399,10 +399,32 @@ function updateStatistic(name, value){
 	}
 }
 
-//Unit constructor  (name, htmlNumRef, htmlNextGodCost, htmlNextIronCost, htmlNextSilverCost, htmlNextFaithCost, htmlNextSoulCost, htmlNextTomeCost, htmlBuyBtn, 
+//Unit constructor  (name, htmlNumRef, htmlNextGoldCost, htmlNextIronCost, htmlNextSilverCost, htmlNextFaithCost, htmlNextSoulCost, htmlNextTomeCost, htmlBuyBtn, 
 //					goldCost, ironCost, silverCost, faithCost, soulCost, tomeCost, costMult,description, costAdj, hasReqUnit, reqUnit){
 var peasDesc = "A lowly denizen of your realm. They are adept at farming and scrounging for gold but completely useless at fighting."
 var Peasant = new Unit("Peasant",'peasants','PeasantCost','none','none','none','none','none','none','btnbuyPeasant',50,0,0,0,0,0,0,1.1, peasDesc, tavernpeasants,false,"none", "none");
+/* var Peasant = new Unit();
+Peasant['name']= 'Peasant';
+Peasant['htmlNumRef'] = 'peasants';
+Peasant['htmlNextGoldCost'] = 'PeasantCost';
+Peasant['htmlNextIronCost'] = 'none'; 
+Peasant['htmlNextSilverCost'] = 'none'; 
+Peasant['htmlNextFaithCost'] = 'none'; 
+Peasant['htmlNextSoulCost'] = 'none'; 
+Peasant['htmlNextTomeCost'] = 'none'; 
+Peasant['htmlNextManaCost'] = 'none'; 
+Peasant['htmlReqUnit'] = 'none'; 
+Peasant['htmlBuyBtn'] = 'btnbuyPeasant';
+Peasant['goldCost'] = 50;
+Peasant['ironCost'] = 0;
+Peasant['faithCost'] = 0;
+Peasant['soulCost'] = 0;
+Peasant['tomeCost'] = 0;
+Peasant['ironCost'] = 0;
+Peasant['costMult'] = 1.1;
+Peasant['description'] = 'peasDesc';
+Peasant['hasReqUnit'] = false;
+Peasant['reqUnit'] = 'none' */
 setDescription(Peasant, 'BtnPeasantDesc');
 setClickVal(Peasant, 'gold', 1);
 
@@ -423,6 +445,23 @@ setDescription(CoalMiner, 'BtnCoalMinerDesc');
 
 var pageDesc = "Young men in training to become knights. Not too great with weapons yet, but they're learning.  <br> Provides  <img src = 'images/armsmall.png'>10 army strength"
 var Page = new Unit("Page",'personPage','PageCost','PageIronCost','none','none','none','none','none','btnBuyPage',500,100,0,0,0,0,0,1.1, pageDesc, 0, false, "none", "none");
+/* var Page = new Unit();
+Page['name']= 'Page';
+Page['htmlNumRef'] = 'personPage';
+Page['htmlNextGoldCost'] = 'PageCost';
+Page['htmlNextIronCost'] = 'PageIronCost'; 
+Page['htmlNextSilverCost'] = 'none'; 
+Page['htmlNextFaithCost'] = 'none'; 
+Page['htmlNextSoulCost'] = 'none'; 
+Page['htmlNextTomeCost'] = 'none'; 
+Page['htmlNextManaCost'] = 'none'; 
+Page['htmlBuyBtn'] = 'btnBuyPage';
+Page['goldCost']= 500;
+Page['ironCost']= 100;
+Page['costMult'] = 1.1;
+Page['description'] = 'pageDesc';
+Page['hasReqUnit'] = false;
+Page['reqUnit'] = 'none'; */
 setDescription(Page, 'BtnPageDesc');
 setArmyPower(Page, 10);
 
@@ -496,10 +535,20 @@ setArmyPower(Angel, 450)
 setSpiritPower(Angel, 200);
 setClickVal(Angel, 'souls', 5);
 
+Angel.totalSpiritPower = function(){
+	if(angelUpgr1 == true){
+			return this.spiritPower*this.number + 5*Paladin.number;
+	}
+	else{
+		return this.spiritPower*this.number;
+	}
+};
+
 var spriteDesc = "These petite, fairy-like creatures are intensely attracted to the arcane aura emanating from your tower. Just being around them makes your mind sharpen to the arcane energies of the universe. <br><br>Increases mana generation by 0.1 <img src = 'images/manasmall.png' Title='Mana'> per second."
 var Sprite = new Unit("Sprite",'sprites','SpriteCost','none','spriteSilverCost','spriteFaithCost','spriteSoulCost','spriteTomeCost', 'spriteManaCost','btnBuySprite',750000,500000,2500,50000,2000,25,2000,1.5, spriteDesc, 0, false, "none", 'none');
 setDescription(Sprite, 'BtnSpritesDesc');
 setClickVal(Sprite, 'mana', 0.1);
+
 
 function checkUnitButtons(){
 	//Unit Buttons //
@@ -615,7 +664,7 @@ function updateUnitPopover(){
 	setDescription(Bishop, 'BtnBishopDesc');
 	
 	//Shade
-	Shade.description = shadeDesc + "<br>Provides <img src = 'images/armsmall.png'> " + Shade.armyPower + "army strength. <br> Provides <img src = 'images/armsmall.png'>" + Shade.spiritPower + " spiritual strength." ;
+	Shade.description = shadeDesc + "<br>Provides <img src = 'images/armsmall.png'>" + Shade.armyPower + " army strength. <br> Provides <img src = 'images/armsmall.png'>" + Shade.spiritPower + " spiritual strength." ;
 	setDescription(Shade, 'BtnShadeDesc');
 	
 	//Aspect
@@ -624,8 +673,14 @@ function updateUnitPopover(){
 	setDescription(Aspect, 'BtnAspectDesc');
 	
 	//Angel
+	if(angelUpgr1 == true){
 	Angel.description = angelDesc + "<br> Provides <img src = 'images/armsmall.png'> " + Angel.armyPower + " army strength. <br>Provides <img src = 'images/armsmall.png'> " +
-						Angel.spiritPower + " spiritual strength.<br>Generates " + Angel.soulsClickVal + " <img src = 'images/soulssmall.png'> per second.";
+						(Angel.spiritPower + 5*Paladin.number) + " spiritual strength.<br>Generates " + Angel.soulsClickVal + " <img src = 'images/soulssmall.png'> per second.";
+	}
+	else{
+	Angel.description = angelDesc + "<br> Provides <img src = 'images/armsmall.png'> " + Angel.armyPower + " army strength. <br>Provides <img src = 'images/armsmall.png'> " +
+						Angel.spiritPower + " spiritual strength.<br>Generates " + Angel.soulsClickVal + " <img src = 'images/soulssmall.png'> per second.";		
+	}
 	setDescription(Angel, 'BtnAngelDesc'); 
 	
 	//Sprite
