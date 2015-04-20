@@ -660,6 +660,9 @@ function updateUnitPopover(){
 	setDescription(Priest, 'BtnPriestDesc');
 	
 	//Bishop
+	if(bishopUpgr1 == true){
+		Bishop.faithClickVal = 20;
+	}
 	Bishop.description = bishopDesc + "<br> Generates " + Bishop.faithClickVal + " <img src = 'images/faithsmall.png'> per second";
 	setDescription(Bishop, 'BtnBishopDesc');
 	

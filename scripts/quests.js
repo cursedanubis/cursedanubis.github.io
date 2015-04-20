@@ -104,6 +104,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 		
 		var finishString;
 		resourceEarned = questCalcReward(resource, UnitOnQuest);
+		resourceEarned = Math.round(resourceEarned*100)/100;
 		
 		switch(resource){
 			case 'gold':

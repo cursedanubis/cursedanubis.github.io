@@ -114,6 +114,7 @@
 		save("PmillEffUpgr", PmillEffUpgr);
 		save("PmillEffUpgr2",PmillEffUpgr2);
 		save("PmillClickUpgr",PmillClickUpgr);
+		save("bishopUpgr1", bishopUpgr1);
 		save("paladinWepUpgrade",paladinWepUpgrade);
 		save("shadeUpgr1", shadeUpgr1);
 		save("angelUpgr1", angelUpgr1);
@@ -714,7 +715,16 @@
 				document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Bought";
 				document.getElementById("paladinUpgrade1").disabled = true;
 			}
-		}		
+		}	
+		if(localStorage.bishopUpgr1!= null){
+			var myBool = (localStorage.bishopUpgr1 == "true")
+			if(myBool == true){
+				bishopUpgr1 = true;
+				document.getElementById("btnBishopUpgrade1").disabled = true;
+				document.getElementById("btnBishopUpgrade1").innerHTML = "Confessionals Purchased";
+			}
+		}	
+	
 		if(localStorage.shadeUpgr1 != null){
 			var myBool = (localStorage.shadeUpgr1 == "true")
 			if(myBool == true){
