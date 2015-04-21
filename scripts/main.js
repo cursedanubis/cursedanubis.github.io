@@ -45,6 +45,7 @@ var mSilverUpgrade = false;		//Miner - Silver Mining upgrade
 var acFaithUpgrade = false; 	//Acolyte - Faith collection rate upgrade
 var prFaithUpgrade = false;     //Priest - Faith collection rate upgrade
 var paladinWepUpgrade = false;  //Paladin - Weapon Upgrade
+var paladinWepUpgrade2 = false; //Paladin - Weapon Upgrade 2
 var bishopUpgr1 = false;		//Bishop - faith collection rate upgrade
 var shadeUpgr1 = false;			//Shade - Upgrade
 var angelUpgr1 = false;			//Angel - Upgrade via Paladins
@@ -589,9 +590,32 @@ function paladinUpgradeWeapon(){
 		document.getElementById('iron').innerHTML = fnum(iron);
 		document.getElementById('faith').innerHTML = fnum(faith);
 		paladinWepUpgrade = true;
+		setSpiritPower(Paladin,10);
 		document.getElementById("paladinUpgrade1").disabled = true;
 		document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Purchased";
 	}
+}
+
+function paladinUpgradeWeapon2(){
+	if(gold >= 5000000 && iron >= 1000000 && steel >= 3000 && faith >=2000000){
+		gold -= 5000000;
+		iron -= 1000000;
+		steel -= 3000;
+		faith -= 2000000;
+		document.getElementById('gold').innerHTML = fnum(gold);
+		document.getElementById('iron').innerHTML = fnum(iron);
+		document.getElementById('steel').innerHTML = fnum(steel);
+		document.getElementById('faith').innerHTML = fnum(faith);
+		paladinWepUpgrade2 = true;
+		if(paladinWepUpgrade == true){
+			setSpiritPower(Paladin,100);
+		}
+		else{
+			setSpiritPower(Paladin,50);
+		}
+		document.getElementById("paladinUpgrade2").disabled = true;
+		document.getElementById("paladinUpgrade2").innerHTML = "Reforge Blessed Steel Purchased";
+	}	
 }
 
 function shadeUpgrade1(){

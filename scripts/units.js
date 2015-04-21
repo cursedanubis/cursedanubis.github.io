@@ -400,31 +400,10 @@ function updateStatistic(name, value){
 }
 
 //Unit constructor  (name, htmlNumRef, htmlNextGoldCost, htmlNextIronCost, htmlNextSilverCost, htmlNextFaithCost, htmlNextSoulCost, htmlNextTomeCost, htmlBuyBtn, 
-//					goldCost, ironCost, silverCost, faithCost, soulCost, tomeCost, costMult,description, costAdj, hasReqUnit, reqUnit){
+//					goldCost, ironCost, silverCost, faithCost, soulCost, tomeCost, manaCost, costMult, description, costAdj, hasReqUnit, reqUnit, htmlReqUnit){
 var peasDesc = "A lowly denizen of your realm. They are adept at farming and scrounging for gold but completely useless at fighting."
 var Peasant = new Unit("Peasant",'peasants','PeasantCost','none','none','none','none','none','none','btnbuyPeasant',50,0,0,0,0,0,0,1.1, peasDesc, tavernpeasants,false,"none", "none");
-/* var Peasant = new Unit();
-Peasant['name']= 'Peasant';
-Peasant['htmlNumRef'] = 'peasants';
-Peasant['htmlNextGoldCost'] = 'PeasantCost';
-Peasant['htmlNextIronCost'] = 'none'; 
-Peasant['htmlNextSilverCost'] = 'none'; 
-Peasant['htmlNextFaithCost'] = 'none'; 
-Peasant['htmlNextSoulCost'] = 'none'; 
-Peasant['htmlNextTomeCost'] = 'none'; 
-Peasant['htmlNextManaCost'] = 'none'; 
-Peasant['htmlReqUnit'] = 'none'; 
-Peasant['htmlBuyBtn'] = 'btnbuyPeasant';
-Peasant['goldCost'] = 50;
-Peasant['ironCost'] = 0;
-Peasant['faithCost'] = 0;
-Peasant['soulCost'] = 0;
-Peasant['tomeCost'] = 0;
-Peasant['ironCost'] = 0;
-Peasant['costMult'] = 1.1;
-Peasant['description'] = 'peasDesc';
-Peasant['hasReqUnit'] = false;
-Peasant['reqUnit'] = 'none' */
+
 setDescription(Peasant, 'BtnPeasantDesc');
 setClickVal(Peasant, 'gold', 1);
 
@@ -444,39 +423,118 @@ setDescription(CoalMiner, 'BtnCoalMinerDesc');
 //setClickVal(CoalMiner, 'iron', 1);
 
 var pageDesc = "Young men in training to become knights. Not too great with weapons yet, but they're learning.  <br> Provides  <img src = 'images/armsmall.png'>10 army strength"
-var Page = new Unit("Page",'personPage','PageCost','PageIronCost','none','none','none','none','none','btnBuyPage',500,100,0,0,0,0,0,1.1, pageDesc, 0, false, "none", "none");
-/* var Page = new Unit();
-Page['name']= 'Page';
-Page['htmlNumRef'] = 'personPage';
-Page['htmlNextGoldCost'] = 'PageCost';
-Page['htmlNextIronCost'] = 'PageIronCost'; 
-Page['htmlNextSilverCost'] = 'none'; 
-Page['htmlNextFaithCost'] = 'none'; 
-Page['htmlNextSoulCost'] = 'none'; 
-Page['htmlNextTomeCost'] = 'none'; 
-Page['htmlNextManaCost'] = 'none'; 
-Page['htmlBuyBtn'] = 'btnBuyPage';
-Page['goldCost']= 500;
-Page['ironCost']= 100;
-Page['costMult'] = 1.1;
-Page['description'] = 'pageDesc';
-Page['hasReqUnit'] = false;
-Page['reqUnit'] = 'none'; */
+var Page = new Unit(
+/*Name*/			"Page",
+/*htmlNumRef*/		'personPage',
+/*htmlNextGoldCost*/'PageCost',
+/*htmlNextIronCost*/'PageIronCost',
+/*htmlNextSilverCost*/'none',
+/*htmlNextFaithCost*/'none',
+/*htmlNextSoulCost*/'none',
+/*htmlNextTomeCost*/'none',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnBuyPage',
+/*goldCost*/		500,
+/*ironCost*/		100,
+/*silverCost*/		0,
+/*faithCost*/		0,
+/*soulCost*/		0,
+/*tomeCost*/		0,
+/*manaCost*/		0,
+/*costMult*/		1.1, 
+/*description*/		pageDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		false, 
+/*reqUnit*/			"none", 
+/*htmlReqUnit*/		"none");
+
 setDescription(Page, 'BtnPageDesc');
 setArmyPower(Page, 10);
 
 var squireDesc = "Pages that have gained enough experience are promoted to Squires. They are semi-capable warriors. <br> Provides <img src = 'images/armsmall.png'>50 army strength."
-var Squire = new Unit("Squire",'squires','SquireCost','SquireIronCost','none','none','none','none','none','btnBuySquire',1200,250,0,0,0,0,0,1.15, squireDesc, 0, true, Page, 'SquireReqUnit');	
+//var Squire = new Unit("Squire",'squires','SquireCost','SquireIronCost','none','none','none','none','none','btnBuySquire',1200,250,0,0,0,0,0,1.15, squireDesc, 0, true, Page, 'SquireReqUnit');	
+var Squire = new Unit(
+/*Name*/			"Squire",
+/*htmlNumRef*/		'squires',
+/*htmlNextGoldCost*/'SquireCost',
+/*htmlNextIronCost*/'SquireIronCost',
+/*htmlNextSilverCost*/'none',
+/*htmlNextFaithCost*/'none',
+/*htmlNextSoulCost*/'none',
+/*htmlNextTomeCost*/'none',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnBuySquire',
+/*goldCost*/		1200,
+/*ironCost*/		250,
+/*silverCost*/		0,
+/*faithCost*/		0,
+/*soulCost*/		0,
+/*tomeCost*/		0,
+/*manaCost*/		0,
+/*costMult*/		1.15, 
+/*description*/		squireDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		true, 
+/*reqUnit*/			Page, 
+/*htmlReqUnit*/		"SquireReqUnit");
 setDescription(Squire, 'BtnSquireDesc');
 setArmyPower(Squire, 50);
 
 var knightDesc = "Squires whom have passed the test of courage, honor, and battle prowess are promoted to knights. <br> Provides <img src = 'images/armsmall.png'>150 army strength."
-var Knight = new Unit("Knight",'knights','KnightCost','KnightIronCost','none','none','none','none','none','btnBuyKnight',3000,350,0,0,0,0,0,1.25, knightDesc, 0, true, Squire, 'KnightReqUnit');	
+//var Knight = new Unit("Knight",'knights','KnightCost','KnightIronCost','none','none','none','none','none','btnBuyKnight',3000,350,0,0,0,0,0,1.25, knightDesc, 0, true, Squire, 'KnightReqUnit');	
+var Knight = new Unit(
+/*Name*/			"Knight",
+/*htmlNumRef*/		'knights',
+/*htmlNextGoldCost*/'KnightCost',
+/*htmlNextIronCost*/'KnightIronCost',
+/*htmlNextSilverCost*/'none',
+/*htmlNextFaithCost*/'none',
+/*htmlNextSoulCost*/'none',
+/*htmlNextTomeCost*/'none',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnBuyKnight',
+/*goldCost*/		3000,
+/*ironCost*/		350,
+/*silverCost*/		0,
+/*faithCost*/		0,
+/*soulCost*/		0,
+/*tomeCost*/		0,
+/*manaCost*/		0,
+/*costMult*/		1.25, 
+/*description*/		knightDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		true, 
+/*reqUnit*/			Squire, 
+/*htmlReqUnit*/		"KnightReqUnit");
 setDescription(Knight, 'BtnKnightDesc');
 setArmyPower(Knight, 150);
 
 var paladinDesc = "Holy warriors that channel their faith into their weapons. They are quite adept at slaying monsters, both magical and not. Paladins go out into the field, slaying lesser demons of The Evil One, freeing their souls."
-var Paladin = new Unit("Paladin",'paladins','PaladinCost','PaladinIronCost','PaladinSilverCost','PaladinFaithCost','none','none','none','btnBuyPaladin',10000,500,100,50,0,0,0,1.1, paladinDesc, 0, true, Knight, 'PaladinReqUnit');		
+//var Paladin = new Unit("Paladin",'paladins','PaladinCost','PaladinIronCost','PaladinSilverCost','PaladinFaithCost','none','none','none','btnBuyPaladin',10000,500,100,50,0,0,0,1.1, paladinDesc, 0, true, Knight, 'PaladinReqUnit');		
+var Paladin = new Unit(
+/*Name*/			"Paladin",
+/*htmlNumRef*/		'paladins',
+/*htmlNextGoldCost*/'PaladinCost',
+/*htmlNextIronCost*/'PaladinIronCost',
+/*htmlNextSilverCost*/'PaladinSilverCost',
+/*htmlNextFaithCost*/'PaladinFaithCost',
+/*htmlNextSoulCost*/'none',
+/*htmlNextTomeCost*/'none',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnBuyPaladin',
+/*goldCost*/		10000,
+/*ironCost*/		500,
+/*silverCost*/		100,
+/*faithCost*/		50,
+/*soulCost*/		0,
+/*tomeCost*/		0,
+/*manaCost*/		0,
+/*costMult*/		1.1, 
+/*description*/		paladinDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		true, 
+/*reqUnit*/			Knight, 
+/*htmlReqUnit*/		"PaladinReqUnit");
 setDescription(Paladin, 'BtnPaladinDesc')
 setArmyPower(Paladin, 500);
 setSpiritPower(Paladin, 5);
@@ -501,35 +559,180 @@ Paladin.totalSpiritPower = function(){
 };
 
 var acolyteDesc = "Trainees in the world of the holy. Over time they may become mighty pillars of Holiness."
-var Acolyte = new Unit("Acolyte",'acolytes','AcolyteCost','none','none','none','none','none','none','btnbuyAcolyte',500,0,0,0,0,0,0,1.1, acolyteDesc, 0, false, "none", 'none');	
+//var Acolyte = new Unit("Acolyte",'acolytes','AcolyteCost','none','none','none','none','none','none','btnbuyAcolyte',500,0,0,0,0,0,0,1.1, acolyteDesc, 0, false, "none", 'none');	
+var Acolyte = new Unit(
+/*Name*/			"Acolyte",
+/*htmlNumRef*/		'acolytes',
+/*htmlNextGoldCost*/'AcolyteCost',
+/*htmlNextIronCost*/'none',
+/*htmlNextSilverCost*/'none',
+/*htmlNextFaithCost*/'none',
+/*htmlNextSoulCost*/'none',
+/*htmlNextTomeCost*/'none',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnbuyAcolyte',
+/*goldCost*/		500,
+/*ironCost*/		0,
+/*silverCost*/		0,
+/*faithCost*/		0,
+/*soulCost*/		0,
+/*tomeCost*/		0,
+/*manaCost*/		0,
+/*costMult*/		1.1, 
+/*description*/		acolyteDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		false, 
+/*reqUnit*/			"none", 
+/*htmlReqUnit*/		"none");
 setDescription(Acolyte, 'BtnAcolyteDesc');
 setClickVal(Acolyte, 'faith', 0.1);
 
 var priestDesc = "Men of the cloth. Their piety helps them channel the holy energy from the universe. They have duties ranging from teaching the acolytes to writing down of knowledge of the Order in <img src = 'images/bookssmall.png' Title='Tomes'>tomes."
-var Priest = new Unit("Priest",'priests','PriestCost','none','PriestSilverCost','PriestFaithCost','none','none','none','btnbuyPriest',1000,0,10,50,0,0,0,1.15, priestDesc, 0, true, Acolyte, 'PriestReqUnit');	
+//var Priest = new Unit("Priest",'priests','PriestCost','none','PriestSilverCost','PriestFaithCost','none','none','none','btnbuyPriest',1000,0,10,50,0,0,0,1.15, priestDesc, 0, true, Acolyte, 'PriestReqUnit');	
+var Priest = new Unit(
+/*Name*/			"Priest",
+/*htmlNumRef*/		'priests',
+/*htmlNextGoldCost*/'PriestCost',
+/*htmlNextIronCost*/'none',
+/*htmlNextSilverCost*/'PriestSilverCost',
+/*htmlNextFaithCost*/'PriestFaithCost',
+/*htmlNextSoulCost*/'none',
+/*htmlNextTomeCost*/'none',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnbuyPriest',
+/*goldCost*/		1000,
+/*ironCost*/		0,
+/*silverCost*/		10,
+/*faithCost*/		50,
+/*soulCost*/		0,
+/*tomeCost*/		0,
+/*manaCost*/		0,
+/*costMult*/		1.15, 
+/*description*/		priestDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		true, 
+/*reqUnit*/			Acolyte, 
+/*htmlReqUnit*/		"PriestReqUnit");
 setDescription(Priest, 'BtnPriestDesc');
 setClickVal(Priest, 'faith', 0.5);
 
 var bishopDesc = "  "
-var Bishop = new Unit("Bishop",'bishops','BishopCost','none','BishopSilverCost','BishopFaithCost','none','BishopTomeCost','none','btnbuyBishop',75000,0,10000,5000,0,10,0,1.15, bishopDesc, 0, true, Priest, 'BishopReqUnit');	
+//var Bishop = new Unit("Bishop",'bishops','BishopCost','none','BishopSilverCost','BishopFaithCost','none','BishopTomeCost','none','btnbuyBishop',75000,0,10000,5000,0,10,0,1.15, bishopDesc, 0, true, Priest, 'BishopReqUnit');	
+var Bishop = new Unit(
+/*Name*/			"Bishop",
+/*htmlNumRef*/		'bishops',
+/*htmlNextGoldCost*/'BishopCost',
+/*htmlNextIronCost*/'none',
+/*htmlNextSilverCost*/'BishopSilverCost',
+/*htmlNextFaithCost*/'BishopFaithCost',
+/*htmlNextSoulCost*/'none',
+/*htmlNextTomeCost*/'BishopTomeCost',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnbuyBishop',
+/*goldCost*/		75000,
+/*ironCost*/		0,
+/*silverCost*/		10000,
+/*faithCost*/		5000,
+/*soulCost*/		0,
+/*tomeCost*/		10,
+/*manaCost*/		0,
+/*costMult*/		1.15, 
+/*description*/		bishopDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		true, 
+/*reqUnit*/			Priest, 
+/*htmlReqUnit*/		"BishopReqUnit");
+setDescription(Priest, 'BtnPriestDesc');
 setDescription(Bishop, 'BtnBishopDesc');
 setClickVal(Bishop, 'faith', 10);
 
 var shadeDesc = "This spirits are but a barely present in our world, but they are still capable of damaging demonic beings."
-var Shade = new Unit("Shade",'shades','ShadeCost','none','shadeSilverCost','none','shadeSoulCost','none','none','btnBuyShade',10000,0,250,0,200,0,0,1.15, shadeDesc, 0, false, "none", 'none');
+//var Shade = new Unit("Shade",'shades','ShadeCost','none','shadeSilverCost','none','shadeSoulCost','none','none','btnBuyShade',10000,0,250,0,200,0,0,1.15, shadeDesc, 0, false, "none", 'none');
+var Shade = new Unit(
+/*Name*/			"Shade",
+/*htmlNumRef*/		'shades',
+/*htmlNextGoldCost*/'ShadeCost',
+/*htmlNextIronCost*/'none',
+/*htmlNextSilverCost*/'shadeSilverCost',
+/*htmlNextFaithCost*/'none',
+/*htmlNextSoulCost*/'shadeSoulCost',
+/*htmlNextTomeCost*/'none',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnBuyShade',
+/*goldCost*/		10000,
+/*ironCost*/		0,
+/*silverCost*/		250,
+/*faithCost*/		0,
+/*soulCost*/		200,
+/*tomeCost*/		0,
+/*manaCost*/		0,
+/*costMult*/		1.15, 
+/*description*/		shadeDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		false, 
+/*reqUnit*/			"none", 
+/*htmlReqUnit*/		"none");
 setDescription(Shade, 'BtnShadeDesc');
 setArmyPower(Shade, 5);
 setSpiritPower(Shade, 10);
 
 var aspectDesc = "You are able to improve your shades by providing them a more concrete anchor into the physical realm in the form of suit of armor made from blessed silver. Once bound to this armor, they are much more capable of battling demonic beings."
-var Aspect = new Unit("AspectofJustice",'aspects','AspectCost','aspectIronCost','aspectSilverCost','none','aspectSoulCost','none','none','btnBuyAspect',15000,1000,500,0,500,0,0,1.2, aspectDesc, 0, true, Shade, 'AspectReqUnit');
+//var Aspect = new Unit("AspectofJustice",'aspects','AspectCost','aspectIronCost','aspectSilverCost','none','aspectSoulCost','none','none','btnBuyAspect',15000,1000,500,0,500,0,0,1.2, aspectDesc, 0, true, Shade, 'AspectReqUnit');
+var Aspect = new Unit(
+/*Name*/			"AspectofJustice",
+/*htmlNumRef*/		'aspects',
+/*htmlNextGoldCost*/'AspectCost',
+/*htmlNextIronCost*/'aspectIronCost',
+/*htmlNextSilverCost*/'aspectSilverCost',
+/*htmlNextFaithCost*/'none',
+/*htmlNextSoulCost*/'aspectSoulCost',
+/*htmlNextTomeCost*/'none',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnBuyAspect',
+/*goldCost*/		15000,
+/*ironCost*/		1000,
+/*silverCost*/		500,
+/*faithCost*/		  0,
+/*soulCost*/		500,
+/*tomeCost*/		0,
+/*manaCost*/		0,
+/*costMult*/		1.2, 
+/*description*/		aspectDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		true, 
+/*reqUnit*/			"Shade", 
+/*htmlReqUnit*/		"AspectReqUnit");
 setDescription(Aspect, 'BtnAspectDesc');
 setArmyPower(Aspect, 100);
 setSpiritPower(Aspect, 50);
 setClickVal(Aspect, 'souls', 2);
 
 var angelDesc = "Divine warriors capable of flight summoned down from the heavens. They smell vaguely like freshly baked brownies."
-var Angel = new Unit("Angel",'angels','AngelCost','angelIronCost','angelSilverCost','angelFaithCost','angelSoulCost','angelTomeCost','none','btnBuyAngel',200000,500,2500,25000,1500,20,0,1.15, angelDesc, 0, false, "none", 'none');
+//var Angel = new Unit("Angel",'angels','AngelCost','angelIronCost','angelSilverCost','angelFaithCost','angelSoulCost','angelTomeCost','none','btnBuyAngel',200000,500,2500,25000,1500,20,0,1.15, angelDesc, 0, false, "none", 'none');
+var Angel = new Unit(
+/*Name*/			"Angel",
+/*htmlNumRef*/		'angels',
+/*htmlNextGoldCost*/'AngelCost',
+/*htmlNextIronCost*/'angelIronCost',
+/*htmlNextSilverCost*/'angelSilverCost',
+/*htmlNextFaithCost*/'angelFaithCost',
+/*htmlNextSoulCost*/'angelSoulCost',
+/*htmlNextTomeCost*/'angelTomeCost',
+/*htmlNextManaCost*/'none',
+/*htmlBuyBtn*/		'btnBuyAngel',
+/*goldCost*/		200000,
+/*ironCost*/		500,
+/*silverCost*/		2500,
+/*faithCost*/		25000,
+/*soulCost*/		1500,
+/*tomeCost*/		20,
+/*manaCost*/		0,
+/*costMult*/		1.15, 
+/*description*/		angelDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		false, 
+/*reqUnit*/			"none", 
+/*htmlReqUnit*/		"none");
 setDescription(Angel, 'BtnAngelDesc');
 setArmyPower(Angel, 450)
 setSpiritPower(Angel, 200);
@@ -545,7 +748,31 @@ Angel.totalSpiritPower = function(){
 };
 
 var spriteDesc = "These petite, fairy-like creatures are intensely attracted to the arcane aura emanating from your tower. Just being around them makes your mind sharpen to the arcane energies of the universe. <br><br>Increases mana generation by 0.1 <img src = 'images/manasmall.png' Title='Mana'> per second."
-var Sprite = new Unit("Sprite",'sprites','SpriteCost','none','spriteSilverCost','spriteFaithCost','spriteSoulCost','spriteTomeCost', 'spriteManaCost','btnBuySprite',750000,500000,2500,50000,2000,25,2000,1.5, spriteDesc, 0, false, "none", 'none');
+//var Sprite = new Unit("Sprite",'sprites','SpriteCost','none','spriteSilverCost','spriteFaithCost','spriteSoulCost','spriteTomeCost', 'spriteManaCost','btnBuySprite',750000,500000,2500,50000,2000,25,2000,1.5, spriteDesc, 0, false, "none", 'none');
+var Sprite = new Unit(
+/*Name*/			"Sprite",
+/*htmlNumRef*/		'sprites',
+/*htmlNextGoldCost*/'SpriteCost',
+/*htmlNextIronCost*/'none',
+/*htmlNextSilverCost*/'spriteSilverCost',
+/*htmlNextFaithCost*/'spriteFaithCost',
+/*htmlNextSoulCost*/'spriteSoulCost',
+/*htmlNextTomeCost*/'spriteTomeCost',
+/*htmlNextManaCost*/'spriteManaCost',
+/*htmlBuyBtn*/		'btnBuySprite',
+/*goldCost*/		750000,
+/*ironCost*/		500000,
+/*silverCost*/		2500,
+/*faithCost*/		50000,
+/*soulCost*/		2000,
+/*tomeCost*/		25,
+/*manaCost*/		2000,
+/*costMult*/		1.5, 
+/*description*/		spriteDesc, 
+/*costAdj*/			0, 
+/*hasReqUnit*/		false, 
+/*reqUnit*/			"none", 
+/*htmlReqUnit*/		"none");
 setDescription(Sprite, 'BtnSpritesDesc');
 setClickVal(Sprite, 'mana', 0.1);
 
@@ -640,7 +867,7 @@ function updateUnitPopover(){
 	//Paladin
 	if(paladinWepUpgrade == true){
 		Paladin.soulsClickVal = 2;
-		Paladin.spiritPower = 10;
+//		Paladin.spiritPower = 10;
 	}
 	Paladin.description = paladinDesc + "<br> Provides <img src = 'images/armsmall.png'> " + Paladin.armyPower + " army strength. <br>Provides <img src = 'images/armsmall.png'> " + Paladin.spiritPower + " spiritual strength. <br>Generates " + Paladin.soulsClickVal + " <img src = 'images/soulssmall.png'> per second."
 	setDescription(Paladin, 'BtnPaladinDesc')

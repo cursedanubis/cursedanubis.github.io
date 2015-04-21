@@ -712,10 +712,33 @@
 			var myBool = (localStorage.paladinWepUpgrade == "true")
 			if(myBool == true){
 				paladinWepUpgrade = true;
+				if(paladinWepUpgrade2 == false){
+					setSpiritPower(Paladin,10);
+				}
+				else{
+					setSpiritPower(Paladin,100);
+				}
+				
 				document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Bought";
 				document.getElementById("paladinUpgrade1").disabled = true;
 			}
-		}	
+		}
+
+		if(localStorage.paladinWepUpgrade2 != null){
+			var myBool = (localStorage.paladinWepUpgrade2 == "true")
+			if(myBool == true){
+				paladinWepUpgrade2 = true;
+				if(paladinWepUpgrade == true){
+					setSpiritPower(Paladin,100);
+				}
+				else{
+					setSpiritPower(Paladin,50);
+				}
+				document.getElementById("paladinUpgrade2").disabled = true;
+				document.getElementById("paladinUpgrade2").innerHTML = "Reforge Blessed Steel Purchased";
+			}
+		}			
+		
 		if(localStorage.bishopUpgr1!= null){
 			var myBool = (localStorage.bishopUpgr1 == "true")
 			if(myBool == true){

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +37,6 @@
 	<script src="dist/js/bootstrap-notify.js"></script>
 	<script src="dist/js/bootbox.min.js"></script>
 	<script src="dist/js/tooltip.js"></script>
-
 	
 	<script language="javascript"> 
 	function toggle(elementId) {
@@ -78,6 +77,7 @@
 		exit: 'animated zoomOut'
 	}		
 	});
+	  
 	</script>
 
   </head>
@@ -332,6 +332,7 @@
 		
 		<hr>
 		
+		
 		<div id="CoalMining" class = "container" style="display: none;">
 		<a id = 'BtnCoalMinerDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Coal Miners"
     		data-content="">Coal Miners (<span id="coalminers">0</span>)</a>	
@@ -532,11 +533,17 @@
 		</div>
 		<div id = "PaladinUpgradeTab" class = "upgrade collapse" >
 			<div class = "well">      
-			<button id=paladinUpgrade1 onclick="paladinUpgradeWeapon()" title= "Your paladins imbue their weapons with their faith, doubling their battle power, spirit power, and soul collection rate."	type="button" class="btn btn-default">Imbue Weapon</button>		
+			<button id=paladinUpgrade1 onclick="paladinUpgradeWeapon()" title= "Your paladins imbue their weapons with their faith, doubling their battle power, spirit power, and soul collection rate."	type="button" class="btn btn-default">Imbue Weapons</button>		
 			<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your paladins imbue their weapons with their faith, doubling their battle power, spirit power, and soul collection rate." rel="tooltip"></span>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > 20,000 | 5,000 <img src = "images/ironsmall.png" title="Iron"> | <img src = "images/faithsmall.png" title="Faith"> 2,500
+			<img src = "images/money_goldsmall.png" title ="Gold" > 20,000 |<img src = "images/ironsmall.png" title="Iron"> 5,000 | <img src = "images/faithsmall.png" title="Faith"> 2,500
+			<br /><br />
+			<button id=paladinUpgrade2 onclick="paladinUpgradeWeapon2()" title= "The blacksmith reforges the paladin's greatswords using steel and blessed silver. Increases Paladin's spirit strength by tenfold."	type="button" class="btn btn-default">Reforge Blessed Steel Weapons</button>		
+			<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "The blacksmith reforges the paladin's greatswords using steel and blessed silver. Increases Paladin's spirit strength by tenfold." rel="tooltip"></span>
+			<br />
+			<img src = "images/money_goldsmall.png" title ="Gold" > 5,000,000 | <img src = "images/ironsmall.png" title="Iron"> 1M | <img src = "images/faithsmall.png" title="Faith"> 2M | <img src = "images/steelsmall.png" title="Steel"> | 3,000			
 			</div>
+			
 		</div>
 		<hr>
 	 </div>
