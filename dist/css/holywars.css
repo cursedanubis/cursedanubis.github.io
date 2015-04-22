@@ -1,9 +1,14 @@
 body { 
 padding-top: 50px;
+padding-bottom: 20px;
 }
 
 html {
   overflow-y: scroll;
+}
+
+.navbar {
+  margin-bottom: 20px;
 }
 
 #ResourcesWell

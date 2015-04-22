@@ -356,6 +356,172 @@ function debugCurrency(){
 
 //UPGRADES
 
+var Upgrade = function(name, goldCost, htmlGoldCost, woodCost, htmlWoodCost, ironCost, htmlIronCost, 
+					   coalCost, htmlCoalCost, steelCost, htmlSteelCost, silverCost, htmlSilverCost, faithCost, htmlFaithCost, 
+					   soulCost, htmlSoulCost, paperCost, htmlPaperCost, tomeCost, htmlTomeCost, manaCost, htmlManaCost, buyBtnRef){
+	this.name = name;
+	this.goldCost = goldCost;
+	this.htmlGoldCost = htmlGoldCost;
+	this.woodCost = woodCost;
+	this.htmlWoodCost = htmlWoodCost;
+	this.ironCost = ironCost;
+	this.htmlIronCost = htmlIronCost;
+	this.coalCost = coalCost;
+	this.htmlCoalCost = htmlCoalCost;
+	this.steelCost = steelCost;
+	this.htmlSteelCost = htmlSteelCost;
+	this.silverCost = silverCost;
+	this.htmlSilverCost = htmlSilverCost;
+	this.faithCost = faithCost;
+	this.htmlFaithCost = htmlFaithCost;
+	this.soulCost = soulCost;
+	this.htmlSoulCost = htmlSoulCost;
+	this.paperCost = paperCost;
+	this.htmlPaperCost = htmlPaperCost;
+	this.tomeCost = tomeCost;
+	this.htmlTomeCost = htmlTomeCost;
+	this.manaCost = manaCost;
+	this.htmlManaCost = htmlManaCost;
+	this.buyBtnRef = buyBtnRef;
+}
+
+Upgrade.prototype.canBuy = function(){
+	if(costTest(goldCost, gold, this.htmlGoldRef) &&
+	   costTest(woodCost, wood, this.htmlWoodCost) &&
+	   costTest(ironCost, iron, this.htmlIronCost) &&
+	   costTest(coalCost, coal, this.htmlCoalCost) &&
+	   costTest(steelCost, steel, this.htmlSteelCost) &&
+	   costTest(silverCost, silver, this.htmlSilverCost) &&
+	   costTest(faithCost, faith, this.htmlFaithCost) &&
+	   costTest(soulCost, soul, this.htmlSoulCost) &&
+	   costTest(paperCost, paper, this.htmlPaperCost) &&
+	   costTest(tomeCost, tome, this.htmlTomeCost) &&
+	   costTest(manaCost, mana, this.htmlManaCost)
+	   ){
+		   document.getElementById(this.buyBtnRef).disabled = false;	
+	   }
+	else{
+		   document.getElementById(this.buyBtnRef).disabled = false;	
+	}
+}
+
+function costTest(cost, type, htmlRef){
+	switch(type){
+		case 'gold':
+			if(gold < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}
+		break;
+		
+		case 'wood':
+			if(wood < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}		
+		break;
+		
+		case 'iron':
+			if(iron < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}			
+		break;
+
+		case 'coal':
+			if(coal < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}		
+		break;	
+		
+		case 'steel':
+			if(steel < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}		
+		break;		
+
+		case 'silver':
+			if(silver < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}		
+		break;
+		
+		case 'faith':
+			if(faith < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}		
+		break;	
+		
+		case 'paper':
+			if(paper < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}		
+		break;
+		
+		case 'tome':
+			if(tome < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}		
+		break;
+		
+		case 'mana':
+			if(mana < cost){
+				document.getElementById(htmlRef).style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById(htmlRef).style.color = "black";
+				return true;
+			}		
+		break;
+		
+		default:
+		break;
+	}
+}
+
 function peasantUpgradeCollection(){	
 	if(gold >= 2000){
 		gold -= 2000;
