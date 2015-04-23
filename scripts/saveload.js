@@ -495,10 +495,7 @@
 			var myBool = localStorage.unlockedQuesting == "true"
 			if(myBool == true){
 				unlockedQuesting = true;
-				document.getElementById('QuestMenu').style.display = "block";
-				document.getElementById('Quests').style.display = "block";
-				document.getElementById("btnUnlockQuest").disabled = true;
-				document.getElementById("btnUnlockQuest").innerHTML = "Taskmaster Hired - Questing available";	
+				unlockQuesting.enableFlag();
 			}
 		}			
 		
@@ -675,39 +672,28 @@
 			var myBool = (localStorage.PmillEffUpgr == "true")
 			if(myBool == true){
 				PmillEffUpgr = true;
-				document.getElementById("btnPmillEffUpgrade").disabled = true;
-				document.getElementById("btnPmillEffUpgrade").innerHTML = "Process Control Bought";
+				pmillEffUpgrade.enableFlag();
 			}
 		}	
 		if(localStorage.PmillEffUpgr2 != null){
 			var myBool = (localStorage.PmillEffUpgr2 == "true")
 			if(myBool == true){
 				PmillEffUpgr2 = true;
-				document.getElementById("btnPmillEffUpgrade2").disabled = true;
-				document.getElementById("btnPmillEffUpgrade2").innerHTML = "Total Overhaul Bought";
+				pmillEffUpgrade2.enableFlag();
 			}
 		}	
 		if(localStorage.PmillClickUpgr != null){
 			var myBool = (localStorage.PmillClickUpgr == "true")
 			if(myBool == true){
 				PmillClickUpgr = true;
-				document.getElementById("btnPmillClickUpgrade").disabled = true;
-				document.getElementById("btnPmillClickUpgrade").innerHTML = "Production Oversight Purchased";
+				pmillClickUpgrade.enableFlag();
 			}
 		}			
 		if(localStorage.paladinWepUpgrade != null){
 			var myBool = (localStorage.paladinWepUpgrade == "true")
 			if(myBool == true){
 				paladinWepUpgrade = true;
-				if(paladinWepUpgrade2 == false){
-					setSpiritPower(Paladin,10);
-				}
-				else{
-					setSpiritPower(Paladin,100);
-				}
-				
-				document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Bought";
-				document.getElementById("paladinUpgrade1").disabled = true;
+				paladinUpgrade1.enableFlag();
 			}
 		}
 
@@ -715,14 +701,7 @@
 			var myBool = (localStorage.paladinWepUpgrade2 == "true")
 			if(myBool == true){
 				paladinWepUpgrade2 = true;
-				if(paladinWepUpgrade == true){
-					setSpiritPower(Paladin,100);
-				}
-				else{
-					setSpiritPower(Paladin,50);
-				}
-				document.getElementById("paladinUpgrade2").disabled = true;
-				document.getElementById("paladinUpgrade2").innerHTML = "Reforge Blessed Steel Purchased";
+				paladinUpgrade2.enableFlag();
 			}
 		}			
 		
@@ -730,8 +709,7 @@
 			var myBool = (localStorage.bishopUpgr1 == "true")
 			if(myBool == true){
 				bishopUpgr1 = true;
-				document.getElementById("btnBishopUpgrade1").disabled = true;
-				document.getElementById("btnBishopUpgrade1").innerHTML = "Confessionals Purchased";
+				bishopUpgrade1.enableFlag();
 			}
 		}	
 
@@ -747,9 +725,7 @@
 			var myBool = (localStorage.knightsUnlocked == "true")
 			if(myBool == true){
 				knightsUnlocked = true;
-				document.getElementById("btnSquireUpgrade1").disabled = true;
-				document.getElementById("btnSquireUpgrade1").innerHTML = "Unlocked Knights";
-				document.getElementById('KnightTab').style.display = "block";
+				squireUpgrade1.enableFlag();
 			}
 		}	
 		
@@ -757,32 +733,28 @@
 			var myBool = (localStorage.shadeUpgr1 == "true")
 			if(myBool == true){
 				shadeUpgr1 = true;
-				setArmyPower(Shade,10);
-				setSpiritPower(Shade,20);
-				document.getElementById("btnShadeUpgrade1").disabled = true;
-				document.getElementById("btnShadeUpgrade1").innerHTML = "Blessed Silver Runes Purchased";
+				shadeUpgrade1.enableFlag();
 			}
 		}	
 		if(localStorage.angelUpgr1 != null){
 			var myBool = (localStorage.angelUpgr1 == "true")
 			if(myBool == true){
 				angelUpgr1 = true;
-				document.getElementById("btnAngelUpgrade1").disabled = true;
-				document.getElementById("btnAngelUpgrade1").innerHTML = "Concentrated Piety Purchased";
+				angelUpgrade1.enableFlag();
 			}
 		}			
 		if(localStorage.tavernUpgrade != null){
 			var myBool = (localStorage.tavernUpgrade == "true")
 			if(myBool == true){
 				tavernUpgrade = true;
-				document.getElementById("btnUpgradeTavern").disabled = true;
+				upgradeTavern.enableFlag();
 			}
 		}
 		if(localStorage.tavernUpgrade2 != null){
 			var myBool = (localStorage.tavernUpgrade2 == "true")
 			if(myBool == true){
 				tavernUpgrade2 = true;
-				document.getElementById("btnUpgradeTavern2").disabled = true;
+				upgradeTavern2.enableFlag();
 			}
 		}			
 

@@ -469,32 +469,6 @@ var Mines = new Building('Mines','btnOpenMines','minesGoldCost','minesWoodCost',
 var tavernDesc = "A cozy place where many people gather to drink and celebrate. <br> Recruits 1 peasant every 30 seconds."
 var Tavern = new MultBuilding('Tavern','taverns','TavernCost','tavernWoodCost', 'tavernIronCost','none','none','none','none','btnbuyTavern',5000,2500,2000,0,0,0,0,2,tavernDesc,0,false,0);
 
-function upgradeTavern(){
-	if(tavernUpgrade == false && gold >= 10000 && iron >= 5000)
-	{
-		gold -= 10000;
-		iron -= 5000;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById('btnUpgradeTavern').innerHTML = "Mining Initiative Purchased";
-		tavernUpgrade = true;
-	}
-};
-
-function upgradeTavern2(){
-	if(tavernUpgrade2 == false && gold >= 15000 && iron >= 7000 && wood >= 2500)
-	{
-		gold -= 15000;
-		iron -= 7000;
-		wood -= 2500;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById('wood').innerHTML = fnum(wood);
-		document.getElementById('btnUpgradeTavern2').innerHTML = "Flapjacks Purchased";
-		tavernUpgrade2 = true;
-	}
-};
-
 var barracksDesc = ""
 var Barracks = new Building('Barracks','btnOpenBarracks','barracksGoldCost', 'barracksWoodCost', 'barracksIronCost','none','none','none',5000,1000,250,0,0,0,barracksDesc,"none",'barracksOpened');
 
@@ -521,20 +495,22 @@ function checkBuildingButtons(){
 	Tavern.canBuy();
 	
 	//Enable/disables tavern upgrade
-	if(tavernUpgrade == true || gold < 10000 || iron < 5000){
-		document.getElementById("btnUpgradeTavern").disabled = true;
-	}
-	else{
-		document.getElementById("btnUpgradeTavern").disabled = false;
-	}
+	upgradeTavern.canBuy();
+				/* 	if(tavernUpgrade == true || gold < 10000 || iron < 5000){
+						document.getElementById("btnUpgradeTavern").disabled = true;
+					}
+					else{
+						document.getElementById("btnUpgradeTavern").disabled = false;
+					} */
 
 	//Enable/disables tavern upgrade2
-	if(tavernUpgrade2 == true || gold < 15000 || iron < 7000 || wood < 2500){
-		document.getElementById("btnUpgradeTavern2").disabled = true;
-	}
-	else{
-		document.getElementById("btnUpgradeTavern2").disabled = false;
-	}	
+	upgradeTavern2.canBuy();
+				/* 	if(tavernUpgrade2 == true || gold < 15000 || iron < 7000 || wood < 2500){
+						document.getElementById("btnUpgradeTavern2").disabled = true;
+					}
+					else{
+						document.getElementById("btnUpgradeTavern2").disabled = false;
+					}	 */
 
 	//Changes status of the building mines button
 	Lumbermill.canBuy();

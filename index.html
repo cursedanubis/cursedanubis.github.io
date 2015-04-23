@@ -483,11 +483,11 @@
 			<br />	
 			<div id = "SquireUpgradeTab" class = "upgrade collapse">
 				<div class = "well">
-						<button id=btnSquireUpgrade1 onclick="UnlockKnight()"	type="button" class="btn btn-default" title = "Your squires become more knowledgeable and skilled. Unlocks the Knight.">Unlock Knight</button>
+						<button id=btnSquireUpgrade1 onclick="squireUpgrade1.buyUpgrade()"	type="button" class="btn btn-default" title = "Your squires become more knowledgeable and skilled. Unlocks the Knight.">Unlock Knight</button>
 						<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your squires become more knowledgeable and skilled. Unlocks the Knight." rel="tooltip"></span>
 						<br />
-						Requires: <img src = "images/armsmall.png" title="Army Power"> 500 <br />
-						<img src = "images/money_goldsmall.png" title ="Gold" > 8000 
+						Requires: <img src = "images/armsmall.png" title="Army Power"> <span id = 'squireUpgrade1ArmyPower'>500</span> <br />
+						<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'squireUpgrade1GoldCost'>8,000</span> | <img src = "images/ironsmall.png" title = "iron"><span id = 'squireUpgrade1IronCost'>250</span>
 						<br />
 				</div>
 			</div>
@@ -525,20 +525,88 @@
 		</div>
 		<div id = "PaladinUpgradeTab" class = "upgrade collapse" >
 			<div class = "well">      
-			<button id=paladinUpgrade1 onclick="paladinUpgradeWeapon()" title= "Your paladins imbue their weapons with their faith, doubling their battle power, spirit power, and soul collection rate."	type="button" class="btn btn-default">Imbue Weapons</button>		
+			<button id=btnPaladinUpgrade1 onclick="paladinUpgrade1.buyUpgrade()" title= "Your paladins imbue their weapons with their faith, doubling their battle power, spirit power, and soul collection rate."	type="button" class="btn btn-default">Imbue Weapons</button>		
 			<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your paladins imbue their weapons with their faith, doubling their battle power, spirit power, and soul collection rate." rel="tooltip"></span>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > 20,000 |<img src = "images/ironsmall.png" title="Iron"> 5,000 | <img src = "images/faithsmall.png" title="Faith"> 2,500
+			<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'paladinUpgrade1GoldCost'>20,000</span> |<img src = "images/ironsmall.png" title="Iron"><span id = 'paladinUpgrade1IronCost'>5,000</span> | <img src = "images/faithsmall.png" title="Faith"><span id = 'paladinUpgrade1FaithCost'>2,500</span>
 			<br /><br />
-			<button id=paladinUpgrade2 onclick="paladinUpgradeWeapon2()" title= "The blacksmith reforges the paladin's greatswords using steel and blessed silver. Increases Paladin's spirit strength by tenfold."	type="button" class="btn btn-default">Reforge Blessed Steel Weapons</button>		
+			
+			<button id=btnPaladinUpgrade2 onclick="paladinUpgrade2.buyUpgrade()" title= "The blacksmith reforges the paladin's greatswords using steel and blessed silver. Increases Paladin's spirit strength by tenfold."	type="button" class="btn btn-default">Reforge Blessed Steel Weapons</button>		
 			<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "The blacksmith reforges the paladin's greatswords using steel and blessed silver. Increases Paladin's spirit strength by tenfold." rel="tooltip"></span>
 			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > 5,000,000 | <img src = "images/ironsmall.png" title="Iron"> 1M | <img src = "images/faithsmall.png" title="Faith"> 2M | <img src = "images/steelsmall.png" title="Steel"> | 3,000			
+			<img src = "images/money_goldsmall.png" title ="Gold" ><span id = 'paladinUpgrade2GoldCost'>5,000,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'paladinUpgrade2IronCost'>1M</span> | <img src = "images/faithsmall.png" title="Faith"><span id = 'paladinUpgrade2FaithCost'>2M</span> | <img src = "images/steelsmall.png" title="Steel"><span id = 'paladinUpgrade2SteelCost'>3,000</span>		
 			</div>
 			
 		</div>
 		<hr>
 	 </div>
+	 
+ <div id="Ethereal" class = "panel panel-default" style="display: none;">
+		<div class = "panel-heading">
+			<div id=Etherealtitle class="panel-title">Ethereal Rip</div>
+		</div>	
+		
+		<div id ="ShadeTab" class = "container">
+			<br />
+		<a id = 'BtnShadeDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Shades"
+    		data-content="">Shades (<span id="shades">0</span>)</a>
+			<br /><br />
+			<button id=btnBuyShade onclick="Shade.buyOne()"	type="button" class="btn btn-default">Summon Shade</button>
+			<button id=btnShadeUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#ShadeUpgradeTab" aria-expanded="false" aria-controls="ShadeUpgradeTab">Upgrades</button>
+			<br />
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="ShadeCost">10,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = "shadeSilverCost">250</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="shadeSoulCost">200</span>
+			<div id ="ShadeUpgradeTab" class = "upgrade collapse">
+				<div class = "well">
+					<button id=btnShadeUpgrade1 onclick="shadeUpgrade1.buyUpgrade()"	type="button" class="btn btn-default" title = "A ritual using holy water and silver runes enhances the presence of your shades in this realm. Doubles battle and spirit power.">Blessed Silver Runes</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "A ritual using holy water and silver runes enhances the presence of your shades in this realm. Doubles battle and spirit power." rel="tooltip"></span>
+					<br />
+					<img src = "images/money_goldsmall.png" title ="Gold" ><span id = 'shadeUpgrade1GoldCost'>75,000</span> | <img src = "images/silverOresmall.png" title="Silver"><span id = 'shadeUpgrade1SilverCost'>30,000</span> | <img src = "images/faithsmall.png" title="Faith"><span id = 'shadeUpgrade1FaithCost'>30,000</span> | <img src = "images/bookssmall.png" Title="Tomes"><span id = 'shadeUpgrade1TomeCost'>20</span>
+					<br />
+					<br />
+				</div>
+			</div>
+			<hr>			
+		</div>		
+
+		<div id ="AspectofJustice" class = "container" style="display: none;">
+		<a id = 'BtnAspectDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Aspect of Justice"
+    		data-content="">Aspect of Justices (<span id="aspects">0</span>)</a>
+			<br /><br />
+			<button id=btnBuyAspect onclick="Aspect.buyOne()"	type="button" class="btn btn-default">Outfit Shade</button>
+			<button id=btnAspectUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#AspectUpgradeTab" aria-expanded="false" aria-controls="AspectUpgradeTab">Upgrades</button>
+			<br />
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="AspectCost">15,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="aspectIronCost">1000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="aspectSilverCost">500</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="aspectSoulCost">500</span> | <span id = 'AspectReqUnit'>1 Shade</span>
+			<div id ="AspectUpgradeTab" class = "upgrade collapse">
+				<div class = "well">
+					 No Upgrades implemented for Aspect of Justices yet.
+					<br />
+				</div>
+			</div>	
+			<hr>
+		</div>			
+
+		<div id ="AngelTab" class = "container" style="display: none;">
+		<a id = 'BtnAngelDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Angels"
+    		data-content="">Angels (<span id="angels">0</span>)</a>
+			<br /><br />
+			<button id=btnBuyAngel onclick="Angel.buyOne()"	type="button" class="btn btn-default">Summon Angel</button>
+			<button id=btnAngelUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#AngelUpgradeTab" aria-expanded="false" aria-controls="AngelUpgradeTab">Upgrades</button>
+			<br />
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="AngelCost">200,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="angelIronCost">500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="angelSilverCost">2500</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="angelFaithCost">25000</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="angelSoulCost">1500</span> | <img src = "images/bookssmall.png" Title="Tomes"> <span id="angelTomeCost">20</span>
+			<div id ="AngelUpgradeTab" class = "upgrade collapse">
+				<div class = "well">
+					<button id=btnAngelUpgrade1 onclick="angelUpgrade1.buyUpgrade()"	type="button" class="btn btn-default" title = "The piety from your paladins now strengthens your Angels. Each Paladin increases your angel's spirit power by 5.">Concentrated Piety</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "The piety from your paladins now strengthens your Angels. Each Paladin increases your angel's spirit power by 5." rel="tooltip"></span>
+					<br />
+					<img src = "images/money_goldsmall.png" title ="Gold" ><span id = 'angelUpgrade1GoldCost'>3M</span> | <img src = "images/silverOresmall.png" title="Silver"><span id = 'angelUpgrade1SilverCost'>1.5M</span> | <img src = "images/faithsmall.png" title="Faith"><span id = 'angelUpgrade1FaithCost'>1M</span> | <img src = "images/bookssmall.png" Title="Tomes"><span id = 'angelUpgrade1TomeCost'>50</span>
+					<br />
+					<br />
+				</div>
+			</div>
+			<hr>
+		</div>		
+		
+	 </div> 	 
 	 
 	 <div id="Structures" class = "panel panel-default" style="display: none;">
 		<div class = "panel-heading">
@@ -557,17 +625,17 @@
 				Peasants recruited by tavern: <span id="tavernpeasants">0</span>
 				<div id = "TavernUpgradeTab" class = "upgrade collapse" >
 					<div class = "well">
-					<button id=btnUpgradeTavern onclick="upgradeTavern()" title="Your tavern is now also recruiting miners using ladies of the night and handing out hip-flasks to new miners."	type="button" class="btn btn-default">Mining Initiative</button>		
+					<button id=btnUpgradeTavern onclick="upgradeTavern.buyUpgrade()" title="Your tavern is now also recruiting miners using ladies of the night and handing out hip-flasks to new miners."	type="button" class="btn btn-default">Mining Initiative</button>		
 					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your tavern is now also recruiting miners using ladies of the night and handing out hip-flasks to new miners." rel="tooltip"></span>
 					<br />
-					<img src = "images/money_goldsmall.png" title ="Gold" data-html="true" id="resgoldimage"> 10,000 | <img src = "images/ironsmall.png" title="Iron"> 5,000
+					<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'upgradeTavernGoldCost'>10,000</span> | <img src = "images/ironsmall.png" title="Iron"><span id = 'upgradeTavernIronCost'>5,000</span>
 					<br />
 					Miners recruited by tavern: <span id="tavernminers">0</span> <br /><br />	
 					
-					<button id=btnUpgradeTavern2 onclick="upgradeTavern2()" title="Your tavern keeper learns how to make flapjacks with maple syrup. Taverns now recruit lumberjacks."	type="button" class="btn btn-default">Flapjacks</button>	
+					<button id=btnUpgradeTavern2 onclick="upgradeTavern2.buyUpgrade()" title="Your tavern keeper learns how to make flapjacks with maple syrup. Taverns now recruit lumberjacks."	type="button" class="btn btn-default">Flapjacks</button>	
 					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your tavern keeper learns how to make flapjacks with maple syrup. Taverns now recruit lumberjacks." rel="tooltip"></span>
 					<br / >
-					<img src = "images/money_goldsmall.png" title ="Gold" data-html="true" id="resgoldimage"> 15,000 | <img src = "images/ironsmall.png" title="Iron"> 7,000 | <img src = "images/woodsmall.png" title = "Wood"> 5,000
+					<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'upgradeTavern2GoldCost'>15,000</span> | <img src = "images/ironsmall.png" title="Iron"><span id = 'upgradeTavern2IronCost'>7,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'upgradeTavern2WoodCost'>5,000</span>
 					<br />
 					Lumberjacks recruited by tavern: <span id = "tavernlumberjacks">0</span>
 					</div>
@@ -594,27 +662,20 @@
 				<div id = "PMillUpgradeTab" class = "upgrade collapse" >
 					<div class = "well">
 						<div id = 'PMillUpgradeEffTab' class = 'container'> 
-							<button id=btnPmillEffUpgrade onclick="PmillEffUpgrade()"	type="button" class="btn btn-default" title = "Adjustments to your mills make them much more efficient at converting wood into paper. They require 40% less wood.">Process Control</button>
+							<button id=btnPmillEffUpgrade onclick="pmillEffUpgrade.buyUpgrade()"	type="button" class="btn btn-default" title = "Adjustments to your mills make them much more efficient at converting wood into paper. They require 40% less wood.">Process Control</button>
 							<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Adjustments to your mills make them much more efficient at converting wood into paper. They require 40% less wood." rel="tooltip"></span>
 							<br />	
-							<img src = "images/money_goldsmall.png" title ="Gold" > 50,000 | <img src = "images/woodsmall.png" title = "Wood"> 25,000 | <img src = "images/ironsmall.png" title="Iron"> 35,000		
+							<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'pmillEffUpgradeGoldCost'>50,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'pmillEffUpgradeWoodCost'>25,000</span> | <img src = "images/ironsmall.png" title="Iron"><span id = 'pmillEffUpgradeIronCost'>35,000</span>	
 						</div>
 						<br />
 						<div id = 'PMillUpgradeEff2Tab' class = 'container'> 
-							<button id=btnPmillEffUpgrade2 onclick="PmillEffUpgrade2()"	type="button" class="btn btn-default" title = "A total overhaul of the paper creation process halves the time needed for paper mills to produce paper.">Mass Overhaul</button>
+							<button id=btnPmillEffUpgrade2 onclick="pmillEffUpgrade2.buyUpgrade()"	type="button" class="btn btn-default" title = "A total overhaul of the paper creation process halves the time needed for paper mills to produce paper.">Mass Overhaul</button>
 							<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "A total overhaul of the paper creation process halves the time needed for paper mills to produce paper." rel="tooltip"></span>
 							<br />	
-							<img src = "images/money_goldsmall.png" title ="Gold" > 1M | <img src = "images/woodsmall.png" title = "Wood"> 1M | <img src = "images/ironsmall.png" title="Iron"> 1M | <img src = "images/soulssmall.png" title="Souls"> 50,000
+							<img src = "images/money_goldsmall.png" title ="Gold" ><span id = 'pmillEffUpgrade2GoldCost'>1M</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'pmillEffUpgrade2WoodCost'>1M</span> | <img src = "images/ironsmall.png" title="Iron"><span id = 'pmillEffUpgrade2IronCost'>1M</span> | <img src = "images/soulssmall.png" title="Souls"><span id = 'pmillEffUpgrade2SoulCost'>50,000</span>
 							<br />
 						</div>
-						<br / >
-
-						<div id = 'PMillUClickUpgrade' class = 'container'> 
-							<button id=btnPmillClickUpgrade onclick="PmillClickUpgrade()"	type="button" class="btn btn-default" title = "Allows you to craft 10 paper at once. You will still need the required materials.">Production Oversight</button>
-							<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Allows you to craft 10 paper at once. You will still need the required materials." rel="tooltip"></span>
-							<br />	
-							<img src = "images/money_goldsmall.png" title ="Gold" > 1.2M | <img src = "images/woodsmall.png" title = "Wood"> 1.5M | <img src = "images/ironsmall.png" title="Iron"> 1.2M | <img src = "images/soulssmall.png" title="Souls"> 50,000
-						</div>								
+						<br />						
 						
 					</div>
 				</div>				
@@ -684,73 +745,6 @@
 			</div>
 			<hr>
 	 </div>
-	 
-	 <div id="Ethereal" class = "panel panel-default" style="display: none;">
-		<div class = "panel-heading">
-			<div id=Etherealtitle class="panel-title">Ethereal Rip</div>
-		</div>	
-		
-		<div id ="ShadeTab" class = "container">
-			<br />
-		<a id = 'BtnShadeDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Shades"
-    		data-content="">Shades (<span id="shades">0</span>)</a>
-			<br /><br />
-			<button id=btnBuyShade onclick="Shade.buyOne()"	type="button" class="btn btn-default">Summon Shade</button>
-			<button id=btnShadeUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#ShadeUpgradeTab" aria-expanded="false" aria-controls="ShadeUpgradeTab">Upgrades</button>
-			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="ShadeCost">10,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = "shadeSilverCost">250</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="shadeSoulCost">200</span>
-			<div id ="ShadeUpgradeTab" class = "upgrade collapse">
-				<div class = "well">
-					<button id=btnShadeUpgrade1 onclick="shadeUpgrade1()"	type="button" class="btn btn-default" title = "A ritual using holy water and silver runes enhances the presence of your shades in this realm. Doubles battle and spirit power.">Blessed Silver Runes</button>
-					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "A ritual using holy water and silver runes enhances the presence of your shades in this realm. Doubles battle and spirit power." rel="tooltip"></span>
-					<br />
-					<img src = "images/money_goldsmall.png" title ="Gold" > 75,000 | <img src = "images/silverOresmall.png" title="Silver"> 30,000 | <img src = "images/faithsmall.png" title="Faith"> 30,000 | <img src = "images/bookssmall.png" Title="Tomes"> 20
-					<br />
-					<br />
-				</div>
-			</div>
-			<hr>			
-		</div>		
-
-		<div id ="AspectofJustice" class = "container" style="display: none;">
-		<a id = 'BtnAspectDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Aspect of Justice"
-    		data-content="">Aspect of Justices (<span id="aspects">0</span>)</a>
-			<br /><br />
-			<button id=btnBuyAspect onclick="Aspect.buyOne()"	type="button" class="btn btn-default">Outfit Shade</button>
-			<button id=btnAspectUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#AspectUpgradeTab" aria-expanded="false" aria-controls="AspectUpgradeTab">Upgrades</button>
-			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="AspectCost">15,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="aspectIronCost">1000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="aspectSilverCost">500</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="aspectSoulCost">500</span> | <span id = 'AspectReqUnit'>1 Shade</span>
-			<div id ="AspectUpgradeTab" class = "upgrade collapse">
-				<div class = "well">
-					 No Upgrades implemented for Aspect of Justices yet.
-					<br />
-				</div>
-			</div>	
-			<hr>
-		</div>			
-
-		<div id ="AngelTab" class = "container" style="display: none;">
-		<a id = 'BtnAngelDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Angels"
-    		data-content="">Angels (<span id="angels">0</span>)</a>
-			<br /><br />
-			<button id=btnBuyAngel onclick="Angel.buyOne()"	type="button" class="btn btn-default">Summon Angel</button>
-			<button id=btnAngelUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#AngelUpgradeTab" aria-expanded="false" aria-controls="AngelUpgradeTab">Upgrades</button>
-			<br />
-			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="AngelCost">200,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id="angelIronCost">500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="angelSilverCost">2500</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="angelFaithCost">25000</span> | <img src = "images/soulssmall.png" title="Souls"> <span id="angelSoulCost">1500</span> | <img src = "images/bookssmall.png" Title="Tomes"> <span id="angelTomeCost">20</span>
-			<div id ="AngelUpgradeTab" class = "upgrade collapse">
-				<div class = "well">
-					<button id=btnAngelUpgrade1 onclick="buyAngelUpgrade1()"	type="button" class="btn btn-default" title = "The piety from your paladins now strengthens your Angels. Each Paladin increases your angel's spirit power by 5.">Concentrated Piety</button>
-					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "The piety from your paladins now strengthens your Angels. Each Paladin increases your angel's spirit power by 5." rel="tooltip"></span>
-					<br />
-					<img src = "images/money_goldsmall.png" title ="Gold" > 3M | <img src = "images/silverOresmall.png" title="Silver"> 1.5M | <img src = "images/faithsmall.png" title="Faith"> 1M | <img src = "images/bookssmall.png" Title="Tomes"> 50
-					<br />
-					<br />
-				</div>
-			</div>
-			<hr>
-		</div>		
-		
-	 </div> 
 	
 	 <div id="Relics" class = "panel panel-default" style="display: none;">
 		<div class = "panel-heading">
@@ -1527,11 +1521,18 @@
 				<br />		
 				<hr>
 				
+				<div id = 'PMillUClickUpgrade' class = 'container'> 
+					<button id=btnPmillClickUpgrade onclick="pmillClickUpgrade.buyUpgrade()"	type="button" class="btn btn-default" title = "Allows you to craft 10 paper at once. You will still need the required materials.">Production Oversight</button>
+					<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Allows you to craft 10 paper at once. You will still need the required materials." rel="tooltip"></span>
+					<br />	
+					<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'pmillClickUpgradeGoldCost'>1.2M</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'pmillClickUpgradeWoodCost'>1.5M</span> | <img src = "images/ironsmall.png" title="Iron"><span id = 'pmillClickUpgradeIronCost'>1.2M</span> | <img src = "images/soulssmall.png" title="Souls"><span id = 'pmillClickUpgradeSoulCost'>50,000</span>
+				</div>					
+				
 				<H4>Hire</h4><br />
-				<button id=btnUnlockQuest onclick="unlockQuesting()" 	type="button" class="btn btn-default" title = "Hire a taskmaster to allow you to send your troops on quests.">Hire Taskmaster</button>
+				<button id=btnUnlockQuesting onclick="unlockQuesting.buyUpgrade()" 	type="button" class="btn btn-default" title = "Hire a taskmaster to allow you to send your troops on quests.">Hire Taskmaster</button>
 				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Hire a taskmaster to allow you to send your troops on quests." rel="tooltip"></span>
 				<br />
-				<img src = "images/money_goldsmall.png" title ="Gold" > 10,000
+				<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'unlockQuestingGoldCost'>10,000</span>
 				<br /> <br />
 	   </div>   
 	 </div>	 

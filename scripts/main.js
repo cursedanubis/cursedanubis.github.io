@@ -503,23 +503,6 @@ function UpdateButtons() {
 						document.getElementById("btnPriestUpgrade1").disabled = false;
 					} */
 	
-	//Paper mill efficiency upgrade
-	if(PmillEffUpgr == true || (gold < 50000 || wood < 25000 || iron < 35000)){
-		document.getElementById("btnPmillEffUpgrade").disabled = true;
-	}
-	else{
-		document.getElementById("btnPmillEffUpgrade").disabled = false;
-	}	
-	
-	//Paper mill efficiency upgrade 2
-	if(PmillEffUpgr2 == true || (gold < 1000000 || wood < 1000000 || iron < 1000000 || souls < 50000)){
-		document.getElementById("btnPmillEffUpgrade2").disabled = true;
-	}
-	else{
-		document.getElementById("btnPmillEffUpgrade2").disabled = false;
-	}
-		
-	
 	//Tomes button
 	tomeUnlock.canBuy();
 				/* 	if(tomesUnlocked == true || (gold < 12000 || paper < 2000 || faith < 1000)){
@@ -542,21 +525,55 @@ function UpdateButtons() {
 					}	 */
 	
 	//Unlock Knight Button
-	if(knightsUnlocked == true || (BattlePower < 500|| gold < 8000)){	
-		document.getElementById("btnSquireUpgrade1").disabled = true;
-	}
-	else{
-		document.getElementById("btnSquireUpgrade1").disabled = false;
-	}		
+	squireUpgrade1.canBuy();
+				/* 	if(knightsUnlocked == true || (BattlePower < 500|| gold < 8000)){	
+						document.getElementById("btnSquireUpgrade1").disabled = true;
+					}
+					else{
+						document.getElementById("btnSquireUpgrade1").disabled = false;
+					}	 */	
 
 	//Paladin upgrade weapon
-	if(paladinWepUpgrade == true || (gold < 20000 || iron < 5000 || faith < 2500)){
-		document.getElementById("paladinUpgrade1").disabled = true;
-	}
-	else{
-		document.getElementById("paladinUpgrade1").disabled = false;
-	}
+	paladinUpgrade1.canBuy();
+				/* 	if(paladinWepUpgrade == true || (gold < 20000 || iron < 5000 || faith < 2500)){
+						document.getElementById("paladinUpgrade1").disabled = true;
+					}
+					else{
+						document.getElementById("paladinUpgrade1").disabled = false;
+					} */
+	//Paladin upgrade weapon 2
+	paladinUpgrade2.canBuy();
+	
+	//Shade upgrade 1
+	shadeUpgrade1.canBuy();
+	
+	//Angel Upgrade 1 
+	angelUpgrade1.canBuy();
 
+	//Paper mill efficiency upgrade
+	pmillEffUpgrade.canBuy();
+					/* 	if(PmillEffUpgr == true || (gold < 50000 || wood < 25000 || iron < 35000)){
+							document.getElementById("btnPmillEffUpgrade").disabled = true;
+						}
+						else{
+							document.getElementById("btnPmillEffUpgrade").disabled = false;
+						}	 */
+	
+	//Paper mill efficiency upgrade 2
+	pmillEffUpgrade2.canBuy();
+					/* 	if(PmillEffUpgr2 == true || (gold < 1000000 || wood < 1000000 || iron < 1000000 || souls < 50000)){
+							document.getElementById("btnPmillEffUpgrade2").disabled = true;
+						}
+						else{
+							document.getElementById("btnPmillEffUpgrade2").disabled = false;
+						} */
+
+	//Paper mill click upgrade
+	pmillClickUpgrade.canBuy();
+	
+	//Quest Upgrade button
+	unlockQuesting.canBuy();
+	
 	//End of Upgrade Buttons//
 	
 	//Changes status of Unit buttons
