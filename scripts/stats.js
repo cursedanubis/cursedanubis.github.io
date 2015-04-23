@@ -239,8 +239,7 @@ function achieveCheckGold(){
 	}
 	
 	if(gold >= 100000000 && ach1BGold == false){
-		ach1MGold = true;
-
+		ach1BGold = true;
 		$.notify({
 			title: "<strong>Achievement! </strong>",
 			message: "You have gained 1,000,000,000 gold!",
@@ -251,7 +250,6 @@ function achieveCheckGold(){
 	
 	if(gold >= 100000000000 && ach1TGold == false){
 		ach1TGold = true;
-
 		$.notify({
 			title: "<strong>Achievement! </strong>",
 			message: "You have gained 1,000,000,000,000 gold!",

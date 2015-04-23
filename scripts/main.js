@@ -75,6 +75,8 @@ var towerBuilt = false;
 var lastPage;
 var TruncateNumber = 'standard';
 var KingdomName = "";
+var gameVer = 0.7;
+var gameSaveVer;
 
 function clickThing(number, type)
 {
@@ -354,475 +356,6 @@ function debugCurrency(){
 	tomes += 1000;
 };
 
-//UPGRADES
-
-var Upgrade = function(name, goldCost, htmlGoldCost, woodCost, htmlWoodCost, ironCost, htmlIronCost, 
-					   coalCost, htmlCoalCost, steelCost, htmlSteelCost, silverCost, htmlSilverCost, faithCost, htmlFaithCost, 
-					   soulCost, htmlSoulCost, paperCost, htmlPaperCost, tomeCost, htmlTomeCost, manaCost, htmlManaCost, buyBtnRef){
-	this.name = name;
-	this.goldCost = goldCost;
-	this.htmlGoldCost = htmlGoldCost;
-	this.woodCost = woodCost;
-	this.htmlWoodCost = htmlWoodCost;
-	this.ironCost = ironCost;
-	this.htmlIronCost = htmlIronCost;
-	this.coalCost = coalCost;
-	this.htmlCoalCost = htmlCoalCost;
-	this.steelCost = steelCost;
-	this.htmlSteelCost = htmlSteelCost;
-	this.silverCost = silverCost;
-	this.htmlSilverCost = htmlSilverCost;
-	this.faithCost = faithCost;
-	this.htmlFaithCost = htmlFaithCost;
-	this.soulCost = soulCost;
-	this.htmlSoulCost = htmlSoulCost;
-	this.paperCost = paperCost;
-	this.htmlPaperCost = htmlPaperCost;
-	this.tomeCost = tomeCost;
-	this.htmlTomeCost = htmlTomeCost;
-	this.manaCost = manaCost;
-	this.htmlManaCost = htmlManaCost;
-	this.buyBtnRef = buyBtnRef;
-}
-
-Upgrade.prototype.canBuy = function(){
-	if(costTest(goldCost, gold, this.htmlGoldRef) &&
-	   costTest(woodCost, wood, this.htmlWoodCost) &&
-	   costTest(ironCost, iron, this.htmlIronCost) &&
-	   costTest(coalCost, coal, this.htmlCoalCost) &&
-	   costTest(steelCost, steel, this.htmlSteelCost) &&
-	   costTest(silverCost, silver, this.htmlSilverCost) &&
-	   costTest(faithCost, faith, this.htmlFaithCost) &&
-	   costTest(soulCost, soul, this.htmlSoulCost) &&
-	   costTest(paperCost, paper, this.htmlPaperCost) &&
-	   costTest(tomeCost, tome, this.htmlTomeCost) &&
-	   costTest(manaCost, mana, this.htmlManaCost)
-	   ){
-		   document.getElementById(this.buyBtnRef).disabled = false;	
-	   }
-	else{
-		   document.getElementById(this.buyBtnRef).disabled = false;	
-	}
-}
-
-function costTest(cost, type, htmlRef){
-	switch(type){
-		case 'gold':
-			if(gold < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}
-		break;
-		
-		case 'wood':
-			if(wood < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}		
-		break;
-		
-		case 'iron':
-			if(iron < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}			
-		break;
-
-		case 'coal':
-			if(coal < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}		
-		break;	
-		
-		case 'steel':
-			if(steel < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}		
-		break;		
-
-		case 'silver':
-			if(silver < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}		
-		break;
-		
-		case 'faith':
-			if(faith < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}		
-		break;	
-		
-		case 'paper':
-			if(paper < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}		
-		break;
-		
-		case 'tome':
-			if(tome < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}		
-		break;
-		
-		case 'mana':
-			if(mana < cost){
-				document.getElementById(htmlRef).style.color = "red";
-				return false;
-			}
-			else{
-				document.getElementById(htmlRef).style.color = "black";
-				return true;
-			}		
-		break;
-		
-		default:
-		break;
-	}
-}
-
-function peasantUpgradeCollection(){	
-	if(gold >= 2000){
-		gold -= 2000;
-		pGoldUpgrade = true;
-		Peasant.goldClickVal += 1;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById("btnPeasantUpgrade1").disabled = true;
-		document.getElementById("btnPeasantUpgrade1").innerHTML = "Peasant Power Purchased";
-	}	
-};
-
-function upgradeClickGoldMultiplier(){
-	if(gold >= 1500){
-		gold -= 1500;
-		pGoldClickUpgrade = true;	
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById("clickGoldUpgrade").disabled = true;
-		document.getElementById("clickGoldUpgrade").innerHTML = "Click Upgrade Purchased";
-	}	
-};
-
-function upgradeClickGoldMultiplier2(){
-	if(gold >= 25000){
-		gold -= 25000;
-		pGoldClickUpgrade2 = true;	
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById("clickGoldUpgrade2").disabled = true;
-		document.getElementById("clickGoldUpgrade2").innerHTML = "Click Upgrade 2 Purchased";
-	}	
-};
-
-function upgradeClickGoldMultiplier3(){
-	if(gold >= 1000000){
-		gold -= 1000000;
-		pGoldClickUpgrade3 = true;	
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById("clickGoldUpgrade3").disabled = true;
-		document.getElementById("clickGoldUpgrade3").innerHTML = "Click Upgrade 3 Purchased";
-	}	
-};
-
-function lumberjackUpgradeCollection(){
-	if(gold >= 2500 && iron >= 1500){
-		gold -= 1500;
-		iron -= 1500;
-		lwoodUpgrade = true;	
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById("btnljackUpgrade1").disabled = true;
-		document.getElementById("btnljackUpgrade1").innerHTML = "Reinforced Axes Purchased";
-	}
-};
-
-function upgradeClickWoodMultiplier(){
-	if(gold >= 25000 && iron >= 20000 && silver >=15000 && souls >= 5000 && Shade.number >= 5){
-		gold -= 25000;
-		iron -= 20000;
-		silver -= 15000;
-		souls -= 5000;
-		Shade.number -= 5;
-		lwoodClickUpgrade = true;	
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById('silver').innerHTML = fnum(silver);
-		document.getElementById('souls').innerHTML = fnum(souls);
-		document.getElementById('shades').innerHTML = Shade.number;
-		document.getElementById("btnljackUpgrade2").disabled = true;
-		document.getElementById("btnljackUpgrade2").innerHTML = "Phantom Axes Purchased";
-	}	
-};
-
-function minerUpgradePanning(){
-	if(gold >= 3500 && iron >= 1000){
-		gold -= 3500;
-		iron -= 1000;
-		mPanningUpgrade = true;	
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById("btnminerUpgrade1").disabled = true;
-		document.getElementById("btnminerUpgrade1").innerHTML = "Learn Panning Purchased";
-	}	
-};
-
-function minerUpgradeSilver(){
-	if(gold >= 7500 && iron >= 2500){
-		gold -= 7500;
-		iron -= 2500;
-		mSilverUpgrade = true;	
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById('silverdiv').style.display = "block";
-		$("#SecondaryResources").collapse('show');
-		document.getElementById("btnminerUpgrade2").disabled = true;
-		document.getElementById("btnminerUpgrade2").innerHTML = "Learned Silver Studies";
-	}	
-};
-
-function acolyteUpgradeCollection(){
-	if(gold >= 5000 && wood >= 3000 && faith >= 250){
-		gold -= 5000
-		wood -= 3000
-		faith -= 250
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('wood').innerHTML = fnum(wood);
-		document.getElementById('faith').innerHTML = fnum(faith);
-		acFaithUpgrade = true;
-		document.getElementById("btnAcolyteUpgrade1").disabled = true;
-		document.getElementById("btnAcolyteUpgrade1").innerHTML = "Trainee Vestments Crafted";
-	}	
-}
-
-function priestUpgradeCollection(){
-	if(gold >= 7000 && wood >= 5000 && faith >= 500){
-		gold -= 7000
-		wood -= 5000
-		faith -= 500
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('wood').innerHTML = fnum(wood);
-		document.getElementById('faith').innerHTML = fnum(faith);
-		prFaithUpgrade = true;
-		document.getElementById("btnPriestUpgrade1").disabled = true;
-		document.getElementById("btnPriestUpgrade1").innerHTML = "Rosary Beads Crafted";
-	}	
-}
-
-function PmillEffUpgrade(){
-	if(gold >= 50000 && wood >= 25000 && iron >= 35000){
-		gold -= 50000
-		wood -= 25000
-		iron -= 35000
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('wood').innerHTML = fnum(wood);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		PmillEffUpgr = true;
-		document.getElementById("btnPmillEffUpgrade").disabled = true;
-		document.getElementById("btnPmillEffUpgrade").innerHTML = "Process Control Purchased";
-	}		
-}
-
-function PmillEffUpgrade2(){
-	if(gold >= 1000000 && wood >= 1000000 && iron >= 1000000 && souls >= 50000){
-		gold -= 1000000
-		wood -= 1000000
-		iron -= 1000000
-		souls -= 50000;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('wood').innerHTML = fnum(wood);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById('souls').innerHTML = fnum(souls);
-		PmillEffUpgr2 = true;
-		document.getElementById("btnPmillEffUpgrade2").disabled = true;
-		document.getElementById("btnPmillEffUpgrade2").innerHTML = "Total Overhaul Purchased";
-	}		
-}
-
-function PmillClickUpgrade(){
-	if(gold >= 1200000 && wood >= 1500000 && iron >= 1200000 && souls >= 50000){
-		gold -= 1200000
-		wood -= 1500000
-		iron -= 1200000
-		souls -= 50000;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('wood').innerHTML = fnum(wood);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById('souls').innerHTML = fnum(souls);
-		PmillClickUpgr = true;
-		document.getElementById("btnPmillClickUpgrade").disabled = true;
-		document.getElementById("btnPmillClickUpgrade").innerHTML = "Production Oversight Purchased";
-	}		
-}
-
-function unlockQuesting(){
-	if(gold >= 10000){
-		gold -= 10000;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('QuestMenu').style.display = "block";
-		document.getElementById('Quests').style.display = "block";
-		document.getElementById("navKingdomName").click();
-		document.getElementById("btnUnlockQuest").disabled = true;
-		document.getElementById("btnUnlockQuest").innerHTML = "Taskmaster Hired - Questing available";		
-		unlockedQuesting = true;
-		$.notify({
-			title: "<strong>New! </strong>",
-			message: "You are now employing a taskmaster whom helps you coordinate your troops and handle <a href='javascript: alertOpenQuestPage();' class='alert-link'>requests.</a>",
-			},{
-		delay: 900000
-		});			
-	}
-}
-
-function UnlockTomes(){
-	if(gold >= 12000 && paper >= 2000 && faith >= 1000){
-		gold -= 12000;
-		paper -= 2000;
-		faith -= 1000;
-		tomesUnlocked = true;
-		document.getElementById('tomediv').style.display = "block";
-		document.getElementById('createTome').style.display = "block";
-		document.getElementById("btnTomeUnlock").disabled = true;		
-		document.getElementById("btnTomeUnlock").innerHTML = "Scribing Unlocked";
-	}
-}
-			
-function UnlockSquire(){
-	if(gold >= 4000 && BattlePower >= 120){
-		gold -= 400;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		squiresUnlocked = true;
-		document.getElementById("btnPageUpgrade1").disabled = true;
-		document.getElementById('SquireTab').style.display = "block";
-		document.getElementById("btnPageUpgrade1").innerHTML = "Unlocked Squires";
-	}
-}
-
-function UnlockKnight(){
-	if(gold >= 8000 && BattlePower >= 500){
-		gold -= 8000;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		knightsUnlocked = true;
-		document.getElementById("btnSquireUpgrade1").disabled = true;
-		document.getElementById("btnSquireUpgrade1").innerHTML = "Unlocked Knights";
-		document.getElementById('KnightTab').style.display = "block";
-	}
-}
-
-function paladinUpgradeWeapon(){
-	if(gold >= 20000 && iron >= 5000 && faith >=2500){
-		gold -= 20000;
-		iron -= 5000;
-		faith -= 2500;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById('faith').innerHTML = fnum(faith);
-		paladinWepUpgrade = true;
-		setSpiritPower(Paladin,10);
-		document.getElementById("paladinUpgrade1").disabled = true;
-		document.getElementById("paladinUpgrade1").innerHTML = "Imbue Weapons Purchased";
-	}
-}
-
-function paladinUpgradeWeapon2(){
-	if(gold >= 5000000 && iron >= 1000000 && steel >= 3000 && faith >=2000000){
-		gold -= 5000000;
-		iron -= 1000000;
-		steel -= 3000;
-		faith -= 2000000;
-		document.getElementById('gold').innerHTML = fnum(gold);
-		document.getElementById('iron').innerHTML = fnum(iron);
-		document.getElementById('steel').innerHTML = fnum(steel);
-		document.getElementById('faith').innerHTML = fnum(faith);
-		paladinWepUpgrade2 = true;
-		if(paladinWepUpgrade == true){
-			setSpiritPower(Paladin,100);
-		}
-		else{
-			setSpiritPower(Paladin,50);
-		}
-		document.getElementById("paladinUpgrade2").disabled = true;
-		document.getElementById("paladinUpgrade2").innerHTML = "Reforge Blessed Steel Purchased";
-	}	
-}
-
-function shadeUpgrade1(){
-	if(gold >= 75000 && silver >= 30000 && faith >= 30000 && tomes >= 20){
-		gold -= 75000;
-		silver -= 30000;
-		faith -= 30000;
-		tomes -= 20;
-		shadeUpgr1 = true;
-		setArmyPower(Shade,10);
-		setSpiritPower(Shade,20);
-		document.getElementById("btnShadeUpgrade1").disabled = true;
-		document.getElementById("btnShadeUpgrade1").innerHTML = "Blessed Silver Runes Purchased";
-	}
-}
-
-function buyAngelUpgrade1(){
-	if(gold >= 3000000 && silver >= 1500000 && faith >= 1000000 && tomes >= 50){
-		gold -= 3000000;
-		silver -= 1500000;
-		faith -= 1000000;
-		tomes -= 50;
-		angelUpgr1 = true;
-		document.getElementById("btnAngelUpgrade1").disabled = true;
-		document.getElementById("btnAngelUpgrade1").innerHTML = "Concentrated Piety Purchased";
-	}	
-}
-
-function BishopUpgradeCollection(){
-	if(gold >= 1000000 && wood >= 500000 && silver >= 750000 && faith >= 40000 && steel >= 50){
-		gold -= 1000000;
-		wood -= 500000;
-		silver -= 750000;
-		faith -= 40000;
-		steel -= 50;
-		bishopUpgr1 = true;
-		document.getElementById("btnBishopUpgrade1").disabled = true;
-		document.getElementById("btnBishopUpgrade1").innerHTML = "Confessionals Purchased";
-	}		
-}
-
 function addFaithToRelic(number){
 	
 //	console.log(number);
@@ -895,68 +428,80 @@ function recalculateCosts(){
 function UpdateButtons() {
 
 	//Upgrade Buttons//
+
 	//Peasant Upgrade gold collection Peasant Power
-	if(pGoldUpgrade == true || (gold < 2000)){
-		document.getElementById("btnPeasantUpgrade1").disabled = true;
-	}
-	else{
-		document.getElementById("btnPeasantUpgrade1").disabled = false;
-	}	
+	peasantUpgrade1.canBuy();
+				/* 	if(pGoldUpgrade == true || (gold < 2000)){
+						document.getElementById("btnPeasantUpgrade1").disabled = true;
+					}
+					else{
+						document.getElementById("btnPeasantUpgrade1").disabled = false;
+					}	 */
 	
-	//Mouse click upgrade
-	if(pGoldClickUpgrade == true || (gold < 1500)){
-		document.getElementById("clickGoldUpgrade").disabled = true;
-	}
-	else{
-		document.getElementById("clickGoldUpgrade").disabled = false;
-	}		
+ 	//Mouse click upgrade
+	clickGoldUpgrade.canBuy();
+				/*	if(pGoldClickUpgrade == true || (gold < 1500)){
+						document.getElementById("clickGoldUpgrade").disabled = true;
+					}
+					else{
+						document.getElementById("clickGoldUpgrade").disabled = false;
+					}*/	
 	
 	//Mouse gold click upgrade 2
-	if(pGoldClickUpgrade2 == true || (gold < 25000)){
-		document.getElementById("clickGoldUpgrade2").disabled = true;
-	}
-	else{
-		document.getElementById("clickGoldUpgrade2").disabled = false;
-	}	
+	clickGoldUpgrade2.canBuy();
+				/*	if(pGoldClickUpgrade2 == true || (gold < 25000)){
+						document.getElementById("clickGoldUpgrade2").disabled = true;
+					}
+					else{
+						document.getElementById("clickGoldUpgrade2").disabled = false;
+					}*/
 
 	//Lumberjack upgrade collection
-	if(lwoodUpgrade == true || (gold < 2500 || iron < 1500)){
-		document.getElementById("btnljackUpgrade1").disabled = true;
-	}
-	else{
-		document.getElementById("btnljackUpgrade1").disabled = false;
-	}	
+	ljackUpgrade1.canBuy();
+				/* 	if(lwoodUpgrade == true || (gold < 2500 || iron < 1500)){
+						document.getElementById("btnljackUpgrade1").disabled = true;
+					}
+					else{
+						document.getElementById("btnljackUpgrade1").disabled = false;
+					}	 */
 	//Lumberjack upgrade wood click
-	if(lwoodClickUpgrade == true || (gold < 25000 || iron < 20000 || silver < 15000 || souls < 5000 || Shade.number < 5)){
-		document.getElementById("btnljackUpgrade2").disabled = true;
-	}
-	else{
-		document.getElementById("btnljackUpgrade2").disabled = false;
-	}
+	ljackUpgrade2.canBuy();
+				/* 	if(lwoodClickUpgrade == true || (gold < 25000 || iron < 20000 || silver < 15000 || souls < 5000 || Shade.number < 5)){
+						document.getElementById("btnljackUpgrade2").disabled = true;
+					}
+					else{
+						document.getElementById("btnljackUpgrade2").disabled = false;
+					} */
 	
 	//Miner upgrade panning 
-	if(mPanningUpgrade == true || (gold < 3500 || iron < 1000)){
-		document.getElementById("btnminerUpgrade1").disabled = true;
-	}
-	else{
-		document.getElementById("btnminerUpgrade1").disabled = false;
-	}	
+	minerUpgrade1.canBuy()
+				/* 	if(mPanningUpgrade == true || (gold < 3500 || iron < 1000)){
+						document.getElementById("btnminerUpgrade1").disabled = true;
+					}
+					else{
+						document.getElementById("btnminerUpgrade1").disabled = false;
+					}	 */
 	
 	//Miner upgrade silver 
-	if(mSilverUpgrade == true || (gold < 7500 || iron < 2500)){
-		document.getElementById("btnminerUpgrade2").disabled = true;
-	}
-	else{
-		document.getElementById("btnminerUpgrade2").disabled = false;
-	}		
+	minerUpgrade2.canBuy();
+				/* 	if(mSilverUpgrade == true || (gold < 7500 || iron < 2500)){
+						document.getElementById("btnminerUpgrade2").disabled = true;
+					}
+					else{
+						document.getElementById("btnminerUpgrade2").disabled = false;
+					}	 */	
+	
+	//Acolyte faith upgrade
+	acolyteUpgrade1.canBuy();
 	
 	//Priest faith upgrade
-	if(prFaithUpgrade == true || (gold < 7000 || wood < 5000 || faith < 500)){
-		document.getElementById("btnPriestUpgrade1").disabled = true;
-	}
-	else{
-		document.getElementById("btnPriestUpgrade1").disabled = false;
-	}
+	
+				/* 	if(prFaithUpgrade == true || (gold < 7000 || wood < 5000 || faith < 500)){
+						document.getElementById("btnPriestUpgrade1").disabled = true;
+					}
+					else{
+						document.getElementById("btnPriestUpgrade1").disabled = false;
+					} */
 	
 	//Paper mill efficiency upgrade
 	if(PmillEffUpgr == true || (gold < 50000 || wood < 25000 || iron < 35000)){
@@ -976,20 +521,25 @@ function UpdateButtons() {
 		
 	
 	//Tomes button
-	if(tomesUnlocked == true || (gold < 12000 || paper < 2000 || faith < 1000)){
-		document.getElementById("btnTomeUnlock").disabled = true;	
-	}
-	else{
-		document.getElementById("btnTomeUnlock").disabled = false;	
-	}
+	tomeUnlock.canBuy();
+				/* 	if(tomesUnlocked == true || (gold < 12000 || paper < 2000 || faith < 1000)){
+						document.getElementById("btnTomeUnlock").disabled = true;	
+					}
+					else{
+						document.getElementById("btnTomeUnlock").disabled = false;	
+					} */
+	
+	//Bishop faith rate upgrade
+	bishopUpgrade1.canBuy();
 	
 	//Unlock Squire Button
-	if(squiresUnlocked == true || (BattlePower < 120|| gold < 4000)){	
-		document.getElementById("btnPageUpgrade1").disabled = true;
-	}
-	else{
-		document.getElementById("btnPageUpgrade1").disabled = false;
-	}	
+	pageUpgrade1.canBuy();
+				/* 	if(squiresUnlocked == true || (BattlePower < 120|| gold < 4000)){	
+						document.getElementById("btnPageUpgrade1").disabled = true;
+					}
+					else{
+						document.getElementById("btnPageUpgrade1").disabled = false;
+					}	 */
 	
 	//Unlock Knight Button
 	if(knightsUnlocked == true || (BattlePower < 500|| gold < 8000)){	

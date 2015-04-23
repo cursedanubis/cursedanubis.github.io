@@ -138,8 +138,9 @@
 		
 		//MiscFlags
 		save("faithDonated", faithDonated);
-		save("lastPage",lastPage);
-		save("KingdomName",KingdomName);
+		save("lastPage", lastPage);
+		save("KingdomName", KingdomName);
+		save("gameSaveVer", gameVer);
 
 		//Statistic/Lifetime Variables
 		save("statResetted", statResetted);
@@ -589,8 +590,7 @@
 			var myBool = (localStorage.pGoldUpgrade == "true")
 			if(myBool == true){
 				pGoldUpgrade = true;
-				document.getElementById("btnPeasantUpgrade1").disabled = true;
-				document.getElementById("btnPeasantUpgrade1").innerHTML = "Peasant Power Bought";
+				peasantUpgrade1.enableFlag()
 			}
 		}
 		
@@ -598,8 +598,7 @@
 			var myBool = (localStorage.pGoldClickUpgrade == "true")
 			if(myBool == true){
 				pGoldClickUpgrade = true;
-				document.getElementById("clickGoldUpgrade").disabled = true;
-				document.getElementById("clickGoldUpgrade").innerHTML = "Click Upgrade Bought";
+				clickGoldUpgrade.enableFlag();
 			}
 		}
 
@@ -607,24 +606,21 @@
 			var myBool = (localStorage.pGoldClickUpgrade2 == "true")
 			if(myBool == true){
 				pGoldClickUpgrade2 = true;
-				document.getElementById("clickGoldUpgrade2").disabled = true;
-				document.getElementById("clickGoldUpgrade2").innerHTML = "Click Upgrade 2 Bought";
+				clickGoldUpgrade2.enableFlag();
 			}
 		}	
 		if(localStorage.pGoldClickUpgrade3 != null){
 			var myBool = (localStorage.pGoldClickUpgrade3 == "true")
 			if(myBool == true){
 				pGoldClickUpgrade3 = true;
-				document.getElementById("clickGoldUpgrade3").disabled = true;
-				document.getElementById("clickGoldUpgrade3").innerHTML = "Click Upgrade 3 Bought";
+				clickGoldUpgrade3.enableFlag();
 			}
 		}		
 		if(localStorage.lwoodUpgrade != null){
 			var myBool = (localStorage.lwoodUpgrade == "true")
 			if(myBool == true){
 				lwoodUpgrade = true;
-				document.getElementById("btnljackUpgrade1").disabled = true;
-				document.getElementById("btnljackUpgrade1").innerHTML = "Reinforced Axes Bought";
+				ljackUpgrade1.enableFlag();
 			}
 		}				
 		
@@ -632,8 +628,7 @@
 			var myBool = (localStorage.lwoodClickUpgrade == "true")
 			if(myBool == true){
 				lwoodClickUpgrade = true;
-				document.getElementById("btnljackUpgrade2").disabled = true;
-				document.getElementById("btnljackUpgrade2").innerHTML = "Phantom Axes Bought";
+				ljackUpgrade2.enableFlag();
 			}
 		}
 		
@@ -642,9 +637,7 @@
 			var myBool = (localStorage.mSilverUpgrade == "true")
 			if(myBool == true){
 				mSilverUpgrade = true;
-				document.getElementById('silverdiv').style.display = "block";
-				document.getElementById("btnminerUpgrade2").innerHTML = "Learned Silver Studies";
-				document.getElementById("btnminerUpgrade2").disabled = true;				
+				minerUpgrade2.enableFlag();				
 			}
 		}		
 		
@@ -652,8 +645,7 @@
 			var myBool = (localStorage.mPanningUpgrade == "true")
 			if(myBool == true){
 				mPanningUpgrade = true;
-				document.getElementById("btnminerUpgrade1").innerHTML = "Learn Panning Bought";
-				document.getElementById("btnminerUpgrade1").disabled = true;
+				minerUpgrade1.enableFlag();
 			}
 		}
 		
@@ -661,26 +653,21 @@
 			var myBool = (localStorage.acFaithUpgrade == "true")
 			if(myBool == true){
 				acFaithUpgrade = true;
-				document.getElementById("btnAcolyteUpgrade1").disabled = true;
-				document.getElementById("btnAcolyteUpgrade1").innerHTML = "Rosary Beads Crafted";
+				acolyteUpgrade1.enableFlag();
 			}
 		}	
 		if(localStorage.prFaithUpgrade != null){
 			var myBool = (localStorage.prFaithUpgrade == "true")
 			if(myBool == true){
 				prFaithUpgrade = true;
-				document.getElementById("btnPriestUpgrade1").disabled = true;
-				document.getElementById("btnPriestUpgrade1").innerHTML = "Rosary Beads Crafted";
+				priestUpgrade1.enableFlag();
 			}
 		}		
 		if(localStorage.tomesUnlocked != null){
 			var myBool = (localStorage.tomesUnlocked == "true")
 			if(myBool == true){
 				tomesUnlocked = true;
-				document.getElementById('tomediv').style.display = "block";
-				document.getElementById('createTome').style.display = "block";
-				document.getElementById("btnTomeUnlock").innerHTML = "Scribing Unlocked";
-				document.getElementById("btnTomeUnlock").disabled = true;
+				tomeUnlock.enableFlag();
 			}
 		}	
 		
@@ -747,7 +734,25 @@
 				document.getElementById("btnBishopUpgrade1").innerHTML = "Confessionals Purchased";
 			}
 		}	
-	
+
+		if(localStorage.squiresUnlocked != null){
+			var myBool = (localStorage.squiresUnlocked == "true")
+			if(myBool == true){
+				squiresUnlocked = true;
+				pageUpgrade1.enableFlag();
+			}
+		}	
+		
+		if(localStorage.knightsUnlocked != null){
+			var myBool = (localStorage.knightsUnlocked == "true")
+			if(myBool == true){
+				knightsUnlocked = true;
+				document.getElementById("btnSquireUpgrade1").disabled = true;
+				document.getElementById("btnSquireUpgrade1").innerHTML = "Unlocked Knights";
+				document.getElementById('KnightTab').style.display = "block";
+			}
+		}	
+		
 		if(localStorage.shadeUpgr1 != null){
 			var myBool = (localStorage.shadeUpgr1 == "true")
 			if(myBool == true){
@@ -780,25 +785,7 @@
 				document.getElementById("btnUpgradeTavern2").disabled = true;
 			}
 		}			
-		if(localStorage.squiresUnlocked != null){
-			var myBool = (localStorage.squiresUnlocked == "true")
-			if(myBool == true){
-				squiresUnlocked = true;
-				document.getElementById("btnPageUpgrade1").disabled = true;
-				document.getElementById("btnPageUpgrade1").innerHTML = "Unlocked Squires";
-				document.getElementById('SquireTab').style.display = "block";
-			}
-		}	
-		
-		if(localStorage.knightsUnlocked != null){
-			var myBool = (localStorage.knightsUnlocked == "true")
-			if(myBool == true){
-				knightsUnlocked = true;
-				document.getElementById("btnSquireUpgrade1").disabled = true;
-				document.getElementById("btnSquireUpgrade1").innerHTML = "Unlocked Knights";
-				document.getElementById('KnightTab').style.display = "block";
-			}
-		}	
+
 		
 		if(localStorage.angelsUnlocked != null){
 			var myBool = (localStorage.angelsUnlocked == "true")
@@ -1155,7 +1142,12 @@
 			//document.getElementById("ProductionMenu").innerHTML = KingdomName;
 			document.getElementById("navKingdomName").innerHTML = KingdomName;
 			document.title = "Holy Wars - " + KingdomName;
-		}		
+		}	
+
+		if(localStorage.gameSaveVer != null){
+			gameSaveVer = localStorage.gameSaveVer;
+			console.log("Save version: " + gameSaveVer);
+		}			
 		
 		if(localStorage.lastPage != null){
 			lastPage = localStorage.lastPage;
