@@ -1737,19 +1737,19 @@ function necroReviveUA(){
 }
 
 var elementalEarthDesc = "";
-var ElementalEarth = new Enemy("Earth Elemental", ElementalEarth, 'BatEarthElementalProgBarBox','BatEarthElementalProgBar','btnBatEarthElemental','EarthElementalDefeatAlert',52500,6000,0,1,4000);
+var ElementalEarth = new Enemy("Earth Elemental", ElementalEarth, 'BatEarthElementalProgBarBox','BatEarthElementalProgBar','btnBatEarthElemental','EarthElementalDefeatAlert',55000,6500,0,1,4000);
 setEnemyDescription(ElementalEarth, 'btnDescEarthElemental');
 
 var elementalFireDesc = "";
-var ElementalFire = new Enemy("Fire Elemental", ElementalFire, 'BatFireElementalProgBarBox','BatFireElementalProgBar','btnBatFireElemental','FireElementalDefeatAlert',52500,6000,0,1,4000);
+var ElementalFire = new Enemy("Fire Elemental", ElementalFire, 'BatFireElementalProgBarBox','BatFireElementalProgBar','btnBatFireElemental','FireElementalDefeatAlert',55000,6500,0,1,4000);
 setEnemyDescription(ElementalFire, 'btnDescFireElemental');
 
 var elementalWindDesc = "";
-var ElementalWind = new Enemy("Wind Elemental", ElementalWind, 'BatWindElementalProgBarBox','BatWindElementalProgBar','btnBatWindElemental','WindElementalDefeatAlert',52500,6000,0,1,4000);
+var ElementalWind = new Enemy("Wind Elemental", ElementalWind, 'BatWindElementalProgBarBox','BatWindElementalProgBar','btnBatWindElemental','WindElementalDefeatAlert',55000,6500,0,1,4000);
 setEnemyDescription(ElementalWind, 'btnDescWindElemental');
 
 var elementalWaterDesc = "";
-var ElementalWater = new Enemy("Water Elemental", ElementalWater, 'BatWaterElementalProgBarBox','BatWaterElementalProgBar','btnBatWaterElemental','WaterElementalDefeatAlert',52500,6000,0,1,4000);
+var ElementalWater = new Enemy("Water Elemental", ElementalWater, 'BatWaterElementalProgBarBox','BatWaterElementalProgBar','btnBatWaterElemental','WaterElementalDefeatAlert',6500,6000,0,1,4000);
 setEnemyDescription(ElementalWater, 'btnDescWaterElemental');
 
 function checkDefeatedAllElementals(){
@@ -1780,7 +1780,7 @@ function ThaumaturgeRevive(elemental){
 }
 
 var ThaumaturgeDesc = "";
-var Thaumaturge = new Enemy("Thaumaturge", Thaumaturge, 'BatThaumaturgeProgBarBox','BatThaumaturgeProgBar','btnBatThaumaturge','ThaumaturgeDefeatAlert',52500,6000,0,1,4000);
+var Thaumaturge = new Enemy("Thaumaturge", Thaumaturge, 'BatThaumaturgeProgBarBox','BatThaumaturgeProgBar','btnBatThaumaturge','ThaumaturgeDefeatAlert',60000,8000,0,1,4000);
 setEnemyDescription(Thaumaturge, 'btnDescThaumaturge');
 
 var OuroDesc = "";

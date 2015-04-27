@@ -335,7 +335,7 @@ function btnSendQuest(){
 			silverQuest.startQuest('silver');
 		 break;	 
 		 
-		 case 'Hunt lesser Demons':
+		 case 'Hunt Lesser Demons':
 			console.log('Hunt Lesser Demons');
 			soulsQuest.startQuest('souls');
 		 break;		 
