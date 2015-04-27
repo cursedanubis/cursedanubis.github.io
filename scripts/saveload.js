@@ -65,6 +65,7 @@
 		save("coalUnlocked",coalUnlocked);
 		
 		//Battle flags
+		save("defeatedBoar", defeatedBoar);
 		save("defeatedGoblins",defeatedGoblins);
 		save("defeatedBandits",defeatedBandits);
 		save("defeatedHermit",defeatedHermit);
@@ -769,6 +770,14 @@
 			}
 		}			
 		
+		
+		if(localStorage.defeatedBoar != null){
+			var myBool = (localStorage.defeatedBoar == "true")
+			if(myBool == true){
+				defeatedBoar = true;
+				document.getElementById('boarh4').classList.add('defeatedtitle');	
+			}
+		}		
 		if(localStorage.defeatedGoblins != null){
 			var myBool = (localStorage.defeatedGoblins == "true")
 			if(myBool == true){
@@ -938,7 +947,7 @@
 					document.getElementById('BatFireElemental').style.display = "block";	
 					document.getElementById('BatWindElemental').style.display = "block";
 					document.getElementById('BatWaterElemental').style.display = "block";	
-					document.getElementById('BatThaumaturge').style.display = "block";
+//					document.getElementById('BatThaumaturge').style.display = "block";
 					document.getElementById('necromancerh4').classList.add('defeatedtitle');						
 				}
 		};

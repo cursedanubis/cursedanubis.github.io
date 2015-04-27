@@ -1,6 +1,7 @@
 //Battle script for HW//
 
 //Battle variables//
+var defeatedBoar = false;
 var defeatedGoblins = false;
 var defeatedBandits = false;
 var defeatedHermit = false;
@@ -369,6 +370,14 @@ function selectRandomEthUnit(){
 Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won, if so change button to reflect
 	var myButton = this.htmlBtnRef
 	switch(this.name){
+		case 'Boar':
+			if(defeatedBoar == true){
+				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
+				document.getElementById(myButton).disabled = true;
+				document.getElementById('boarh4').classList.add('defeatedtitle');
+			}
+		break;
+		
 		case 'Goblins':
 			if(defeatedGoblins == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
@@ -475,32 +484,32 @@ Enemy.prototype.checkFlag = function(){		//Checks to see if battle has been won,
 			}							
 		break;
 
-		case 'EarthElmental':
-			if(defeatedNecromancer == true){
+		case 'Earth Elemental':
+			if(defeatedEarthElemental == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
 				document.getElementById('earthelementalh4').classList.add('defeatedtitle');
 			}			
 		break;
 		
-		case 'FireElmental':
-			if(defeatedFireElmental == true){
+		case 'Fire Elemental':
+			if(defeatedFireElemental == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
 				document.getElementById('fireelementalh4').classList.add('defeatedtitle');
 			}			
 		break;
 
-		case 'WindElmental':
-			if(defeatedWindElmental == true){
+		case 'Wind Elemental':
+			if(defeatedWindElemental == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
 				document.getElementById('windelementalh4').classList.add('defeatedtitle');
 			}			
 		break;
 
-		case 'WaterElmental':
-			if(defeatedWaterElmental == true){
+		case 'Water Elemental':
+			if(defeatedWaterElemental == true){
 				document.getElementById(myButton).innerHTML = this.name + " Defeated!";     //Changes button text
 				document.getElementById(myButton).disabled = true;	
 				document.getElementById('waterelementalh4').classList.add('defeatedtitle');
@@ -549,8 +558,22 @@ function setEnemyDescription(Enemy, element){
 };
 
 function setDefeatEvents(name){
-	eval("var " + this.AlertRef );
+//	eval("var " + this.AlertRef );
 	switch(name){
+		
+		case 'Boar':
+			defeatedBoar = true;
+			gold = gold + 100;
+			document.getElementById("gold").innerHTML = gold;
+			this.AlertRef = $.notify({
+				title: "<strong>New!</strong>",
+				message: "You defeat the wild boar with ease! You realize that it somehow came into possession of  <img src = 'images/money_goldsmall.png' Title='Gold'>100... You send one of your pages to retrieve it from the boar's defeated body. ",
+				},{
+				type: 'success',
+				delay: 300000
+			});	
+			
+		break; 
 		case 'Goblins':
 			defeatedGoblins = true;
 			gold = gold + 2000;
@@ -771,7 +794,7 @@ function setDefeatEvents(name){
 			document.getElementById('BatFireElemental').style.display = "block";	
 			document.getElementById('BatWindElemental').style.display = "block";
 			document.getElementById('BatWaterElemental').style.display = "block";	
-			document.getElementById('BatThaumaturge').style.display = "block";
+//			document.getElementById('BatThaumaturge').style.display = "block";
 			
 			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
@@ -780,55 +803,110 @@ function setDefeatEvents(name){
 			delay: 300000,
 			type: 'success'
 			});						
-			
 		break;		
 
 		case 'Earth Elemental':
-			defeatedEarthElemental = true;
-			this.AlertRef = $.notify({
-				title: "<strong>New!</strong>",
-				message: "Earth Elemental Defeat Message",
-				},{
-			delay: 300000,
-			type: 'success'
-			});	
-			
+			if(boughtEarthPendant == false){
+				this.AlertRef = $.notify({
+					title: "<strong>New!</strong>",
+					message: "Your troops fight valiantly! The earth elemental loses cohesion and collapses into a pile of boulders and dust. Just as you and your troops are about to leave, ominous rumbling comes from the pile, and you watch in dismay as the earth elemental reforms itself. There must be a way to stop this!",
+					},{
+				delay: 300000,
+				type: 'danger'
+				});
+				ThaumaturgeRevive(ElementalEarth);		
+			}
+			else{
+				defeatedEarthElemental = true;
+				this.AlertRef = $.notify({
+					title: "<strong>New!</strong>",
+					message: "The earth elemental loses cohesion once more! The earth pendant you had made from ancient relics emits a pulsating light, and you can tell whatever primal magic that was animating the elemental is drawn into the pendant!",
+					},{
+				delay: 300000,
+				type: 'success'
+				});	
+				if(checkDefeatedAllElementals() == true){
+					document.getElementById('BatThaumaturge').style.display = "block";
+				}			
+			}
 		break;
 
 		case 'Fire Elemental':
-			defeatedFireElemental = true;
-			this.AlertRef = $.notify({
-				title: "<strong>New!</strong>",
-				message: "Fire Elemental Defeat Message",
-				},{
-			delay: 300000,
-			type: 'success'
-			});				
-			
+			if(boughtFirePendant == false){
+				this.AlertRef = $.notify({
+					title: "<strong>New!</strong>",
+					message: "Your troops fight valiantly! You watch as the fire elemental powers diminish, its form changing from a bright, hot blue to a barely flickering reddish flicker. Just as you and your troops are about to leave, a blazing flash of heat can be felt on your backs. The fire elemental reforms itself once more! There must be a way to stop this!",
+					},{
+				delay: 300000,
+				type: 'danger'
+				});
+				ThaumaturgeRevive(ElementalFire);		
+			}
+			else{
+				defeatedFireElemental = true;
+				this.AlertRef = $.notify({
+					title: "<strong>New!</strong>",
+					message: "The fire elemental burns to a sizzling halt! The fire pendant you had made from ancient relics emits a pulsating light, and you can tell whatever primal magic that was animating the elemental is drawn into the pendant!",
+					},{
+				delay: 300000,
+				type: 'success'
+				});	
+				if(checkDefeatedAllElementals() == true){
+					document.getElementById('BatThaumaturge').style.display = "block";
+				}			
+			}			
 		break;	
 
 		case 'Wind Elemental':
-			defeatedWindElemental = true;
-			this.AlertRef = $.notify({
-				title: "<strong>New!</strong>",
-				message: "Wind Elemental Defeat Message",
-				},{
-			delay: 300000,
-			type: 'success'
-			});				
-			
+			if(boughtWindPendant == false){
+				this.AlertRef = $.notify({
+					title: "<strong>New!</strong>",
+					message: "Your troops fight valiantly! The wind elemental form becomes more and more nebulous, until all that remains is a vaguely irritated puff of wind. Just as you and your troops are about to leave, the wind picks back up and nearly knocks you onto your knees. You watch in dismay as the wind elemental reforms! There must be a way to stop this!",
+					},{
+				delay: 300000,
+				type: 'danger'
+				});
+				ThaumaturgeRevive(ElementalWind);		
+			}
+			else{
+				defeatedWindElemental = true;
+				this.AlertRef = $.notify({
+					title: "<strong>New!</strong>",
+					message: "The wind elemental dissipates! The wind pendant you had made from ancient relics emits a pulsating light, and you can tell whatever primal magic that was animating the elemental is drawn into the pendant!",
+					},{
+				delay: 300000,
+				type: 'success'
+				});	
+				if(checkDefeatedAllElementals() == true){
+					document.getElementById('BatThaumaturge').style.display = "block";
+				}			
+			}
 		break;	
 
 		case 'Water Elemental':
-			defeatedWaterElemental = true;
-			this.AlertRef = $.notify({
-				title: "<strong>New!</strong>",
-				message: "Water Elemental Defeat Message",
-				},{
-			delay: 300000,
-			type: 'success'
-			});				
-			
+			if(boughtWaterPendant == false){
+				this.AlertRef = $.notify({
+					title: "<strong>New!</strong>",
+					message: "Your troops fight valiantly! The water elemental sloshes to a stop and its form becomes more and more amorphous, and suddenly there is a very wet and small lake where the elemental was. Just as you and your troops are about to leave, you are are drenched with a torrent of water! You watch in dismay as the water elemental reforms! There must be a way to stop this!",
+					},{
+				delay: 300000,
+				type: 'danger'
+				});
+				ThaumaturgeRevive(ElementalWater);		
+			}
+			else{
+				defeatedWaterElemental = true;
+				this.AlertRef = $.notify({
+					title: "<strong>New!</strong>",
+					message: "The water elemental collapses into a puddle! The water pendant you had made from ancient relics emits a pulsating light, and you can tell whatever primal magic that was animating the elemental is drawn into the pendant!",
+					},{
+				delay: 300000,
+				type: 'success'
+				});	
+				if(checkDefeatedAllElementals() == true){
+					document.getElementById('BatThaumaturge').style.display = "block";
+				}			
+			}
 		break;			
 	
 		case 'Thaumaturge':
@@ -911,6 +989,10 @@ $(document).ready(function(){
 
 function showBattle(name){
 	switch (name){
+		case 'Boar':
+			$("#BoarCollapse").collapse('show');
+		break;			
+		
 		case 'Goblins':
 			$("#GoblinCollapse").collapse('show');
 		break;	
@@ -1000,6 +1082,11 @@ function showBattle(name){
 }
 
 function showUndefeatedBattles(){
+	if(defeatedBoar == false){
+		showBattle('Boar');
+		scroll('BatBoar', 500);		
+	}
+	
 	if(defeatedGoblins == false){
 		showBattle('Goblins');
 		scroll('BatGoblins', 500);	
@@ -1169,6 +1256,10 @@ function loadBattle(name, percent){
 	spellBoost(percent);
 	showBattle(name);
 	switch (name){
+		case 'Boar':
+			Boar.fight();
+		break;
+		
 		case 'Goblins':
 			Goblins.fight();
 		break;	
@@ -1259,6 +1350,10 @@ function loadBattle(name, percent){
 
 
 //function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, AlertRef, BPReq, SPReq, percentComplete, percentIncrement,speed)
+var boarDesc = "A wild boar.";
+var Boar = new Enemy('Boar', boarDesc, 'BatBoarProgBarBox', 'BatBoarProgBar', 'btnBatBoar','boarDefeatAlert',25,0,0,10,500);
+setEnemyDescription(Boar, 'btnDescBoar');
+
 var goblinsDesc = "Concerned with the security of your land, your spymaster has made a list of enemies spotted by your scouts. <br><br> The list begins with a den of greedy goblins in the nearby oak grove.<br><br>Though they have not made any aggressive moves toward your people and your holdings, these capricious hoarders of all things shiny remain a threat.";
 var Goblins = new Enemy('Goblins', goblinsDesc, 'BatGoblinsProgBarBox', 'BatGoblinsProgBar', 'btnBatGoblins','goblinDefeatAlert',75,0,0,10,500);
 setEnemyDescription(Goblins, 'btnDescGoblins');
@@ -1633,7 +1728,8 @@ function necroReviveUA(){
 	$.notify({
 		title: "<strong>Huh?! </strong>",
 		message: "The moaning returns! While you are in the middle of ordering a scout to check the location you buried the undead army, a lookout comes running into your quarters tells you that the undead army has risen and is marching on your kingdom <a href='javascript: alertOpenBattlePage(); class='alert-link'>again!</a>",
-		},{delay: 60000},{
+		},{
+	delay: 60000,
 	type: 'danger'
 	});	
 
@@ -1656,6 +1752,33 @@ var elementalWaterDesc = "";
 var ElementalWater = new Enemy("Water Elemental", ElementalWater, 'BatWaterElementalProgBarBox','BatWaterElementalProgBar','btnBatWaterElemental','WaterElementalDefeatAlert',52500,6000,0,1,4000);
 setEnemyDescription(ElementalWater, 'btnDescWaterElemental');
 
+function checkDefeatedAllElementals(){
+	if(defeatedEarthElemental == true && defeatedFireElemental == true  && defeatedWindElemental == true  && defeatedWaterElemental == true ){		
+
+			this.AlertRef = $.notify({
+				title: "<strong>New!</strong>",
+				message: "Having defeated the primal elementals, the magic user summoning them finally appears! He seems quite adept at controlling the elements... He could wreck some serious havoc on your kingdom if you don't <a href='javascript: alertOpenBattlePage();' class='alert-link'>get rid of him</a> quickly!",
+				},{
+			delay: 300000,
+			type: 'warning'
+			});		
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+function ThaumaturgeRevive(elemental){
+		document.getElementById(elemental.htmlBtnRef).innerHTML = "Battle Again!";
+		document.getElementById(elemental.htmlBoxRef).style.display = "block";
+		$bar = $(document.getElementById(elemental.htmlBarRef));		
+		$bar.width(0 +'%');
+		$bar.attr('aria-valuenow',0);
+		$bar.text(0+'%');	
+		document.getElementById(elemental.htmlBoxRef).style.display = "none";
+}
+
 var ThaumaturgeDesc = "";
 var Thaumaturge = new Enemy("Thaumaturge", Thaumaturge, 'BatThaumaturgeProgBarBox','BatThaumaturgeProgBar','btnBatThaumaturge','ThaumaturgeDefeatAlert',52500,6000,0,1,4000);
 setEnemyDescription(Thaumaturge, 'btnDescThaumaturge');
@@ -1670,6 +1793,8 @@ setEnemyDescription(Boros, 'btnDescBoros');
 
 function checkBattleButtons(){
 	//Changes status of Battle Buttons
+	Boar.canFight();
+	
 	//Goblin Button
 	Goblins.canFight();
 	
