@@ -84,6 +84,7 @@ Building.prototype.checkBtnFlag = function(){
 				case "lumbermillOpened":
 					if(lumbermillOpened){
 						document.getElementById(myButton).innerHTML = "Lumbermill Built";
+						document.getElementById(myButton).style.background='darkblue';
 						document.getElementById(myButton).disabled = true;
 					}
 				break;				
@@ -91,13 +92,15 @@ Building.prototype.checkBtnFlag = function(){
 				case "minesOpened":
 					if(minesOpened == true){
 						document.getElementById(myButton).innerHTML = "Mines Opened";
-						document.getElementById(myButton).disabled = true;	
+						document.getElementById(myButton).disabled = true;
+						document.getElementById(myButton).style.background='darkblue';
 					}
 				break; 
 				case "barracksOpened":
 					if(barracksOpened == true){
 						document.getElementById(myButton).innerHTML = "Barracks Built";	
 						document.getElementById(myButton).disabled = true;	
+						document.getElementById(myButton).style.background='darkblue';
 					}
 				break;
 
@@ -105,6 +108,7 @@ Building.prototype.checkBtnFlag = function(){
 					if(commandPostOpened == true){
 						document.getElementById(myButton).innerHTML = "Command Post Built";	
 						document.getElementById(myButton).disabled = true;	
+						document.getElementById(myButton).style.background='darkblue';
 					}
 				break;
 
@@ -112,13 +116,15 @@ Building.prototype.checkBtnFlag = function(){
 					if(forgeOpened == true){
 						document.getElementById(myButton).innerHTML = "Forge Built";	
 						document.getElementById(myButton).disabled = true;	
+						document.getElementById(myButton).style.background='darkblue';
 					}
 				break;				
 				
 				case "cathedralOpened":
 					if(cathedralOpened == true){
 						document.getElementById(myButton).innerHTML = "Cathedral Built";
-						document.getElementById(myButton).disabled = true;							
+						document.getElementById(myButton).disabled = true;	
+						document.getElementById(myButton).style.background='darkblue';						
 					}
 					return false;
 				break;
@@ -126,6 +132,7 @@ Building.prototype.checkBtnFlag = function(){
 					if(towerBuilt == true){
 						document.getElementById(myButton).innerHTML = "Tower Built";
 						document.getElementById(myButton).disabled = true;	
+						document.getElementById(myButton).style.background='darkblue';
 					}
 				default:
 					return false;

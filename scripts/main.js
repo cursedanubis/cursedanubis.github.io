@@ -232,7 +232,9 @@ function clickThing(number, type)
 			coal += number;
 			coal = Math.round(coal*100)/100;
 			statCoalCollected += number;
+			statCoalCollected = Math.round(statCoalCollected*100)/100;
 			statTotalCoalCollected += number;
+			statTotalCoalCollected = Math.round(statTotalCoalCollected*100)/100;
 			document.getElementById("coal").innerHTML = fnum(coal);
 			document.getElementById("statCoalCollected").innerHTML = fnum(statCoalCollected);
 			document.getElementById("statTotalCoalCollected").innerHTML = fnum(statTotalCoalCollected);
@@ -241,17 +243,19 @@ function clickThing(number, type)
 		case "steel":
 			steel += number;
 			steel = Math.round(steel*100)/100;
-//			statCoalCollected += number;
-//			statTotalCoalCollected += number;
+			statSteelCollected += number;
+			statTotalSteelCollected += number;
 			document.getElementById("steel").innerHTML = fnum(steel);
-//			document.getElementById("statCoalCollected").innerHTML = fnum(statCoalCollected);
-//			document.getElementById("statTotalCoalCollected").innerHTML = fnum(statTotalCoalCollected);
+			document.getElementById("statSteelCollected").innerHTML = fnum(statSteelCollected);
+			document.getElementById("statTotalSteelCollected").innerHTML = fnum(statTotalSteelCollected);
 			break;	
 
 		case "steelMouse":
 			if(iron >= number*100 && coal >= number*10){
 				steel += number;
 				steel = Math.round(steel*100)/100;
+				statSteelCollected += number;
+				statTotalSteelCollected += number;				
 				document.getElementById("iron").innerHTML = fnum(iron);
 				document.getElementById("coal").innerHTML = fnum(iron);
 				document.getElementById("steel").innerHTML = fnum(steel);

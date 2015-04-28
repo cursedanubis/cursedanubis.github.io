@@ -272,7 +272,8 @@ Upgrade.prototype.purchasedButton = function(){
 
 Upgrade.prototype.canBuy = function(){								//Checks to see if all costs are met
 	if(this.checkFlag() == true){									//Upgrade already purchased
-		   document.getElementById(this.buyBtnRef).disabled = true;			
+		   document.getElementById(this.buyBtnRef).disabled = true;	
+		   document.getElementById(this.buyBtnRef).style.background='darkblue';
 		   return false;		
 	}
 	else if(this.costTest(this.goldCost, gold, this.htmlGoldCost) *

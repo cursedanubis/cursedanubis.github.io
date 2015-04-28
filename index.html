@@ -1517,9 +1517,10 @@
 	
 	   <div id="CommandPostDiv" class = "panel-body"style="display: none;">  
 			<br />
-				
+				<div class = "well">
 				<H4>Upgrades</h4><br />
-					
+				
+				<div class = 'container'>
 				<button id=btnclickGoldUpgrade onclick="clickGoldUpgrade.buyUpgrade()" 	type="button" class="btn btn-default" title = "Your peasants learn to assist your gold collection. Doubles gold collected when clicking.">Gold Click Upgrade</button>
 				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Your peasants learn to assist your gold collection. Doubles gold collected when clicking." rel="tooltip"></span>
 				<br />
@@ -1537,12 +1538,15 @@
 				<br />
 				<img src = "images/money_goldsmall.png" title ="Gold" > 1,000,000
 				<br /> <br />
+				</div>
 				
+				<div class = 'container'>
 				<button id=btnljackUpgrade2 onclick="ljackUpgrade2.buyUpgrade()"	type="button" class="btn btn-default" title = "Shades take possession of magical axes and aid you in wood collection. Five times the wood collected when clicking.">Phantom Axes</button>
 				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Shades take possession of magical axes and aid you in wood collection. Five times the wood collected when clicking." rel="tooltip"></span>
 				<br />
 				<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'ljackUpgrade2GoldCost'>25,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'ljackUpgrade2WoldCost'>5,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'ljackUpgrade2IronCost'>20,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'ljackUpgrade2SilverCost'>15,000</span> | <img src = "images/soulssmall.png" title="Souls"> <span id = 'ljackUpgrade2SoulCost'>5,000</span> | <span id = 'ljackUpgrade2UnitCost'>5 shades</span>
-				<br />		
+				</div>
+				<br />	
 				<hr>
 				
 				<div id = 'PMillUClickUpgrade' class = 'container'> 
@@ -1551,13 +1555,16 @@
 					<br />	
 					<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'pmillClickUpgradeGoldCost'>1.2M</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'pmillClickUpgradeWoodCost'>1.5M</span> | <img src = "images/ironsmall.png" title="Iron"><span id = 'pmillClickUpgradeIronCost'>1.2M</span> | <img src = "images/soulssmall.png" title="Souls"><span id = 'pmillClickUpgradeSoulCost'>50,000</span>
 				</div>					
-				
-				<H4>Hire</h4><br />
-				<button id=btnUnlockQuesting onclick="unlockQuesting.buyUpgrade()" 	type="button" class="btn btn-default" title = "Hire a taskmaster to allow you to send your troops on quests.">Hire Taskmaster</button>
-				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Hire a taskmaster to allow you to send your troops on quests." rel="tooltip"></span>
-				<br />
-				<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'unlockQuestingGoldCost'>10,000</span>
 				<br /> <br />
+					<div class = 'container'>
+						<H4>Hire</h4><br />
+						<button id=btnUnlockQuesting onclick="unlockQuesting.buyUpgrade()" 	type="button" class="btn btn-default" title = "Hire a taskmaster to allow you to send your troops on quests.">Hire Taskmaster</button>
+						<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Hire a taskmaster to allow you to send your troops on quests." rel="tooltip"></span>
+						<br />
+						<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'unlockQuestingGoldCost'>10,000</span>
+						<br /> <br />
+					</div>
+				</div>
 	   </div>   
 	 </div>	 
 	 	 
