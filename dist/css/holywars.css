@@ -283,7 +283,7 @@ display: none;
 .collapsing { transition: height 0.6s; }
 
 #navKingdomName{   
-   color: blue;
+   color: black;
 }
  
 #kingdomUL{
@@ -304,5 +304,3 @@ display: none;
         float:none;
     }
 }
-
-
