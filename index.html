@@ -102,7 +102,7 @@
 <!--			  <li id = "GatherLi "><a id="displayGatherOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering">Gather</a></li>	-->
 			  <li class = 'active'><a id="ProductionMenu" href="javascript:CollapseAll(); toggle('Production'); setLastPage('Production');">Village</a></li>
 			  <li><a id="StructureMenu" href="javascript:CollapseAll(); toggle('Structures'); setLastPage('Structures');">Structures</a></li>
-              <li><a id="FaithMenu" href="javascript:CollapseAll(); toggle('Cathedral'); setLastPage('Cathedral');" style="display: none;">Cathedral</a></li>
+              <li><a id="FaithMenu" href="javascript:CollapseAll(); toggle('Church'); setLastPage('Church');" style="display: none;">Church</a></li>
 			  <li><a id="BarracksMenu" href="javascript:CollapseAll(); toggle('Barracks'); setLastPage('Barracks');" style="display: none; ">Barracks</a></li>
 			  <li><a id="EtherealMenu" href="javascript:CollapseAll(); toggle('Ethereal'); setLastPage('Ethereal');" style="display: none;">Ethereal</a></li>
 			  <li><a id="TowerMenu" href="javascript:CollapseAll(); toggle('Magic'); setLastPage('Magic');" style="display: none;">Tower</a></li>
@@ -344,9 +344,9 @@
 		
 	  </div>
 	  
-	 <div id="Cathedral" class= "panel panel-default" style="display: none;">
+	 <div id="Church" class= "panel panel-default" style="display: none;">
 		<div class = "panel-heading">
-			<div class="panel-title">Cathedral</div>
+			<div id = 'faithBuildingTitle' class="panel-title">Church</div>
 		</div>
 		
 		<div id = "RelicPedestalTab" class = "container" style="display: none;">
@@ -725,22 +725,31 @@
 				<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'forgeGoldCost'>750,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'forgeWoodCost'>400,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'forgeIronCost'>750,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'forgeSilverCost'>100,000</span>
 				<br />
 			</div>
-			<hr>			
+			<hr>	
+			
+			<div id = "FaithStructuresTab" class = "container" style="display: none;">
+				<button id=btnOpenChurch title="Construct a sturdy stone structure meant for contemplation and worship." onclick="Church.buy()"	type="button" class="btn btn-default">Build Church</button>
+				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Construct a sturdy stone and iron structure meant for contemplation and worship." rel="tooltip"></span>
+				<button id=btnChurchUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#ChurchUpgradeTab" aria-expanded="false" aria-controls="ChurchUpgradeTab">Upgrades</button>				
+				<br />
+				<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'churchGoldCost'>15,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'churchWoodCost'>2,500</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'churchIronCost'>500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'churchSilverCost'>100</span>
+				<br />
+				<div id ="ChurchUpgradeTab" class = "upgrade collapse">
+					<div class = "well">
+						<button id=btnUpgradeToCathedral title="Rebuilds your church into an impressive cathedral made of stone, steel, and faith. Doubles your total faith production." onclick="upgradeChurch.buyUpgrade()"	type="button" class="btn btn-default">Build Cathedral</button>
+						<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Rebuilds your church into an impressive cathedral made of stone, steel, and faith. Doubles your total faith production." rel="tooltip"></span>
+						<br />
+						<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'upgradeChurchGoldCost'>10M</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'upgradeChurchWoodCost'>5M</span> | <img src = "images/steelsmall.png" title="Steel"> <span id = 'upgradeChurchSteelCost'>2,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'upgradeChurchSilverCost'>1M</span> | <img src = "images/faithsmall.png" title="Faith"> <span id = 'upgradeChurchFaithCost'>500,000</span>
+					</div>
+				</div>
+			</div>
+			<hr>	
 			
 			<div id = 'buildTowerTab' class = 'container' style="display: none;">
 				<button id=btnOpenTower title="Build a glorious tower for your Archmage to channel his energies and cast spells from." onclick="Tower.buy()" type="button" class="btn btn-default">Construct Tower</button>
 				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Build a glorious tower for your Archmage to channel his energies and cast spells from." rel="tooltip"></span>
 				<br />
 				<img src = "images/money_goldsmall.png" title ="Gold"> <span id = 'towerGoldCost'>1,000,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'towerWoodCost'>700,000</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'towerIronCost'>10,000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'towerSilverCost'>500</span> | <img src = "images/faithsmall.png" title="Faith"> <span id = 'towerFaithCost'>1,000</span>
-				<br />
-			</div>
-			<hr>
-
-			<div id = "FaithStructuresTab" class = "container" style="display: none;">
-				<button id=btnOpenCathedral title="Construct a sturdy stone and iron structure meant for contemplation and worship." onclick="Cathedral.buy()"	type="button" class="btn btn-default">Build Cathedral</button>
-				<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Construct a sturdy stone and iron structure meant for contemplation and worship." rel="tooltip"></span>
-				<br />
-				<img src = "images/money_goldsmall.png" title ="Gold" > <span id = 'cathGoldCost'>15,000</span> | <img src = "images/woodsmall.png" title = "Wood"> <span id = 'cathWoodCost'>2,500</span> | <img src = "images/ironsmall.png" title="Iron"> <span id = 'cathIronCost'>500</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id = 'cathSilverCost'>100</span>
 				<br />
 			</div>
 			<hr>
@@ -1686,12 +1695,12 @@
 		</div>			
 		<div id = 'openCathAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong> The faithful flock to your beautiful <a href="javascript: toggle('openCathAlert');CollapseAll();toggle('Cathedral')" class="alert-link">cathedral</a>.   
+			<strong>New!</strong> The faithful flock to your beautiful <a href="javascript: toggle('openCathAlert');CollapseAll();toggle('Church')" class="alert-link">Church</a>.   
 		</div>
 
 		<div id = 'unlockCathAlert' class="alert alert-success alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong> You successfully chase out the bandits raiding your village. While rifling through the leader's belongings, you find plans for an elaborate  <a href="javascript: toggle('unlockCathAlert');CollapseAll();toggle('Structures')" class="alert-link">Cathedral</a>. 
+			<strong>New!</strong> You successfully chase out the bandits raiding your village. While rifling through the leader's belongings, you find plans for an elaborate  <a href="javascript: toggle('unlockCathAlert');CollapseAll();toggle('Structures')" class="alert-link">Church</a>. 
 			 These bandits sure do have funny taste in loot. In a corner of the camp, you also find a portion of the gold that they have stolen from you.
 		</div>		
 		
@@ -1761,7 +1770,7 @@
 
 		<div id = 'tomeUnlockAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>New!</strong> With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href="javascript: toggle('tomeUnlockAlert'); CollapseAll(); toggle('Cathedral');" class="alert-link">someone</a> knows what to do with these...
+			<strong>New!</strong> With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href="javascript: toggle('tomeUnlockAlert'); CollapseAll(); toggle('Church');" class="alert-link">someone</a> knows what to do with these...
 		</div>
 
 		<div id = 'DwarfDefeatAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
@@ -1790,7 +1799,7 @@
 					close the angel grievous wounds. She feebly beckons for you to come closer, and when you do, she presses an ancient relic
 					into your hand. "... please defeat Him...", she whispers. Her body fades and dissolves into a million tiny glittering lights
 					that float gently up into the sky. Her demise only deepens your resolve to defeat The Evil One. Your priests take the relic
-					and place it <a href="javascript: toggle('SuccubusDefeatAlert');CollapseAll();toggle('Cathedral')" class="alert-link">on a pedestal</a> in the cathedral.
+					and place it <a href="javascript: toggle('SuccubusDefeatAlert');CollapseAll();toggle('Church')" class="alert-link">on a pedestal</a> in the Church.
 		</div>			
 		<div id = 'RelicHalfAlert' class="alert alert-info fade in" role="alert" style="display: none;">
 			<button type="button" class="close" onclick = "$('#RelicHalfAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -1803,10 +1812,10 @@
 		
 		<div id = 'AngelUnlockAlert' class="alert alert-info fade in" role="alert" style="display: none;">
 			<strong>New!</strong> The relic is overflowing with the faith! It starts to vibrate violently, and you decide the most prudent thing to do is to take it outside.
-					Just as you step foot outside the cathedral doors, flies out of your hands and hovers before you. You can literally feel the hum of power as the relic
+					Just as you step foot outside the Church doors, flies out of your hands and hovers before you. You can literally feel the hum of power as the relic
 					emits a brilliant beam of light that shoots into the heavens. You watch as the skies are turned a vibrant gold.. all of the faith that was 
 					used to empower the relic opens up a <a href="javascript: toggle('AngelUnlockAlert');CollapseAll();toggle('Ethereal')" class="alert-link">divine gate</a>.
-					The gate is directly above your cathedral, but you swear you can see winged beings flapping just beyond the shimmering portal.
+					The gate is directly above your Church, but you swear you can see winged beings flapping just beyond the shimmering portal.
 		</div>			
 		<div id = 'UArmyDefeatAlert' class="alert alert-info alert-dismissible fade in" role="alert" style="display: none;">
 			<button type="button" class="close" onclick = "$('#UArmyDefeatAlert').hide()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -2096,7 +2105,7 @@
 			document.getElementById("Ethereal").style.display = "none";
 			document.getElementById("Structures").style.display = "none";
 			document.getElementById("Barracks").style.display = "none";
-			document.getElementById("Cathedral").style.display = "none";
+			document.getElementById("Church").style.display = "none";
 			document.getElementById("Production").style.display = "none";
 			document.getElementById("Magic").style.display = "none";
 			document.getElementById("Quests").style.display = "none";
@@ -2129,7 +2138,7 @@
 					document.getElementById("BarracksMenu").click();
 				break;
 				
-				case 'Cathedral':
+				case 'Church':
 					document.getElementById("FaithMenu").click();
 				break;
 

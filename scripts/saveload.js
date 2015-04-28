@@ -55,7 +55,7 @@
 		//Building flags
 		save("lumbermillOpened",lumbermillOpened);
 		save("minesOpened",minesOpened);
-		save("cathedralOpened",cathedralOpened);
+		save("churchOpened",churchOpened);
 		save("barracksOpened",barracksOpened);
 		save("commandPostOpened",commandPostOpened);
 		save("unlockedQuesting",unlockedQuesting);
@@ -63,6 +63,7 @@
 		save("towerBuilt",towerBuilt);
 		save("forgeOpened",forgeOpened);
 		save("coalUnlocked",coalUnlocked);
+		save("cathUpgrade", cathUpgrade);
 		
 		//Battle flags
 		save("defeatedBoar", defeatedBoar);
@@ -500,15 +501,24 @@
 			}
 		}			
 		
-		if(localStorage.cathedralOpened != null){
-			var myBool = (localStorage.cathedralOpened == "true")
+		if(localStorage.churchOpened != null){
+			var myBool = (localStorage.churchOpened == "true")
 			if(myBool == true){
-				cathedralOpened = true
-				document.getElementById('Cathedral').style.display = "block";
+				churchOpened = true
+				document.getElementById('Church').style.display = "block";
 				document.getElementById('FaithMenu').style.display = "block";
 				document.getElementById('faithdiv').style.display = "block";
 			}
 		}
+		
+		if(localStorage.cathUpgrade != null){
+			var myBool = (localStorage.cathUpgrade == "true")
+			if(myBool == true){
+				cathUpgrade = true
+				upgradeChurch.enableFlag();
+			}
+		}		
+		
 
 		if(localStorage.towerUnlocked != null){
 			var myBool = (localStorage.towerUnlocked == "true")
@@ -1732,7 +1742,7 @@ function loadScenario(number){
 			knightsUnlocked = true;
 			lumbermillOpened = true;
 			barracksOpened = true;
-			cathedralOpened = true;
+			churchOpened = true;
 			minesOpened = true;
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;
@@ -1767,7 +1777,7 @@ function loadScenario(number){
 			knightsUnlocked = true;
 			lumbermillOpened = true;
 			barracksOpened = true;
-			cathedralOpened = true;
+			churchOpened = true;
 			minesOpened = true;
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;
@@ -1804,7 +1814,7 @@ function loadScenario(number){
 			knightsUnlocked = true;
 			lumbermillOpened = true;
 			barracksOpened = true;
-			cathedralOpened = true;
+			churchOpened = true;
 			minesOpened = true;
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;
@@ -1846,7 +1856,7 @@ function loadScenario(number){
 			knightsUnlocked = true;
 			lumbermillOpened = true;
 			barracksOpened = true;
-			cathedralOpened = true;
+			churchOpened = true;
 			minesOpened = true;
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;
@@ -1889,7 +1899,7 @@ function loadScenario(number){
 			knightsUnlocked = true;
 			lumbermillOpened = true;
 			barracksOpened = true;
-			cathedralOpened = true;
+			churchOpened = true;
 			minesOpened = true;
 			mSilverUpgrade = true;
 			mPanningUpgrade = true;

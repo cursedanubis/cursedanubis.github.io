@@ -136,6 +136,10 @@ Upgrade.prototype.checkFlag = function(){
 			return tavernUpgrade2;
 		break;		
 		
+		case 'upgradeChurch':
+			return cathUpgrade;
+		break;
+		
 		default:
 		break;
 	}
@@ -257,14 +261,20 @@ Upgrade.prototype.enableFlag = function(){
 
 		case 'upgradeTavern2':
 			tavernUpgrade2  = true;
-		break;			
+		break;
+
+		case 'upgradeChurch':
+			cathUpgrade = true;
+			document.getElementById('faithBuildingTitle').innerHTML = 'Cathedral';
+			document.getElementById('FaithMenu').innerHTML = 'Cathedral';
+		break;		
 		
 		default:
 		break;
 	}	
 }
 
-Upgrade.prototype.purchasedButton = function(){
+Upgrade.prototype.purchasedButton = function(){ 
 	var previousString = document.getElementById(this.buyBtnRef).innerHTML;
 	document.getElementById(this.buyBtnRef).innerHTML = previousString + ' Purchased';
 	document.getElementById(this.buyBtnRef).disabled = true;	
@@ -273,7 +283,7 @@ Upgrade.prototype.purchasedButton = function(){
 Upgrade.prototype.canBuy = function(){								//Checks to see if all costs are met
 	if(this.checkFlag() == true){									//Upgrade already purchased
 		   document.getElementById(this.buyBtnRef).disabled = true;	
-		   document.getElementById(this.buyBtnRef).style.background='darkblue';
+		   document.getElementById(this.buyBtnRef).style.background='darkblue';	
 		   return false;		
 	}
 	else if(this.costTest(this.goldCost, gold, this.htmlGoldCost) *
@@ -1246,4 +1256,32 @@ var angelUpgrade1 = new Upgrade(
 /*manaCost*/0, 
 /*htmlManaCost*/'none',
 /*buttonRef*/'btnUpgradeTavern2'
-)			
+)
+
+ var upgradeChurch = new Upgrade(	
+ /*Name*/'upgradeChurch', 
+/*goldCost*/10000000, 
+/*htmlGoldCost*/'upgradeChurchGoldCost',
+/*woodCost*/5000000, 
+/*htmlWoodCost*/'upgradeChurchWoodCost',
+/*ironCost*/0, 
+/*htmlIronCost*/'none',
+/*coalCost*/0, 
+/*htmlCoalCost*/'none',
+/*steelCost*/2000, 
+/*htmlSteelCost*/'upgradeChurchSteelCost',
+/*silverCost*/0, 
+/*htmlSilverCost*/'none',
+/*faithCost*/500000, 
+/*htmlFaithCost*/'upgradeChurchFaithCost',
+/*soulCost*/0, 
+/*htmlSoulCost*/'none',
+/*paperCost*/0, 
+/*htmlPaperCost*/'none',
+/*tomeCost*/0, 
+/*htmlTomeCost*/'none',
+/*manaCost*/0, 
+/*htmlManaCost*/'none',
+/*buttonRef*/'btnUpgradeToCathedral'
+)
+	

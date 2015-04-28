@@ -593,7 +593,7 @@ function setDefeatEvents(name){
 			gold = gold + Math.floor(goldStolen/2);
 			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "You successfully chase out the bandits raiding your village. While rifling through the leader's belongings, you find plans for an elaborate  <a href='javascript: alertOpenStructuresPage(); this.AlertRef.close();' class='alert-link'>Cathedral</a>. These bandits sure do have funny taste in loot. In a corner of the camp, you also find a portion of the gold that they have stolen from you.",
+				message: "You successfully chase out the bandits raiding your village. While rifling through the leader's belongings, you find plans for an elaborate  <a href='javascript: alertOpenStructuresPage(); this.AlertRef.close();' class='alert-link'>church</a>. These bandits sure do have funny taste in loot. In a corner of the camp, you also find a portion of the gold that they have stolen from you.",
 				},{
 			delay: 300000,
 			type: 'success'
@@ -662,7 +662,7 @@ function setDefeatEvents(name){
 
 			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href='alertOpenCathedralPage(); this.AlertRef.close();' class='alert-link'>a pious and studious person</a> knows what to do with these...",	
+				message: "With an ominous blurp, whatever was animating the ooze comes to a slurpy halt. Although the ore that it has absorbed is now useless, you come to realize that that vast quantity of ooze now own is great for gluing together your paper to make books! Maybe <a href='alertOpenChurchPage(); this.AlertRef.close();' class='alert-link'>a pious and studious person</a> knows what to do with these...",	
 				},{
 			delay: 300000,
 			type: 'success'
@@ -732,7 +732,7 @@ function setDefeatEvents(name){
 			document.getElementById('RelicPedestalTab').style.display = "block";
 			this.AlertRef = $.notify({
 				title: "<strong>New!</strong>",
-				message: "Even in death, the succubus jiggles in a most appealing manner, but that doesn't stop you from ending her reign of seductive terror. Your paladins attempt to purify her as they did with the Archmage, causing her to writhe around in pain. Her wings transition from leathery to feathery, and her horns recede into her head. It turns out the succubus was actually an angel! The injuries she has sustained in her battle with you are fatal, and none of your people are able to close the angel grievous wounds. She feebly beckons for you to come closer, and when you do, she presses an ancient necklace into your hand. '... please defeat Him...', she whispers. Her body fades and dissolves into a million tiny glittering lights that float gently up into the sky. Her demise only deepens your resolve to defeat The Evil One. Your priests take the necklace and place it <a href='alertOpenCathedralPage(); this.AlertRef.close();' class='alert-link'>on a pedestal</a> in the cathedral.",						
+				message: "Even in death, the succubus jiggles in a most appealing manner, but that doesn't stop you from ending her reign of seductive terror. Your paladins attempt to purify her as they did with the Archmage, causing her to writhe around in pain. Her wings transition from leathery to feathery, and her horns recede into her head. It turns out the succubus was actually an angel! The injuries she has sustained in her battle with you are fatal, and none of your people are able to close the angel grievous wounds. She feebly beckons for you to come closer, and when you do, she presses an ancient necklace into your hand. '... please defeat Him...', she whispers. Her body fades and dissolves into a million tiny glittering lights that float gently up into the sky. Her demise only deepens your resolve to defeat The Evil One. Your priests take the necklace and place it <a href='alertOpenChurchPage(); this.AlertRef.close();' class='alert-link'>on a pedestal</a> in the church.",						
 				},{
 			delay: 300000,
 			type: 'success'

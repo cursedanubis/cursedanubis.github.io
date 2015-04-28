@@ -34,7 +34,6 @@ Building.prototype.returnName = function(){
 
 Building.prototype.canBuy = function(){
 	var myButton = this.htmlBuyBtn;
-
 	
 	if(gold >= this.goldCost && wood >= this.woodCost && iron >= this.ironCost && silver >= this.silverCost && faith >= this.faithCost && souls >= this.soulCost){
 		document.getElementById(myButton).disabled = false;
@@ -120,9 +119,9 @@ Building.prototype.checkBtnFlag = function(){
 					}
 				break;				
 				
-				case "cathedralOpened":
-					if(cathedralOpened == true){
-						document.getElementById(myButton).innerHTML = "Cathedral Built";
+				case "churchOpened":
+					if(churchOpened == true){
+						document.getElementById(myButton).innerHTML = "Church Built";
 						document.getElementById(myButton).disabled = true;	
 						document.getElementById(myButton).style.background='darkblue';						
 					}
@@ -216,15 +215,15 @@ Building.prototype.buy = function(){
 					});						
 				break;
 			
-				case "cathedralOpened":
-					cathedralOpened = true;
+				case "churchOpened":
+					churchOpened = true;
 					document.getElementById('faithdiv').style.display = "block";
 					document.getElementById('FaithMenu').style.display = "block";
 //					document.getElementById('openCathAlert').style.display = "block";
-					var cathedralOpenedAlert;
-					cathedralOpenedAlert = $.notify({
+					var churchOpenedAlert;
+					churchOpenedAlert = $.notify({
 						title: "<strong>New!</strong> ",
-						message: "The faithful flock to your beautiful <a href='javascript: alertOpenCathedralPage();' class='alert-link'>cathedral</a>.  "
+						message: "The faithful flock to your beautiful <a href='javascript: alertOpenChurchPage();' class='alert-link'>church</a>.  "
 					});	
 				break;
 				case "towerBuilt":
@@ -485,8 +484,8 @@ var CommandPost = new Building('Command Post','btnOpenCommandPost','commandPostG
 var forgeDesc = ""
 var Forge = new Building('Forge','btnOpenForge','forgeGoldCost','forgeWoodCost','forgeIronCost','forgeSilverCost','none','none',750000,400000,750000,500,100000,0,forgeDesc,"none",'forgeOpened');
 
-var cathDesc = ""
-var Cathedral = new Building('Cathedral','btnOpenCathedral','cathGoldCost','cathWoodCost','cathIronCost','cathSilverCost','none','none',15000,2500,500,100,0,0,cathDesc,"none",'cathedralOpened');
+var churchDesc = ""
+var Church = new Building('Church','btnOpenChurch','churchGoldCost','churchWoodCost','churchIronCost','churchSilverCost','none','none',15000,2500,500,100,0,0,churchDesc,"none",'churchOpened');
 
 
 var towerDesc = ""
@@ -538,8 +537,8 @@ function checkBuildingButtons(){
 	//Changes status of the building forge button
 	Forge.canBuy();		
 	
-	//Changes status of the building cathedral button
-	Cathedral.canBuy();
+	//Changes status of the building church button
+	Church.canBuy();
 
 	//Changes status of the building tower button
 	Tower.canBuy();

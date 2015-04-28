@@ -51,6 +51,7 @@ var shadeUpgr1 = false;			//Shade - Upgrade
 var angelUpgr1 = false;			//Angel - Upgrade via Paladins
 var tavernUpgrade = false;		//Tavern - Miner Upgrade
 var tavernUpgrade2 = false;		//Tavern - Lumberjack Upgrade
+var cathUpgrade = false;		//Church - Upgrade to tavern
 
 var squiresUnlocked = false;	//Page - Squire Tier unlock
 var knightsUnlocked = false;    //Squire - Page Tier unlock
@@ -58,7 +59,7 @@ var angelsUnlocked = false;
 
 var lumbermillOpened = false;
 var minesOpened = false;
-var cathedralOpened = false;
+var churchOpened = false;
 var tomesUnlocked = false;
 var coalUnlocked = false;
 var PmillEffUpgr = false;		//Paper mill efficiency upgrade cost
@@ -405,7 +406,7 @@ function addFaithToRelic(number){
 		angelsUnlocked = true;
 		var AngelUnlockAlert = $.notify({
 			title: "<strong>New!</strong>",
-			message: "The necklace is overflowing with the faith! It starts to vibrate violently, and you decide the most prudent thing to do is to take it outside. Just as you step foot outside the cathedral doors, flies out of your hands and hovers before you. You can literally feel the hum of power as the necklace emits a brilliant beam of light that shoots into the heavens. You watch as the skies are turned a vibrant gold.. all of the faith that was used to empower the necklace opens up a <a href='javascript: alertOpenEtherealPage(); AngelUnlockAlert.close();' class='alert-link'>divine gate</a>. The gate is directly above your cathedral, but you swear you can see winged beings flapping just beyond the shimmering portal."	
+			message: "The necklace is overflowing with the faith! It starts to vibrate violently, and you decide the most prudent thing to do is to take it outside. Just as you step foot outside the Church doors, flies out of your hands and hovers before you. You can literally feel the hum of power as the necklace emits a brilliant beam of light that shoots into the heavens. You watch as the skies are turned a vibrant gold.. all of the faith that was used to empower the necklace opens up a <a href='javascript: alertOpenEtherealPage(); AngelUnlockAlert.close();' class='alert-link'>divine gate</a>. The gate is directly above your Church, but you swear you can see winged beings flapping just beyond the shimmering portal."	
 			},{
 		delay: 900000,
 		type: 'success'
@@ -460,6 +461,10 @@ function UpdateButtons() {
 						document.getElementById("clickGoldUpgrade2").disabled = false;
 					}*/
 
+	//Mouse gold click upgrade 3
+	clickGoldUpgrade3.canBuy()
+	
+	
 	//Lumberjack upgrade collection
 	ljackUpgrade1.canBuy();
 				/* 	if(lwoodUpgrade == true || (gold < 2500 || iron < 1500)){
@@ -578,6 +583,9 @@ function UpdateButtons() {
 	//Quest Upgrade button
 	unlockQuesting.canBuy();
 	
+	//Upgrade church to cathedral
+	upgradeChurch.canBuy();
+	
 	//End of Upgrade Buttons//
 	
 	//Changes status of Unit buttons
@@ -642,6 +650,9 @@ window.setInterval(function(){                                 //Update per seco
 	}
 	else{
 		faithpersec = Bishop.number * 10 + Priest.number*0.5 + Acolyte.number*0.1;		
+	}
+	if(cathUpgrade == true){
+		faithpersec *=2;
 	}
 	faithpersec = faithpersec.toFixedDown(2)
     document.getElementById("faithdiv").title = "Faith per second: " + fnum(faithpersec) ; 
@@ -709,14 +720,18 @@ window.setInterval(function(){
 	 
 	var acoMult = 0.1;	
 	var priestMult = 0.5;
+	var buildingMult = 1;
 	if(acFaithUpgrade == true){
 		acoMult = 0.2
 	}
 	if(prFaithUpgrade == true){
 		priestMult = 1.0
 	}	
+	if(cathUpgrade == true){
+		buildingMult = 2
+	}
 	 
-	clickThing(Bishop.number * 10 + Priest.number*priestMult + Acolyte.number*acoMult, "faith");          
+	clickThing((Bishop.number * 10 + Priest.number*priestMult + Acolyte.number*acoMult)*buildingMult, "faith");          
 	faith = faith.toFixedDown(2);
 	
 	//Soul generation via paladins etc every second
@@ -907,7 +922,7 @@ function alertOpenBarracksPage(){
 	document.getElementById("BarracksMenu").click();
 }
 
-function alertOpenCathedralPage(){
+function alertOpenChurchPage(){
 	document.getElementById("FaithMenu").click();
 }
 
