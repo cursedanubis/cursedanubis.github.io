@@ -967,14 +967,20 @@
 				if(myBool == true){
 					defeatedEarthElemental = true;
 					document.getElementById('earthelementalh4').classList.add('defeatedtitle');	
+					if(checkDefeatedAllElementals() == true){
+						document.getElementById('BatThaumaturge').style.display = "block";
+					}					
 				}
 		};
 
 		if(localStorage.defeatedFireElemental != null){
 			var myBool = (localStorage.defeatedFireElemental == "true")
 				if(myBool == true){
-					defeatedFireElemental = true;
+					defeatedFireElemental = true; 
 					document.getElementById('fireelementalh4').classList.add('defeatedtitle');	
+					if(checkDefeatedAllElementals() == true){
+						document.getElementById('BatThaumaturge').style.display = "block";
+					}	
 				}
 		};
 		
@@ -983,6 +989,9 @@
 				if(myBool == true){
 					defeatedWindElemental = true;
 					document.getElementById('windelementalh4').classList.add('defeatedtitle');	
+					if(checkDefeatedAllElementals() == true){
+						document.getElementById('BatThaumaturge').style.display = "block";
+					}						
 				}
 		};
 		
@@ -991,6 +1000,9 @@
 				if(myBool == true){
 					defeatedWaterElemental = true;
 					document.getElementById('waterelementalh4').classList.add('defeatedtitle');	
+					if(checkDefeatedAllElementals() == true){
+						document.getElementById('BatThaumaturge').style.display = "block";
+					}						
 				}
 		};		
 
@@ -1024,7 +1036,6 @@
 					document.getElementById('borosh4').classList.add('defeatedtitle');	
 				}
 		};	
-		
 		
 		if(localStorage.peasantsKilled != null){
 			peasantsKilled = parseInt(localStorage.peasantsKilled);
