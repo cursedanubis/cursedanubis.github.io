@@ -504,6 +504,7 @@ function UpdateButtons() {
 	acolyteUpgrade1.canBuy();
 	
 	//Priest faith upgrade
+	priestUpgrade1.canBuy();
 	
 				/* 	if(prFaithUpgrade == true || (gold < 7000 || wood < 5000 || faith < 500)){
 						document.getElementById("btnPriestUpgrade1").disabled = true;
@@ -511,6 +512,7 @@ function UpdateButtons() {
 					else{
 						document.getElementById("btnPriestUpgrade1").disabled = false;
 					} */
+										
 	
 	//Tomes button
 	tomeUnlock.canBuy();
