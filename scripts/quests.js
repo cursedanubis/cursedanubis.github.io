@@ -291,27 +291,13 @@ function btnSendQuest(){
 			 string = string + "s";
 		 }
 		 string = string + " out on the quest '" + $('#questSelectPicker').selectpicker('val') + "'";
-//	  document.getElementById('questAlertString').innerHTML = string;
-//	  document.getElementById('sendQuestAlert').style.display = "block";
+
 	  
 		$.notify({
 			title: "<strong>Questing! </strong>",
 			message: string,
 			delay: 25000
 		});		  
-	  
-/* 		//Dismisses Alert
-		var ticker = 0 ;
-		var clearAlert = setInterval(function() {
-			ticker = ticker + 1;   
-		  if (ticker == 5){
-			clearInterval(clearAlert);
-			if(document.getElementById('sendQuestAlert').style.display == "block"){
-				document.getElementById("sendQuestAlert").style.display = "none";
-			}	
-		  }
-		}, 1000);	
-	    //End Dismisses Alert	  */ 
 	  
 	  switch($('#questSelectPicker').selectpicker('val'))
 	  {
@@ -653,9 +639,15 @@ $(function() {
 	var questDescription = "";
 	
 	switch($('#questSelectPicker').selectpicker('val')){
+		case '':
+			questDescription = 'Your taskmaster patiently awaits your command.'
+			document.getElementById('questDescString').innerHTML = questDescription;
+		break;
+		
 		case 'Relic Hunt':									//Only Paladins or higher can go on Relic Hunts
 			$('#KnightOption').prop("disabled", true);
 			$('#SquireOption').prop("disabled", true);
+			$('#unitSelectPicker').selectpicker('val', 'Paladin');
 			$('.selectpicker').selectpicker('refresh');
 			questDescription = "Send your units out to look for mysterious relics. <br>Requires Paladins or higher units. <br>Reward: Chance at relics"
 			document.getElementById('questDescString').innerHTML = questDescription;
