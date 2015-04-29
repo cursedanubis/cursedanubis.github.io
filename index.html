@@ -9,7 +9,7 @@
     <link rel="icon" href="favicon.ico">
 
     <title>Holy Wars</title>
-	
+		
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 	
@@ -27,6 +27,7 @@
 	
 	<!-- Custom styles for this template -->
 	<link href="dist/css/holywars.css" rel="stylesheet">
+	<link href="dist/css/floating-sidebar.css" rel="stylesheet">
 	
 	<!-- Other Imported scripts -->
     <script src="dist/assets/js/ie-emulation-modes-warning.js"></script>
@@ -145,8 +146,77 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-		
 	
+		<!-- Custom Sidebar -->
+				<ul id=menu>
+			<div id = "golddiv" rel="tooltip">
+				<img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage" >
+				Gold: <span id="gold">0</span>  <!--( <span id="goldpersec">0</span> gps)-->
+			</div>
+
+			<div id = "wooddiv" rel="tooltip">
+				<img src = "images/woodsmall.png" Title="Wood" id="reswoodimage">
+				Wood: <span id="wood">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
+			</div>
+
+			<div id = "irondiv" style="display: none;" rel="tooltip">
+				<img src = "images/ironsmall.png" Title="Iron" id="resironimage">
+				Iron: <span id="iron">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
+			</div>
+			
+			<div id = "coaldiv" style="display: none;" rel="tooltip">
+				<img src = "images/coalsmall.png" Title="Coal" id="rescoalimage"> 
+				Coal: <span id="coal">0</span>     
+			</div>			
+
+			<div id = "faithdiv" style="display: none;" rel="tooltip">
+				<img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage">
+				Faith: <span id="faith">0</span>   <!-- ( <span id="faithpersec">0</span> fps)-->
+			</div>
+
+			<div id = "soulsdiv" style="display: none;" rel="tooltip">
+				<img src = "images/soulssmall.png" Title="Souls"  id="ressoulsimage">
+				Souls: <span id="souls">0</span>  <!-- ( <span id="soulspersec">0</span> sps)	-->	
+			</div>
+
+			<div id = "manadiv" style="display: none;" rel="tooltip">
+				<img src = "images/manasmall.png" Title="Mana" id="resmanaimage">
+				Mana: <span id="mana">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
+			</div>
+		
+			<div id = "silverdiv" style="display: none;" rel="tooltip">
+				<img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> 
+				Silver: <span id="silver">0</span>     
+			</div>
+			
+			<div id = "steeldiv" style="display: none;" rel="tooltip">
+			<img src = "images/steelsmall.png" Title="Silver" id="ressilverimage"> 
+				Steel: <span id="steel">0</span>     
+			</div>			
+			
+			<div id = "paperdiv" style="display: none;" rel="tooltip">
+				<img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage">
+				Paper: <span id="paper">0</span>    
+			</div>
+			
+			<div id = "tomediv" style="display: none;" rel="tooltip">
+				<img src = "images/bookssmall.png" Title="Holy Tomes" id="restomeimage">
+				Tomes: <span id="tomes">0</span>    
+			</div>
+				
+			<div id = "armystrdiv" style="display: none;" rel="tooltip">
+			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
+				<img src = "images/armsmall.png" Title="Army Power">
+				Army: <span id="BattlePower">0</span> 
+			</div>
+
+			<div id = "spiritarmystrdiv" style="display: none;" rel="tooltip">
+			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
+				<img src = "images/armsmall.png" Title="Army Power">
+				Spirit: <span id="SpiritPower">0</span> 
+			</div>
+		</ul>
+
 	  <div id="Resources" class="collapse in">
 		<div class = "well well-sm" id = "ResourcesWell">
 			<div id = "golddiv" rel="tooltip">
