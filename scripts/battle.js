@@ -1385,13 +1385,14 @@ function banditLoot(){
 //					document.getElementById("banditLootAlert").style.display = "block";
 					var string = "Bandits come and raid " + justStolen + " gold from your gold supply! Maybe you should try <a href='javascript: alertOpenBattlePage();' class='alert-link'>getting rid</a> of them?"
 					
-					$.notify({
-						title: "<img src='images/swords.gif'><strong>Battle! <br/></strong>",
-						message: string,
-						delay: 60000},{
-					type: 'danger'
-					});						
-							
+					if (justStolen > 0){
+						$.notify({
+							title: "<img src='images/swords.gif'><strong>Battle! <br/></strong>",
+							message: string,
+							delay: 60000},{
+						type: 'danger'
+						});							
+					}
 				}
 				banditLoot();
 /* 				//Dismisses Raid Alert
@@ -1700,7 +1701,8 @@ function succubusSeduce(){
 	$.notify({
 		title: "<strong>Oh No! </strong>",
 		message: loststring,
-		},{delay: 60000},{
+		},{
+	delay: 60000,
 	type: 'danger'
 	});		
 	
