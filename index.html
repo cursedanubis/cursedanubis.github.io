@@ -121,8 +121,8 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class = 'opt'><a id="displayResourceOpt" data-toggle="collapse" href="#Resources" aria-expanded="true" aria-controls="Resources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Resources</a></li>
-				  <li class = 'opt'><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Secondary Resources</a></li>
+                  <li class = 'opt'><a id="displayResourceOpt" data-toggle="collapse" href="#menu" aria-expanded="true" aria-controls="menu"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Resources</a></li>
+<!--			  <li class = 'opt'><a id="display2ResourceOpt" data-toggle="collapse" href="#SecondaryResources" aria-expanded="true" aria-controls="SecondaryResources"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Secondary Resources</a></li> -->
                   <li class = 'opt'><a id="displayGatheringOpt" data-toggle="collapse" href="#Gathering" aria-expanded="true" aria-controls="Gathering"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Toggle Clickables</a></li>
 				  <li class = 'opt'><a id="closeNotificationOpt" href="javascript: $.notifyClose();" aria-expanded="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Close All Notifications</a></li>
 				  <li class = 'opt'><a id="ToggleTrunc" href="javascript:toggleTrunc();"><span class="glyphicon glyphicon-superscript" aria-hidden="true"></span> Number Format: Standard</a></li>
@@ -255,21 +255,21 @@
 			</div>
 		</ul>
 
-	  <div id="Resources" class="collapse in">
+<!-- 	  <div id="Resources" class="collapse in">
 		<div class = "well well-sm" id = "ResourcesWell">
 			<div id = "golddiv" rel="tooltip">
 				<img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage" >
-				Gold: <span id="gold">0</span>  <!--( <span id="goldpersec">0</span> gps)-->
+				Gold: <span id="gold">0</span>  
 			</div>		
 
 			<div id = "wooddiv" rel="tooltip">
 				<img src = "images/woodsmall.png" Title="Wood" id="reswoodimage">
-				Wood: <span id="wood">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
+				Wood: <span id="wood">0</span>     
 			</div>
 
 			<div id = "irondiv" style="display: none;" rel="tooltip">
 				<img src = "images/ironsmall.png" Title="Iron" id="resironimage">
-				Iron: <span id="iron">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
+				Iron: <span id="iron">0</span>    
 			</div>
 			
 			<div id = "coaldiv" style="display: none;" rel="tooltip">
@@ -279,17 +279,17 @@
 	
 			<div id = "faithdiv" style="display: none;" rel="tooltip">
 				<img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage">
-				Faith: <span id="faith">0</span>   <!-- ( <span id="faithpersec">0</span> fps)-->
+				Faith: <span id="faith">0</span>   
 			</div>
 	
 			<div id = "soulsdiv" style="display: none;" rel="tooltip">
 				<img src = "images/soulssmall.png" Title="Souls"  id="ressoulsimage">
-				Souls: <span id="souls">0</span>  <!-- ( <span id="soulspersec">0</span> sps)	-->	
+				Souls: <span id="souls">0</span>  	
 			</div>
 		
 			<div id = "manadiv" style="display: none;" rel="tooltip">
 				<img src = "images/manasmall.png" Title="Mana" id="resmanaimage">
-				Mana: <span id="mana">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
+				Mana: <span id="mana">0</span>    	
 			</div>
 
 		</div>
@@ -318,18 +318,16 @@
 			</div>
 				
 			<div id = "armystrdiv" style="display: none;" rel="tooltip">
-			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
 				<img src = "images/armsmall.png" Title="Army Power">
 				Army: <span id="BattlePower">0</span> 
 			</div>
 	
 			<div id = "spiritarmystrdiv" style="display: none;" rel="tooltip">
-			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
 				<img src = "images/armsmall.png" Title="Army Power">
 				Spirit: <span id="SpiritPower">0</span> 
 			</div>
 		</div>
-	  </div>	  
+	  </div>	 -->  
 	  
 	  <div id="Gathering" class="collapse in">
 		<div id = 'GatherListWell' class = "well well-sm">
@@ -1283,7 +1281,7 @@
 
 		  <div class="panel panel-default" id="BatDwarf" style="display: none;">
 			<div class="panel-heading" role="tab" id="DwarfTitle">
-			  <h4 id = 'dwarfh4'  class="panel-title">
+			  <h4 id = 'dwarfh4'  class="panel-title battle">
 				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#DwarfCollapse" aria-expanded="false" aria-controls="DwarfCollapse">
 				  An Ancient Corrupted Dwarf
 				</a>
