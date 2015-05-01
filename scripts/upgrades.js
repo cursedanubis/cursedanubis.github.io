@@ -1213,7 +1213,7 @@ var angelUpgrade1 = new Upgrade(
 
  var upgradeTavern = new Upgrade(	
  /*Name*/'upgradeTavern', 
-/*goldCost*/10000, 
+/*goldCost*/15000, 
 /*htmlGoldCost*/'upgradeTavernGoldCost',
 /*woodCost*/0, 
 /*htmlWoodCost*/'none',
