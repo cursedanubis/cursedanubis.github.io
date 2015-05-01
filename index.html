@@ -37,8 +37,15 @@
 	<script src="dist/js/bootstrap-notify.js"></script>
 	<script src="dist/js/bootbox.min.js"></script>
 	<script src="dist/js/tooltip.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	
-	<script language="javascript"> 
+	<script language="javascript">
+	$(document).ready(function(){
+		$("minimize").click(function(){
+			$("menu").toggle();
+		});
+	});
+		
 	function toggle(elementId) {
 		var ele = document.getElementById(elementId);
 		if(ele.style.display == "block") {
@@ -148,72 +155,108 @@
       </nav>
 	
 		<!-- Custom Sidebar -->
+<<<<<<< HEAD
 		<ul id=menu >
+=======
+		<ul id=menu class="collapse in"> 
+			
+			<p align=right><input type="image" src="images/minimizeiconsmall.png" id="minimize" data-toggle="collapse" data-target="#menu" /></p>
+			
+>>>>>>> origin/altResources
 			<div id = "golddiv" rel="tooltip">
-				<img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage" >
-				Gold: <span id="gold">0</span>  <!--( <span id="goldpersec">0</span> gps)-->
+				<div class="col1"><img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage" > Gold:
+				</div>
+				<div class="col2"><span id="gold">0</span>  <!--( <span id="goldpersec">0</span> gps)-->
+				</div>
 			</div>
 
 			<div id = "wooddiv" rel="tooltip">
-				<img src = "images/woodsmall.png" Title="Wood" id="reswoodimage">
-				Wood: <span id="wood">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
+				<div class="col1"><img src = "images/woodsmall.png" Title="Wood" id="reswoodimage"> Wood: 
+				</div>
+				<div class="col2"><span id="wood">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
+				</div>				
 			</div>
 
 			<div id = "irondiv" style="display: none;" rel="tooltip">
-				<img src = "images/ironsmall.png" Title="Iron" id="resironimage">
-				Iron: <span id="iron">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
+				<div class="col1"><img src = "images/ironsmall.png" Title="Iron" id="resironimage">	Iron: 
+				</div>
+				<div class="col2"><span id="iron">0</span>     <!-- ( <span id="ironpersec">0</span> ips)-->
+				</div>
 			</div>
 			
 			<div id = "coaldiv" style="display: none;" rel="tooltip">
-				<img src = "images/coalsmall.png" Title="Coal" id="rescoalimage"> 
-				Coal: <span id="coal">0</span>     
+				<div class="col1"><img src = "images/coalsmall.png" Title="Coal" id="rescoalimage"> Coal: 
+				</div>				
+				<div class="col2"><<span id="coal">0</span> 
+				</div>				
 			</div>			
 
 			<div id = "faithdiv" style="display: none;" rel="tooltip">
-				<img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage">
-				Faith: <span id="faith">0</span>   <!-- ( <span id="faithpersec">0</span> fps)-->
+				<div class="col1"><img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage"> Faith: 
+				</div>
+				<div class="col2"><span id="faith">0</span>   <!-- ( <span id="faithpersec">0</span> fps)-->
+				</div>
 			</div>
 
 			<div id = "soulsdiv" style="display: none;" rel="tooltip">
-				<img src = "images/soulssmall.png" Title="Souls"  id="ressoulsimage">
-				Souls: <span id="souls">0</span>  <!-- ( <span id="soulspersec">0</span> sps)	-->	
+				<div class="col1"><img src = "images/soulssmall.png" Title="Souls"  id="ressoulsimage"> Souls: 
+				</div>
+				<div class="col2"><span id="souls">0</span>  <!-- ( <span id="soulspersec">0</span> sps)	-->	
+				</div>
 			</div>
 
 			<div id = "manadiv" style="display: none;" rel="tooltip">
-				<img src = "images/manasmall.png" Title="Mana" id="resmanaimage">
-				Mana: <span id="mana">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
+				<div class="col1"><img src = "images/manasmall.png" Title="Mana" id="resmanaimage"> Mana: 
+				</div>
+				<div class="col2"><span id="mana">0</span>    <!--( <span id="manapersec">0</span> mps)	-->	
+				</div>
 			</div>
 		
 			<div id = "silverdiv" style="display: none;" rel="tooltip">
-				<img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> 
-				Silver: <span id="silver">0</span>     
+				<div class="col1"><img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> Silver: 
+				</div>
+				<div class="col2"><span id="silver">0</span> 
+				</div>
 			</div>
 			
 			<div id = "steeldiv" style="display: none;" rel="tooltip">
-			<img src = "images/steelsmall.png" Title="Silver" id="ressilverimage"> 
-				Steel: <span id="steel">0</span>     
+				<div class="col1"><img src = "images/steelsmall.png" Title="Silver" id="ressilverimage"> Steel: 
+				</div>
+				<div class="col2"><span id="steel">0</span> 
+				</div>				
 			</div>			
 			
 			<div id = "paperdiv" style="display: none;" rel="tooltip">
-				<img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage">
-				Paper: <span id="paper">0</span>    
+				<div class="col1"><img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage"> Paper: 
+				</div>
+				<div class="col2"><span id="paper">0</span> 
+				</div>
 			</div>
 			
 			<div id = "tomediv" style="display: none;" rel="tooltip">
-				<img src = "images/bookssmall.png" Title="Holy Tomes" id="restomeimage">
-				Tomes: <span id="tomes">0</span>    
+				<div class="col1"><img src = "images/bookssmall.png" Title="Holy Tomes" id="restomeimage"> Tomes: 
+				</div>
+				<div class="col2"><span id="tomes">0</span> 
+				</div>				
 			</div>
 				
 			<div id = "armystrdiv" style="display: none;" rel="tooltip">
 			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
-				<img src = "images/armsmall.png" Title="Army Power">
-				Army: <span id="BattlePower">0</span> 
+				<div class="col1"><img src = "images/armsmall.png" Title="Army Power"> Army: 
+				</div>
+				<div class="col2"><span id="BattlePower">0</span> 
+				</div>
 			</div>
 
 			<div id = "spiritarmystrdiv" style="display: none;" rel="tooltip">
 			<!--	<img src = "images/faithsmall.png" alt="Praying Hands" style="display: inline-block">-->
-				<img src = "images/armsmall.png" Title="Army Power">
-				Spirit: <span id="SpiritPower">0</span> 
+				<div class="col1"><img src = "images/armsmall.png" Title="Army Power"> Spirit: 
+				</div>
+				<div class="col2"><span id="SpiritPower">0</span> 
+				</div>
+			</div>
+			<div>
+			<br/>
 			</div>
 		</ul>
 
