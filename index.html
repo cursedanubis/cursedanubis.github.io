@@ -24,7 +24,7 @@
 	
 	<!--Tooltip CSS-->
 	<link href="dist/css/tooltip.css" rel="stylesheet">
-	
+
 	<!-- Custom styles for this template -->
 	<link href="dist/css/holywars.css" rel="stylesheet">
 	<link href="dist/css/floating-sidebar.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 	<script src="dist/js/bootstrap-notify.js"></script>
 	<script src="dist/js/bootbox.min.js"></script>
 	<script src="dist/js/tooltip.js"></script>
-	
+
 	<script language="javascript">
 	$(document).ready(function(){
 		$("minimize").click(function(){
@@ -327,8 +327,8 @@
 				Spirit: <span id="SpiritPower">0</span> 
 			</div>
 		</div>
-	  </div>	 -->  
-	  
+	  </div>	 -->  	  
+
 	  <div id="Gathering" class="collapse in">
 		<div id = 'GatherListWell' class = "well well-sm">
 	
@@ -523,6 +523,27 @@
 			</div>
 			<hr>
 		</div>
+
+		<div id="ScribeTab" class = "container">
+		<a id = 'BtnScribeDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Scribes"
+    		data-content="">Scribes <span class='badge' id="scribes">0</span></a>
+			<br /><br />
+			<button id=btnbuyScribe onclick="Scribe.buyOne()"	type="button" class="btn btn-default">Train Scribe</button>
+			<button id=btnScribeUpgrade class="btn btn-default" type="button" class="btn btn-default" data-toggle="collapse" data-target="#ScribeUpgradeTab" aria-expanded="false" aria-controls="ScribeUpgradeTab">Upgrades</button>
+			<br />
+			<img src = "images/money_goldsmall.png" title ="Gold" > <span id="ScribeCost">1000</span> | <img src = "images/silverOresmall.png" title="Silver"> <span id="ScribeSilverCost">10</span> | <img src = "images/faithsmall.png" title="Faith"> <span id="ScribeFaithCost">50</span> | <img src = "images/bookssmall.png" Title="Tomes"> <span id="ScribeTomeCost">1</span>  | <span id = 'ScribeReqUnit'>1 Priest<span>
+			<br />
+			<div id ="ScribeUpgradeTab" class = "upgrade collapse">
+				<div class = "well">
+					<br />
+					
+					<div class = 'container'>
+
+					</div>
+				</div>
+			</div>
+			<hr>
+		</div>		
 
 		<div id="BishopTab" class = "container">
 		<a id = 'BtnBishopDesc' tabindex="0" class="btn btn-sm btn-primary" role="button" data-toggle="popover"  data-trigger="focus" data-html="true" title="Bishops"
@@ -768,19 +789,30 @@
 				<div id = "PMillUpgradeTab" class = "upgrade collapse" >
 					<div class = "well">
 						<div id = 'PMillUpgradeEffTab' class = 'container'> 
-							<button id=btnPmillEffUpgrade onclick="pmillEffUpgrade.buyUpgrade()"	type="button" class="btn btn-default" title = "Adjustments to your mills make them much more efficient at converting wood into paper. They require 40% less wood.">Process Control</button>
+							<button id='btnPmillEffUpgrade' onclick="pmillEffUpgrade.buyUpgrade()"	type="button" class="btn btn-default" title = "Adjustments to your mills make them much more efficient at converting wood into paper. They require 40% less wood.">Process Control</button>
 							<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "Adjustments to your mills make them much more efficient at converting wood into paper. They require 40% less wood." rel="tooltip"></span>
 							<br />	
 							<img src = "images/money_goldsmall.png" title ="Gold"><span id = 'pmillEffUpgradeGoldCost'>50,000</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'pmillEffUpgradeWoodCost'>25,000</span> | <img src = "images/ironsmall.png" title="Iron"><span id = 'pmillEffUpgradeIronCost'>35,000</span>	
 						</div>
 						<br />
 						<div id = 'PMillUpgradeEff2Tab' class = 'container'> 
-							<button id=btnPmillEffUpgrade2 onclick="pmillEffUpgrade2.buyUpgrade()"	type="button" class="btn btn-default" title = "A total overhaul of the paper creation process halves the time needed for paper mills to produce paper.">Mass Overhaul</button>
+							<button id='btnPmillEffUpgrade2' onclick="pmillEffUpgrade2.buyUpgrade()"	type="button" class="btn btn-default" title = "A total overhaul of the paper creation process halves the time needed for paper mills to produce paper.">Mass Overhaul</button>
 							<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "A total overhaul of the paper creation process halves the time needed for paper mills to produce paper." rel="tooltip"></span>
 							<br />	
 							<img src = "images/money_goldsmall.png" title ="Gold" ><span id = 'pmillEffUpgrade2GoldCost'>1M</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'pmillEffUpgrade2WoodCost'>1M</span> | <img src = "images/ironsmall.png" title="Iron"><span id = 'pmillEffUpgrade2IronCost'>1M</span> | <img src = "images/soulssmall.png" title="Souls"><span id = 'pmillEffUpgrade2SoulCost'>50,000</span>
+							<br /> 
+						</div>
+
+						<br />
+
+						<div id = 'PMillUpgradeEff3Tab' class = 'container'> 
+							<button id='btnPmillEffUpgrade3' onclick="pmillEffUpgrade3.buyUpgrade()"	type="button" class="btn btn-default" title = "A little bit of magic and the help of a couple of shades further increases the efficency of your paper mills. Multiplies paper output by 1.5.">Shady Intervention</button>
+							<span class="glyphicon glyphicon-info-sign mobiletooltip" aria-hidden="true" title = "A little bit of magic and the help of a couple of shades further increases the efficency of your paper mills. Multiplies paper output by 1.5." rel="tooltip"></span>
+							<br />	
+							<img src = "images/money_goldsmall.png" title ="Gold" ><span id = 'pmillEffUpgrade3GoldCost'>5M</span> | <img src = "images/woodsmall.png" title = "Wood"><span id = 'pmillEffUpgrade3WoodCost'>3M</span> | <img src = "images/ironsmall.png" title="Iron"><span id = 'pmillEffUpgrade3IronCost'>3M</span> | <img src = "images/soulssmall.png" title="Souls"><span id = 'pmillEffUpgrade3SoulCost'>2.5M</span> | <span id = 'pmillEffUpgrade3UnitCost'>25 shades</span>
 							<br />
 						</div>
+
 						<br />						
 						
 					</div>
@@ -2141,7 +2173,11 @@
 
 			<h4>Priests</h4>
 			Priests trained this game: <span id= "statPriestsTrained">0</span><br />
-			Lifetime Priests trained: <span id = "statTotalPriestsTrained">0</span><br /><br />			
+			Lifetime Priests trained: <span id = "statTotalPriestsTrained">0</span><br /><br />		
+
+			<h4>Scribes</h4>
+			Scribes trained this game: <span id= "statScribesTrained">0</span><br />
+			Lifetime Scribes trained: <span id = "statTotalScribesTrained">0</span><br /><br />						
 			
 			<h4>Bishops</h4>
 			Bishops trained this game: <span id= "statBishopsTrained">0</span><br />

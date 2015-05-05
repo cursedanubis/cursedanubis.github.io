@@ -36,6 +36,7 @@
 		save("knights",Knight.number);
 		save("acolytes",Acolyte.number);
 		save("priests",Priest.number);
+		save("scribes", Scribe.number);
 		save("bishops", Bishop.number);
 		save("paladins",Paladin.number); 
 		save("shades", Shade.number);
@@ -116,6 +117,7 @@
 		save("tomesUnlocked",tomesUnlocked);
 		save("PmillEffUpgr", PmillEffUpgr);
 		save("PmillEffUpgr2",PmillEffUpgr2);
+		save("PmillEffUpgr3",PmillEffUpgr3);
 		save("PmillClickUpgr",PmillClickUpgr);
 		save("bishopUpgr1", bishopUpgr1);
 		save("paladinWepUpgrade",paladinWepUpgrade);
@@ -569,6 +571,11 @@
 			document.getElementById("priests").innerHTML = Priest.number;
 		}
 
+		if(localStorage.scribes !== null){
+			 Scribe.number = parseInt(localStorage.scribes);
+			document.getElementById("scribes").innerHTML = Scribe.number;
+		}		
+
 		if(localStorage.bishops !== null){
 			 Bishop.number = parseInt(localStorage.bishops);
 			document.getElementById("bishops").innerHTML = Bishop.number;
@@ -697,7 +704,16 @@
 				PmillEffUpgr2 = true;
 				pmillEffUpgrade2.enableFlag();
 			}
+		}
+
+		if(localStorage.PmillEffUpgr3 !== null){
+			myBool = (localStorage.PmillEffUpgr3 == "true");
+			if(myBool === true){
+				PmillEffUpgr3 = true;
+				pmillEffUpgrade3.enableFlag();
+			}
 		}	
+
 		if(localStorage.PmillClickUpgr !== null){
 			myBool = (localStorage.PmillClickUpgr == "true");
 			if(myBool === true){
