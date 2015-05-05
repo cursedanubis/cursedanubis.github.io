@@ -760,7 +760,7 @@ var bishopUpgrade1 = new Upgrade(
 /*htmlIronCost*/'none',
 /*coalCost*/0, 
 /*htmlCoalCost*/'none',
-/*steelCost*/50, 
+/*steelCost*/100, 
 /*htmlSteelCost*/'bishopUpgrade1SteelCost',
 /*silverCost*/750000, 
 /*htmlSilverCost*/'bishopUpgrade1SilverCost',
