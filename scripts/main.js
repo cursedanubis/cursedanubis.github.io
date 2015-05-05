@@ -651,7 +651,7 @@ window.setInterval(function(){                                 //Update per seco
     soulspersec = Paladin.number*Paladin.soulsClickVal + Aspect.number*Aspect.soulsClickVal + Angel.number*Angel.soulsClickVal;
 	document.getElementById("soulsdiv").title = "Souls per second: " + fnum(soulspersec) ; 
 	
-	var PmillMult = 1;
+	var PmillMult = 1.0;
 	if(PmillEffUpgr3 === true){
 		PmillMult = 1.5;
 	}

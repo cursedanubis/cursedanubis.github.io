@@ -1170,7 +1170,7 @@
 			document.title = "Holy Wars - " + KingdomName;
 		}	
 
-		if(localStorage.gameSaveVer !== null){
+		if(localStorage.gameSaveVer != null){
 			gameSaveVer = localStorage.gameSaveVer;
 			console.log("Save version: " + gameSaveVer);
 			if(gameSaveVer < gameVer || gameSaveVer === ''){
@@ -1954,3 +1954,4 @@ function loadScenario(number){
 		default:
 	}
 }
+
