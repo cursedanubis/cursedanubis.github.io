@@ -331,7 +331,6 @@ function clickThing(number, type)
 }
 
 function renameKingdom(){
-	
 //	KingdomName = prompt("Name your kingdom", "");
 	
 		bootbox.prompt({
