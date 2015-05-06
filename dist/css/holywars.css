@@ -247,14 +247,14 @@ width: auto;
 .achievement{
 padding-top: 0px;
 margin-left: 10px;
-width: auto;
+width: 100%;
 color: gray;
 }
 
 .achievementearned{
 padding-top: 0px;
 margin-left: 10px;
-width: auto;
+width: 100%;
 color: black;
 }
 
