@@ -78,6 +78,9 @@ var towerBuilt = false;
 var lastPage;
 var TruncateNumber = 'standard';
 var KingdomName = "";
+var DayNight = 'Day';
+var lackResourceColor = 'red';
+var haveResourceColor = 'black';
 var gameVer = 0.7;
 var gameSaveVer;
 
@@ -618,6 +621,9 @@ function UpdateButtons() {
 		updateRelicButtons();		
 	}
 
+	//
+	DNfontColorCheck();
+
 }
 
 
@@ -957,11 +963,28 @@ function toggleResourcePanel(){
 	}
 }
 
-function toggleNight(){
-	document.body.classList.remove('day');
-	document.body.classList.add('night');	
+function toggleDayNight(){
+	if($('body').hasClass('night') === false)
+	{
+		document.body.classList.remove('day');
+		document.body.classList.add('night');
+		DayNight = 'night'			
+	}
+	else
+	{
+		document.body.classList.remove('night');
+		document.body.classList.add('day');	
+		DayNight = 'day'		
+	}
 }
-function toggleDay(){
-	document.body.classList.remove('night');
-	document.body.classList.add('day');	
+
+function DNfontColorCheck(){	//Day night font color check
+	if(DayNight === 'day'){
+		lackResourceColor = 'red';
+		haveResourceColor = 'black';
+	}
+	else if(DayNight === 'night'){
+		lackResourceColor = '#990000';
+		haveResourceColor = 'white';
+	}
 }

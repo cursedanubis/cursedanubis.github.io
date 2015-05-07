@@ -337,6 +337,7 @@ background-color:#282828;
 
 .night .panel-heading{
  background-color: black;
+ color: white;
 }
 
 .night .panel-title{
@@ -349,4 +350,27 @@ background-color:#282828;
 
 .night .navbar{
  background-color: black;
+}
+
+.night .popover{
+background-color: black;
+color:gray;
+}
+
+.night .popover-title{
+background-color: #282828;
+color: white;
+}
+
+.night .btn-primary{
+  background-color: #000099;
+}
+
+.night .badge{
+  background-color: #0066CC;
+  color: white;
+}
+
+.night .legend{
+  color: white;
 }

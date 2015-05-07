@@ -45,22 +45,22 @@ Building.prototype.canBuy = function(){
 		document.getElementById(myButton).disabled = true;
 		this.checkBtnFlag();
 			if(gold < this.goldCost && this.htmlGoldCost != 'none'){
-				document.getElementById(this.htmlGoldCost).style.color = "red";
+				document.getElementById(this.htmlGoldCost).style.color = lackResourceColor;
 			}
 			if(wood < this.woodCost && this.htmlWoodCost != 'none'){
-				document.getElementById(this.htmlWoodCost).style.color = "red";
+				document.getElementById(this.htmlWoodCost).style.color = lackResourceColor;
 			}			
 			if(iron < this.ironCost && this.htmlIronCost != 'none'){
-				document.getElementById(this.htmlIronCost).style.color = "red";
+				document.getElementById(this.htmlIronCost).style.color = lackResourceColor;
 			}
 			if(silver < this.silverCost && this.htmlSilverCost != 'none'){
-				document.getElementById(this.htmlSilverCost).style.color = "red";
+				document.getElementById(this.htmlSilverCost).style.color = lackResourceColor;
 			}
 			if(faith < this.faithCost && this.htmlFaithCost != 'none'){
-				document.getElementById(this.htmlFaithCost).style.color = "red";
+				document.getElementById(this.htmlFaithCost).style.color = lackResourceColor;
 			}
 			if(souls < this.soulCost && this.htmlSoulCost != 'none'){
-				document.getElementById(this.htmlSoulCost).style.color = "red";
+				document.getElementById(this.htmlSoulCost).style.color = lackResourceColor;
 			}	
 		return false;
 	}
@@ -68,12 +68,12 @@ Building.prototype.canBuy = function(){
 };
 
 Building.prototype.CostsToBlack = function(){
-	if(this.htmlGoldCost != 'none'){document.getElementById(this.htmlGoldCost).style.color = "black";}
-	if(this.htmlWoodCost != 'none'){document.getElementById(this.htmlWoodCost).style.color = "black";}
-	if(this.htmlIronCost != 'none'){document.getElementById(this.htmlIronCost).style.color = "black";}
-	if(this.htmlSilverCost != 'none'){document.getElementById(this.htmlSilverCost).style.color = "black";}
-	if(this.htmlFaithCost != 'none'){document.getElementById(this.htmlFaithCost).style.color = "black";}
-	if(this.htmlSoulCost != 'none'){document.getElementById(this.htmlSoulCost).style.color = "black";}
+	if(this.htmlGoldCost != 'none'){document.getElementById(this.htmlGoldCost).style.color = haveResourceColor;}
+	if(this.htmlWoodCost != 'none'){document.getElementById(this.htmlWoodCost).style.color = haveResourceColor;}
+	if(this.htmlIronCost != 'none'){document.getElementById(this.htmlIronCost).style.color = haveResourceColor;}
+	if(this.htmlSilverCost != 'none'){document.getElementById(this.htmlSilverCost).style.color = haveResourceColor;}
+	if(this.htmlFaithCost != 'none'){document.getElementById(this.htmlFaithCost).style.color = haveResourceColor;}
+	if(this.htmlSoulCost != 'none'){document.getElementById(this.htmlSoulCost).style.color = haveResourceColor;}
 };
 
 Building.prototype.checkBtnFlag = function(){
@@ -298,25 +298,25 @@ MultBuilding.prototype.canBuy = function(){
 		{
 			document.getElementById(myButton).disabled = true;
 			if(gold < this.curGoldCost && this.htmlNextGoldCost != 'none'){
-				document.getElementById(this.htmlNextGoldCost).style.color = "red";
+				document.getElementById(this.htmlNextGoldCost).style.color = lackResourceColor;
 			}
 			if(wood < this.curWoodCost && this.htmlNextWoodCost != 'none'){
-				document.getElementById(this.htmlNextWoodCost).style.color = "red";
+				document.getElementById(this.htmlNextWoodCost).style.color = lackResourceColor;
 			}			
 			if(iron < this.curIronCost && this.htmlNextIronCost != 'none'){
-				document.getElementById(this.htmlNextIronCost).style.color = "red";
+				document.getElementById(this.htmlNextIronCost).style.color = lackResourceColor;
 			}
 			if(silver < this.curSilverCost && this.htmlNextSilverCost != 'none'){
-				document.getElementById(this.htmlNextSilverCost).style.color = "red";
+				document.getElementById(this.htmlNextSilverCost).style.color = lackResourceColor;
 			}
 			if(faith < this.curFaithCost && this.htmlNextFaithCost != 'none'){
-				document.getElementById(this.htmlNextFaithCost).style.color = "red";
+				document.getElementById(this.htmlNextFaithCost).style.color = lackResourceColor;
 			}
 			if(souls < this.curSoulCost && this.htmlNextSoulCost != 'none'){
-				document.getElementById(this.htmlNextSoulCost).style.color = "red";
+				document.getElementById(this.htmlNextSoulCost).style.color = lackResourceColor;
 			}
 			if(tomes < this.curTomeCost && this.htmlNextTomeCost != 'none'){
-				document.getElementById(this.htmlNextTomeCost).style.color = "red";
+				document.getElementById(this.htmlNextTomeCost).style.color = lackResourceColor;
 			}			
 		}
 	}
@@ -326,13 +326,13 @@ MultBuilding.prototype.canBuy = function(){
 };
 
 MultBuilding.prototype.CostsToBlack = function(){
-	if(this.htmlNextGoldCost != 'none'){document.getElementById(this.htmlNextGoldCost).style.color = "black";}
-	if(this.htmlNextWoodCost != 'none'){document.getElementById(this.htmlNextWoodCost).style.color = "black";}
-	if(this.htmlNextIronCost != 'none'){document.getElementById(this.htmlNextIronCost).style.color = "black";}
-	if(this.htmlNextSilverCost != 'none'){document.getElementById(this.htmlNextSilverCost).style.color = "black";}
-	if(this.htmlNextFaithCost != 'none'){document.getElementById(this.htmlNextFaithCost).style.color = "black";}
-	if(this.htmlNextSoulCost != 'none'){document.getElementById(this.htmlNextSoulCost).style.color = "black";}
-	if(this.htmlNextTomeCost != 'none'){document.getElementById(this.htmlNextTomeCost).style.color = "black";}
+	if(this.htmlNextGoldCost != 'none'){document.getElementById(this.htmlNextGoldCost).style.color = haveResourceColor;}
+	if(this.htmlNextWoodCost != 'none'){document.getElementById(this.htmlNextWoodCost).style.color = haveResourceColor;}
+	if(this.htmlNextIronCost != 'none'){document.getElementById(this.htmlNextIronCost).style.color = haveResourceColor;}
+	if(this.htmlNextSilverCost != 'none'){document.getElementById(this.htmlNextSilverCost).style.color = haveResourceColor;}
+	if(this.htmlNextFaithCost != 'none'){document.getElementById(this.htmlNextFaithCost).style.color = haveResourceColor;}
+	if(this.htmlNextSoulCost != 'none'){document.getElementById(this.htmlNextSoulCost).style.color = haveResourceColor;}
+	if(this.htmlNextTomeCost != 'none'){document.getElementById(this.htmlNextTomeCost).style.color = haveResourceColor;}
 };
 
 MultBuilding.prototype.recalcCost = function(){
