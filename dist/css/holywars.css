@@ -309,13 +309,17 @@ legend{
 width: 75%
 }
 
+/*
+  #DBDBDB =  Off White
+*/
+
 .day {
   color: black;
   background-color: white;
 }
 
 .night {
-  color: white;
+  color: #DBDBDB;
   background-color: #181818 ;
 }
 
@@ -337,7 +341,7 @@ background-color:#282828;
 
 .night .panel-heading{
  background-color: black;
- color: white;
+ color: #DBDBDB;
 }
 
 .night .panel-title{
@@ -359,7 +363,7 @@ color:gray;
 
 .night .popover-title{
 background-color: #282828;
-color: white;
+color: #DBDBDB;
 }
 
 .night .btn-primary{
@@ -368,9 +372,9 @@ color: white;
 
 .night .badge{
   background-color: #0066CC;
-  color: white;
+  color: #DBDBDB;
 }
 
 .night .legend{
-  color: white;
+  color: #DBDBDB;
 }

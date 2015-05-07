@@ -79,6 +79,7 @@ var lastPage;
 var TruncateNumber = 'standard';
 var KingdomName = "";
 var DayNight = 'Day';
+var offwhite = '#DBDBDB'
 var lackResourceColor = 'red';
 var haveResourceColor = 'black';
 var gameVer = 0.7;
@@ -987,6 +988,6 @@ function DNfontColorCheck(){	//Day night font color check
 	}
 	else if(DayNight === 'night'){
 		lackResourceColor = '#990000';
-		haveResourceColor = 'white';
+		haveResourceColor = offwhite;
 	}
 }
