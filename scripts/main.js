@@ -945,12 +945,11 @@ $('#clicksteel').hover(
 //=================================//
 
 function toggleResourcePanel(){
-//	console.log(document.getElementById('resourcepanel').className);
 	if($(resourcepanel).hasClass('animated fadeOutRight') === false){
 		$(resourcepanel).removeClass('animated fadeInRight');
 		$(resourcepanel).addClass('animated fadeOutRight');
-		$(arrowbutton).attr("src", 'images/3dtransparentarrow_long_left.png')
-		setTimeout(function(){document.getElementById('resourcepanel').style.display = 'none'; }, 450);
+		
+		setTimeout(function(){document.getElementById('resourcepanel').style.display = 'none'; $(arrowbutton).attr("src", 'images/3dtransparentarrow_long_left.png') }, 450);
 	}
 	else{
 		setTimeout(function(){document.getElementById('resourcepanel').style.display = 'block';$(resourcepanel).addClass('animated fadeInRight'); $(arrowbutton).attr("src", 'images/3dtransparentarrow_long_right.png')}, 50);
