@@ -21,25 +21,19 @@
 }
 
 #resourcepanel {
-	float: right;
+	float: left;
 	width: 10.5em;
 	margin: 5px 0px 5px 35px;
 }
 
 #arrowpanel {
-	float: left;
+	float: right;
 	width: 5.5em;
 	margin: 5px 2px 5px 0px;
-	height: 100%;
-}
-
-#arrowpanel input{
-  outline: 0;
 }
 
 #arrowbutton{
 	padding: 5px;
-	height: 100%;
 }
 
 .col1{
