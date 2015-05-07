@@ -24,17 +24,18 @@
 	float: left;
 	width: 10.5em;
 	margin: 5px 0px 5px 35px;
-	display: ;
 }
 
 #arrowpanel {
 	float: right;
 	width: 5.5em;
 	margin: 5px 2px 5px 0px;
+	height: 100%;
 }
 
 #arrowbutton{
-	
+	padding: 5px;
+	height: 100%;
 }
 
 .col1{

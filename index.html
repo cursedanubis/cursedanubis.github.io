@@ -39,16 +39,6 @@
 	<script src="dist/js/tooltip.js"></script>
 
 	<script language="javascript">
-	$(document).ready(function(){
-		$("minimize").click(function(){
-			$("resourcepanel").toggle();
-			var tog = document.getElementById(resourcepanel);
-			if(display.style.display == "none") {
-				menu.style.width = "6em";
-				}
-		});
-		
-	});
 		
 	function toggle(elementId) {
 		var ele = document.getElementById(elementId);
@@ -160,7 +150,7 @@
 	
 		<!-- Custom Sidebar -->
 		<ul id=menu> 
-			<div id = "resourcepanel" class="collapse in">
+			<div id = "resourcepanel">
 				<div id = "golddiv" rel="tooltip">
 					<div class="col1"><img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage" > Gold:
 					</div>
@@ -256,7 +246,7 @@
 			</div>
 			<div id="arrowpanel">
 				<div id="arrowbutton">
-					<input type="image" src="images/3dtransparentarrow_long.png" id="minimize" data-toggle="collapse" data-target="#resourcepanel" />
+					<input type="image" src="images/3dtransparentarrow_long.png" id="minimize" onclick = "togglePanel()"/>
 				</div>
 			</div>
 		</ul>
@@ -2009,6 +1999,23 @@
 	</div>		
 	
 	<script type ="text/javascript">
+		
+		function togglePanel(){
+	
+			if ($('resourcepanel:visible')) {
+				alert("Visible!");
+				document.getElementById("resourcepanel").style.display = "none";
+				document.getElementById("menu").style.width = "6em";
+				document.getElementById("minimize").src = "images/3dtransparentarrow_long_left.png";
+				}
+			else {
+				alert("NOT Visible!");
+				document.getElementById("resourcepanel").style.display = "block";
+				document.getElementById("menu").style.width = "19em";
+				document.getElementById("minimize").src = "images/3dtransparentarrow_long.png";
+				}		
+		};
+		
 		function CollapseAll(){
 			document.getElementById("Battle").style.display = "none";
 			document.getElementById("Relics").style.display = "none";
