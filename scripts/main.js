@@ -956,7 +956,7 @@ function toggleResourcePanel(){
 	}
 	else{
 		
-		setTimeout(function(){document.getElementById('resourcepanel').style.display = 'block';$(resourcepanel).addClass('animated fadeInRight'); $(arrowbutton).attr("src", 'images/3dtransparentarrow_long.png')}, 50);
+		setTimeout(function(){document.getElementById('resourcepanel').style.display = 'block';$(resourcepanel).addClass('animated fadeInRight'); $(arrowbutton).attr("src", 'images/3dtransparentarrow_long_right.png')}, 50);
 		$(resourcepanel).removeClass('animated fadeOutRight' );
 		
 	}
