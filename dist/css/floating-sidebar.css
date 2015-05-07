@@ -2,7 +2,7 @@
   position: fixed;
   right: 0;
   top: 30%;
-  width: 14em;
+  width: 19em;
   margin: -2.5em 0 0 0;
   z-index: 5;
   background: hsla(80, 90%, 40%, 0.4);
@@ -11,20 +11,34 @@
   font-size: medium;
   border: solid hsla(80, 90%, 40%, 0.5);
   border-right: none;
-  padding: 0.7em 1.5em 0.5em 2.0em;
+  padding: 1.0em 0em 1.0em 0em;
   box-shadow: 0 1px 3px black;
   border-radius: 3em 0.5em 0.5em 3em;
-  
 }
 
 #menu:hover{
 	background: hsla(80, 90%, 40%, 0.7);
 }
 
-.col1{
-	
-	display: inline-block;
+#resourcepanel {
+	float: left;
+	width: 10.5em;
+	margin: 5px 0px 5px 35px;
+	display: ;
+}
 
+#arrowpanel {
+	float: right;
+	width: 5.5em;
+	margin: 5px 2px 5px 0px;
+}
+
+#arrowbutton{
+	
+}
+
+.col1{
+	display: inline-block;
 }
 .col2{
 	display: inline-block;
