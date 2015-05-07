@@ -949,15 +949,11 @@ function toggleResourcePanel(){
 	if($(resourcepanel).hasClass('animated fadeOutRight') === false){
 		$(resourcepanel).removeClass('animated fadeInRight');
 		$(resourcepanel).addClass('animated fadeOutRight');
-		$(arrowbutton).attr("src", 'images/3dtransparentleftarrow_long.png')
+		$(arrowbutton).attr("src", 'images/3dtransparentarrow_long_left.png')
 		setTimeout(function(){document.getElementById('resourcepanel').style.display = 'none'; }, 450);
-//		document.getElementById('menu').style.width = '6em';
-
 	}
 	else{
-		
 		setTimeout(function(){document.getElementById('resourcepanel').style.display = 'block';$(resourcepanel).addClass('animated fadeInRight'); $(arrowbutton).attr("src", 'images/3dtransparentarrow_long_right.png')}, 50);
 		$(resourcepanel).removeClass('animated fadeOutRight' );
-		
 	}
 }
