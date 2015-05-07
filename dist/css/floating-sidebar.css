@@ -2,7 +2,7 @@
   position: fixed;
   right: 0;
   top: 30%;
-  width: 19em;
+  width: auto;
   margin: -2.5em 0 0 0;
   z-index: 5;
   background: hsla(80, 90%, 40%, 0.4);
@@ -21,16 +21,20 @@
 }
 
 #resourcepanel {
-	float: left;
+	float: right;
 	width: 10.5em;
 	margin: 5px 0px 5px 35px;
 	display: ;
 }
 
 #arrowpanel {
-	float: right;
+	float: left;
 	width: 5.5em;
 	margin: 5px 2px 5px 0px;
+}
+
+#arrowpanel input{
+  outline: 0;
 }
 
 #arrowbutton{

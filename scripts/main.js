@@ -943,3 +943,21 @@ $('#clicksteel').hover(
 );
 
 //=================================//
+
+function toggleResourcePanel(){
+//	console.log(document.getElementById('resourcepanel').className);
+	if($(resourcepanel).hasClass('animated fadeOutRight') === false){
+		$(resourcepanel).removeClass('animated fadeInRight');
+		$(resourcepanel).addClass('animated fadeOutRight');
+		$(arrowbutton).attr("src", 'images/3dtransparentleftarrow_long.png')
+		setTimeout(function(){document.getElementById('resourcepanel').style.display = 'none'; }, 450);
+//		document.getElementById('menu').style.width = '6em';
+
+	}
+	else{
+		
+		setTimeout(function(){document.getElementById('resourcepanel').style.display = 'block';$(resourcepanel).addClass('animated fadeInRight'); $(arrowbutton).attr("src", 'images/3dtransparentarrow_long.png')}, 50);
+		$(resourcepanel).removeClass('animated fadeOutRight' );
+		
+	}
+}
