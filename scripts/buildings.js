@@ -83,7 +83,7 @@ Building.prototype.checkBtnFlag = function(){
 				case "lumbermillOpened":
 					if(lumbermillOpened){
 						document.getElementById(myButton).innerHTML = "Lumbermill Built";
-						document.getElementById(myButton).style.background='darkblue';
+						document.getElementById(myButton).style.background='#12005C';
 						document.getElementById(myButton).disabled = true;
 					}
 				break;				
@@ -92,14 +92,14 @@ Building.prototype.checkBtnFlag = function(){
 					if(minesOpened === true){
 						document.getElementById(myButton).innerHTML = "Mines Opened";
 						document.getElementById(myButton).disabled = true;
-						document.getElementById(myButton).style.background='darkblue';
+						document.getElementById(myButton).style.background='#12005C';
 					}
 				break; 
 				case "barracksOpened":
 					if(barracksOpened === true){
 						document.getElementById(myButton).innerHTML = "Barracks Built";	
 						document.getElementById(myButton).disabled = true;	
-						document.getElementById(myButton).style.background='darkblue';
+						document.getElementById(myButton).style.background='#12005C';
 					}
 				break;
 
@@ -107,7 +107,7 @@ Building.prototype.checkBtnFlag = function(){
 					if(commandPostOpened === true){
 						document.getElementById(myButton).innerHTML = "Command Post Built";	
 						document.getElementById(myButton).disabled = true;	
-						document.getElementById(myButton).style.background='darkblue';
+						document.getElementById(myButton).style.background='#12005C';
 					}
 				break;
 
@@ -115,7 +115,7 @@ Building.prototype.checkBtnFlag = function(){
 					if(forgeOpened === true){
 						document.getElementById(myButton).innerHTML = "Forge Built";	
 						document.getElementById(myButton).disabled = true;	
-						document.getElementById(myButton).style.background='darkblue';
+						document.getElementById(myButton).style.background='#12005C';
 					}
 				break;				
 				
@@ -123,14 +123,14 @@ Building.prototype.checkBtnFlag = function(){
 					if(churchOpened === true){
 						document.getElementById(myButton).innerHTML = "Church Built";
 						document.getElementById(myButton).disabled = true;	
-						document.getElementById(myButton).style.background='darkblue';						
+						document.getElementById(myButton).style.background='#12005C';						
 					}
 				break;
 				case "towerBuilt":
 					if(towerBuilt === true){
 						document.getElementById(myButton).innerHTML = "Tower Built";
 						document.getElementById(myButton).disabled = true;	
-						document.getElementById(myButton).style.background='darkblue';
+						document.getElementById(myButton).style.background='#12005C';
 					}
 				break;
 				default:

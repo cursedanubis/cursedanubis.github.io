@@ -968,10 +968,12 @@ function toggleDayNight(){
 	{
 		document.body.classList.remove('day');
 		document.body.classList.add('night');
-		DayNight = 'night'			
+		DayNight = 'night'
+		document.getElementById('ToggleDN').innerHTML = "<span class='glyphicon glyphicon-adjust' aria-hidden='true'></span>Toggle Day Mode";
 	}
 	else
 	{
+		document.getElementById('ToggleDN').innerHTML = "<span class='glyphicon glyphicon-adjust' aria-hidden='true'></span>Toggle Night Mode";
 		document.body.classList.remove('night');
 		document.body.classList.add('day');	
 		DayNight = 'day'		

@@ -299,7 +299,7 @@ Upgrade.prototype.purchasedButton = function(){
 Upgrade.prototype.canBuy = function(){								//Checks to see if all costs are met
 	if(this.checkFlag() === true){									//Upgrade already purchased
 		   document.getElementById(this.buyBtnRef).disabled = true;	
-		   document.getElementById(this.buyBtnRef).style.background='darkblue';	
+		   document.getElementById(this.buyBtnRef).style.background='#12005C';	
 		   return false;		
 	}
 	else if(this.costTest(this.goldCost, gold, this.htmlGoldCost) *
@@ -366,11 +366,11 @@ Upgrade.prototype.costTest= function(cost, type, htmlRef){							//Checks the sp
 	}	
 	else{
 		if(this.checkFlag() === true){
-			document.getElementById(htmlRef).style.color = "black";	//If cost is defined and not met, cost is changed to black 			
+			document.getElementById(htmlRef).style.color = haveResourceColor;	//If cost is defined and not met, cost is changed to black 			
 			return true;			
 		}
 		else if(type >= cost){
-			document.getElementById(htmlRef).style.color = "black";	//If cost is defined and not met, cost is changed to black 			
+			document.getElementById(htmlRef).style.color = haveResourceColor;	//If cost is defined and not met, cost is changed to black 			
 			return true;
 		}
 		else if(type < cost){
@@ -386,11 +386,11 @@ Upgrade.prototype.unitCostTest = function(){
 		return true;
 	}
 	else if(this.hasReqUnit === true && this.reqUnit.number >= this.numReqUnit){
-		document.getElementById(this.htmlReqUnit).style.color = "black";	//If cost is defined and met, cost is changed to black	
+		document.getElementById(this.htmlReqUnit).style.color = haveResourceColor;	//If cost is defined and met, cost is changed to black	
 		return true;
 	}
 	else if(this.hasReqUnit === true && this.reqUnit.number < this.numReqUnit){
-		document.getElementById(this.htmlReqUnit).style.color = "red";	//If cost is defined and not met, cost is changed to red
+		document.getElementById(this.htmlReqUnit).style.color = lackResourceColor;	//If cost is defined and not met, cost is changed to red
 		return false;		
 	}
 };
