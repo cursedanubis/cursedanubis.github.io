@@ -58,7 +58,6 @@
         $('.navbar-nav li').click(function () {
 				
 			if($(this).hasClass('dropdown')== false && $(this).hasClass('opt') == false) {
-			//	console.log($(this).attr('class'));
 				$(this).siblings().removeClass('active');
 				$(this).addClass('active');	
 			}
@@ -149,8 +148,18 @@
       </nav>
 	
 		<!-- Custom Sidebar -->
+<<<<<<< HEAD
 		<ul id=menu> 
 			<div id = "resourcepanel">
+=======
+		<ul id='menu'> 
+			<div id="arrowpanel">
+				<div >
+					<input id="arrowbutton" type="image" src="images/3dtransparentarrow_long.png" onclick = toggleResourcePanel(); />
+				</div>
+			</div>			
+			<div id = "resourcepanel" class="collapse in">
+>>>>>>> origin/master
 				<div id = "golddiv" rel="tooltip">
 					<div class="col1"><img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage" > Gold:
 					</div>
@@ -244,11 +253,15 @@
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 			<div id="arrowpanel">
 				<div id="arrowbutton">
 					<input type="image" src="images/3dtransparentarrow_long.png" id="minimize" onclick = "togglePanel()"/>
 				</div>
 			</div>
+=======
+
+>>>>>>> origin/master
 		</ul>
 
 <!-- 	  <div id="Resources" class="collapse in">
