@@ -308,3 +308,45 @@ display: none;
 legend{
 width: 75%
 }
+
+.day {
+  color: black;
+  background-color: white;
+}
+
+.night {
+  color: white;
+  background-color: #181818 ;
+}
+
+.day #content {
+  color: blue;
+}
+
+.night .panel{
+ background-color: gray;
+}
+
+.night .panel-default{
+background-color:#282828;
+}
+
+.night .panel-group{
+background-color:#282828;
+}
+
+.night .panel-heading{
+ background-color: black;
+}
+
+.night .panel-title{
+ background-color: black;
+}
+
+.night .well{
+ background-color: #282828;
+}
+
+.night .navbar{
+ background-color: black;
+}

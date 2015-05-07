@@ -956,3 +956,12 @@ function toggleResourcePanel(){
 		$(resourcepanel).removeClass('animated fadeOutRight' );
 	}
 }
+
+function toggleNight(){
+	document.body.classList.remove('day');
+	document.body.classList.add('night');	
+}
+function toggleDay(){
+	document.body.classList.remove('night');
+	document.body.classList.add('day');	
+}
