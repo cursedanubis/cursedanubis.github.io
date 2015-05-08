@@ -23,12 +23,12 @@
 #resourcepanel {
 	float: right;
 	width: 10.5em;
-	margin: 5px 15px 5px 0px;
+	margin: 5px 20px 5px 0px;
 	display: ;
 }
 
 #arrowpanel {
-  padding:10% 0;
+	padding:10% 0;
 	float: left;
 	width: 5em;
 	margin: 5px 2px 5px 0px;
