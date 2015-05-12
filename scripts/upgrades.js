@@ -1078,7 +1078,7 @@ var pmillEffUpgrade3 = new Upgrade(
 );	
 pmillEffUpgrade3.hasReqUnit = true;
 pmillEffUpgrade3.reqUnit = Shade;
-pmillEffUpgrade3.numReqUnit = 20;
+pmillEffUpgrade3.numReqUnit = 25;
 pmillEffUpgrade3.htmlReqUnit = 'pmillEffUpgrade3UnitCost';
 
  var pmillClickUpgrade = new Upgrade(	
@@ -1254,7 +1254,7 @@ var angelUpgrade1 = new Upgrade(
 
  var upgradeTavern = new Upgrade(	
  /*Name*/'upgradeTavern', 
-/*goldCost*/15000, 
+/*goldCost*/10000, 
 /*htmlGoldCost*/'upgradeTavernGoldCost',
 /*woodCost*/0, 
 /*htmlWoodCost*/'none',
@@ -1281,7 +1281,7 @@ var angelUpgrade1 = new Upgrade(
 
  var upgradeTavern2 = new Upgrade(	
  /*Name*/'upgradeTavern2', 
-/*goldCost*/10000, 
+/*goldCost*/15000, 
 /*htmlGoldCost*/'upgradeTavern2GoldCost',
 /*woodCost*/5000, 
 /*htmlWoodCost*/'upgradeTavern2WoodCost',
