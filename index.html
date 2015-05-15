@@ -125,7 +125,9 @@
 				
 				  <li class="divider"></li>
 				  <li class = 'opt'><a id="save" href="javascript:saveCookie();"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</a></li>
-                  <li class = 'opt'><a id="load" href="javascript:loadCookie()"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Load</a></li>
+<!--                  <li class = 'opt'><a id="load" href="javascript:loadCookie()"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Load</a></li>-->
+				  <li class = 'opt'><a id="exportSave" href="javascript:exportSave()"><span class="glyphicon glyphicon-download" aria-hidden="true"></span>Export Save</a></li>
+				  <li class = 'opt'><a id="importSave" href="javascript:importSave()"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span>Import Save</a></li>
 <!--				  <li><a id="debugmoney" href="javascript:debugCurrency()">Add debugging currency</a></li> -->
                   <li class="divider"></li>
 				  <li class = 'opt'><a id="hardreset" href="javascript:hardReset()"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Hard Reset</a></li>
@@ -248,80 +250,6 @@
 			</div>
 		</ul>
 
-		
-<!-- 	  <div id="Resources" class="collapse in">
-		<div class = "well well-sm" id = "ResourcesWell">
-			<div id = "golddiv" rel="tooltip">
-				<img src = "images/money_goldsmall.png" Title="Gold" title ="" data-html="true" id="resgoldimage" >
-				Gold: <span id="gold">0</span>  
-			</div>		
-
-			<div id = "wooddiv" rel="tooltip">
-				<img src = "images/woodsmall.png" Title="Wood" id="reswoodimage">
-				Wood: <span id="wood">0</span>     
-			</div>
-
-			<div id = "irondiv" style="display: none;" rel="tooltip">
-				<img src = "images/ironsmall.png" Title="Iron" id="resironimage">
-				Iron: <span id="iron">0</span>    
-			</div>
-			
-			<div id = "coaldiv" style="display: none;" rel="tooltip">
-				<img src = "images/coalsmall.png" Title="Coal" id="rescoalimage"> 
-				Coal: <span id="coal">0</span>     
-			</div>			
-	
-			<div id = "faithdiv" style="display: none;" rel="tooltip">
-				<img src = "images/faithsmall.png" Title="Faith"  id="resfaithimage">
-				Faith: <span id="faith">0</span>   
-			</div>
-	
-			<div id = "soulsdiv" style="display: none;" rel="tooltip">
-				<img src = "images/soulssmall.png" Title="Souls"  id="ressoulsimage">
-				Souls: <span id="souls">0</span>  	
-			</div>
-		
-			<div id = "manadiv" style="display: none;" rel="tooltip">
-				<img src = "images/manasmall.png" Title="Mana" id="resmanaimage">
-				Mana: <span id="mana">0</span>    	
-			</div>
-
-		</div>
-	  </div>
-	  
-	  <div id="SecondaryResources" class="collapse">
-		<div class = "well well-sm" id = "SecondaryResourceWell">
-			<div id = "silverdiv" style="display: none;" rel="tooltip">
-				<img src = "images/silverOresmall.png" Title="Silver" id="ressilverimage"> 
-				Silver: <span id="silver">0</span>     
-			</div>
-			
-			<div id = "steeldiv" style="display: none;" rel="tooltip">
-			<img src = "images/steelsmall.png" Title="Silver" id="ressilverimage"> 
-				Steel: <span id="steel">0</span>     
-			</div>			
-			
-			<div id = "paperdiv" style="display: none;" rel="tooltip">
-				<img src = "images/parchmentsmall.png" Title="Paper" id="respaperimage">
-				Paper: <span id="paper">0</span>    
-			</div>
-			
-			<div id = "tomediv" style="display: none;" rel="tooltip">
-				<img src = "images/bookssmall.png" Title="Holy Tomes" id="restomeimage">
-				Tomes: <span id="tomes">0</span>    
-			</div>
-				
-			<div id = "armystrdiv" style="display: none;" rel="tooltip">
-				<img src = "images/armsmall.png" Title="Army Power">
-				Army: <span id="BattlePower">0</span> 
-			</div>
-	
-			<div id = "spiritarmystrdiv" style="display: none;" rel="tooltip">
-				<img src = "images/armsmall.png" Title="Army Power">
-				Spirit: <span id="SpiritPower">0</span> 
-			</div>
-		</div>
-	  </div>	 -->  	  
 
 	  <div id="Gathering" class="collapse in">
 		<div id = 'GatherListWell' class = "well well-sm">
@@ -1997,22 +1925,7 @@
 	</div>		
 	
 	<script type ="text/javascript">
-		
-/*		function togglePanel(){	
-			if ($('resourcepanel:visible')) {
-				alert("Visible!");
-				document.getElementById("resourcepanel").style.display = "none";
-				document.getElementById("menu").style.width = "6em";
-				document.getElementById("minimize").src = "images/3dtransparentarrow_long_left.png";
-				}
-			else {
-				alert("NOT Visible!");
-				document.getElementById("resourcepanel").style.display = "block";
-				document.getElementById("menu").style.width = "19em";
-				document.getElementById("minimize").src = "images/3dtransparentarrow_long.png";
-				}		
-		};*/
-		
+				
 		function CollapseAll(){
 			document.getElementById("Battle").style.display = "none";
 			document.getElementById("Relics").style.display = "none";

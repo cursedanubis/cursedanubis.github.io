@@ -246,15 +246,15 @@ width: auto;
 
 .achievement{
 padding-top: 0px;
-margin-left: 10px;
-width: 100%;
+margin-left: 1em;
+width: 95%;
 color: gray;
 }
 
 .achievementearned{
 padding-top: 0px;
-margin-left: 10px;
-width: 100%;
+margin-left: 1em;
+width: 95%;
 color: black;
 }
 
@@ -374,6 +374,16 @@ color: #DBDBDB;
   background-color: #0066CC;
   color: #DBDBDB;
 }
+
+.night .achievement{
+color: gray;
+}
+
+.night .achievementearned{
+
+color: white;
+}
+
 
 .night .legend{
   color: #DBDBDB;
