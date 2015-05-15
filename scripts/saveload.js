@@ -432,6 +432,9 @@
 					minesOpened = true;
 					document.getElementById('irondiv').style.display = "block";
 					document.getElementById("Mining").style.display = "block";
+					document.getElementById('OpenBarracksTab').style.display = "block";
+					document.getElementById('OpenCommandPostTab').style.display = "block";
+					document.getElementById('buildForgeTab').style.display = "block";					
 				}
 			}		
 
