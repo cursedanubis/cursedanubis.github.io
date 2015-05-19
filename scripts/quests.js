@@ -461,84 +461,6 @@ var relicHuntDesc = "";
 var RelicHunt = new Quest('Relic Hunt', relicHuntDesc, 'QuestProgBarBox', 'QuestProgBar', 'btnQuestGo','goblinDefeatAlert',0,1,750);
 
 
-/*RelicHunt.startQuest = function(){
-		var perComplete = this.percentComplete;
-		var perIncrement = this.percentIncrement;
-		var alert = this.htmlAlertRef;
-		var btn = this.htmlBtnRef;
-		var box = this.htmlBoxRef;
-		var qbar = this.htmlBarRef;
-		var QuestName = this.name;
-		var foundRelic = false;
-			
-		inQuest = true;
-		curQuestType = this.name;
-		
-		NumUnitOnQuest = $('#QuestUnitNumSelect').val();
-		UnitOnQuest = $('#unitSelectPicker').selectpicker('val');
-		
-		if(loadedQuest === false){
-			if(holdUnitforQuest() === false)
-			{
-				console.log('Bad quest selection.');
-				return;
-			}			
-		}
-		document.getElementById(this.htmlBoxRef).style.display = "block";	
-		$qbar = $(document.getElementById(this.htmlBarRef));
-		
-		UnitOnQuest = $('#unitSelectPicker').selectpicker('val');
-		NumUnitOnQuest = $('#QuestUnitNumSelect').val();		
-		var questprogress = setInterval(function() {
-		qcurrWidth = parseInt(this.$qbar.attr('aria-valuenow'));
-		qmaxWidth = parseInt(this.$qbar.attr('aria-valuemax'));	
-				
-		//update the progress
-		$qbar.width(perComplete +'%');
-		$qbar.attr('aria-valuenow',perComplete);
-		$qbar.text(perComplete+'%');
-		perComplete = perComplete + perIncrement;
-		this.percentComplete = perComplete;
-		questPercent = perComplete;
-
-		if(perComplete%50 === 0){
-			rollForFragment();
-		}	
-		document.getElementById(btn).disabled = true;					//disables the buttons
-		document.getElementById(btn).innerHTML = QuestName + " in progress!";     //Changes button text
-		document.getElementById('questSelectPicker').disabled = true;  //disables picker
-		document.getElementById('unitSelectPicker').disabled = true;   //disables picker
-		document.getElementById('QuestUnitNumSelect').disabled = true;		//disables number select
-
-		//update the progress
-		if(this.questSpellBoostPercent > 0){
-			perComplete = perComplete + parseInt(questSpellBoostPercent);
-			questSpellBoostPercent = 0;
-			if(perComplete > 100){
-				perComplete = 100;
-			}
-		}		
-		
-		if (qcurrWidth >= qmaxWidth){
-			clearInterval(questprogress);
-			$qbar.text("Complete!");
-			document.getElementById(box).style.display = "none";			//Hides progress bar box
-			document.getElementById(btn).innerHTML = "Send";                 //Changes button text
-			document.getElementById(btn).disabled = false;					//enables the buttons
-			document.getElementById('questSelectPicker').disabled = false;  //enables picker
-			document.getElementById('unitSelectPicker').disabled = false;   //enables picker
-			document.getElementById('QuestUnitNumSelect').disabled = false;		//enables number select
-			returnUnitfromQuest();
-			inQuest = false;
-			
-			$qbar.width(0 +'%');
-			$qbar.attr('aria-valuenow',0);
-			$qbar.text(0+'%');
-		} 
-	}, this.speed);
-	return true;
-};*/
-
 function rollForFragment(){
 	var unitType = $('#unitSelectPicker').selectpicker('val');
 	var numUnits = $('#QuestUnitNumSelect').val();
@@ -591,7 +513,6 @@ function holdUnitforQuest(){
 //				console.log("taking paladins");
 				return true;				
 			}
-
 		break;
 		
 		case "Knight":
@@ -607,7 +528,6 @@ function holdUnitforQuest(){
 	//			console.log("taking knights");	
 			return true;				
 			}
-
 		break;
 		
 		case "Squire":
@@ -630,7 +550,7 @@ function holdUnitforQuest(){
 function returnUnitfromQuest(){
 	switch(UnitOnQuest){
 		case "Paladin":
-			Paladin.number += parseInt(NumUnitOnQuest);
+			Paladin.number += Paladin.onQuest;
 			Paladin.onQuest = 0;
 			Paladin.totalArmyPower();
 			Paladin.totalSpiritPower();
@@ -641,29 +561,29 @@ function returnUnitfromQuest(){
 			document.getElementById("BattlePower2").innerHTML = BattlePower;			
 			document.getElementById("SpiritPower").innerHTML = fnum(SpiritPower);
 			document.getElementById("SpiritPower2").innerHTML = SpiritPower;
-			console.log("returned paladins");
+			console.log("Paladins returned");
 		break;
 		
 		case "Knight":
-			Knight.number += parseInt(NumUnitOnQuest);
+			Knight.number += Knight.onQuest;
 			Knight.onQuest = 0;
 			Knight.totalArmyPower();
 			document.getElementById('knights').innerHTML = Knight.number;	
 			calculateBattlePower();
 			document.getElementById("BattlePower").innerHTML = fnum(BattlePower);
 			document.getElementById("BattlePower2").innerHTML = BattlePower;					
-			console.log("returned knights");
+			console.log("Knights returned");
 		break;
 		
 		case "Squire":
-			Squire.number += parseInt(NumUnitOnQuest);
-			Squire.totalArmyPower();
+			Squire.number += Squire.onQuest;
 			Squire.onQuest = 0;
+			Squire.totalArmyPower();
 			document.getElementById('squires').innerHTML = Squire.number;	
 			calculateBattlePower();
 			document.getElementById("BattlePower").innerHTML = fnum(BattlePower);
 			document.getElementById("BattlePower2").innerHTML = BattlePower;					
-			console.log("returned Squires");
+			console.log("Squires returned");
 		break;		
 	}
 }
