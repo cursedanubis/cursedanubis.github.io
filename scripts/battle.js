@@ -36,6 +36,10 @@ var ironAbsorbed = 0;	//Ooze statistic
 var silverAbsorbed = 0; //Ooze statistic
 var unitsSeduced = 0;   //Succubus statistic
 var UARevivedCount = 0; //Undead Army Statistic
+var ironDegraded = 0;	//Earth Elemental Statistic
+var woodBurned = 0;		//Fire Elemental Statistic
+var paperLost = 0;		//Wind Elemental Statistic
+var coalLost = 0;		//Water Elemental Statistic
 
 var inbattle = false;
 var curBattling;
@@ -230,7 +234,18 @@ Enemy.prototype.raid = function(){
 		var ticker = raidtime;
 		var raiding = setInterval(function() {
 			ticker = ticker - 1; 
-			console.log(EName + ': ' + ticker); 
+//			console.log(EName + ': ' + ticker); 
+	
+			if (ticker === 30){
+				$.notify({
+					title: "<strong>Incoming!</strong>",
+					message: "Your lookout warns you of an attack by " + EName + " coming soon!",
+					},{
+				delay: 8000,
+				type: 'warning'
+				});							
+			}
+
 		  if (ticker === 0){
 			clearInterval(raiding);
 
@@ -1780,11 +1795,49 @@ setEnemyDescription(ElementalEarth, 'btnDescEarthElemental');
 ElementalEarth.baseRaidTime = 60;
 ElementalEarth.raidTimeVariance = 120;
 
+ElementalEarth.earthRaid = function(){
+	var justLost = 0;
+	if(iron > 0){
+		justLost = Math.floor(iron/5);
+		ironDegraded += justLost;
+		iron -= justLost;
+		document.getElementById('iron').innerHTML = fnum(iron);
+
+		var lostString = "A nauseating smell comes from your iron stores! The Earth Elemental has degraded <img src = 'images/ironsmall.png' title='Iron'>" + fnum(justLost) + " into useless dirt!"
+		$.notify({
+			title: "<strong>Oh No! </strong>",
+			message: lostString,
+			},{
+		delay: 60000,
+		type: 'danger'
+		});
+	}
+};
+
 var elementalFireDesc = "";
 var ElementalFire = new Enemy("Fire Elemental", ElementalFire, 'BatFireElementalProgBarBox','BatFireElementalProgBar','btnBatFireElemental','FireElementalDefeatAlert',55000,6500,0,1,4000);
 setEnemyDescription(ElementalFire, 'btnDescFireElemental');
 ElementalFire.baseRaidTime = 60;
 ElementalFire.raidTimeVariance = 120;
+
+ElementalFire.fireRaid = function(){
+	var justLost = 0;
+	if(wood > 0){
+		justLost = Math.floor(wood/3);
+		woodBurned += justLost;
+		wood -= justLost;
+		document.getElementById('wood').innerHTML = fnum(wood);
+
+		var lostString = "A ferocious flame bursts from your wood pile nearly singeing your eyebrows! The Fire Elemental has burned <img src = 'images/woodsmall.png' title='Wood'>" + fnum(justLost) + " into useless pile of ashes!"
+		$.notify({
+			title: "<strong>Oh No! </strong>",
+			message: lostString,
+			},{
+		delay: 60000,
+		type: 'danger'
+		});
+	}
+};
 
 var elementalWindDesc = "";
 var ElementalWind = new Enemy("Wind Elemental", ElementalWind, 'BatWindElementalProgBarBox','BatWindElementalProgBar','btnBatWindElemental','WindElementalDefeatAlert',55000,6500,0,1,4000);
@@ -1792,11 +1845,48 @@ setEnemyDescription(ElementalWind, 'btnDescWindElemental');
 ElementalWind.baseRaidTime = 60;
 ElementalWind.raidTimeVariance = 120;
 
+ElementalWind.windRaid = function(){
+	var justLost = 0;
+	if(paper > 0){
+		justLost = Math.floor(paper/5);
+		paperLost += justLost;
+		paper -= justLost;
+		document.getElementById('paper').innerHTML = fnum(paper);
+		
+		var lostString = "An amazing gust of wind tears through your camp, blowing away your unsecured papers! The Wind Elemental has blown away <img src = 'images/parchmentsmall.png' title='Paper'>" + fnum(justLost) + "! "
+		$.notify({
+			title: "<strong>Oh No! </strong>",
+			message: lostString,
+			},{
+		delay: 60000,
+		type: 'danger'
+		});
+	}
+};
+
 var elementalWaterDesc = "";
 var ElementalWater = new Enemy("Water Elemental", ElementalWater, 'BatWaterElementalProgBarBox','BatWaterElementalProgBar','btnBatWaterElemental','WaterElementalDefeatAlert',6500,6000,0,1,4000);
 setEnemyDescription(ElementalWater, 'btnDescWaterElemental');
 ElementalWater.baseRaidTime = 60;
 ElementalWater.raidTimeVariance = 120;
+
+ElementalWater.waterRaid = function(){
+	var justLost = 0;
+	if(coal > 0){
+		justLost = Math.floor(coal/3);
+		coal -= justLost;
+		document.getElementById('coal').innerHTML = fnum(coal);
+
+		var lostString = "A wave of water nearly knocks you on your bottom! You realize that the wave has washed away some of your coal. The Water Elemental has washed away <img src = 'images/coalsmall.png' title='Coal'>" + fnum(justLost) + " into the ocean!"
+		$.notify({
+			title: "<strong>Oh No! </strong>",
+			message: lostString,
+			},{
+		delay: 60000,
+		type: 'danger'
+		});
+	}
+};
 
 function pickElementalRaid(){
 	var numElementalLeft = 0;
