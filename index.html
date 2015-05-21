@@ -997,9 +997,15 @@
 					  </div>
 					</div>
 				
-					<div id ="questNumSpinner" class = "questComponent">
+	<!-- 				<div id ="questNumSpinner" class = "questComponent">
 						<input id="QuestUnitNumSelect" type="text" value="1" name="QuestUnitNumSelect"> 
+					</div> -->
+
+					<div class="input-group questComponent">
+					  <span class="input-group-addon" id="basic-addon1">Send</span>
+					  <input id= 'QuestUnitNumSelect' type="text" class="form-control" placeholder="1" aria-describedby="basic-addon1" style="width: 5em;" onBlur = 'javascript: checkQuestUnits();'>
 					</div>
+
 					<div class = "questComponent">
 						 <select class="selectpicker" id = "unitSelectPicker" title = "Pick a unit">
 							<option id = "nullOption2" ></option>

@@ -16,7 +16,7 @@ $('#questSelectPicker').selectpicker({
 	 style: 'btn-info'
 });
  
- 
+ /*
 $("input[name='QuestUnitNumSelect']").TouchSpin({
   prefix: 'Send',
   verticalbuttons: true,
@@ -24,7 +24,7 @@ $("input[name='QuestUnitNumSelect']").TouchSpin({
   min: 0,
   max: 10000
 });
-
+*/
 
 var Quest = function(name, description, htmlBoxRef, htmlBarRef, htmlBtnRef, htmlAlertRef, percentComplete, percentIncrement,speed){
 	this.name = name;
@@ -53,6 +53,8 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 	inQuest = true;
 	curQuestType = this.name;
 
+	console.log(document.getElementById('QuestUnitNumSelect').value)
+	
 	UnitOnQuest = $('#unitSelectPicker').selectpicker('val');
 	NumUnitOnQuest = $('#QuestUnitNumSelect').val();
 	if(loadedQuest === false){
@@ -65,8 +67,8 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 	document.getElementById(this.htmlBoxRef).style.display = "block";	
 	$qbar = $(document.getElementById(this.htmlBarRef));
 		
-	document.getElementById(btn).disabled = true;					//disables the buttons
 	document.getElementById(btn).innerHTML = QuestName + " in progress!";     //Changes button text
+	document.getElementById(btn).disabled = true;					//disables the buttons
 	document.getElementById('questSelectPicker').disabled = true;  //disables picker
 	document.getElementById('unitSelectPicker').disabled = true;   //disables picker
 	document.getElementById('QuestUnitNumSelect').disabled = true;		//disables number select	
@@ -214,6 +216,7 @@ Quest.prototype.startQuest = function(resource){    //Generic Resource quest
 		type: 'success'
 		});	
 		checkQuestGoButton();
+		checkQuestUnits();
 	  } 
 	}, this.speed);
 	return true;
@@ -308,14 +311,7 @@ function loadQuest(QuestName, percent, unit, numUnit){
 	
 }
 
-function btnSendQuest(){			
-
-	 if (checkQuestSelection() === true * $('#unitSelectPicker').selectpicker('val') !== "" * $('#questSelectPicker').selectpicker('val') !== ""){
-		 var string = "<br/>You send " + $('#QuestUnitNumSelect').val() + " " + $('#unitSelectPicker').selectpicker('val');
-		 if($('#QuestUnitNumSelect').val() > 1){
-			 string = string + "s";
-		 }
-		 string = string + " out on the quest '" + $('#questSelectPicker').selectpicker('val') + "'";
+function btnSendQuest(){	
 
 	    function notify(){
 			$.notify({
@@ -324,36 +320,42 @@ function btnSendQuest(){
 				delay: 10000
 			});				
 		}
-	  
-	  
+
+	 if (checkQuestSelection() === true && $('#unitSelectPicker').selectpicker('val') !== "" && $('#questSelectPicker').selectpicker('val') !== "" && inQuest === false){
+		 var string = "<br/>You send " + $('#QuestUnitNumSelect').val() + " " + $('#unitSelectPicker').selectpicker('val');
+		 if($('#QuestUnitNumSelect').val() > 1){
+			 string = string + "s";
+		 }
+		 string = string + " out on the quest '" + $('#questSelectPicker').selectpicker('val') + "'";
+
 	  switch($('#questSelectPicker').selectpicker('val'))
 	  {
 		 case 'Help the People':
-			console.log('Help the People');
+//			console.log('Help the People');
 			goldQuest.startQuest('gold');
 			notify();
 		 break;
 
 		 case 'Slay Treants':
-			console.log('Slay Treants');
+//			console.log('Slay Treants');
 			woodQuest.startQuest('wood');
 			notify();
 		 break;
 		 
 		 case 'Slay Iron Golems':
-			console.log('Slay Iron Golems');
+//			console.log('Slay Iron Golems');
 			ironQuest.startQuest('iron');
 			notify();
 		 break;
 
 		 case 'Aid the Sprites':
-			console.log('Aid the Sprites');
+//			console.log('Aid the Sprites');
 			silverQuest.startQuest('silver');
 			notify();
 		 break;	 
 		 
 		 case 'Hunt Lesser Demons':
-			console.log('Hunt Lesser Demons');
+//			console.log('Hunt Lesser Demons');
 			soulsQuest.startQuest('souls');
 			notify();
 		 break;		 
@@ -374,6 +376,7 @@ function btnSendQuest(){
 }
 
 function checkQuestSelection(){
+//	console.log(document.getElementById('QuestUnitNumSelect').value);
 	if($('.selectpicker').selectpicker('val') == "Paladin"){
 		if(Paladin.number < $('#QuestUnitNumSelect').val()){
 			alert("You do not have enough Paladins for this!");
@@ -382,13 +385,14 @@ function checkQuestSelection(){
 		}
 	}
 	
-	else if ($('.selectpicker').selectpicker('val') == "Knight"){
+	if ($('.selectpicker').selectpicker('val') == "Knight"){
 		if(Knight.number < $('#QuestUnitNumSelect').val()){
 			alert("You do not have enough Knights for this!");
 			return false;
 		}
 	}
-	else if ($('.selectpicker').selectpicker('val') == "Squire"){
+
+	if ($('.selectpicker').selectpicker('val') == "Squire"){
 		if(Squire.number < $('#QuestUnitNumSelect').val()){
 			alert("You do not have enough Squires for this!");
 			return false;
@@ -591,8 +595,36 @@ function returnUnitfromQuest(){
 
 $(function() {
   $('#unitSelectPicker').on('change', function(){
-	var newMax;
+	var newMax = 1;
 	checkQuestGoButton();
+
+	switch($('#unitSelectPicker').selectpicker('val')){
+		case 'Paladin':
+			newMax = Paladin.number;
+			document.getElementById('QuestUnitNumSelect').value = "";
+			document.getElementById('QuestUnitNumSelect').placeholder = newMax;
+		break;
+		
+		case 'Knight':
+			newMax = Knight.number;
+			document.getElementById('QuestUnitNumSelect').value = "";
+			document.getElementById('QuestUnitNumSelect').placeholder = newMax;
+		break;
+		
+		case 'Squire':
+			newMax = Squire.number;
+			document.getElementById('QuestUnitNumSelect').value = "";
+			document.getElementById('QuestUnitNumSelect').placeholder = newMax;
+		break;
+		
+		default:
+//			newMax = 1;
+	}
+  }); 
+});
+
+function checkQuestUnits(){
+	var newMax = 1;
 	switch($('#unitSelectPicker').selectpicker('val')){
 		case 'Paladin':
 			newMax = Paladin.number;
@@ -604,18 +636,12 @@ $(function() {
 		
 		case 'Squire':
 			newMax = Squire.number;
-		break;
-		
-		default:
-			newMax = 50;
+		break;	
 	}
-	$("input").trigger("touchspin.updatesettings", {max: newMax});
-//	console.log(newMax);
-	if(newMax < document.getElementById('QuestUnitNumSelect').value){
-		document.getElementById('QuestUnitNumSelect').value = 1;
+	if(document.getElementById('QuestUnitNumSelect').value > newMax){
+			document.getElementById('QuestUnitNumSelect').value = newMax;
 	}
-  }); 
-});
+};
 
 $(function() {
   $('#questSelectPicker').on('change', function(){
@@ -707,4 +733,4 @@ $(function() {
   });
 });
 
-$('#QuestUnitNumSelect').on('touchspin.on.startspin', function () {checkQuestGoButton();});
+//$('#QuestUnitNumSelect').on('touchspin.on.startspin', function () {checkQuestGoButton();});
